@@ -100,10 +100,34 @@ Oppgaven avgrenses til den delen av produksjonen som utføres av fylkeskartkonto
 Det antas at estimatene for tidsbruk per kommune er representative basert på historiske data. Det legges også til grunn at kapasiteten ved hvert kartkontor er konstant gjennom prosjektperioden, med mindre annet er spesifisert. Låseperioder for planlagte Geovekst-prosjekter forutsettes å være kjente og faste i modelleringstidspunktet.
 
 # 2.0 Litteratur
-Diskuter viktigste bidrag de siste 5 årene. Husk korrekte referanser for å unngå "synsing".
+I dette kapittelet presenteres faglitteratur og forskning fra de siste fem årene som danner det faglige grunnlaget for oppgaven. Litteraturgjennomgangen er strukturert rundt tre hovedtemaer: forvaltning av nasjonale vegdata, datakvalitet i geografiske informasjonssystemer (GIS), og optimalisering av produksjonsplanlegging.
+
+### 2.1 Forvaltning av nasjonale vegdata og NVDB
+Forvaltningen av vegdata i Norge utføres i et samspill mellom Statens vegvesen og Kartverket, der Nasjonal vegdatabank (NVDB) utgjør fundamentet for vegsystemet. Statens vegvesen (2025) understreker i sine kvalitetsrapporter at nøyaktige vegdata er avgjørende for samfunnets planleggingsbehov. Her deles kvalitet inn i elementer som fullstendighet, stedfesting og nøyaktighet i egenskapsdata. Implementeringen av detaljerte nettverksmodeller som NVDB Vegnett Pluss stiller økte krav til presisjon i datasett som TraktorvegSti for å kunne danne et sømløst samferdselsnettverk.
+
+### 2.2 Datakvalitet i GIS
+Internasjonale standarder som ISO 19157-1 (International Organization for Standardization, 2023) legger rammene for hvordan geografisk datakvalitet skal måles og dokumenteres. Kartverkets datakvalitetsstrategi for 2026–2030 (Kartverket, 2025) peker på at økt datakvalitet er en forutsetning for effektiv digitalisering og ressursbruk i offentlig sektor. Videre viser forskning (Oluyisola et al., 2022) en direkte sammenheng mellom datakvalitet og suksess i produksjonsplanlegging. Det argumenteres for at beslutningsprosesser i moderne produksjonslinjer er sårbare for mangelfulle data, noe som er direkte overførbart til kvalitetshevingsarbeidet ved fylkeskartkontorene.
+
+### 2.3 Optimalisering av produksjonsplanlegging med begrensninger
+Teori innen operasjonsanalyse beskriver metoder for å allokere begrensede ressurser for å minimere total prosjekttid ("makespan"). Litteraturen skiller mellom teknikker som ressursutjevning og ressursglatting for å håndtere kapasitetsbegrensninger. I GIS-spesifikk produksjon må slike modeller håndtere både romlige og tidsmessige avhengigheter. En sentral utfordring er håndtering av "låste" ressurser, tilsvarende Geovekst-prosjektene som legger begrensninger på hvilke kommuner som kan behandles til enhver tid. Bruk av matematiske modeller og heuristikker trekkes frem som effektive verktøy for å finne optimale løsninger i slike komplekse nettverk.
 
 # 3.0 Teori
-Teoretisk perspektiv, tidligere litteratur og faglige uenigheter.
+Dette kapittelet redegjør for de teoretiske rammene som danner grunnlaget for analysen av ressursallokering og produksjonsplanlegging i Kartverket. Det fokuseres på prinsipper innen operasjonsanalyse, spesifikt Resource-Constrained Project Scheduling Problem (RCPSP), samt teorier knyttet til kapasitetsstyring og geografisk nettverkstopologi.
+
+### 3.1 Operasjonsanalyse og RCPSP
+Operasjonsanalyse (OR) benytter matematiske modeller for å finne de beste løsningene på komplekse beslutningsproblemer under gitte begrensninger. For dette prosjektet er rammeverket *Resource-Constrained Project Scheduling Problem* (RCPSP) sentralt. RCPSP adresserer utfordringen med å planlegge en serie oppgaver (kommuner) slik at de utføres i en rekkefølge som minimerer prosjektets varighet, samtidig som man respekterer begrensninger i ressurser og tid (Brucker et al., 1999). 
+
+Innenfor dette feltet skilles det mellom eksakte løsningsmetoder og heuristikker. Mens eksakte metoder søker den matematisk optimale planen, benyttes ofte heuristikker for å håndtere store og komplekse datasett der beregningstiden ellers ville blitt uforholdsmessig lang (Hartmann & Kolisch, 2006).
+
+### 3.2 Kapasitetsstyring og køteori
+Kapasitetsstyring omhandler balanseringen mellom tilgjengelige ressurser og etterspørselen etter produksjon. I Kartverkets kontekst, hvor ti ulike kontorer har ulik bemanning, er teorier om *ressursutjevning* (resource leveling) relevante for å sikre en jevn arbeidsbelastning (Slack et al., 2022). 
+
+Køteoretiske perspektiver anvendes for å forstå sammenhengen mellom ressursutnyttelse og ventetid. Slack et al. (2022) påpeker at når utnyttelsesgraden av en ressurs nærmer seg 100 %, vil ventetiden øke eksponentielt dersom det forekommer variasjon i oppgavene. Dette er kritisk for å forstå tidsbruken i produksjonsløypa når ulike kommuner krever ulik grad av manuell redigering.
+
+### 3.3 Geografisk nettverkstopologi og dataintegritet
+Teori om geografisk nettverkstopologi beskriver hvordan geografiske objekter er logisk knyttet til hverandre gjennom noder og lenker (Worboys & Duckham, 2004). For at TraktorvegSti skal kunne integreres i et nasjonalt vegnettverk, kreves det topologisk konsistens. Laurini og Thompson (1992) definerer dette som integritetskrav som sikrer at nettverket er logisk sammenhengende og fritt for feil som hindrer ruteanalyser.
+
+Ved å se de tekniske kravene til topologisk integritet i sammenheng med logistisk planlegging, kan man identifisere hvordan datakvalitet direkte påvirker premissene for optimal ressursallokering i produksjonslinjen.
 
 # 4.0 Casebeskrivelse
 Utbrodering av problemet for bedriften/bransjen. Ta kun med relevant informasjon.
@@ -130,7 +154,23 @@ Kommenter resultatene. Er de som forventet? Samsvarer de med litteraturen? Betyd
 Oppsummering av hovedfunn i forhold til problemstilling og forslag til videre forskning.
 
 # 11.0 Bibliografi
-(Liste over kilder)
+Brucker, P., Drexl, A., Möhring, R., Neumann, K., & Pesch, E. (1999). Resource-constrained project scheduling: Notation, classification, models, and methods. *European Journal of Operational Research*, *112*(1), 3–41. https://doi.org/10.1016/S0377-2217(98)00204-5
+
+Hartmann, S., & Kolisch, R. (2006). Heuristic algorithms for solving the resource-constrained project scheduling problem: Classification and computational analysis. In J. Weglarz (Ed.), *Project scheduling: Recent models, algorithms and applications* (pp. 147–178). Springer. https://doi.org/10.1007/0-306-48125-7_7
+
+International Organization for Standardization. (2023). *Geographic information — Data quality — Part 1: General requirements* (ISO Standard No. 19157-1:2023). https://www.iso.org/standard/78910.html
+
+Kartverket. (2025). *Datakvalitetsstrategien 2026–2030: Datakvalitetsstrategi for eiendomsregisteret*. https://www.kartverket.no/eiendom/matrikkel/datakvalitet-i-matrikkelen/datakvalitetsstrategi
+
+Laurini, R., & Thompson, D. (1992). *Fundamentals of spatial information systems*. Academic Press.
+
+Oluyisola, O. E., Bhalla, S., Sgarbossa, F., & Strandhagen, J. O. (2022). Designing and developing smart production planning and control systems in the industry 4.0 era: a methodology and case study. *Journal of Intelligent Manufacturing*, *33*(1), 311–332. https://doi.org/10.1007/s10845-021-01808-w
+
+Slack, N., Brandon-Jones, A., & Burgess, N. (2022). *Operations management* (10th ed.). Pearson.
+
+Statens vegvesen. (2025). *Datakvalitet i NVDB: Kvalitetsrapporter*. Nasjonal vegdatabank. https://www.vegvesen.no/fag/teknologi/nasjonal-vegdatabank/datakvalitet-i-nvdb/kvalitetsrapporter/
+
+Worboys, M. F., & Duckham, M. (2004). *GIS: A computing perspective* (2nd ed.). CRC Press.
 
 # 12.0 Vedlegg
 (Relevante vedlegg)
