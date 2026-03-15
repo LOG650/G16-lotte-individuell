@@ -1,84 +1,84 @@
 # Proposal LOG650
 
-**Group members:**
+**Gruppemedlemmer:**
 Lotte Picard
 
-**Area:**
-Operational planning, resource allocation and production planning
+**Område:**
+Operasjonell planlegging, ressursallokering og produksjonsplanlegging
 
-**Company (optional):**
-The Norwegian Mapping Authority (Kartverket), Regional and Public Contact Division
+**Bedrift (valgbart):**
+Statens Kartverk, Region og Samfunnskontakt
 
-Background info:
+Litt bakgrunnsinfo:
 
-From Kartverket.no:
-Geovekst is a collaboration on the establishment, management and use of geographic information. Participants include Kartverket, the Norwegian Public Roads Administration, NVE, Bane NOR, Energi Norge, Telenor, municipalities, county municipalities and the Ministry of Agriculture with its subordinate agencies.
-The datasets in FKB consist of, among other things, height, water, land types (AR5), arealbruk (land use), buildings, building structures, lines, roads, railways and airports.
-FKB data is non-sensitive and open data. FKB data is financed through the Geovekst collaboration, or by the municipalities alone for municipalities outside Geovekst. FKB data is freely available to Norway digital partners and can be downloaded through the download solution on Geonorge. Private actors must purchase access to the data through a reseller.
+Fra Kartverket.no:
+Geovekst er et samarbeid om etablering, forvaltning og bruk av geografisk informasjon. Her deltar Kartverket, Statens vegvesen, NVE, Bane NOR, Energi Norge, Telenor, kommunene, fylkeskommunene og Landbruksdepartementet med sine underliggende etater.
+Datasettene i FKB består av blant annet høyde, vann, markslag (AR5), arealbruk, bygninger, bygningsmessige anlegg, ledninger, veg, jernbane og flyplass.
+FKB-data er ikke-sensitive og åpne data. FKB-dataene er finansiert gjennom Geovekst-samarbeidet, eller kommunene alene for kommuner som står utenfor Geovekst. FKB-dataene er fritt tilgjengelige for Norge digitalt parter og kan lastes ned gjennom nedlastingsløsningen på Geonorge. Private aktører må kjøpe tilgang til dataene gjennom en forhandler.
 
-From nvdb.no:
-The National Road Database (NVDB) is a national service and database from the Norwegian Public Roads Administration. It constitutes the foundation of the Norwegian road system. NVDB contains official information about the road and is used for several purposes.
+Fra nvdb.no:
+Nasjonal vegdatabank (NVDB) er en nasjonal tjeneste og database fra Statens vegvesen. Den utgjør grunnmuren i det norske vegsystemet. NVDB inneholder offisiell informasjon om vegen og brukes til flere formål.
 
-From SOSI-standardized product specification for FKB-TraktorvegSti 5.1:
-FKB-TraktorvegSti is a nationwide, zone-divided FKB dataset containing tractor roads, trails and trailstairs with center line geometry. These are the most detailed data Norway has for such small roads and trails. The data is stored in vector format (curves).
-FKB-TraktorvegSti must be seen in connection with the dataset Vegnett (Road Network) which contains the remaining road network and which is managed in the National Road Database (NVDB). Together with the road network from NVDB, FKB-TraktorvegSti should be able to form a complete transport network for drivers, cyclists and pedestrians.
-The data basis in FKB-TraktorvegSti will have very varying degrees of network topology. One must expect to do work on connecting FKB-TraktorvegSti and Vegnett before this can be considered one network and used in network analyses.
+Fra SOSI-standardisert produktspesifikasjon for FKB-TraktorvegSti 5.1:
+FKB-TraktorvegSti er et landsdekkende, soneinndelt FKB-datasett som inneholder traktorveger, stier og stitrapp med senterlinjegeometri. Det er de mest detaljerte dataene Norge har over slike små veger og stier. Dataene lagres på vektorformat (kurver).
+FKB-TraktorvegSti må sees i sammenheng med datasettet Vegnett som inneholder øvrig vegnett og som forvaltes i Nasjonal vegdatabank (NVDB). Sammen med vegnettet fra NVDB skal FKB-TraktorvegSti kunne danne et komplett samferdselsnettverk for kjørende, syklende og gående.
+Datagrunnlaget i FKB-TraktorvegSti vil ha svært varierende grad av nettverkstopologi. Man må regne med å gjøre en jobb med sammenknytning av FKB-TraktorvegSti og Vegnett før dette kan betraktes som ett nettverk og benyttes i nettverksanalyser.
 
-**Problem Statement:**
-The county mapping offices in Kartverket will carry out a quality improvement project for the TraktorvegSti dataset, where the dataset after quality improvement will be implemented in NVDB (National Road Database).
+**Problemstilling:**
+Fylkeskartkontorene i Kartverket skal gjennomføre et kvalitetshevingsprosjekt av datasettet TraktorvegSti, der datasettet etter kvalitetsheving skal implementeres i NVDB (Norsk Vegdatabank).
 
-The goal of the quality improvement is for tractor roads and paths to be included together with roads in a national road network for drivers, pedestrians and cyclists.
+Kvalitetshevingens mål er at traktorveger og stier skal inngå sammen med veger i et nasjonalt vegnettverk for kjørende, gående og syklende.
 
-The quality improvement work is done identically across the country, based on a fixed production line, and involves a good deal of manual editing in the dataset. The work is currently carried out municipality by municipality at the county mapping offices.
+Kvalitetshevingsarbeidet gjøres likt over hele landet, basert på en fast produksjonsløype, og innebærer en god del manuell redigering i datasettet. Arbeidet utføres i dag kommunevist på fylkeskartkontorene.
 
-Challenges that can affect time consumption are the amount of data that lacks topological consistency or has poor positioning accuracy. In addition, data that is not identifiable in the terrain after control against aerial photos, or that is in conflict with other objects such as buildings and roads, must be removed.
+Utfordringer som kan påvirke tidsbruken er mengde data som ikke har topologisk sammenheng eller har dårlig stedfestingsnøyaktighet. I tillegg må data som ikke er gjenfinnbare i terrenget etter kontroll mot flybilder, eller som er i konflikt med andre objekter som bygninger og veger fjernes.
 
-The dataset is stored in zone archives, and each county mapping office is responsible for updates within the municipalities belonging to the county/counties the various offices represent. There is varying capacity at the different mapping offices, and in addition, ongoing and planned mapping projects must be taken into account, where several public actors join forces to finance and produce geographic data.
+Datasettet er lagret i sonearkiv, og hvert fylkeskartkontor har ansvar for oppdatering innenfor de kommunene som hører til fylket/fylkene de ulike kontorene representerer. Det er ulik kapasitet på de forskjellige kartkontorene, og det må i tillegg tas hensyn til pågående- og planlagte kartleggingsprosjekter, der flere offentlige aktører går sammen om å finansiere og produsere geografiske data.
 
-A mapping project takes place by the data being sent to external companies, which take photos from aircraft, and then construct vector data based on what they see in these aerial photos. During an ongoing mapping project, the data in a delimited area is "locked", i.e., major work there should preferably be avoided while the project is ongoing. This can be a period of half a year or more. Mapping projects mostly take place regionally, with few or many municipalities involved in the same project.
+Et kartleggingsprosjekt foregår ved at dataene sendes til eksterne firma, som tar bilder fra fly, og deretter konstruerer vektordata på grunnlag av det de ser i disse flybildene. Ved pågående kartleggingsprosjekt er dataene i et avgrenset område «låst», dvs man skal helst unngå større arbeid der mens prosjektet pågår. Kan være et tidsrom på et halvt år eller mer. Kartleggingsprosjekter foregår stort sett regionvis, med få eller mange kommuner involvert i samme prosjekt.
 
-When the mapping offices have finished their work, the data is cleared municipality by municipality to another department in Kartverket, which then performs the entry into NVDB. The delimitation of the project is the part of the production that belongs to the county mapping offices, i.e., the quality improvement job and clearing of municipalities for further entry.
+Når kartkontorene er ferdig med arbeidet sitt klarmeldes dataene kommunevis til en annen avdeling i Kartverket, som deretter foretar innleggingen i NVDB. Avgrensningen av prosjektet er den delen av produksjonene som tilhører fylkeskartkontorene, dvs kvalitetshevingsjobben og klarmelding av kommuner til videre innlegging.
 
-It is a prerequisite that work must be done municipality by municipality with the data, as the entire production line is set up for that.
+Det er en forutsetning at det skal jobbes kommunevis med dataene, da hele produksjonsløypa er lagt opp etter det.
 
 **Data:**
 
-Workload:
+Arbeidsmengde:
 
-- Number of TraktorvegSti road links per municipality.
-- Estimated time consumption per municipality based on history.
-- Number of municipalities.
+- Antall TraktorvegSti-veglenker pr kommune.
+- Estimert tidsbruk pr kommune basert på historikk.
+- Antall kommuner.
 
-Capacity:
+Kapasitet:
 
-- Number of offices. Kartverket has 10 county mapping offices.
-- Local capacity at each mapping office. Varies from office to office.
-- Available hours per week/month/season.
-- Transfer capacity to NVDB (possibly simulated data). This task is not performed by the county mapping offices.
+- Antall kontorer. Kartverket har 10 fylkeskartkontor.
+- Kapasitet lokalt på hvert kartkontor. Varierer fra kontor til kontor.
+- Tilgjengelige timer pr uke/mnd/sesong.
+- Overføringskapasitet til NVDB (evt. simulerte data). Denne oppgaven utføres ikke av fylkeskartkontorene.
 
-Geovekst Projects:
+Geovekstprosjekter:
 
-- Overview of active projects in municipalities.
-- Overview of planned projects.
-- Estimated locking period for active and planned projects.
+- Oversikt over aktive prosjekter i kommuner.
+- Oversikt over planlagte prosjekter.
+- Estimert låseperiode for aktive og planlagte prosjekter.
 
-**Decision Variables:**
+**Beslutningsvariabler:**
 
-- Allocation of municipalities to each mapping office.
-- Sequence of which municipalities are processed when.
-- Resource allocation based on the offices' capacity.
-- Adjustments in production sequence due to Geovekst projects.
+- Tildeling av kommuner til hvert kartkontor.
+- Rekkefølge på hvilke kommuner som behandles når.
+- Ressursallokering basert på kontorenes kapasitet.
+- Justeringer i produksjonsrekkefølge pga Geovekst-prosjekter.
 
-**Objective Function:**
-The goal is to find an organization and distribution of municipalities that:
+**Målfunksjon:**
+Målet er å finne en organisering og fordeling av kommuner som:
 
-- Minimizes total project duration for the entire country.
-- Utilizes the capacity at the mapping offices in the best possible way.
-- To the least extent possible performs quality improvement during periods where municipalities are "locked" due to mapping projects.
-- Ensures an even workload.
+- Minimerer total prosjektvarighet for hele landet.
+- Utnytter kapasiteten ved kartkontorene best mulig.
+- I minst mulig grad utfører kvalitetsheving i perioder der kommuner er "låst" pga kartleggingsprosjekter.
+- Sikrer jevn arbeidsbelastning.
 
-**Limitations:**
+**Avgrensninger:**
 
-- Different people have different efficiency - we cannot take this into account in the project.
-- Mapping projects can change continuously, here time schedules can change.
-- All production must be completed municipality by municipality.
+- Ulike personer har ulik effektivitet - dette kan vi ikke ta hensyn til i prosjektet.
+- Kartleggingsprosjekter kan endre seg fortløpende, her kan tidsskjema endre seg.
+- All produksjon må ferdigstilles kommunevis.
