@@ -1,0 +1,446 @@
+{
+  "prosjekt": {
+    "tittel": "Kvalitetsheving av FKB-TraktorvegSti før implementering i NVDB",
+    "fag": "LOG650 Logistikk og KI",
+    "institusjon": "Høgskolen i Molde",
+    "prosjektleder": "Lotte Picard",
+    "kunde": "Statens Kartverk, Region og Samfunnskontakt",
+    "startdato": "2026-01-12",
+    "sluttdato": "2026-06-01",
+    "status": "Pågående - fase 3 (gjennomføring)",
+    "sist_oppdatert": "2026-04-16"
+  },
+  "problemstilling": {
+    "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
+    "beskrivelse": "Fylkeskartkontorene i Kartverket skal gjennomføre et kvalitetshevingsprosjekt av datasettet TraktorvegSti, der datasettet etter kvalitetsheving skal implementeres i NVDB (Norsk Vegdatabank). Kvalitetshevingens mål er at traktorveger og stier skal inngå sammen med veger i et nasjonalt vegnettverk for kjørende, gående og syklende. Arbeidet utføres kommunevis ved 10 fylkeskartkontorer med varierende kapasitet, og kompliseres av Geovekst-prosjekter som låser kommuner i perioder.",
+    "maalfunksjon": [
+      "Minimere total prosjektvarighet for hele landet",
+      "Utnytte kapasiteten ved kartkontorene best mulig",
+      "I minst mulig grad utføre kvalitetsheving i perioder der kommuner er låst pga. kartleggingsprosjekter",
+      "Sikre jevn arbeidsbelastning"
+    ],
+    "beslutningsvariabler": [
+      "Tildeling av kommuner til hvert kartkontor",
+      "Rekkefølge på hvilke kommuner som behandles når",
+      "Ressursallokering basert på kontorenes kapasitet",
+      "Justeringer i produksjonsrekkefølge pga. Geovekst-prosjekter"
+    ],
+    "avgrensninger": [
+      "Ulike personer har ulik effektivitet - dette tas ikke hensyn til i prosjektet",
+      "Kartleggingsprosjekter kan endre seg fortløpende, tidsskjema kan endre seg",
+      "All produksjon må ferdigstilles kommunevis",
+      "Selve innleggingen i NVDB ligger utenfor prosjektets omfang"
+    ]
+  },
+  "faser": [
+    {
+      "id": 1,
+      "navn": "Initiering",
+      "startdato": "2026-01-12",
+      "sluttdato": "2026-02-09",
+      "varighet_dager": 21,
+      "status": "Ferdig",
+      "fremdrift_prosent": 100,
+      "oppgaver": [
+        {
+          "id": 2,
+          "navn": "Proposal: problemstilling, mål, avgrensning",
+          "startdato": "2026-01-12",
+          "sluttdato": "2026-01-16",
+          "varighet_dager": 5,
+          "predecessors": [],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100
+        }
+      ],
+      "milepael": {
+        "id": 3,
+        "navn": "Godkjent proposal",
+        "dato": "2026-01-19",
+        "status": "Ferdig"
+      }
+    },
+    {
+      "id": 2,
+      "navn": "Planlegging",
+      "startdato": "2026-03-02",
+      "sluttdato": "2026-03-20",
+      "varighet_dager": 11,
+      "status": "Ferdig",
+      "fremdrift_prosent": 100,
+      "oppgaver": [
+        {
+          "id": 6,
+          "navn": "Prosjektplan",
+          "startdato": "2026-03-02",
+          "sluttdato": "2026-03-03",
+          "varighet_dager": 2,
+          "predecessors": [],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100
+        },
+        {
+          "id": 7,
+          "navn": "Lage WBS",
+          "startdato": "2026-03-04",
+          "sluttdato": "2026-03-04",
+          "varighet_dager": 1,
+          "predecessors": [6],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100
+        },
+        {
+          "id": 8,
+          "navn": "Lage Gantt-diagram",
+          "startdato": "2026-03-05",
+          "sluttdato": "2026-03-05",
+          "varighet_dager": 1,
+          "predecessors": [7],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100
+        },
+        {
+          "id": 9,
+          "navn": "Risikoanalyse",
+          "startdato": "2026-03-06",
+          "sluttdato": "2026-03-09",
+          "varighet_dager": 2,
+          "predecessors": [8],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100
+        },
+        {
+          "id": 10,
+          "navn": "Ferdigstille prosjektplan",
+          "startdato": "2026-03-10",
+          "sluttdato": "2026-03-16",
+          "varighet_dager": 5,
+          "predecessors": [9],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100
+        },
+        {
+          "id": 11,
+          "navn": "Review/justeringer",
+          "startdato": "2026-03-17",
+          "sluttdato": "2026-03-19",
+          "varighet_dager": 3,
+          "predecessors": [10],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100
+        }
+      ],
+      "milepael": {
+        "id": 12,
+        "navn": "Godkjent prosjektplan og Gantt",
+        "dato": "2026-03-20",
+        "status": "Ferdig"
+      }
+    },
+    {
+      "id": 3,
+      "navn": "Gjennomføring",
+      "startdato": "2026-03-16",
+      "sluttdato": "2026-04-27",
+      "varighet_dager": 31,
+      "status": "Pågående",
+      "fremdrift_prosent": 50,
+      "oppgaver": [
+        {
+          "id": 15,
+          "navn": "Introduksjon og problemstilling",
+          "startdato": "2026-03-16",
+          "sluttdato": "2026-03-18",
+          "varighet_dager": 3,
+          "predecessors": [],
+          "status": "Pågående",
+          "fremdrift_prosent": 50
+        },
+        {
+          "id": 16,
+          "navn": "Teori og litteratursøk",
+          "startdato": "2026-03-19",
+          "sluttdato": "2026-03-25",
+          "varighet_dager": 5,
+          "predecessors": [15],
+          "status": "Pågående",
+          "fremdrift_prosent": 30
+        },
+        {
+          "id": 17,
+          "navn": "Casebeskrivelse og datainnsamling",
+          "startdato": "2026-03-26",
+          "sluttdato": "2026-04-03",
+          "varighet_dager": 7,
+          "predecessors": [16],
+          "status": "Pågående",
+          "fremdrift_prosent": 80,
+          "kommentar": "Datavask fullført, master_kommuner.csv, kapasitet_kontorer.csv og geovekst_prosjekter.csv produsert"
+        },
+        {
+          "id": 18,
+          "navn": "Data/metode og modellering",
+          "startdato": "2026-04-06",
+          "sluttdato": "2026-04-14",
+          "varighet_dager": 7,
+          "predecessors": [17],
+          "status": "Pågående",
+          "fremdrift_prosent": 20,
+          "kommentar": "Metodevalg under diskusjon (OR vs ML)"
+        },
+        {
+          "id": 19,
+          "navn": "Analyse og resultater",
+          "startdato": "2026-04-15",
+          "sluttdato": "2026-04-21",
+          "varighet_dager": 5,
+          "predecessors": [18],
+          "status": "Ikke startet",
+          "fremdrift_prosent": 0
+        },
+        {
+          "id": 20,
+          "navn": "Diskusjon",
+          "startdato": "2026-04-22",
+          "sluttdato": "2026-04-24",
+          "varighet_dager": 3,
+          "predecessors": [19],
+          "status": "Ikke startet",
+          "fremdrift_prosent": 0
+        },
+        {
+          "id": 21,
+          "navn": "Peer review",
+          "startdato": "2026-04-27",
+          "sluttdato": "2026-04-28",
+          "varighet_dager": 2,
+          "predecessors": [20],
+          "status": "Ikke startet",
+          "fremdrift_prosent": 0
+        }
+      ],
+      "milepael": {
+        "id": 22,
+        "navn": "Godkjent hovedutkast",
+        "dato": "2026-04-29",
+        "status": "Ikke startet"
+      }
+    },
+    {
+      "id": 4,
+      "navn": "Avslutning",
+      "startdato": "2026-04-27",
+      "sluttdato": "2026-05-31",
+      "varighet_dager": 26,
+      "status": "Ikke startet",
+      "fremdrift_prosent": 0,
+      "oppgaver": [
+        {
+          "id": 25,
+          "navn": "Konklusjon",
+          "startdato": "2026-04-27",
+          "sluttdato": "2026-05-05",
+          "varighet_dager": 7,
+          "predecessors": [],
+          "status": "Ikke startet",
+          "fremdrift_prosent": 0
+        },
+        {
+          "id": 26,
+          "navn": "Ferdigstille introduksjon",
+          "startdato": "2026-05-06",
+          "sluttdato": "2026-05-14",
+          "varighet_dager": 7,
+          "predecessors": [25],
+          "status": "Ikke startet",
+          "fremdrift_prosent": 0
+        },
+        {
+          "id": 27,
+          "navn": "Kvalitetssikring og korrektur",
+          "startdato": "2026-05-15",
+          "sluttdato": "2026-05-28",
+          "varighet_dager": 10,
+          "predecessors": [26],
+          "status": "Ikke startet",
+          "fremdrift_prosent": 0
+        },
+        {
+          "id": 28,
+          "navn": "Muntlig presentasjon",
+          "startdato": "2026-05-29",
+          "sluttdato": "2026-05-29",
+          "varighet_dager": 1,
+          "predecessors": [27],
+          "status": "Ikke startet",
+          "fremdrift_prosent": 0
+        }
+      ],
+      "milepael": {
+        "id": 29,
+        "navn": "Innlevert rapport",
+        "dato": "2026-06-01",
+        "status": "Ikke startet"
+      }
+    }
+  ],
+  "milepaeler": [
+    {"navn": "Godkjent proposal", "dato": "2026-02-16", "status": "Ferdig"},
+    {"navn": "Godkjent prosjektplan og Gantt", "dato": "2026-03-16", "status": "Ferdig"},
+    {"navn": "Godkjent hovedutkast", "dato": "2026-04-29", "status": "Ikke startet"},
+    {"navn": "Innlevert rapport", "dato": "2026-06-01", "status": "Ikke startet"}
+  ],
+  "kritisk_linje": [
+    "Planleggingsleveranse",
+    "Datainnsamling",
+    "Analyse/modelldel",
+    "Diskusjon",
+    "Peer review",
+    "Sluttføring av rapport"
+  ],
+  "risikoer": [
+    {
+      "id": "R1",
+      "navn": "Forsinket datainnsamling eller manglende tilgang til relevante data",
+      "sannsynlighet": "Middels",
+      "konsekvens": "Høy",
+      "tiltak": "Starte datainnsamling tidlig og bruke alternative kilder/simulering ved behov",
+      "beredskap": "Justere analyseomfang og prioritere tilgjengelige datasett. Be faglærer om simulerte data i verste fall.",
+      "eier": "Prosjektleder",
+      "status": "Aktiv"
+    },
+    {
+      "id": "R2",
+      "navn": "Dårlig datakvalitet i TraktorvegSti eller historiske kapasitetsdata",
+      "sannsynlighet": "Høy",
+      "konsekvens": "Middels",
+      "tiltak": "Ingen - dette er å forvente da datasettet inneholder data fra mange ulike kilder og tidsepoker. Innsamling av tidbruk i flest mulige kommuner vil være avgjørende.",
+      "beredskap": "Forenkle modell og tydeliggjøre begrensninger i rapporten",
+      "eier": "Prosjektleder",
+      "status": "Aktiv"
+    },
+    {
+      "id": "R3",
+      "navn": "Endringer i Geovekst-prosjekter gjør planforutsetninger utdaterte",
+      "sannsynlighet": "Middels",
+      "konsekvens": "Middels",
+      "tiltak": "Bygge inn fleksibilitet i analysen og bruke scenarioer",
+      "beredskap": "Oppdatere analyse med nye forutsetninger og beskrive avvik",
+      "eier": "Prosjektleder",
+      "status": "Aktiv"
+    },
+    {
+      "id": "R4",
+      "navn": "Tidsmangel i sluttfasen av prosjektet",
+      "sannsynlighet": "Høy",
+      "konsekvens": "Høy",
+      "tiltak": "Følge Gantt-planen tett og skrive fortløpende",
+      "beredskap": "Redusere mindre viktige deler og prioritere kjerneleveranser",
+      "eier": "Prosjektleder",
+      "status": "Aktiv"
+    },
+    {
+      "id": "R5",
+      "navn": "Modelleringen gir ikke tydelige resultater",
+      "sannsynlighet": "Middels",
+      "konsekvens": "Middels",
+      "tiltak": "Teste enkle og robuste analyser først",
+      "beredskap": "Presentere begrensninger og alternativ analyse",
+      "eier": "Prosjektleder",
+      "status": "Aktiv"
+    }
+  ],
+  "interessenter": [
+    {
+      "navn": "Faglærer / veileder",
+      "rolle": "Sensur og faglig godkjenner",
+      "behov": "Realistisk plan, faglig kvalitet og fremdrift",
+      "prioritet": "Høy",
+      "kommunikasjon": "Veiledning, innleveringer, statusoppdateringer"
+    },
+    {
+      "navn": "Lotte Picard",
+      "rolle": "Prosjektleder og utførende student",
+      "behov": "Gjennomførbar plan, fremdrift og god leveranse",
+      "prioritet": "Høy",
+      "kommunikasjon": "Ukentlig egenoppfølging og løpende arbeid"
+    },
+    {
+      "navn": "Kartverket",
+      "rolle": "Faglig case-eier",
+      "behov": "Relevant analyse og realistisk problemforståelse",
+      "prioritet": "Høy",
+      "kommunikasjon": "Indirekte gjennom casebeskrivelse og rapport, samt ukentlige statussamtaler"
+    },
+    {
+      "navn": "Medstudenter / peer review-gruppe",
+      "rolle": "Fagfeller",
+      "behov": "Tydelig rapport og vurderbare leveranser",
+      "prioritet": "Høy",
+      "kommunikasjon": "Peer review i gjennomføringsfasen"
+    }
+  ],
+  "datakilder": [
+    {
+      "fil": "data.csv",
+      "kilde": "Samferdselsavdelingen (PowerBI-rapport)",
+      "innhold": "Fremdriftsstatus per kommune (Ferdig/Påbegynt/Ikke påbegynt) - dekker hele løypa inkl. NVDB-overføring",
+      "merknad": "Per april 2026: 62 ferdig kvalitetshevet, 48 påbegynt, 247 ikke startet. Ingen ferdig overført til NVDB ennå."
+    },
+    {
+      "fil": "Antall objekter per kommune.csv",
+      "kilde": "Kartverket",
+      "innhold": "Arbeidsmengde i antall lenker (ikke km) per kommune - 355 kommuner"
+    },
+    {
+      "fil": "20250903StatistikkTraktorvegSti.xlsx",
+      "kilde": "Kartverket grunndata",
+      "innhold": "Kommunemapping, km_kurve, beregnet tidsbruk, dagsverk - 359 kommuner",
+      "merknad": "Fylkesnr/fylkesnavn er feil/shufflet og må ignoreres. Kommunenr+kommunenavn er korrekt."
+    },
+    {
+      "fil": "Datainnsamling_TraktorvegSti.xlsx",
+      "kilde": "10 fylkeskartkontor",
+      "innhold": "Kapasitet (ukesverk), min/max tidsbruk per kommune, og Geovekst-prosjekter med låseperioder"
+    },
+    {
+      "fil": "Agder_prosjekter.csv",
+      "kilde": "Kristiansand kartkontor",
+      "innhold": "Geovekst-prosjekter LACIAG61 og LACIAG63 - supplerer Datainnsamling der Kristiansand-arket var tomt"
+    },
+    {
+      "fil": "Rogaland_prosjekter.csv",
+      "kilde": "Stavanger kartkontor",
+      "innhold": "Geovekst-prosjekter LACIRO61 og LACIRO62 - supplerer Datainnsamling"
+    }
+  ],
+  "produksjonskjede": {
+    "beskrivelse": "Produksjonen har to sekvensielle steg",
+    "steg": [
+      {
+        "navn": "Kvalitetsheving",
+        "ansvarlig": "Fylkeskartkontor (10 stk)",
+        "kapasitet": "Varierer per kontor (Kapasitet_Ukesverk i kapasitet_kontorer.csv)",
+        "merknad": "Manuell redigering av topologi, stedfesting, fjerning av ikke-gjenfinnbare data"
+      },
+      {
+        "navn": "NVDB-overføring",
+        "ansvarlig": "Samferdselsavdelingen i Kartverket",
+        "kapasitet": "2 personer x 25% = 0.5 årsverk dedikert. 300-400 lenker/person/dag manuelt.",
+        "fme_andel": "80-90% (standard 85%) går automatisk via FME, resterende 10-20% må tas manuelt",
+        "merknad": "Avgrenset bort fra prosjektet - men kan modelleres som nedstrøms flaskehals"
+      }
+    ]
+  },
+  "leveranser": [
+    {"fil": "011 fase 1 - proposal/proposal.md", "fase": 1, "status": "Ferdig"},
+    {"fil": "012 fase 2 - plan/prosjektstyringsplan_utfylt.md", "fase": 2, "status": "Ferdig"},
+    {"fil": "012 fase 2 - plan/Gannt.pdf", "fase": 2, "status": "Ferdig"},
+    {"fil": "012 fase 2 - plan/prosjektplan.json", "fase": 2, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/master_kommuner.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/kapasitet_kontorer.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/geovekst_prosjekter.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "005 report/rapport.md", "fase": 3, "status": "Pågående"},
+    {"fil": "Modelleringsscript", "fase": 3, "status": "Ikke startet"}
+  ]
+}
