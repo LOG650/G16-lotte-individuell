@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-16"
+    "sist_oppdatert": "2026-04-16T17:00"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -144,7 +144,7 @@
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
       "status": "Pågående",
-      "fremdrift_prosent": 50,
+      "fremdrift_prosent": 55,
       "oppgaver": [
         {
           "id": 15,
@@ -173,9 +173,9 @@
           "sluttdato": "2026-04-03",
           "varighet_dager": 7,
           "predecessors": [16],
-          "status": "Pågående",
-          "fremdrift_prosent": 80,
-          "kommentar": "Datavask fullført, master_kommuner.csv, kapasitet_kontorer.csv og geovekst_prosjekter.csv produsert"
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert"
         },
         {
           "id": 18,
@@ -440,6 +440,7 @@
     {"fil": "004 data/processed_data/master_kommuner.csv", "fase": 3, "status": "Ferdig"},
     {"fil": "004 data/processed_data/kapasitet_kontorer.csv", "fase": 3, "status": "Ferdig"},
     {"fil": "004 data/processed_data/geovekst_prosjekter.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/nvdb_overfoering.csv", "fase": 3, "status": "Ferdig"},
     {"fil": "005 report/rapport.md", "fase": 3, "status": "Pågående"},
     {"fil": "Modelleringsscript", "fase": 3, "status": "Ikke startet"}
   ]

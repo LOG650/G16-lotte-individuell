@@ -23,7 +23,7 @@
 |------|---------|--------|-----------|
 | 1. Initiering | 12.01 – 09.02.26 | ✅ Ferdig | 100% |
 | 2. Planlegging | 02.03 – 20.03.26 | ✅ Ferdig | 100% |
-| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 50% |
+| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 55% |
 | 4. Avslutning | 27.04 – 31.05.26 | ⏳ Ikke startet | 0% |
 
 ---
@@ -45,7 +45,7 @@
 |----|---------|---------|--------|---|-----------|
 | 15 | Introduksjon og problemstilling | 16.03 – 18.03 | 🔄 Pågående | 50% |  |
 | 16 | Teori og litteratursøk | 19.03 – 25.03 | 🔄 Pågående | 30% |  |
-| 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | 🔄 Pågående | 80% | Datavask fullført, master_kommuner.csv, kapasitet_kontorer.csv og geovekst_prosjekter.csv produsert |
+| 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | ✅ Ferdig | 100% | Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert |
 | 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 20% | Metodevalg under diskusjon (OR vs ML) |
 | 19 | Analyse og resultater | 15.04 – 21.04 | ⏳ Ikke startet | 0% |  |
 | 20 | Diskusjon | 22.04 – 24.04 | ⏳ Ikke startet | 0% |  |
@@ -78,6 +78,7 @@
 | `004 data/processed_data/master_kommuner.csv` | 3 | ✅ Ferdig |
 | `004 data/processed_data/kapasitet_kontorer.csv` | 3 | ✅ Ferdig |
 | `004 data/processed_data/geovekst_prosjekter.csv` | 3 | ✅ Ferdig |
+| `004 data/processed_data/nvdb_overfoering.csv` | 3 | ✅ Ferdig |
 | `005 report/rapport.md` | 3 | 🔄 Pågående |
 | `Modelleringsscript` | 3 | ⏳ Ikke startet |
 

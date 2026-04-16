@@ -1,0 +1,10 @@
+Parameter,Verdi,Enhet,Kilde
+Antall_Stillinger,2,stillinger,Samferdselsavdelingen
+Stillingsprosent,0.25,andel,Samferdselsavdelingen
+Effektiv_Aarsverk,0.5,aarsverk,Beregnet: 2 x 0.25
+Produksjonstakt_Manuell,350,lenker/person/dag,Midtverdi av 300-400
+Automasjonsgrad_FME,0.85,andel,Midtverdi av 80-90%
+Manuell_Kapasitet_Per_Dag,175,lenker/dag,Beregnet: 2 x 0.25 x 350
+Arbeidsdager_Per_Uke,5,dager,Antagelse
+Startdato_Overfoering,2026-05-01,dato,Antagelse (foer sommerferie)
+Ferie_Inkludert,Nei,boolsk,Antagelse (konstant kapasitet)
