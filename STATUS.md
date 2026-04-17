@@ -46,7 +46,7 @@
 | 15 | Introduksjon og problemstilling | 16.03 – 18.03 | 🔄 Pågående | 50% |  |
 | 16 | Teori og litteratursøk | 19.03 – 25.03 | 🔄 Pågående | 30% |  |
 | 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | ✅ Ferdig | 100% | Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert |
-| 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 20% | Metodevalg under diskusjon (OR vs ML) |
+| 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 30% | Metode valgt: hybrid heuristikk + MIP (PuLP). To-stegs modell kartkontor → NVDB. ML droppet. |
 | 19 | Analyse og resultater | 15.04 – 21.04 | ⏳ Ikke startet | 0% |  |
 | 20 | Diskusjon | 22.04 – 24.04 | ⏳ Ikke startet | 0% |  |
 | 21 | Peer review | 27.04 – 28.04 | ⏳ Ikke startet | 0% |  |
