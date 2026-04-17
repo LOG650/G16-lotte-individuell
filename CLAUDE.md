@@ -200,7 +200,7 @@ STEG 3: Simuler dag for dag (arbeidsdager, hopp over helg)
   Mens ikke alle kommuner er ferdige NVDB:
     For hvert kontor parallelt:
       aktiv = første kommune i køen som ikke er låst på gjeldende_dato
-      timer_i_dag = kontor.Kapasitet_Ukesverk * 37.5 / 5     # per arbeidsdag
+      timer_i_dag = kontor.Kapasitet_Ukesverk * 37.5 / ARBEIDSDAGER_PER_AAR  # årlig kapasitet fordelt på arbeidsdager
       aktiv.gjenvaerende_timer -= timer_i_dag
       Hvis aktiv.gjenvaerende_timer <= 0:
         aktiv.ferdigdato_kartkontor = gjeldende_dato
@@ -221,12 +221,12 @@ OUTPUT:
   flaskehals_nvdb.csv         — per uke: kø-lengde, ferdige kommuner totalt
 ```
 
-### Bevisste forenklinger for v1
+### Bevisste forenklinger for v1 (baseline-heuristikk)
 
 - Ingen planlegging av ferier/pauser
 - Ingen individuell effektivitet per person
-- Ingen omfordeling av kommuner mellom kontor (ligger fast på fylke)
 - Ingen oppstartskostnad ved kommuneskifte
+- **Baseline:** kommuner tildeles sitt "hjemme-kontor" basert på fylke (status quo). Dette er KUN baseline – omfordeling mellom kontor er en kjernebeslutning i prosjektet (jf. proposal) og skal undersøkes i MIP og evt. en utvidet heuristikk-variant.
 
 ### Skal kjøres for alle 3 NVDB-scenarioer for sensitivitetsanalyse
 
@@ -283,6 +283,8 @@ For rask kontekst-gjenoppretting:
 
 ## Figurer (i 005 report/figurer/)
 
+### Deskriptive figurer (fig 1-6)
+
 | Nr | Fil | Innhold |
 |----|-----|---------|
 | 1 | `01_kart_kontorer.png` | Norgeskart med fylker fargelagt etter kontor |
@@ -293,3 +295,14 @@ For rask kontekst-gjenoppretting:
 | 6 | `06_lenker_histogram.png` | Histogram + Pareto-kurve for arbeidskonsentrasjon |
 
 Regenereres med: `python "004 data/scripts/figurer.py"`
+
+### Resultatfigurer fra heuristikk (fig 7-10)
+
+| Nr | Fil | Innhold |
+|----|-----|---------|
+| 7 | `07_nvdb_ko.png` | NVDB-kølengde over tid (lenker + kommuner), alle 3 scenarioer |
+| 8 | `08_kumulativ_nvdb.png` | Kumulativ NVDB-overføring (lenker + kommuner), alle 3 scenarioer |
+| 9 | `09_utnyttelse_heatmap.png` | Kapasitetsutnyttelse per kontor og uke (baseline) |
+| 10 | `10_kontor_fremdrift.png` | Kumulativ ferdigstilling per kontor (baseline) |
+
+Regenereres med: `python "004 data/scripts/figurer_resultater.py"`

@@ -129,7 +129,7 @@ Kartkontor (kvalitetsheving) ──► Samferdselsavdelingen (NVDB-overføring v
 
 ## 4.3 De 10 fylkeskartkontorene
 
-Kartverket har 10 fylkeskartkontor som hver har ansvar for sine fylker. Ansvarsfordelingen mellom kontor og kommuner er geografisk bestemt og kan ikke endres i denne analysen.
+Kartverket har 10 fylkeskartkontor som hver i dag har ansvar for sine fylker, og hver kommune kvalitetsheves av sitt "hjemme-kontor". Denne geografiske tildelingen er prosjektets utgangspunkt, men ikke en fastlåst begrensning: ett av hovedspørsmålene i analysen er om total varighet kan reduseres ved å omfordele kommuner mellom kontor, slik at kontor med god kapasitet avlaster kontor med høy arbeidsbelastning.
 
 ![Figur 1: Fylkeskartkontor og antall kommuner per kontor](figurer/01_kart_kontorer.png)
 
@@ -229,7 +229,7 @@ Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enk
 - Kapasitet oppgitt i ukesverk for 2026 antas å gjelde også for etterfølgende år i modellen.
 - Individuell effektivitet per saksbehandler er ikke modellert; kapasiteten behandles som en aggregert ressurs per kontor.
 - Samferdselsavdelingens estimat om ca. 2 års varighet for NVDB-innlegging avviker fra opprinnelig oppgitte tall (300–400 lenker/dag, 80–90 % automasjon). Avviket håndteres via sensitivitetsanalyse på automasjonsgrad.
-- Tildeling av kommuner til kartkontor er geografisk fastlåst og kan ikke omfordeles.
+- Kommune-til-kontor-tildelingen er en beslutningsvariabel i optimeringsmodellen. Kolonnen `Kartkontor` i `master_kommuner.csv` angir dagens geografiske tildeling og brukes som baseline som den optimerte omfordelingen sammenlignes mot.
 
 ---
 
