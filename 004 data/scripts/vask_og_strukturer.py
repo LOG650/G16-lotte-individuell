@@ -222,6 +222,11 @@ def les_geovekst_csv(filnavn, prosjekt_mapping, kartkontor):
     return df
 
 
+KAPASITET_OVERRIDE = {
+    'Oslo': {'Kapasitet_Ukesverk': 30, 'Min_Tidsbruk_Timer': 30, 'Max_Tidsbruk_Timer': 90},
+}
+
+
 def les_kapasitet():
     """Leser kapasitetsdata fra Datainnsamling-fila."""
     print("5. Leser kapasitetsdata...")
@@ -238,6 +243,12 @@ def les_kapasitet():
         kapasitet = pd.to_numeric(df.iloc[2, 2], errors='coerce')
         min_tid = pd.to_numeric(df.iloc[3, 2], errors='coerce')
         max_tid = pd.to_numeric(df.iloc[4, 2], errors='coerce')
+
+        if sheet in KAPASITET_OVERRIDE:
+            override = KAPASITET_OVERRIDE[sheet]
+            kapasitet = override.get('Kapasitet_Ukesverk', kapasitet)
+            min_tid = override.get('Min_Tidsbruk_Timer', min_tid)
+            max_tid = override.get('Max_Tidsbruk_Timer', max_tid)
 
         kap_rader.append({
             'Kartkontor': sheet,

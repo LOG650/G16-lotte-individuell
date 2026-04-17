@@ -50,6 +50,18 @@ LACITE61,4012,Bamble,Skien,Planlagt,2026-05-01,2026-12-31
 LACITE61,4014,Kragerø,Skien,Planlagt,2026-05-01,2026-12-31
 LACITE61,4016,Drangedal,Skien,Planlagt,2026-05-01,2026-12-31
 LACITE61,4018,Nome,Skien,Planlagt,2026-05-01,2026-12-31
+LACIAG61,4222,Bykle,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG61,4224,Åseral,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG61,4219,Evje og Hornnes,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG61,4223,Vennesla,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG61,4225,Lyngdal,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG61,4205,Lindesnes,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG61,4204,Kristiansand,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG61,4203,Arendal,Kristiansand,Planlagt,2026-04-01,2026-09-30
+LACIAG63,4207,Flekkefjord,Kristiansand,Pågående,2026-01-01,2026-06-30
+LACIAG63,4221,Valle,Kristiansand,Pågående,2026-01-01,2026-06-30
+LACIAG63,4222,Bykle,Kristiansand,Pågående,2026-01-01,2026-06-30
+LACIAG63,4228,Sirdal,Kristiansand,Pågående,2026-01-01,2026-06-30
 LACIRO61,1160,Vindafjord,Stavanger,Planlagt,2026-04-01,2026-09-30
 LACIRO61,1106,Haugesund,Stavanger,Planlagt,2026-04-01,2026-09-30
 LACIRO61,1145,Bokn,Stavanger,Planlagt,2026-04-01,2026-09-30
@@ -160,7 +172,3 @@ LACITF61,5540,Gáivuotna - Kåfjord - Kaivuono,Tromsø,Planlagt,2026-10-01,2027-
 LACITF61,5542,Skjervøy,Tromsø,Planlagt,2026-10-01,2027-05-31
 LACITF61,5620,Nordkapp,Tromsø,Planlagt,2026-10-01,2027-05-31
 LACITF61,5622,Porsanger - Porsáŋgu - Porsanki,Tromsø,Planlagt,2026-10-01,2027-05-31
-LACIAG63,4207,Flekkefjord,Kristiansand,Planlagt,2026-05-01,2026-12-31
-LACIAG63,4221,Valle,Kristiansand,Planlagt,2026-05-01,2026-12-31
-LACIAG63,4222,Bykle,Kristiansand,Planlagt,2026-05-01,2026-12-31
-LACIAG63,4228,Sirdal,Kristiansand,Planlagt,2026-05-01,2026-12-31

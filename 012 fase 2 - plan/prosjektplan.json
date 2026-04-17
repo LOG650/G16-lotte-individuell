@@ -185,8 +185,8 @@
           "varighet_dager": 7,
           "predecessors": [17],
           "status": "Pågående",
-          "fremdrift_prosent": 30,
-          "kommentar": "Metode valgt: hybrid heuristikk + MIP (PuLP). To-stegs modell kartkontor → NVDB. ML droppet."
+          "fremdrift_prosent": 50,
+          "kommentar": "Metode: hybrid heuristikk + MIP (PuLP). To-stegs modell. Pseudokode ferdig, 6 deskriptive figurer produsert, rapport-seksjon 4 og 5.2 utkast skrevet."
         },
         {
           "id": 19,

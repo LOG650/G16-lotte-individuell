@@ -4,7 +4,7 @@
 **Fag:** LOG650 Logistikk og KI | **Institusjon:** Høgskolen i Molde  
 **Prosjektleder:** Lotte Picard | **Kunde:** Statens Kartverk, Region og Samfunnskontakt  
 **Periode:** 2026-01-12 → 2026-06-01  
-**Sist oppdatert:** 2026-04-16
+**Sist oppdatert:** 2026-04-17
 
 > Denne fila er auto-generert fra `012 fase 2 - plan/prosjektplan.json`. Kjør `python "004 data/scripts/generer_status.py"` for å oppdatere.
 
@@ -13,8 +13,8 @@
 ## Overordnet status
 
 - **Nåværende fase:** Fase 3 – Gjennomføring
-- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (13 dager)
-- **Dager igjen til innlevering:** 46
+- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (12 dager)
+- **Dager igjen til innlevering:** 45
 - **Kritisk linje:** Planleggingsleveranse → Datainnsamling → Analyse/modelldel → Diskusjon → Peer review → Sluttføring av rapport
 
 ### Faseoversikt
@@ -46,7 +46,7 @@
 | 15 | Introduksjon og problemstilling | 16.03 – 18.03 | 🔄 Pågående | 50% |  |
 | 16 | Teori og litteratursøk | 19.03 – 25.03 | 🔄 Pågående | 30% |  |
 | 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | ✅ Ferdig | 100% | Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert |
-| 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 30% | Metode valgt: hybrid heuristikk + MIP (PuLP). To-stegs modell kartkontor → NVDB. ML droppet. |
+| 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 50% | Metode: hybrid heuristikk + MIP (PuLP). To-stegs modell. Pseudokode ferdig, 6 deskriptive figurer produsert, rapport-seksjon 4 og 5.2 utkast skrevet. |
 | 19 | Analyse og resultater | 15.04 – 21.04 | ⏳ Ikke startet | 0% |  |
 | 20 | Diskusjon | 22.04 – 24.04 | ⏳ Ikke startet | 0% |  |
 | 21 | Peer review | 27.04 – 28.04 | ⏳ Ikke startet | 0% |  |
@@ -102,7 +102,7 @@
 - **10** kartkontorer
 - **2 630 964** lenker totalt
 - **2 138 104** gjenstående lenker
-- **145** kommuner låst av Geovekst-prosjekter
+- **152** kommuner låst av Geovekst-prosjekter
 - Status: 62 ferdig kvalitetshevet, 48 påbegynt, 247 ikke startet
 
 ### Kapasitet per kartkontor
@@ -112,9 +112,9 @@
 | Bergen | 43 | 342 927 | 320 208 | 27 | 40 |
 | Bodø | 41 | 157 997 | 154 992 | 15 | 22 |
 | Hamar | 46 | 409 715 | 275 331 | 31 | 25 |
-| Kristiansand | 25 | 246 636 | 218 155 | 4 | 30 |
+| Kristiansand | 25 | 246 636 | 218 155 | 11 | 30 |
 | Molde | 27 | 126 294 | 75 602 | 26 | 25 |
-| Oslo | 52 | 453 204 | 341 271 | 2 | 20 |
+| Oslo | 52 | 453 204 | 341 271 | 2 | 30 |
 | Skien | 23 | 195 777 | 186 570 | 15 | 40 |
 | Stavanger | 23 | 128 923 | 110 121 | 10 | 28 |
 | Tromsø | 39 | 254 187 | 207 865 | 11 | 35 |
@@ -139,4 +139,4 @@
 
 | Dato | Endring |
 |------|---------|
-| 2026-04-16 | STATUS.md regenerert fra prosjektplan.json |
+| 2026-04-17 | STATUS.md regenerert fra prosjektplan.json |

@@ -213,11 +213,11 @@
 4036,Vinje,40,Telemark,Skien,2317.61,3868,9.0,Ikke påbegynt,0.0,12380.0,12380.0,LACITE52,Pågående,True
 4201,Risør,42,Agder,Kristiansand,644.33,693,2.0,Ikke påbegynt,0.0,7458.0,7458.0,,,False
 4202,Grimstad,42,Agder,Kristiansand,590.11,710,2.0,Ikke påbegynt,0.0,6512.0,6512.0,,,False
-4203,Arendal,42,Agder,Kristiansand,1212.87,1262,3.0,Ikke påbegynt,0.0,18178.0,18178.0,,,False
-4204,Kristiansand,42,Agder,Kristiansand,2282.93,2460,6.0,Ikke påbegynt,0.0,27939.0,27939.0,,,False
-4205,Lindesnes,42,Agder,Kristiansand,3097.54,3373,8.0,Ikke påbegynt,0.0,30608.0,30608.0,,,False
+4203,Arendal,42,Agder,Kristiansand,1212.87,1262,3.0,Ikke påbegynt,0.0,18178.0,18178.0,LACIAG61,Planlagt,True
+4204,Kristiansand,42,Agder,Kristiansand,2282.93,2460,6.0,Ikke påbegynt,0.0,27939.0,27939.0,LACIAG61,Planlagt,True
+4205,Lindesnes,42,Agder,Kristiansand,3097.54,3373,8.0,Ikke påbegynt,0.0,30608.0,30608.0,LACIAG61,Planlagt,True
 4206,Farsund,42,Agder,Kristiansand,654.72,756,2.0,Ikke påbegynt,0.0,8160.0,8160.0,,,False
-4207,Flekkefjord,42,Agder,Kristiansand,1088.67,1297,3.0,Ikke påbegynt,0.0,10002.0,10002.0,LACIAG63,Planlagt,True
+4207,Flekkefjord,42,Agder,Kristiansand,1088.67,1297,3.0,Ikke påbegynt,0.0,10002.0,10002.0,LACIAG63,Pågående,True
 4211,Gjerstad,42,Agder,Kristiansand,822.19,943,3.0,Påbegynt,95.0,5328.0,266.0,,,False
 4212,Vegårshei,42,Agder,Kristiansand,1046.56,1155,3.0,Ikke påbegynt,0.0,8548.0,8548.0,,,False
 4213,Tvedestrand,42,Agder,Kristiansand,816.78,876,2.0,Ikke påbegynt,0.0,8806.0,8806.0,,,False
@@ -226,16 +226,16 @@
 4216,Birkenes,42,Agder,Kristiansand,1321.88,1582,4.0,Ikke påbegynt,0.0,10577.0,10577.0,,,False
 4217,Åmli,42,Agder,Kristiansand,1349.34,1908,5.0,Ikke påbegynt,0.0,8190.0,8190.0,,,False
 4218,Iveland,42,Agder,Kristiansand,488.62,602,2.0,Påbegynt,80.0,3446.0,689.0,,,False
-4219,Evje og Hornnes,42,Agder,Kristiansand,936.03,1203,3.0,Ikke påbegynt,0.0,7758.0,7758.0,,,False
+4219,Evje og Hornnes,42,Agder,Kristiansand,936.03,1203,3.0,Ikke påbegynt,0.0,7758.0,7758.0,LACIAG61,Planlagt,True
 4220,Bygland,42,Agder,Kristiansand,1148.18,1786,4.0,Ikke påbegynt,0.0,7574.0,7574.0,,,False
-4221,Valle,42,Agder,Kristiansand,1163.01,1786,4.0,Ikke påbegynt,0.0,7136.0,7136.0,LACIAG63,Planlagt,True
-4222,Bykle,42,Agder,Kristiansand,633.15,1388,4.0,Ikke påbegynt,0.0,4958.0,4958.0,LACIAG63,Planlagt,True
-4223,Vennesla,42,Agder,Kristiansand,1082.58,1214,3.0,Påbegynt,90.0,10530.0,1053.0,,,False
-4224,Åseral,42,Agder,Kristiansand,691.46,1144,3.0,Ikke påbegynt,0.0,5558.0,5558.0,,,False
-4225,Lyngdal,42,Agder,Kristiansand,1390.63,1651,4.0,Ikke påbegynt,0.0,13449.0,13449.0,,,False
+4221,Valle,42,Agder,Kristiansand,1163.01,1786,4.0,Ikke påbegynt,0.0,7136.0,7136.0,LACIAG63,Pågående,True
+4222,Bykle,42,Agder,Kristiansand,633.15,1388,4.0,Ikke påbegynt,0.0,4958.0,4958.0,"LACIAG61,LACIAG63","Planlagt,Pågående",True
+4223,Vennesla,42,Agder,Kristiansand,1082.58,1214,3.0,Påbegynt,90.0,10530.0,1053.0,LACIAG61,Planlagt,True
+4224,Åseral,42,Agder,Kristiansand,691.46,1144,3.0,Ikke påbegynt,0.0,5558.0,5558.0,LACIAG61,Planlagt,True
+4225,Lyngdal,42,Agder,Kristiansand,1390.63,1651,4.0,Ikke påbegynt,0.0,13449.0,13449.0,LACIAG61,Planlagt,True
 4226,Hægebostad,42,Agder,Kristiansand,671.59,883,2.0,Ferdig,100.0,5244.0,0.0,,,False
 4227,Kvinesdal,42,Agder,Kristiansand,1347.36,1794,4.0,Ikke påbegynt,0.0,10186.0,10186.0,,,False
-4228,Sirdal,42,Agder,Kristiansand,1082.7,1872,5.0,Ikke påbegynt,0.0,8126.0,8126.0,LACIAG63,Planlagt,True
+4228,Sirdal,42,Agder,Kristiansand,1082.7,1872,5.0,Ikke påbegynt,0.0,8126.0,8126.0,LACIAG63,Pågående,True
 4601,Bergen,46,Vestland,Bergen,1711.47,1836,5.0,Ikke påbegynt,0.0,30466.0,30466.0,LACIVL64,Planlagt,True
 4602,Kinn,46,Vestland,Bergen,954.96,1360,4.0,Ikke påbegynt,0.0,9385.0,9385.0,LACHVL39,Planlagt,True
 4611,Etne,46,Vestland,Bergen,1158.58,1497,4.0,Ikke påbegynt,0.0,10118.0,10118.0,,,False
