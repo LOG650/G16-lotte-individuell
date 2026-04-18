@@ -4,7 +4,7 @@
 **Fag:** LOG650 Logistikk og KI | **Institusjon:** Høgskolen i Molde  
 **Prosjektleder:** Lotte Picard | **Kunde:** Statens Kartverk, Region og Samfunnskontakt  
 **Periode:** 2026-01-12 → 2026-06-01  
-**Sist oppdatert:** 2026-04-17
+**Sist oppdatert:** 2026-04-18
 
 > Denne fila er auto-generert fra `012 fase 2 - plan/prosjektplan.json`. Kjør `python "004 data/scripts/generer_status.py"` for å oppdatere.
 
@@ -13,8 +13,8 @@
 ## Overordnet status
 
 - **Nåværende fase:** Fase 3 – Gjennomføring
-- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (12 dager)
-- **Dager igjen til innlevering:** 45
+- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (11 dager)
+- **Dager igjen til innlevering:** 44
 - **Kritisk linje:** Planleggingsleveranse → Datainnsamling → Analyse/modelldel → Diskusjon → Peer review → Sluttføring av rapport
 
 ### Faseoversikt
@@ -23,7 +23,7 @@
 |------|---------|--------|-----------|
 | 1. Initiering | 12.01 – 09.02.26 | ✅ Ferdig | 100% |
 | 2. Planlegging | 02.03 – 20.03.26 | ✅ Ferdig | 100% |
-| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 55% |
+| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 70% |
 | 4. Avslutning | 27.04 – 31.05.26 | ⏳ Ikke startet | 0% |
 
 ---
@@ -46,8 +46,8 @@
 | 15 | Introduksjon og problemstilling | 16.03 – 18.03 | 🔄 Pågående | 50% |  |
 | 16 | Teori og litteratursøk | 19.03 – 25.03 | 🔄 Pågående | 30% |  |
 | 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | ✅ Ferdig | 100% | Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert |
-| 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 50% | Metode: hybrid heuristikk + MIP (PuLP). To-stegs modell. Pseudokode ferdig, 6 deskriptive figurer produsert, rapport-seksjon 4 og 5.2 utkast skrevet. |
-| 19 | Analyse og resultater | 15.04 – 21.04 | ⏳ Ikke startet | 0% |  |
+| 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 85% | Heuristikk.py implementert og kjørt for 3 NVDB-scenarioer. Monte Carlo (500 iter × 3 scenarioer) implementert med sampling av MIN/KM, manuell takt og automasjonsgrad. Ber_Tidbruk_Min-formelen avdekket og dokumentert (konstanter 0.9035 og 0.6510 fra Tidbruk-fanen). 13 figurer produsert (6 deskriptive, 4 resultat, 3 usikkerhet). Rapport-seksjon 4 og 5.2 utkast ferdig. Gjenstår: skrive 5.1 Metode, 6.0 Modellering, samt MIP-modell (avventer svar fra samferdselsavdelingen). |
+| 19 | Analyse og resultater | 15.04 – 21.04 | 🔄 Pågående | 40% | Resultater produsert fra heuristikk og Monte Carlo (oppsummering_scenarioer.csv, monte_carlo_summary.csv, 7 resultatfigurer). Nøkkelfunn: scenarioene overlapper ikke - P95 Samferdsel (3.22 år) under P5 Middels (4.54 år). Gjenstår: skrive rapport-seksjon 7.0 Analyse og 8.0 Resultat. |
 | 20 | Diskusjon | 22.04 – 24.04 | ⏳ Ikke startet | 0% |  |
 | 21 | Peer review | 27.04 – 28.04 | ⏳ Ikke startet | 0% |  |
 
@@ -79,8 +79,20 @@
 | `004 data/processed_data/kapasitet_kontorer.csv` | 3 | ✅ Ferdig |
 | `004 data/processed_data/geovekst_prosjekter.csv` | 3 | ✅ Ferdig |
 | `004 data/processed_data/nvdb_overfoering.csv` | 3 | ✅ Ferdig |
+| `004 data/processed_data/tidbruk_kalibrering.csv` | 3 | ✅ Ferdig |
+| `004 data/processed_data/tidbruk_konstanter.csv` | 3 | ✅ Ferdig |
+| `004 data/processed_data/tidsplan_<scenario>.csv (3 filer)` | 3 | ✅ Ferdig |
+| `004 data/processed_data/oppsummering_scenarioer.csv` | 3 | ✅ Ferdig |
+| `004 data/processed_data/monte_carlo_*.csv (4 filer)` | 3 | ✅ Ferdig |
+| `004 data/scripts/vask_og_strukturer.py` | 3 | ✅ Ferdig |
+| `004 data/scripts/heuristikk.py` | 3 | ✅ Ferdig |
+| `004 data/scripts/monte_carlo.py` | 3 | ✅ Ferdig |
+| `004 data/scripts/figurer.py` | 3 | ✅ Ferdig |
+| `004 data/scripts/figurer_resultater.py` | 3 | ✅ Ferdig |
+| `004 data/scripts/figurer_usikkerhet.py` | 3 | ✅ Ferdig |
+| `005 report/figurer/ (13 PNG-figurer)` | 3 | ✅ Ferdig |
 | `005 report/rapport.md` | 3 | 🔄 Pågående |
-| `Modelleringsscript` | 3 | ⏳ Ikke startet |
+| `MIP-modell (PuLP)` | 3 | ❓ Avventer samferdselsavdelingens svar |
 
 ---
 
@@ -139,4 +151,4 @@
 
 | Dato | Endring |
 |------|---------|
-| 2026-04-17 | STATUS.md regenerert fra prosjektplan.json |
+| 2026-04-18 | STATUS.md regenerert fra prosjektplan.json |

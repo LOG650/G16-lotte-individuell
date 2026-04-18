@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-16T17:00"
+    "sist_oppdatert": "2026-04-18T09:00"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -144,7 +144,7 @@
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
       "status": "Pågående",
-      "fremdrift_prosent": 55,
+      "fremdrift_prosent": 70,
       "oppgaver": [
         {
           "id": 15,
@@ -185,8 +185,8 @@
           "varighet_dager": 7,
           "predecessors": [17],
           "status": "Pågående",
-          "fremdrift_prosent": 50,
-          "kommentar": "Metode: hybrid heuristikk + MIP (PuLP). To-stegs modell. Pseudokode ferdig, 6 deskriptive figurer produsert, rapport-seksjon 4 og 5.2 utkast skrevet."
+          "fremdrift_prosent": 85,
+          "kommentar": "Heuristikk.py implementert og kjørt for 3 NVDB-scenarioer. Monte Carlo (500 iter × 3 scenarioer) implementert med sampling av MIN/KM, manuell takt og automasjonsgrad. Ber_Tidbruk_Min-formelen avdekket og dokumentert (konstanter 0.9035 og 0.6510 fra Tidbruk-fanen). 13 figurer produsert (6 deskriptive, 4 resultat, 3 usikkerhet). Rapport-seksjon 4 og 5.2 utkast ferdig. Gjenstår: skrive 5.1 Metode, 6.0 Modellering, samt MIP-modell (avventer svar fra samferdselsavdelingen)."
         },
         {
           "id": 19,
@@ -195,8 +195,9 @@
           "sluttdato": "2026-04-21",
           "varighet_dager": 5,
           "predecessors": [18],
-          "status": "Ikke startet",
-          "fremdrift_prosent": 0
+          "status": "Pågående",
+          "fremdrift_prosent": 40,
+          "kommentar": "Resultater produsert fra heuristikk og Monte Carlo (oppsummering_scenarioer.csv, monte_carlo_summary.csv, 7 resultatfigurer). Nøkkelfunn: scenarioene overlapper ikke - P95 Samferdsel (3.22 år) under P5 Middels (4.54 år). Gjenstår: skrive rapport-seksjon 7.0 Analyse og 8.0 Resultat."
         },
         {
           "id": 20,
@@ -441,7 +442,19 @@
     {"fil": "004 data/processed_data/kapasitet_kontorer.csv", "fase": 3, "status": "Ferdig"},
     {"fil": "004 data/processed_data/geovekst_prosjekter.csv", "fase": 3, "status": "Ferdig"},
     {"fil": "004 data/processed_data/nvdb_overfoering.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/tidbruk_kalibrering.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/tidbruk_konstanter.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/tidsplan_<scenario>.csv (3 filer)", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/oppsummering_scenarioer.csv", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/processed_data/monte_carlo_*.csv (4 filer)", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/scripts/vask_og_strukturer.py", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/scripts/heuristikk.py", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/scripts/monte_carlo.py", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/scripts/figurer.py", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/scripts/figurer_resultater.py", "fase": 3, "status": "Ferdig"},
+    {"fil": "004 data/scripts/figurer_usikkerhet.py", "fase": 3, "status": "Ferdig"},
+    {"fil": "005 report/figurer/ (13 PNG-figurer)", "fase": 3, "status": "Ferdig"},
     {"fil": "005 report/rapport.md", "fase": 3, "status": "Pågående"},
-    {"fil": "Modelleringsscript", "fase": 3, "status": "Ikke startet"}
+    {"fil": "MIP-modell (PuLP)", "fase": 3, "status": "Avventer samferdselsavdelingens svar"}
   ]
 }

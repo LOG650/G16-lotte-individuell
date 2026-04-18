@@ -334,3 +334,13 @@ Regenereres med: `python "004 data/scripts/figurer.py"`
 | 10 | `10_kontor_fremdrift.png` | Kumulativ ferdigstilling per kontor (baseline) |
 
 Regenereres med: `python "004 data/scripts/figurer_resultater.py"`
+
+### Usikkerhetsfigurer fra Monte Carlo (fig 11-13)
+
+| Nr | Fil | Innhold |
+|----|-----|---------|
+| 11 | `11_fanchart_nvdb.png` | Kumulativ NVDB-overføring med P5-P95 usikkerhetsbånd per scenario |
+| 12 | `12_histogram_varighet.png` | Fordeling av totalvarighet per scenario (3 panel) |
+| 13 | `13_per_kontor_boxplot.png` | Per-kontor spredning i NVDB-ferdigdato per kommune (Middels_90) |
+
+Regenereres med: `python "004 data/scripts/figurer_usikkerhet.py"`

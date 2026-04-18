@@ -139,35 +139,64 @@ def kjor_iterasjon(rng, kommuner, kontorer, lock_intervals, scenario, empirisk_m
 def aggreger_uke_percentiler(alle_ukentlige):
     """Samle ukentlig_nvdb fra N iterasjoner og beregn percentiler per uke.
 
-    alle_ukentlige: liste av lister av dicts (én per iterasjon).
-    Returnerer DataFrame med (uke_aar, uke_nr) og percentiler for
-    Ko_Lengde_Kommuner, Lenker_I_Ko, Lenker_Overfort_Hittil, Kommuner_Overfort_Hittil.
+    Forward-filler: iterasjoner som blir ferdig tidlig, beholder sin ferdige
+    tilstand (Kommuner_Overfort=357, Lenker_I_Ko=0 osv.) for alle senere uker.
+    Dette hindrer skjev framstilling i halen, der bare "sene" iterasjoner
+    ellers ville prege percentilene.
     """
-    rader = []
+    if not alle_ukentlige:
+        return pd.DataFrame()
+
+    # Felles sortert liste over alle (aar, uke)
+    all_weeks = set()
+    for uker in alle_ukentlige:
+        for u in uker:
+            all_weeks.add((u['uke_aar'], u['uke_nr']))
+    sorted_weeks = sorted(all_weeks)
+    week_to_idx = {w: i for i, w in enumerate(sorted_weeks)}
+    n_iter = len(alle_ukentlige)
+    n_weeks = len(sorted_weeks)
+
+    metrikker = ['Ko_Lengde_Kommuner', 'Lenker_I_Ko',
+                 'Lenker_Overfort_Hittil', 'Kommuner_Overfort_Hittil']
+    M = {m: np.full((n_iter, n_weeks), np.nan) for m in metrikker}
+
     for it, uker in enumerate(alle_ukentlige):
         for u in uker:
-            rader.append({**u, 'iter': it})
-    if not rader:
-        return pd.DataFrame()
-    df = pd.DataFrame(rader)
+            j = week_to_idx[(u['uke_aar'], u['uke_nr'])]
+            for m in metrikker:
+                M[m][it, j] = u[m]
 
-    grp = df.groupby(['uke_aar', 'uke_nr'])
-    agg = grp.agg(
-        Ko_Lengde_P5=('Ko_Lengde_Kommuner', lambda x: np.percentile(x, 5)),
-        Ko_Lengde_P50=('Ko_Lengde_Kommuner', lambda x: np.percentile(x, 50)),
-        Ko_Lengde_P95=('Ko_Lengde_Kommuner', lambda x: np.percentile(x, 95)),
-        Lenker_I_Ko_P5=('Lenker_I_Ko', lambda x: np.percentile(x, 5)),
-        Lenker_I_Ko_P50=('Lenker_I_Ko', lambda x: np.percentile(x, 50)),
-        Lenker_I_Ko_P95=('Lenker_I_Ko', lambda x: np.percentile(x, 95)),
-        Lenker_Overfort_P5=('Lenker_Overfort_Hittil', lambda x: np.percentile(x, 5)),
-        Lenker_Overfort_P50=('Lenker_Overfort_Hittil', lambda x: np.percentile(x, 50)),
-        Lenker_Overfort_P95=('Lenker_Overfort_Hittil', lambda x: np.percentile(x, 95)),
-        Kommuner_Overfort_P5=('Kommuner_Overfort_Hittil', lambda x: np.percentile(x, 5)),
-        Kommuner_Overfort_P50=('Kommuner_Overfort_Hittil', lambda x: np.percentile(x, 50)),
-        Kommuner_Overfort_P95=('Kommuner_Overfort_Hittil', lambda x: np.percentile(x, 95)),
-        N=('iter', 'count'),
-    ).reset_index()
-    return agg
+    # Forward-fill langs tid-aksen per iterasjon
+    for m in metrikker:
+        for it in range(n_iter):
+            last = np.nan
+            for j in range(n_weeks):
+                if not np.isnan(M[m][it, j]):
+                    last = M[m][it, j]
+                elif not np.isnan(last):
+                    M[m][it, j] = last
+
+    # Beregn percentiler
+    rader = []
+    prefiks = {
+        'Ko_Lengde_Kommuner': 'Ko_Lengde',
+        'Lenker_I_Ko': 'Lenker_I_Ko',
+        'Lenker_Overfort_Hittil': 'Lenker_Overfort',
+        'Kommuner_Overfort_Hittil': 'Kommuner_Overfort',
+    }
+    for j, (aar, uke) in enumerate(sorted_weeks):
+        rad = {'uke_aar': aar, 'uke_nr': uke}
+        for m in metrikker:
+            kol = M[m][:, j]
+            gyldig = kol[~np.isnan(kol)]
+            if len(gyldig) > 0:
+                rad[f'{prefiks[m]}_P5'] = np.percentile(gyldig, 5)
+                rad[f'{prefiks[m]}_P50'] = np.percentile(gyldig, 50)
+                rad[f'{prefiks[m]}_P95'] = np.percentile(gyldig, 95)
+        rad['N'] = int((~np.isnan(M['Kommuner_Overfort_Hittil'][:, j])).sum())
+        rader.append(rad)
+    return pd.DataFrame(rader)
 
 
 def main():
