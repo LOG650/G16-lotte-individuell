@@ -1,358 +1,358 @@
-﻿KomNr,Kommune,Fylkesnr,Fylke,Kartkontor,Km_Kurve,Ber_Tidbruk_Min,Ber_Dagsverk,Status,Fremdrift_Prosent,Antall_Lenker,Gjenstaaende_Lenker,Geovekst_Prosjekter,Geovekst_Status,Er_Laast
-0301,Oslo,3,Oslo,Oslo,1727.18,1838,5.0,Ikke påbegynt,0.0,35397.0,35397.0,,,False
-1101,Eigersund,11,Rogaland,Stavanger,748.33,928,3.0,Påbegynt,99.0,6942.0,69.0,,,False
-1103,Stavanger,11,Rogaland,Stavanger,876.87,959,3.0,Ikke påbegynt,0.0,13831.0,13831.0,,,False
-1106,Haugesund,11,Rogaland,Stavanger,137.88,169,1.0,Ikke påbegynt,0.0,1601.0,1601.0,LACIRO61,Planlagt,True
-1108,Sandnes,11,Rogaland,Stavanger,1690.13,2141,5.0,Ikke påbegynt,0.0,17326.0,17326.0,LACIRO62,Planlagt,True
-1111,Sokndal,11,Rogaland,Stavanger,229.21,381,1.0,Påbegynt,99.0,2134.0,21.0,,,False
-1112,Lund,11,Rogaland,Stavanger,429.15,618,2.0,Påbegynt,99.0,2758.0,28.0,,,False
-1114,Bjerkreim,11,Rogaland,Stavanger,1016.71,1294,3.0,Påbegynt,99.0,7158.0,72.0,,,False
-1119,Hå,11,Rogaland,Stavanger,786.17,872,2.0,Påbegynt,0.0,6268.0,6268.0,,,False
-1120,Klepp,11,Rogaland,Stavanger,269.39,310,1.0,Ikke påbegynt,0.0,3414.0,3414.0,,,False
-1121,Time,11,Rogaland,Stavanger,692.5,737,2.0,Ikke påbegynt,0.0,5798.0,5798.0,,,False
-1122,Gjesdal,11,Rogaland,Stavanger,904.7,1181,3.0,Ikke påbegynt,0.0,5779.0,5779.0,,,False
-1124,Sola,11,Rogaland,Stavanger,196.46,222,1.0,Ikke påbegynt,0.0,2924.0,2924.0,LACIRO62,Planlagt,True
-1127,Randaberg,11,Rogaland,Stavanger,82.1,90,1.0,Ikke påbegynt,0.0,1161.0,1161.0,LACIRO62,Planlagt,True
-1130,Strand,11,Rogaland,Stavanger,658.74,748,2.0,Ikke påbegynt,0.0,6598.0,6598.0,,,False
-1133,Hjelmeland,11,Rogaland,Stavanger,1018.14,1537,4.0,Ikke påbegynt,0.0,7360.0,7360.0,,,False
-1134,Suldal,11,Rogaland,Stavanger,1420.06,2313,6.0,Ikke påbegynt,0.0,9362.0,9362.0,,,False
-1135,Sauda,11,Rogaland,Stavanger,439.95,728,2.0,Ikke påbegynt,0.0,4201.0,4201.0,,,False
-1144,Kvitsøy,11,Rogaland,Stavanger,16.53,19,1.0,Ikke påbegynt,0.0,207.0,207.0,LACIRO62,Planlagt,True
-1145,Bokn,11,Rogaland,Stavanger,104.28,124,1.0,Ikke påbegynt,0.0,948.0,948.0,LACIRO61,Planlagt,True
-1146,Tysvær,11,Rogaland,Stavanger,902.17,1076,3.0,Ikke påbegynt,0.0,7926.0,7926.0,LACIRO61,Planlagt,True
-1149,Karmøy,11,Rogaland,Stavanger,636.48,718,2.0,Ikke påbegynt,0.0,6834.0,6834.0,LACIRO61,Planlagt,True
-1151,Utsira,11,Rogaland,Stavanger,9.33,12,1.0,Ikke påbegynt,0.0,66.0,66.0,LACIRO61,Planlagt,True
-1160,Vindafjord,11,Rogaland,Stavanger,1235.39,1506,4.0,Ikke påbegynt,0.0,8327.0,8327.0,LACIRO61,Planlagt,True
-1505,Kristiansund,15,Møre og Romsdal,Molde,225.4,260,1.0,Ikke påbegynt,0.0,2048.0,2048.0,LACIMR51,Pågående,True
-1506,Molde,15,Møre og Romsdal,Molde,1539.33,2325,6.0,Påbegynt,50.0,9849.0,4924.0,"LACIMR61,LACIMR63",Planlagt,True
-1508,Ålesund,15,Møre og Romsdal,Molde,788.97,943,3.0,Ikke påbegynt,0.0,8749.0,8749.0,LACIMR63,Planlagt,True
-1511,Vanylven,15,Møre og Romsdal,Molde,497.82,687,2.0,Ferdig,100.0,3853.0,0.0,LACIMR63,Planlagt,True
-1514,Sande,15,Møre og Romsdal,Molde,219.16,257,1.0,Ferdig,100.0,1741.0,0.0,LACIMR63,Planlagt,True
-1515,Herøy,15,Møre og Romsdal,Molde,273.65,324,1.0,Ferdig,100.0,3933.0,0.0,LACIMR63,Planlagt,True
-1516,Ulstein,15,Møre og Romsdal,Molde,258.29,295,1.0,Ferdig,100.0,2064.0,0.0,LACIMR63,Planlagt,True
-1517,Hareid,15,Møre og Romsdal,Molde,207.21,237,1.0,Ferdig,100.0,1697.0,0.0,LACIMR63,Planlagt,True
-1520,Ørsta,15,Møre og Romsdal,Molde,873.79,1213,3.0,Ferdig,100.0,7613.0,0.0,LACIMR63,Planlagt,True
-1525,Stranda,15,Møre og Romsdal,Molde,523.16,1022,3.0,Ikke påbegynt,0.0,3918.0,3918.0,LACIMR63,Planlagt,True
-1528,Sykkylven,15,Møre og Romsdal,Molde,360.31,540,2.0,Ikke påbegynt,0.0,2501.0,2501.0,LACIMR63,Planlagt,True
-1531,Sula,15,Møre og Romsdal,Molde,209.67,227,1.0,Ferdig,100.0,2706.0,0.0,,,False
-1532,Giske,15,Møre og Romsdal,Molde,147.93,160,1.0,Ferdig,100.0,1996.0,0.0,LACIMR63,Planlagt,True
-1535,Vestnes,15,Møre og Romsdal,Molde,683.11,877,2.0,Påbegynt,50.0,5719.0,2860.0,"LACIMR61,LACIMR63",Planlagt,True
-1539,Rauma,15,Møre og Romsdal,Molde,1270.43,2053,5.0,Ferdig,100.0,7546.0,0.0,"LACIMR61,LACIMR63",Planlagt,True
-1547,Aukra,15,Møre og Romsdal,Molde,105.9,135,1.0,Påbegynt,50.0,900.0,450.0,LACIMR61,Planlagt,True
-1554,Averøy,15,Møre og Romsdal,Molde,397.05,471,2.0,Ikke påbegynt,0.0,3601.0,3601.0,LACIMR51,Pågående,True
-1557,Gjemnes,15,Møre og Romsdal,Molde,534.8,725,2.0,Ikke påbegynt,0.0,3596.0,3596.0,LACIMR51,Pågående,True
-1560,Tingvoll,15,Møre og Romsdal,Molde,668.07,813,2.0,Ikke påbegynt,0.0,5373.0,5373.0,LACIMR51,Pågående,True
-1563,Sunndal,15,Møre og Romsdal,Molde,1160.13,2121,5.0,Ikke påbegynt,0.0,7848.0,7848.0,"LACIMR51,LACIMR63","Planlagt,Pågående",True
-1566,Surnadal,15,Møre og Romsdal,Molde,1257.85,1993,5.0,Ikke påbegynt,0.0,7330.0,7330.0,LACIMR51,Pågående,True
-1573,Smøla,15,Møre og Romsdal,Molde,194.02,345,1.0,Ferdig,100.0,1964.0,0.0,LACIMR51,Pågående,True
-1576,Aure,15,Møre og Romsdal,Molde,647.43,990,3.0,Ikke påbegynt,0.0,4577.0,4577.0,LACIMR51,Pågående,True
-1577,Volda,15,Møre og Romsdal,Molde,860.16,1320,3.0,Ferdig,100.0,7345.0,0.0,LACIMR63,Planlagt,True
-1578,Fjord,15,Møre og Romsdal,Molde,834.03,1498,4.0,Ikke påbegynt,0.0,5931.0,5931.0,LACIMR63,Planlagt,True
-1579,Hustadvika,15,Møre og Romsdal,Molde,1033.17,1264,3.0,Ikke påbegynt,0.0,7743.0,7743.0,LACIMR61,Planlagt,True
-1580,Haram,15,Møre og Romsdal,Molde,461.3,582,2.0,Ikke påbegynt,0.0,4153.0,4153.0,LACIMR63,Planlagt,True
-1804,Bodø,18,Nordland,Bodø,1338.85,2063,5.0,Ikke påbegynt,0.0,11982.0,11982.0,"LACINO61,LACINO62",Planlagt,True
-1806,Narvik,18,Nordland,Bodø,1404.93,3349,8.0,Ikke påbegynt,0.0,12335.0,12335.0,,,False
-1811,Bindal,18,Nordland,Bodø,391.82,1130,3.0,Ikke påbegynt,0.0,2467.0,2467.0,,,False
-1812,Sømna,18,Nordland,Bodø,255.87,356,1.0,Ikke påbegynt,0.0,1993.0,1993.0,,,False
-1813,Brønnøy,18,Nordland,Bodø,678.07,1263,3.0,Ikke påbegynt,0.0,5124.0,5124.0,,,False
-1815,Vega,18,Nordland,Bodø,132.77,226,1.0,Ikke påbegynt,0.0,1249.0,1249.0,,,False
-1816,Vevelstad,18,Nordland,Bodø,207.35,523,2.0,Ikke påbegynt,0.0,1471.0,1471.0,,,False
-1818,Herøy,18,Nordland,Bodø,88.32,121,1.0,Ikke påbegynt,0.0,3933.0,3933.0,,,False
-1820,Alstahaug,18,Nordland,Bodø,315.32,407,1.0,Ikke påbegynt,0.0,3019.0,3019.0,,,False
-1822,Leirfjord,18,Nordland,Bodø,297.78,563,2.0,Ikke påbegynt,0.0,2506.0,2506.0,LACINO62,Planlagt,True
-1824,Vefsn,18,Nordland,Bodø,1183.48,2266,6.0,Ikke påbegynt,0.0,8559.0,8559.0,LACINO62,Planlagt,True
-1825,Grane,18,Nordland,Bodø,666.52,1827,5.0,Ikke påbegynt,0.0,4468.0,4468.0,,,False
-1826,Aarborte - Hattfjelldal,18,Nordland,Bodø,854.25,2341,6.0,Ikke påbegynt,0.0,4610.0,4610.0,,,False
-1827,Dønna,18,Nordland,Bodø,175.89,280,1.0,Ikke påbegynt,0.0,1732.0,1732.0,LACINO62,Planlagt,True
-1828,Nesna,18,Nordland,Bodø,207.19,305,1.0,Ikke påbegynt,0.0,1141.0,1141.0,"LACINO61,LACINO62",Planlagt,True
-1832,Hemnes,18,Nordland,Bodø,869.1,1716,4.0,Ikke påbegynt,0.0,4516.0,4516.0,"LACINO51,LACINO62","Planlagt,Pågående",True
-1833,Rana,18,Nordland,Bodø,1813.92,4375,10.0,Ikke påbegynt,0.0,10959.0,10959.0,"LACINO51,LACINO62","Planlagt,Pågående",True
-1834,Lurøy,18,Nordland,Bodø,197.01,346,1.0,Ikke påbegynt,0.0,1485.0,1485.0,"LACINO51,LACINO62","Planlagt,Pågående",True
-1835,Træna,18,Nordland,Bodø,11.12,20,1.0,Ikke påbegynt,0.0,88.0,88.0,,,False
-1836,Rødøy,18,Nordland,Bodø,232.38,657,2.0,Ikke påbegynt,0.0,1257.0,1257.0,LACINO62,Planlagt,True
-1837,Meløy,18,Nordland,Bodø,584.95,1048,3.0,Ikke påbegynt,0.0,4215.0,4215.0,"LACINO51,LACINO62","Planlagt,Pågående",True
-1838,Gildeskål,18,Nordland,Bodø,363.8,734,2.0,Ikke påbegynt,0.0,2461.0,2461.0,LACINO62,Planlagt,True
-1839,Beiarn,18,Nordland,Bodø,590.5,1300,3.0,Ikke påbegynt,0.0,3086.0,3086.0,LACINO62,Planlagt,True
-1840,Saltdal,18,Nordland,Bodø,1138.68,2386,6.0,Ikke påbegynt,0.0,5167.0,5167.0,"LACINO61,LACINO62",Planlagt,True
-1841,Fauske - Fuossko,18,Nordland,Bodø,745.84,1395,4.0,Ikke påbegynt,0.0,5814.0,5814.0,"LACINO61,LACINO62",Planlagt,True
-1845,Sørfold,18,Nordland,Bodø,510.73,1419,4.0,Ikke påbegynt,0.0,3450.0,3450.0,LACINO61,Planlagt,True
-1848,Steigen,18,Nordland,Bodø,651.73,1216,3.0,Ikke påbegynt,0.0,4379.0,4379.0,,,False
-1851,Lødingen,18,Nordland,Bodø,283.95,587,2.0,Ikke påbegynt,0.0,2014.0,2014.0,,,False
-1853,Evenes - Evenášši,18,Nordland,Bodø,377.36,498,2.0,Ikke påbegynt,0.0,2823.0,2823.0,,,False
-1856,Røst,18,Nordland,Bodø,34.4,38,1.0,Ikke påbegynt,0.0,455.0,455.0,,,False
-1857,Værøy,18,Nordland,Bodø,32.37,42,1.0,Ikke påbegynt,0.0,187.0,187.0,,,False
-1859,Flakstad,18,Nordland,Bodø,226.52,315,1.0,Ikke påbegynt,0.0,2889.0,2889.0,,,False
-1860,Vestvågøy,18,Nordland,Bodø,646.46,849,2.0,Ikke påbegynt,0.0,4988.0,4988.0,,,False
-1865,Vågan,18,Nordland,Bodø,477.14,731,2.0,Ikke påbegynt,0.0,4309.0,4309.0,,,False
-1866,Hadsel,18,Nordland,Bodø,694.67,986,3.0,Ikke påbegynt,0.0,4661.0,4661.0,,,False
-1867,Bø,18,Nordland,Bodø,330.08,451,2.0,Påbegynt,25.0,1613.0,1210.0,,,False
-1868,Øksnes,18,Nordland,Bodø,323.61,495,2.0,Ferdig,100.0,2602.0,0.0,,,False
-1870,Sortland - Suortá,18,Nordland,Bodø,669.36,1059,3.0,Ikke påbegynt,0.0,4121.0,4121.0,,,False
-1871,Andøy,18,Nordland,Bodø,1034.32,1336,4.0,Ikke påbegynt,0.0,7827.0,7827.0,,,False
-1874,Moskenes,18,Nordland,Bodø,88.58,152,1.0,Ikke påbegynt,0.0,949.0,949.0,,,False
-1875,Hábmer - Hamarøy,18,Nordland,Bodø,784.33,1905,5.0,Ikke påbegynt,0.0,5093.0,5093.0,,,False
-3101,Halden,31,Østfold,Oslo,1358.82,1615,4.0,Ferdig,100.0,11913.0,0.0,,,False
-3103,Moss,31,Østfold,Oslo,462.05,501,2.0,Ikke påbegynt,0.0,6581.0,6581.0,,,False
-3105,Sarpsborg,31,Østfold,Oslo,1027.46,1169,3.0,Ikke påbegynt,0.0,13048.0,13048.0,,,False
-3107,Fredrikstad,31,Østfold,Oslo,988.5,1078,3.0,Ikke påbegynt,0.0,14235.0,14235.0,,,False
-3110,Hvaler,31,Østfold,Oslo,258.87,292,1.0,Ikke påbegynt,0.0,4834.0,4834.0,,,False
-3112,Råde,31,Østfold,Oslo,202.34,251,1.0,Ferdig,100.0,2288.0,0.0,,,False
-3114,Våler,31,Østfold,Oslo,614.35,711,2.0,Ikke påbegynt,0.0,8900.0,8900.0,,,False
-3116,Skiptvet,31,Østfold,Oslo,182.52,225,1.0,Påbegynt,80.0,1677.0,335.0,,,False
-3118,Indre Østfold,31,Østfold,Oslo,1616.36,1952,5.0,Ikke påbegynt,0.0,15270.0,15270.0,,,False
-3120,Rakkestad,31,Østfold,Oslo,608.67,824,2.0,Påbegynt,95.0,3807.0,190.0,,,False
-3122,Marker,31,Østfold,Oslo,436.44,634,2.0,Ferdig,100.0,2269.0,0.0,,,False
-3124,Aremark,31,Østfold,Oslo,273.62,431,2.0,Ferdig,100.0,1483.0,0.0,,,False
-3201,Bærum,32,Akershus,Oslo,717.84,772,2.0,Påbegynt,80.0,10234.0,2047.0,LACIAK61,Pågående,True
-3203,Asker,32,Akershus,Oslo,1324.64,1434,4.0,Ikke påbegynt,0.0,16870.0,16870.0,LACIAK61,Pågående,True
-3205,Lillestrøm,32,Akershus,Oslo,1054.89,1220,3.0,Ikke påbegynt,0.0,10677.0,10677.0,,,False
-3207,Nordre Follo,32,Akershus,Oslo,574.38,647,2.0,Ferdig,100.0,6990.0,0.0,,,False
-3209,Ullensaker,32,Akershus,Oslo,666.12,765,2.0,Ikke påbegynt,0.0,5340.0,5340.0,,,False
-3212,Nesodden,32,Akershus,Oslo,224.69,243,1.0,Ferdig,100.0,2953.0,0.0,,,False
-3214,Frogn,32,Akershus,Oslo,284.07,312,1.0,Ferdig,100.0,4201.0,0.0,,,False
-3216,Vestby,32,Akershus,Oslo,418.93,466,2.0,Ferdig,100.0,4345.0,0.0,,,False
-3218,Ås,32,Akershus,Oslo,259.82,300,1.0,Ferdig,100.0,3084.0,0.0,,,False
-3220,Enebakk,32,Akershus,Oslo,490.83,570,2.0,Ferdig,100.0,4093.0,0.0,,,False
-3222,Lørenskog,32,Akershus,Oslo,170.12,197,1.0,Ikke påbegynt,0.0,2091.0,2091.0,,,False
-3224,Rælingen,32,Akershus,Oslo,222.81,238,1.0,Ferdig,100.0,3352.0,0.0,,,False
-3226,Aurskog-Høland,32,Akershus,Oslo,1678.31,2202,5.0,Ikke påbegynt,0.0,10975.0,10975.0,,,False
-3228,Nes,32,Akershus,Oslo,1250.62,1528,4.0,Ikke påbegynt,0.0,7813.0,7813.0,,,False
-3230,Gjerdrum,32,Akershus,Oslo,184.59,220,1.0,Ferdig,100.0,1443.0,0.0,,,False
-3232,Nittedal,32,Akershus,Oslo,623.5,680,2.0,Påbegynt,0.0,5357.0,5357.0,,,False
-3234,Lunner,32,Akershus,Oslo,726.79,834,2.0,Ferdig,100.0,5579.0,0.0,,,False
-3236,Jevnaker,32,Akershus,Oslo,463.54,545,2.0,Ferdig,100.0,3494.0,0.0,,,False
-3238,Nannestad,32,Akershus,Oslo,722.65,864,2.0,Ferdig,100.0,4444.0,0.0,,,False
-3240,Eidsvoll,32,Akershus,Oslo,830.41,1002,3.0,Ferdig,100.0,5707.0,0.0,,,False
-3242,Hurdal,32,Akershus,Oslo,715.03,816,2.0,Ferdig,100.0,4543.0,0.0,,,False
-3301,Drammen,33,Buskerud,Oslo,1077.76,1172,3.0,Ikke påbegynt,0.0,11937.0,11937.0,,,False
-3303,Kongsberg,33,Buskerud,Oslo,2170.21,2452,6.0,Ikke påbegynt,0.0,18936.0,18936.0,,,False
-3305,Ringerike,33,Buskerud,Oslo,3496.22,4085,10.0,Ikke påbegynt,0.0,27311.0,27311.0,,,False
-3310,Hole,33,Buskerud,Oslo,419.26,467,2.0,Ferdig,100.0,3102.0,0.0,,,False
-3312,Lier,33,Buskerud,Oslo,822.18,926,3.0,Ikke påbegynt,0.0,6724.0,6724.0,,,False
-3314,Øvre Eiker,33,Buskerud,Oslo,920.49,1104,3.0,Ikke påbegynt,0.0,6486.0,6486.0,,,False
-3316,Modum,33,Buskerud,Oslo,1353.27,1524,4.0,Påbegynt,0.0,10613.0,10613.0,,,False
-3318,Krødsherad,33,Buskerud,Oslo,837.06,978,3.0,Ferdig,100.0,7775.0,0.0,,,False
-3320,Flå,33,Buskerud,Oslo,1065.49,1399,4.0,Ikke påbegynt,0.0,6856.0,6856.0,,,False
-3322,Nesbyen,33,Buskerud,Oslo,1720.16,2057,5.0,Ikke påbegynt,0.0,11185.0,11185.0,,,False
-3324,Gol,33,Buskerud,Oslo,1351.45,1556,4.0,Ikke påbegynt,0.0,9600.0,9600.0,,,False
-3326,Hemsedal,33,Buskerud,Oslo,1039.28,1403,4.0,Ikke påbegynt,0.0,8110.0,8110.0,,,False
-3328,Ål,33,Buskerud,Oslo,2265.72,2751,7.0,Ikke påbegynt,0.0,16194.0,16194.0,,,False
-3330,Hol,33,Buskerud,Oslo,2523.6,3356,8.0,Påbegynt,20.0,14988.0,11990.0,,,False
-3332,Sigdal,33,Buskerud,Oslo,1915.51,2259,6.0,Ikke påbegynt,0.0,17054.0,17054.0,,,False
-3334,Flesberg,33,Buskerud,Oslo,1009.34,1262,3.0,Ferdig,100.0,10021.0,0.0,,,False
-3336,Rollag,33,Buskerud,Oslo,852.55,1050,3.0,Påbegynt,35.0,7744.0,5034.0,,,False
-3338,Nore og Uvdal,33,Buskerud,Oslo,2752.34,3962,9.0,Ikke påbegynt,0.0,13281.0,13281.0,,,False
-3401,Kongsvinger,34,Innlandet,Hamar,1833.61,2277,6.0,Påbegynt,95.0,10212.0,511.0,,,False
-3403,Hamar,34,Innlandet,Hamar,490.53,663,2.0,Påbegynt,95.0,3151.0,158.0,LACIIN63,Pågående,True
-3405,Lillehammer,34,Innlandet,Hamar,1235.18,1410,4.0,Ikke påbegynt,0.0,10606.0,10606.0,LACIIN53,Pågående,True
-3407,Gjøvik,34,Innlandet,Hamar,1180.56,1476,4.0,Ikke påbegynt,0.0,7897.0,7897.0,"LACIIN53,LACIIN61","Planlagt,Pågående",True
-3411,Ringsaker,34,Innlandet,Hamar,1796.16,2354,6.0,Påbegynt,95.0,12701.0,635.0,LACIIN63,Pågående,True
-3412,Løten,34,Innlandet,Hamar,463.16,654,2.0,Påbegynt,95.0,2884.0,144.0,LACIIN63,Pågående,True
-3413,Stange,34,Innlandet,Hamar,1098.96,1410,4.0,Påbegynt,95.0,7796.0,390.0,,,False
-3414,Nord-Odal,34,Innlandet,Hamar,636.82,885,2.0,Ferdig,100.0,3411.0,0.0,,,False
-3415,Sør-Odal,34,Innlandet,Hamar,960.99,1180,3.0,Ferdig,100.0,5776.0,0.0,,,False
-3416,Eidskog,34,Innlandet,Hamar,970.57,1269,3.0,Ferdig,100.0,5440.0,0.0,,,False
-3417,Grue,34,Innlandet,Hamar,868.74,1291,3.0,Ferdig,100.0,4204.0,0.0,,,False
-3418,Åsnes,34,Innlandet,Hamar,967.29,1528,4.0,Ferdig,100.0,5531.0,0.0,,,False
-3419,Våler,34,Innlandet,Hamar,939.14,1290,3.0,Påbegynt,95.0,8900.0,445.0,LACIIN63,Pågående,True
-3420,Elverum,34,Innlandet,Hamar,2046.99,2637,6.0,Påbegynt,95.0,11666.0,583.0,LACIIN63,Pågående,True
-3421,Trysil,34,Innlandet,Hamar,3173.77,4782,11.0,Påbegynt,95.0,16189.0,809.0,LACIIN63,Pågående,True
-3422,Åmot,34,Innlandet,Hamar,1496.86,2194,5.0,Ikke påbegynt,0.0,9088.0,9088.0,LACIIN63,Pågående,True
-3423,Stor-Elvdal,34,Innlandet,Hamar,2621.48,3753,9.0,Påbegynt,95.0,13617.0,681.0,"LACHIN42,LACIIN63",Pågående,True
-3424,Rendalen,34,Innlandet,Hamar,3235.68,4916,11.0,Ikke påbegynt,0.0,11980.0,11980.0,LACHIN42,Pågående,True
-3425,Engerdal,34,Innlandet,Hamar,1647.08,2735,7.0,Påbegynt,95.0,6538.0,327.0,LACHIN42,Pågående,True
-3426,Tolga,34,Innlandet,Hamar,1747.4,2293,6.0,Påbegynt,95.0,8559.0,428.0,LACHIN42,Pågående,True
-3427,Tynset,34,Innlandet,Hamar,2278.7,3245,8.0,Ikke påbegynt,0.0,10498.0,10498.0,LACHIN42,Pågående,True
-3428,Alvdal,34,Innlandet,Hamar,2111.75,2506,6.0,Ikke påbegynt,0.0,10557.0,10557.0,LACHIN42,Pågående,True
-3429,Folldal,34,Innlandet,Hamar,1852.43,2494,6.0,Påbegynt,95.0,8494.0,425.0,LACHIN42,Pågående,True
-3430,Os,34,Innlandet,Hamar,984.16,1545,4.0,Påbegynt,95.0,5106.0,255.0,LACHIN42,Pågående,True
-3431,Dovre,34,Innlandet,Hamar,1733.34,2444,6.0,Ikke påbegynt,0.0,8098.0,8098.0,LACIIN52,Pågående,True
-3432,Lesja,34,Innlandet,Hamar,1355.25,2635,6.0,Ikke påbegynt,0.0,6501.0,6501.0,LACIIN52,Pågående,True
-3433,Skjåk,34,Innlandet,Hamar,1090.6,2265,6.0,Ikke påbegynt,0.0,5069.0,5069.0,LACIIN52,Pågående,True
-3434,Lom,34,Innlandet,Hamar,1229.92,2340,6.0,Ikke påbegynt,0.0,6259.0,6259.0,LACIIN52,Pågående,True
-3435,Vågå,34,Innlandet,Hamar,1743.14,2390,6.0,Ikke påbegynt,0.0,10194.0,10194.0,LACIIN52,Pågående,True
-3436,Nord-Fron,34,Innlandet,Hamar,1952.39,2475,6.0,Ikke påbegynt,0.0,12207.0,12207.0,LACIIN52,Pågående,True
-3437,Sel,34,Innlandet,Hamar,2052.21,2432,6.0,Ikke påbegynt,0.0,14777.0,14777.0,LACIIN52,Pågående,True
-3438,Sør-Fron,34,Innlandet,Hamar,1345.17,1679,4.0,Ikke påbegynt,0.0,7916.0,7916.0,LACIIN52,Pågående,True
-3439,Ringebu,34,Innlandet,Hamar,2943.26,3454,8.0,Ikke påbegynt,0.0,18435.0,18435.0,,,False
-3440,Øyer,34,Innlandet,Hamar,1668.43,1908,5.0,Ikke påbegynt,0.0,10070.0,10070.0,,,False
-3441,Gausdal,34,Innlandet,Hamar,2242.52,2772,7.0,Ikke påbegynt,0.0,12287.0,12287.0,,,False
-3442,Østre Toten,34,Innlandet,Hamar,964.03,1187,3.0,Ikke påbegynt,0.0,4326.0,4326.0,LACIIN61,Planlagt,True
-3443,Vestre Toten,34,Innlandet,Hamar,500.43,604,2.0,Ikke påbegynt,0.0,3356.0,3356.0,LACIIN61,Planlagt,True
-3446,Gran,34,Innlandet,Hamar,1181.75,1495,4.0,Ikke påbegynt,0.0,8906.0,8906.0,,,False
-3447,Søndre Land,34,Innlandet,Hamar,1261.37,1569,4.0,Ikke påbegynt,0.0,7653.0,7653.0,LACIIN61,Planlagt,True
-3448,Nordre Land,34,Innlandet,Hamar,2265.45,2646,6.0,Ikke påbegynt,0.0,12435.0,12435.0,"LACIIN53,LACIIN61","Planlagt,Pågående",True
-3449,Sør-Aurdal,34,Innlandet,Hamar,2160.85,2648,6.0,Ikke påbegynt,0.0,13249.0,13249.0,,,False
-3450,Etnedal,34,Innlandet,Hamar,929.71,1128,3.0,Ikke påbegynt,0.0,6276.0,6276.0,LACIIN53,Pågående,True
-3451,Nord-Aurdal,34,Innlandet,Hamar,1959.26,2323,6.0,Ikke påbegynt,0.0,13002.0,13002.0,LACIIN53,Pågående,True
-3452,Vestre Slidre,34,Innlandet,Hamar,1298.84,1444,4.0,Ikke påbegynt,0.0,11716.0,11716.0,,,False
-3453,Øystre Slidre,34,Innlandet,Hamar,1273.36,1727,4.0,Ikke påbegynt,0.0,7995.0,7995.0,,,False
-3454,Vang,34,Innlandet,Hamar,1422.38,2137,5.0,Ikke påbegynt,0.0,8187.0,8187.0,,,False
-3901,Horten,39,Vestfold,Skien,193.77,220,1.0,Ikke påbegynt,0.0,2273.0,2273.0,LACIVE51,Pågående,True
-3903,Holmestrand,39,Vestfold,Skien,1155.14,1312,3.0,Ikke påbegynt,0.0,8664.0,8664.0,LACIVE51,Pågående,True
-3905,Tønsberg,39,Vestfold,Skien,975.43,1094,3.0,Ikke påbegynt,0.0,10065.0,10065.0,LACIVE51,Pågående,True
-3907,Sandefjord,39,Vestfold,Skien,1310.65,1454,4.0,Ikke påbegynt,0.0,13753.0,13753.0,LACIVE51,Pågående,True
-3909,Larvik,39,Vestfold,Skien,2065.11,2368,6.0,Ikke påbegynt,0.0,20251.0,20251.0,LACIVE51,Pågående,True
-3911,Færder,39,Vestfold,Skien,345.38,377,1.0,Ikke påbegynt,0.0,5132.0,5132.0,LACIVE51,Pågående,True
-4001,Porsgrunn,40,Telemark,Skien,652.21,694,2.0,Påbegynt,0.0,7351.0,7351.0,LACITE61,Planlagt,True
-4003,Skien,40,Telemark,Skien,1589.44,1904,5.0,Ikke påbegynt,0.0,11644.0,11644.0,LACITE61,Planlagt,True
-4005,Notodden,40,Telemark,Skien,1383.55,1844,5.0,Påbegynt,0.0,8977.0,8977.0,,,False
-4010,Siljan,40,Telemark,Skien,437.25,527,2.0,Ikke påbegynt,0.0,2674.0,2674.0,,,False
-4012,Bamble,40,Telemark,Skien,516.47,650,2.0,Ikke påbegynt,0.0,5868.0,5868.0,LACITE61,Planlagt,True
-4014,Kragerø,40,Telemark,Skien,713.35,833,2.0,Ikke påbegynt,0.0,8153.0,8153.0,LACITE61,Planlagt,True
-4016,Drangedal,40,Telemark,Skien,1453.62,1961,5.0,Ikke påbegynt,0.0,9597.0,9597.0,LACITE61,Planlagt,True
-4018,Nome,40,Telemark,Skien,708.73,891,2.0,Ikke påbegynt,0.0,4661.0,4661.0,LACITE61,Planlagt,True
-4020,Midt-Telemark,40,Telemark,Skien,1393.38,1576,4.0,Ferdig,100.0,9207.0,0.0,,,False
-4022,Seljord,40,Telemark,Skien,1336.31,1643,4.0,Ikke påbegynt,0.0,9972.0,9972.0,,,False
-4024,Hjartdal,40,Telemark,Skien,1055.66,1434,4.0,Ikke påbegynt,0.0,8171.0,8171.0,,,False
-4026,Tinn,40,Telemark,Skien,2578.3,3533,8.0,Ikke påbegynt,0.0,13385.0,13385.0,,,False
-4028,Kviteseid,40,Telemark,Skien,907.25,1225,3.0,Ikke påbegynt,0.0,5611.0,5611.0,,,False
-4030,Nissedal,40,Telemark,Skien,960.64,1380,4.0,Ikke påbegynt,0.0,6540.0,6540.0,,,False
-4032,Fyresdal,40,Telemark,Skien,968.84,1596,4.0,Ikke påbegynt,0.0,5047.0,5047.0,LACITE52,Pågående,True
-4034,Tokke,40,Telemark,Skien,1141.51,1621,4.0,Ikke påbegynt,0.0,6401.0,6401.0,LACITE52,Pågående,True
-4036,Vinje,40,Telemark,Skien,2317.61,3868,9.0,Ikke påbegynt,0.0,12380.0,12380.0,LACITE52,Pågående,True
-4201,Risør,42,Agder,Kristiansand,644.33,693,2.0,Ikke påbegynt,0.0,7458.0,7458.0,,,False
-4202,Grimstad,42,Agder,Kristiansand,590.11,710,2.0,Ikke påbegynt,0.0,6512.0,6512.0,,,False
-4203,Arendal,42,Agder,Kristiansand,1212.87,1262,3.0,Ikke påbegynt,0.0,18178.0,18178.0,LACIAG61,Planlagt,True
-4204,Kristiansand,42,Agder,Kristiansand,2282.93,2460,6.0,Ikke påbegynt,0.0,27939.0,27939.0,LACIAG61,Planlagt,True
-4205,Lindesnes,42,Agder,Kristiansand,3097.54,3373,8.0,Ikke påbegynt,0.0,30608.0,30608.0,LACIAG61,Planlagt,True
-4206,Farsund,42,Agder,Kristiansand,654.72,756,2.0,Ikke påbegynt,0.0,8160.0,8160.0,,,False
-4207,Flekkefjord,42,Agder,Kristiansand,1088.67,1297,3.0,Ikke påbegynt,0.0,10002.0,10002.0,LACIAG63,Pågående,True
-4211,Gjerstad,42,Agder,Kristiansand,822.19,943,3.0,Påbegynt,95.0,5328.0,266.0,,,False
-4212,Vegårshei,42,Agder,Kristiansand,1046.56,1155,3.0,Ikke påbegynt,0.0,8548.0,8548.0,,,False
-4213,Tvedestrand,42,Agder,Kristiansand,816.78,876,2.0,Ikke påbegynt,0.0,8806.0,8806.0,,,False
-4214,Froland,42,Agder,Kristiansand,912.82,1216,3.0,Påbegynt,95.0,6254.0,313.0,,,False
-4215,Lillesand,42,Agder,Kristiansand,496.92,566,2.0,Påbegynt,0.0,6111.0,6111.0,,,False
-4216,Birkenes,42,Agder,Kristiansand,1321.88,1582,4.0,Ikke påbegynt,0.0,10577.0,10577.0,,,False
-4217,Åmli,42,Agder,Kristiansand,1349.34,1908,5.0,Ikke påbegynt,0.0,8190.0,8190.0,,,False
-4218,Iveland,42,Agder,Kristiansand,488.62,602,2.0,Påbegynt,80.0,3446.0,689.0,,,False
-4219,Evje og Hornnes,42,Agder,Kristiansand,936.03,1203,3.0,Ikke påbegynt,0.0,7758.0,7758.0,LACIAG61,Planlagt,True
-4220,Bygland,42,Agder,Kristiansand,1148.18,1786,4.0,Ikke påbegynt,0.0,7574.0,7574.0,,,False
-4221,Valle,42,Agder,Kristiansand,1163.01,1786,4.0,Ikke påbegynt,0.0,7136.0,7136.0,LACIAG63,Pågående,True
-4222,Bykle,42,Agder,Kristiansand,633.15,1388,4.0,Ikke påbegynt,0.0,4958.0,4958.0,"LACIAG61,LACIAG63","Planlagt,Pågående",True
-4223,Vennesla,42,Agder,Kristiansand,1082.58,1214,3.0,Påbegynt,90.0,10530.0,1053.0,LACIAG61,Planlagt,True
-4224,Åseral,42,Agder,Kristiansand,691.46,1144,3.0,Ikke påbegynt,0.0,5558.0,5558.0,LACIAG61,Planlagt,True
-4225,Lyngdal,42,Agder,Kristiansand,1390.63,1651,4.0,Ikke påbegynt,0.0,13449.0,13449.0,LACIAG61,Planlagt,True
-4226,Hægebostad,42,Agder,Kristiansand,671.59,883,2.0,Ferdig,100.0,5244.0,0.0,,,False
-4227,Kvinesdal,42,Agder,Kristiansand,1347.36,1794,4.0,Ikke påbegynt,0.0,10186.0,10186.0,,,False
-4228,Sirdal,42,Agder,Kristiansand,1082.7,1872,5.0,Ikke påbegynt,0.0,8126.0,8126.0,LACIAG63,Pågående,True
-4601,Bergen,46,Vestland,Bergen,1711.47,1836,5.0,Ikke påbegynt,0.0,30466.0,30466.0,LACIVL64,Planlagt,True
-4602,Kinn,46,Vestland,Bergen,954.96,1360,4.0,Ikke påbegynt,0.0,9385.0,9385.0,LACHVL39,Planlagt,True
-4611,Etne,46,Vestland,Bergen,1158.58,1497,4.0,Ikke påbegynt,0.0,10118.0,10118.0,,,False
-4612,Sveio,46,Vestland,Bergen,690.69,770,2.0,Ikke påbegynt,0.0,8328.0,8328.0,LACIVL61,Planlagt,True
-4613,Bømlo,46,Vestland,Bergen,567.12,666,2.0,Påbegynt,70.0,6759.0,2028.0,LACIVL61,Planlagt,True
-4614,Stord,46,Vestland,Bergen,470.6,514,2.0,Ikke påbegynt,0.0,5301.0,5301.0,LACIVL61,Planlagt,True
-4615,Fitjar,46,Vestland,Bergen,439.6,485,2.0,Ferdig,100.0,4648.0,0.0,LACIVL61,Planlagt,True
-4616,Tysnes,46,Vestland,Bergen,640.2,738,2.0,Ferdig,100.0,7572.0,0.0,LACIVL61,Planlagt,True
-4617,Kvinnherad,46,Vestland,Bergen,1118.43,1689,4.0,Ikke påbegynt,0.0,8939.0,8939.0,,,False
-4618,Ullensvang,46,Vestland,Bergen,2631.96,4306,10.0,Ikke påbegynt,0.0,18650.0,18650.0,,,False
-4619,Eidfjord,46,Vestland,Bergen,1132.6,1927,5.0,Ikke påbegynt,0.0,5017.0,5017.0,LACIVL02,Pågående,True
-4620,Ulvik,46,Vestland,Bergen,493.29,877,2.0,Ikke påbegynt,0.0,2743.0,2743.0,,,False
-4621,Voss,46,Vestland,Bergen,2587.84,3613,9.0,Ikke påbegynt,0.0,23191.0,23191.0,,,False
-4622,Kvam,46,Vestland,Bergen,1250.23,1507,4.0,Ikke påbegynt,0.0,11908.0,11908.0,,,False
-4623,Samnanger,46,Vestland,Bergen,320.94,457,2.0,Ikke påbegynt,0.0,2675.0,2675.0,,,False
-4624,Bjørnafjorden,46,Vestland,Bergen,975.99,1199,3.0,Ikke påbegynt,0.0,10297.0,10297.0,,,False
-4625,Austevoll,46,Vestland,Bergen,210.14,264,1.0,Ferdig,100.0,2012.0,0.0,LACIVL61,Planlagt,True
-4626,Øygarden,46,Vestland,Bergen,971.5,1073,3.0,Ikke påbegynt,0.0,11226.0,11226.0,,,False
-4627,Askøy,46,Vestland,Bergen,416.14,437,2.0,Ikke påbegynt,0.0,5218.0,5218.0,,,False
-4628,Vaksdal,46,Vestland,Bergen,564.92,954,3.0,Ikke påbegynt,0.0,4528.0,4528.0,LACIVL01,Pågående,True
-4629,Modalen,46,Vestland,Bergen,247.66,470,2.0,Ferdig,100.0,1428.0,0.0,LACHVL39,Planlagt,True
-4630,Osterøy,46,Vestland,Bergen,801.64,883,2.0,Ikke påbegynt,0.0,8960.0,8960.0,LACIVL01,Pågående,True
-4631,Alver,46,Vestland,Bergen,1977.05,2210,5.0,Ikke påbegynt,0.0,27783.0,27783.0,LACIVL01,Pågående,True
-4632,Austrheim,46,Vestland,Bergen,207.18,224,1.0,Ikke påbegynt,0.0,3305.0,3305.0,,,False
-4633,Fedje,46,Vestland,Bergen,46.72,48,1.0,Ferdig,100.0,778.0,0.0,,,False
-4634,Masfjorden,46,Vestland,Bergen,503.95,787,2.0,Ikke påbegynt,0.0,4590.0,4590.0,LACIVL01,Pågående,True
-4635,Gulen,46,Vestland,Bergen,391.6,729,2.0,Ikke påbegynt,0.0,4082.0,4082.0,LACIVL01,Pågående,True
-4636,Solund,46,Vestland,Bergen,135.6,265,1.0,Ikke påbegynt,0.0,1189.0,1189.0,,,False
-4637,Hyllestad,46,Vestland,Bergen,417.78,539,2.0,Ikke påbegynt,0.0,3011.0,3011.0,,,False
-4638,Høyanger,46,Vestland,Bergen,571.42,1120,3.0,Ikke påbegynt,0.0,3476.0,3476.0,LACHVL39,Planlagt,True
-4639,Vik,46,Vestland,Bergen,856.15,1291,3.0,Ikke påbegynt,0.0,4624.0,4624.0,LACHVL39,Planlagt,True
-4640,Sogndal,46,Vestland,Bergen,1377.92,2045,5.0,Ikke påbegynt,0.0,9640.0,9640.0,LACHVL39,Planlagt,True
-4641,Aurland,46,Vestland,Bergen,951.96,1756,4.0,Ikke påbegynt,0.0,4599.0,4599.0,"LACHVL39,LACIVL03","Planlagt,Pågående",True
-4642,Lærdal,46,Vestland,Bergen,672.49,1438,4.0,Ikke påbegynt,0.0,3598.0,3598.0,LACHVL39,Planlagt,True
-4643,Årdal,46,Vestland,Bergen,562.88,1114,3.0,Ikke påbegynt,0.0,2758.0,2758.0,LACIVL03,Pågående,True
-4644,Luster,46,Vestland,Bergen,1476.41,3025,7.0,Påbegynt,25.0,6200.0,4650.0,LACIVL62,Planlagt,True
-4645,Askvoll,46,Vestland,Bergen,533.13,685,2.0,Ikke påbegynt,0.0,4575.0,4575.0,,,False
-4646,Fjaler,46,Vestland,Bergen,502.55,708,2.0,Ikke påbegynt,0.0,3672.0,3672.0,,,False
-4647,Sunnfjord,46,Vestland,Bergen,2735.56,3816,9.0,Ikke påbegynt,0.0,22959.0,22959.0,"LACHVL39,LACIVL62",Planlagt,True
-4648,Bremanger,46,Vestland,Bergen,675.68,1122,3.0,Ikke påbegynt,0.0,4648.0,4648.0,LACHVL39,Planlagt,True
-4649,Stad,46,Vestland,Bergen,1437.14,1751,4.0,Ikke påbegynt,0.0,12853.0,12853.0,LACHVL39,Planlagt,True
-4650,Gloppen,46,Vestland,Bergen,932.87,1470,4.0,Ikke påbegynt,0.0,7841.0,7841.0,LACHVL39,Planlagt,True
-4651,Stryn,46,Vestland,Bergen,1075.74,1835,5.0,Ikke påbegynt,0.0,7377.0,7377.0,"LACHVL39,LACIVL63",Planlagt,True
-5001,Trondheim - Tråante,50,Trøndelag,Trondheim,1618.92,1786,4.0,Ikke påbegynt,0.0,20525.0,20525.0,,,False
-5006,Steinkjer,50,Trøndelag,Trondheim,2724.54,3723,9.0,Ferdig,100.0,15485.0,0.0,,,False
-5007,Namsos - Nåavmesjenjaelmie,50,Trøndelag,Trondheim,1628.75,2772,7.0,Ferdig,100.0,9057.0,0.0,,,False
-5014,Frøya,50,Trøndelag,Trondheim,489.91,592,2.0,Ferdig,100.0,6058.0,0.0,,,False
-5020,Osen,50,Trøndelag,Trondheim,335.79,544,2.0,Ferdig,100.0,2487.0,0.0,,,False
-5021,Oppdal,50,Trøndelag,Trondheim,3520.02,4613,11.0,Ikke påbegynt,0.0,37049.0,37049.0,,,False
-5022,Rennebu,50,Trøndelag,Trondheim,1297.5,1774,4.0,Ferdig,100.0,9074.0,0.0,,,False
-5025,Rosse - Røros,50,Trøndelag,Trondheim,2140.76,3077,7.0,Ikke påbegynt,0.0,11912.0,11912.0,,,False
-5026,Holtålen,50,Trøndelag,Trondheim,1032.47,1695,4.0,Ikke påbegynt,0.0,6292.0,6292.0,,,False
-5027,Midtre Gauldal,50,Trøndelag,Trondheim,1978.38,2961,7.0,Ikke påbegynt,0.0,13652.0,13652.0,LACITL61,Planlagt,True
-5028,Melhus,50,Trøndelag,Trondheim,1118.2,1435,4.0,Ikke påbegynt,0.0,7720.0,7720.0,LACITL61,Planlagt,True
-5029,Skaun,50,Trøndelag,Trondheim,537.69,624,2.0,Ikke påbegynt,0.0,4079.0,4079.0,LACITL61,Planlagt,True
-5031,Malvik,50,Trøndelag,Trondheim,405.44,472,2.0,Ferdig,100.0,3146.0,0.0,,,False
-5032,Selbu,50,Trøndelag,Trondheim,1028.79,1672,4.0,Ikke påbegynt,0.0,6104.0,6104.0,,,False
-5033,Tydal,50,Trøndelag,Trondheim,1260.27,1931,5.0,Ikke påbegynt,0.0,9999.0,9999.0,,,False
-5034,Meråker,50,Trøndelag,Trondheim,1156.53,1818,5.0,Ikke påbegynt,0.0,7116.0,7116.0,,,False
-5035,Stjørdal,50,Trøndelag,Trondheim,1854.39,2270,6.0,Ikke påbegynt,0.0,13808.0,13808.0,,,False
-5036,Frosta,50,Trøndelag,Trondheim,248.35,273,1.0,Ferdig,100.0,2623.0,0.0,,,False
-5037,Levanger,50,Trøndelag,Trondheim,1422.45,1682,4.0,Ferdig,100.0,12304.0,0.0,,,False
-5038,Verdal,50,Trøndelag,Trondheim,1452.89,2273,6.0,Påbegynt,25.0,9686.0,7264.0,,,False
-5041,Snåase - Snåsa,50,Trøndelag,Trondheim,1182.67,2466,6.0,Ikke påbegynt,0.0,5861.0,5861.0,,,False
-5042,Lierne,50,Trøndelag,Trondheim,815.32,2449,6.0,Ikke påbegynt,0.0,2972.0,2972.0,,,False
-5043,Raarvihke - Røyrvik,50,Trøndelag,Trondheim,188.27,1036,3.0,Ikke påbegynt,0.0,772.0,772.0,,,False
-5044,Namsskogan,50,Trøndelag,Trondheim,407.16,1249,3.0,Ikke påbegynt,0.0,2245.0,2245.0,,,False
-5045,Grong,50,Trøndelag,Trondheim,917.3,1542,4.0,Ikke påbegynt,0.0,4904.0,4904.0,,,False
-5046,Høylandet,50,Trøndelag,Trondheim,357.95,781,2.0,Ikke påbegynt,0.0,2199.0,2199.0,,,False
-5047,Overhalla,50,Trøndelag,Trondheim,625.24,1013,3.0,Ikke påbegynt,0.0,3968.0,3968.0,,,False
-5049,Flatanger,50,Trøndelag,Trondheim,207.09,470,2.0,Påbegynt,2.0,1418.0,1390.0,,,False
-5052,Leka,50,Trøndelag,Trondheim,110.9,171,1.0,Ferdig,100.0,743.0,0.0,,,False
-5053,Inderøy,50,Trøndelag,Trondheim,917.64,1058,3.0,Ikke påbegynt,0.0,7306.0,7306.0,,,False
-5054,Indre Fosen,50,Trøndelag,Trondheim,1648.98,2160,5.0,Ikke påbegynt,0.0,9918.0,9918.0,,,False
-5055,Heim,50,Trøndelag,Trondheim,1264.49,1780,4.0,Ikke påbegynt,0.0,10013.0,10013.0,,,False
-5056,Hitra,50,Trøndelag,Trondheim,833.69,1219,3.0,Påbegynt,0.0,8759.0,8759.0,,,False
-5057,Ørland,50,Trøndelag,Trondheim,526.37,755,2.0,Ferdig,100.0,3888.0,0.0,,,False
-5058,Åfjord,50,Trøndelag,Trondheim,1098.51,1807,5.0,Ikke påbegynt,0.0,8387.0,8387.0,,,False
-5059,Orkland,50,Trøndelag,Trondheim,2510.04,3451,8.0,Ikke påbegynt,0.0,21540.0,21540.0,LACITL61,Planlagt,True
-5060,Nærøysund,50,Trøndelag,Trondheim,1036.25,1773,4.0,Ferdig,0.0,7867.0,7867.0,,,False
-5061,Rindal,50,Trøndelag,Trondheim,680.39,1013,3.0,Ikke påbegynt,0.0,4368.0,4368.0,,,False
-5501,Tromsø,55,Troms,Tromsø,2442.24,3816,9.0,Ikke påbegynt,0.0,27947.0,27947.0,"LACHTF51,LACITF61","Planlagt,Pågående",True
-5503,Harstad - Hárstták,55,Troms,Tromsø,1503.82,1637,4.0,Ikke påbegynt,0.0,16861.0,16861.0,LACHTF51,Pågående,True
-5510,Kvæfjord,55,Troms,Tromsø,732.98,986,3.0,Ferdig,100.0,5849.0,0.0,,,False
-5512,Dielddanuorri - Tjeldsund,55,Troms,Tromsø,1053.13,1456,4.0,Ikke påbegynt,0.0,8058.0,8058.0,,,False
-5514,Ibestad,55,Troms,Tromsø,408.08,521,2.0,Påbegynt,0.0,3259.0,3259.0,,,False
-5516,Gratangen,55,Troms,Tromsø,299.02,469,2.0,Ikke påbegynt,0.0,2092.0,2092.0,LACHTF51,Pågående,True
-5518,Loabák - Lavangen,55,Troms,Tromsø,263.07,430,2.0,Ikke påbegynt,0.0,1546.0,1546.0,LACHTF51,Pågående,True
-5520,Bardu,55,Troms,Tromsø,1106.08,2636,6.0,Ikke påbegynt,0.0,6502.0,6502.0,LACHTF51,Pågående,True
-5522,Salangen,55,Troms,Tromsø,477.39,716,2.0,Ikke påbegynt,0.0,2841.0,2841.0,LACHTF51,Pågående,True
-5524,Målselv,55,Troms,Tromsø,2449.13,4298,10.0,Påbegynt,90.0,14811.0,1481.0,,,False
-5526,Sørreisa,55,Troms,Tromsø,449.73,632,2.0,Ikke påbegynt,0.0,3369.0,3369.0,,,False
-5528,Dyrøy,55,Troms,Tromsø,305.35,456,2.0,Påbegynt,90.0,1965.0,196.0,,,False
-5530,Senja,55,Troms,Tromsø,2138.08,3143,8.0,Ikke påbegynt,0.0,17646.0,17646.0,,,False
-5532,Balsfjord,55,Troms,Tromsø,2010.49,2754,7.0,Påbegynt,90.0,13047.0,1305.0,,,False
-5534,Karlsøy,55,Troms,Tromsø,907.04,1504,4.0,Ikke påbegynt,0.0,5355.0,5355.0,,,False
-5536,Lyngen,55,Troms,Tromsø,631.47,1088,3.0,Ikke påbegynt,0.0,4562.0,4562.0,LACITF61,Planlagt,True
-5538,Storfjord - Omasvuotna - Omasvuono,55,Troms,Tromsø,773.97,1661,4.0,Ferdig,100.0,3674.0,0.0,,,False
-5540,Gáivuotna - Kåfjord - Kaivuono,55,Troms,Tromsø,495.91,1067,3.0,Ferdig,100.0,2539.0,0.0,LACITF61,Planlagt,True
-5542,Skjervøy,55,Troms,Tromsø,393.16,658,2.0,Påbegynt,90.0,2218.0,222.0,LACITF61,Planlagt,True
-5544,Nordreisa - Ráisa - Raisi,55,Troms,Tromsø,1127.31,3189,8.0,Ikke påbegynt,0.0,4821.0,4821.0,,,False
-5546,Kvænangen,55,Troms,Tromsø,719.15,1957,5.0,Ikke påbegynt,0.0,4328.0,4328.0,,,False
-5601,Alta,56,Finnmark,Tromsø,2416.34,4560,11.0,Påbegynt,4.0,17457.0,16759.0,,,False
-5603,Hammerfest - Hámmerfeasta,56,Finnmark,Tromsø,1125.7,2682,6.0,Ikke påbegynt,0.0,6601.0,6601.0,,,False
-5605,Sør-Varanger,56,Finnmark,Tromsø,1589.23,3688,9.0,Ikke påbegynt,0.0,7082.0,7082.0,,,False
-5607,Vadsø,56,Finnmark,Tromsø,1001.43,1708,4.0,Ikke påbegynt,0.0,5170.0,5170.0,,,False
-5610,Kárášjohka - Karasjok,56,Finnmark,Tromsø,2643.28,5781,13.0,Ikke påbegynt,0.0,8565.0,8565.0,,,False
-5612,Guovdageaidnu - Kautokeino,56,Finnmark,Tromsø,5442.12,10758,24.0,Ikke påbegynt,0.0,19267.0,19267.0,,,False
-5614,Loppa,56,Finnmark,Tromsø,289.52,698,2.0,Ikke påbegynt,0.0,1446.0,1446.0,,,False
-5616,Hasvik,56,Finnmark,Tromsø,239.66,564,2.0,Ikke påbegynt,0.0,1313.0,1313.0,,,False
-5618,Måsøy,56,Finnmark,Tromsø,466.75,1117,3.0,Ikke påbegynt,0.0,1802.0,1802.0,,,False
-5620,Nordkapp,56,Finnmark,Tromsø,442.81,981,3.0,Ikke påbegynt,0.0,1716.0,1716.0,LACITF61,Planlagt,True
-5622,Porsanger - Porsáŋgu - Porsanki,56,Finnmark,Tromsø,2459.11,5243,12.0,Ikke påbegynt,0.0,9568.0,9568.0,LACITF61,Planlagt,True
-5624,Lebesby,56,Finnmark,Tromsø,629.42,2672,6.0,Påbegynt,0.0,3191.0,3191.0,,,False
-5626,Gamvik,56,Finnmark,Tromsø,240.08,1099,3.0,Ferdig,100.0,945.0,0.0,,,False
-5628,Deatnu - Tana,56,Finnmark,Tromsø,2067.93,4363,10.0,Ikke påbegynt,0.0,9359.0,9359.0,,,False
-5630,Berlevåg,56,Finnmark,Tromsø,328.46,1002,3.0,Ferdig,100.0,1390.0,0.0,,,False
-5632,Båtsfjord,56,Finnmark,Tromsø,228.2,1129,3.0,Ferdig,100.0,1337.0,0.0,,,False
-5634,Vardø,56,Finnmark,Tromsø,221.56,581,2.0,Ferdig,100.0,1053.0,0.0,,,False
-5636,Unjárga - Nesseby,56,Finnmark,Tromsø,1030.16,1818,5.0,Ikke påbegynt,0.0,3635.0,3635.0,,,False
+﻿KomNr,Kommune,Fylkesnr,Fylke,Kartkontor,Km_Kurve,ArealLand_Km2,Ber_Tidbruk_Min,Ber_Dagsverk,Status,Fremdrift_Prosent,Antall_Lenker,Gjenstaaende_Lenker,Geovekst_Prosjekter,Geovekst_Status,Er_Laast
+0301,Oslo,3,Oslo,Oslo,1727.18,426.0,1838,5.0,Ikke påbegynt,0.0,35397.0,35397.0,,,False
+1101,Eigersund,11,Rogaland,Stavanger,748.33,387.0,928,3.0,Påbegynt,99.0,6942.0,69.0,,,False
+1103,Stavanger,11,Rogaland,Stavanger,876.87,256.0,959,3.0,Ikke påbegynt,0.0,13831.0,13831.0,,,False
+1106,Haugesund,11,Rogaland,Stavanger,137.88,68.0,169,1.0,Ikke påbegynt,0.0,1601.0,1601.0,LACIRO61,Planlagt,True
+1108,Sandnes,11,Rogaland,Stavanger,1690.13,943.0,2141,5.0,Ikke påbegynt,0.0,17326.0,17326.0,LACIRO62,Planlagt,True
+1111,Sokndal,11,Rogaland,Stavanger,229.21,267.0,381,1.0,Påbegynt,99.0,2134.0,21.0,,,False
+1112,Lund,11,Rogaland,Stavanger,429.15,354.0,618,2.0,Påbegynt,99.0,2758.0,28.0,,,False
+1114,Bjerkreim,11,Rogaland,Stavanger,1016.71,577.0,1294,3.0,Påbegynt,99.0,7158.0,72.0,,,False
+1119,Hå,11,Rogaland,Stavanger,786.17,248.0,872,2.0,Påbegynt,0.0,6268.0,6268.0,,,False
+1120,Klepp,11,Rogaland,Stavanger,269.39,102.0,310,1.0,Ikke påbegynt,0.0,3414.0,3414.0,,,False
+1121,Time,11,Rogaland,Stavanger,692.5,171.0,737,2.0,Ikke påbegynt,0.0,5798.0,5798.0,,,False
+1122,Gjesdal,11,Rogaland,Stavanger,904.7,558.0,1181,3.0,Ikke påbegynt,0.0,5779.0,5779.0,,,False
+1124,Sola,11,Rogaland,Stavanger,196.46,69.0,222,1.0,Ikke påbegynt,0.0,2924.0,2924.0,LACIRO62,Planlagt,True
+1127,Randaberg,11,Rogaland,Stavanger,82.1,24.0,90,1.0,Ikke påbegynt,0.0,1161.0,1161.0,LACIRO62,Planlagt,True
+1130,Strand,11,Rogaland,Stavanger,658.74,235.0,748,2.0,Ikke påbegynt,0.0,6598.0,6598.0,,,False
+1133,Hjelmeland,11,Rogaland,Stavanger,1018.14,948.0,1537,4.0,Ikke påbegynt,0.0,7360.0,7360.0,,,False
+1134,Suldal,11,Rogaland,Stavanger,1420.06,1582.0,2313,6.0,Ikke påbegynt,0.0,9362.0,9362.0,,,False
+1135,Sauda,11,Rogaland,Stavanger,439.95,508.0,728,2.0,Ikke påbegynt,0.0,4201.0,4201.0,,,False
+1144,Kvitsøy,11,Rogaland,Stavanger,16.53,6.0,19,1.0,Ikke påbegynt,0.0,207.0,207.0,LACIRO62,Planlagt,True
+1145,Bokn,11,Rogaland,Stavanger,104.28,45.0,124,1.0,Ikke påbegynt,0.0,948.0,948.0,LACIRO61,Planlagt,True
+1146,Tysvær,11,Rogaland,Stavanger,902.17,400.0,1076,3.0,Ikke påbegynt,0.0,7926.0,7926.0,LACIRO61,Planlagt,True
+1149,Karmøy,11,Rogaland,Stavanger,636.48,219.0,718,2.0,Ikke påbegynt,0.0,6834.0,6834.0,LACIRO61,Planlagt,True
+1151,Utsira,11,Rogaland,Stavanger,9.33,6.0,12,1.0,Ikke påbegynt,0.0,66.0,66.0,LACIRO61,Planlagt,True
+1160,Vindafjord,11,Rogaland,Stavanger,1235.39,599.0,1506,4.0,Ikke påbegynt,0.0,8327.0,8327.0,LACIRO61,Planlagt,True
+1505,Kristiansund,15,Møre og Romsdal,Molde,225.4,86.0,260,1.0,Ikke påbegynt,0.0,2048.0,2048.0,LACIMR51,Pågående,True
+1506,Molde,15,Møre og Romsdal,Molde,1539.33,1435.0,2325,6.0,Påbegynt,50.0,9849.0,4924.0,"LACIMR61,LACIMR63",Planlagt,True
+1508,Ålesund,15,Møre og Romsdal,Molde,788.97,353.0,943,3.0,Ikke påbegynt,0.0,8749.0,8749.0,LACIMR63,Planlagt,True
+1511,Vanylven,15,Møre og Romsdal,Molde,497.82,365.0,687,2.0,Ferdig,100.0,3853.0,0.0,LACIMR63,Planlagt,True
+1514,Sande,15,Møre og Romsdal,Molde,219.16,90.0,257,1.0,Ferdig,100.0,1741.0,0.0,LACIMR63,Planlagt,True
+1515,Herøy,15,Møre og Romsdal,Molde,273.65,118.0,324,1.0,Ferdig,100.0,3933.0,0.0,LACIMR63,Planlagt,True
+1516,Ulstein,15,Møre og Romsdal,Molde,258.29,95.0,295,1.0,Ferdig,100.0,2064.0,0.0,LACIMR63,Planlagt,True
+1517,Hareid,15,Møre og Romsdal,Molde,207.21,77.0,237,1.0,Ferdig,100.0,1697.0,0.0,LACIMR63,Planlagt,True
+1520,Ørsta,15,Møre og Romsdal,Molde,873.79,650.0,1213,3.0,Ferdig,100.0,7613.0,0.0,LACIMR63,Planlagt,True
+1525,Stranda,15,Møre og Romsdal,Molde,523.16,844.0,1022,3.0,Ikke påbegynt,0.0,3918.0,3918.0,LACIMR63,Planlagt,True
+1528,Sykkylven,15,Møre og Romsdal,Molde,360.31,329.0,540,2.0,Ikke påbegynt,0.0,2501.0,2501.0,LACIMR63,Planlagt,True
+1531,Sula,15,Møre og Romsdal,Molde,209.67,57.0,227,1.0,Ferdig,100.0,2706.0,0.0,,,False
+1532,Giske,15,Møre og Romsdal,Molde,147.93,40.0,160,1.0,Ferdig,100.0,1996.0,0.0,LACIMR63,Planlagt,True
+1535,Vestnes,15,Møre og Romsdal,Molde,683.11,399.0,877,2.0,Påbegynt,50.0,5719.0,2860.0,"LACIMR61,LACIMR63",Planlagt,True
+1539,Rauma,15,Møre og Romsdal,Molde,1270.43,1390.0,2053,5.0,Ferdig,100.0,7546.0,0.0,"LACIMR61,LACIMR63",Planlagt,True
+1547,Aukra,15,Møre og Romsdal,Molde,105.9,61.0,135,1.0,Påbegynt,50.0,900.0,450.0,LACIMR61,Planlagt,True
+1554,Averøy,15,Møre og Romsdal,Molde,397.05,173.0,471,2.0,Ikke påbegynt,0.0,3601.0,3601.0,LACIMR51,Pågående,True
+1557,Gjemnes,15,Møre og Romsdal,Molde,534.8,371.0,725,2.0,Ikke påbegynt,0.0,3596.0,3596.0,LACIMR51,Pågående,True
+1560,Tingvoll,15,Møre og Romsdal,Molde,668.07,322.0,813,2.0,Ikke påbegynt,0.0,5373.0,5373.0,LACIMR51,Pågående,True
+1563,Sunndal,15,Møre og Romsdal,Molde,1160.13,1648.0,2121,5.0,Ikke påbegynt,0.0,7848.0,7848.0,"LACIMR51,LACIMR63","Planlagt,Pågående",True
+1566,Surnadal,15,Møre og Romsdal,Molde,1257.85,1315.0,1993,5.0,Ikke påbegynt,0.0,7330.0,7330.0,LACIMR51,Pågående,True
+1573,Smøla,15,Møre og Romsdal,Molde,194.02,261.0,345,1.0,Ferdig,100.0,1964.0,0.0,LACIMR51,Pågående,True
+1576,Aure,15,Møre og Romsdal,Molde,647.43,622.0,990,3.0,Ikke påbegynt,0.0,4577.0,4577.0,LACIMR51,Pågående,True
+1577,Volda,15,Møre og Romsdal,Molde,860.16,834.0,1320,3.0,Ferdig,100.0,7345.0,0.0,LACIMR63,Planlagt,True
+1578,Fjord,15,Møre og Romsdal,Molde,834.03,1143.0,1498,4.0,Ikke påbegynt,0.0,5931.0,5931.0,LACIMR63,Planlagt,True
+1579,Hustadvika,15,Møre og Romsdal,Molde,1033.17,508.0,1264,3.0,Ikke påbegynt,0.0,7743.0,7743.0,LACIMR61,Planlagt,True
+1580,Haram,15,Møre og Romsdal,Molde,461.3,254.0,582,2.0,Ikke påbegynt,0.0,4153.0,4153.0,LACIMR63,Planlagt,True
+1804,Bodø,18,Nordland,Bodø,1338.85,1311.0,2063,5.0,Ikke påbegynt,0.0,11982.0,11982.0,"LACINO61,LACINO62",Planlagt,True
+1806,Narvik,18,Nordland,Bodø,1404.93,3195.0,3349,8.0,Ikke påbegynt,0.0,12335.0,12335.0,,,False
+1811,Bindal,18,Nordland,Bodø,391.82,1192.0,1130,3.0,Ikke påbegynt,0.0,2467.0,2467.0,,,False
+1812,Sømna,18,Nordland,Bodø,255.87,192.0,356,1.0,Ikke påbegynt,0.0,1993.0,1993.0,,,False
+1813,Brønnøy,18,Nordland,Bodø,678.07,999.0,1263,3.0,Ikke påbegynt,0.0,5124.0,5124.0,,,False
+1815,Vega,18,Nordland,Bodø,132.77,163.0,226,1.0,Ikke påbegynt,0.0,1249.0,1249.0,,,False
+1816,Vevelstad,18,Nordland,Bodø,207.35,516.0,523,2.0,Ikke påbegynt,0.0,1471.0,1471.0,,,False
+1818,Herøy,18,Nordland,Bodø,88.32,64.0,121,1.0,Ikke påbegynt,0.0,3933.0,3933.0,,,False
+1820,Alstahaug,18,Nordland,Bodø,315.32,187.0,407,1.0,Ikke påbegynt,0.0,3019.0,3019.0,,,False
+1822,Leirfjord,18,Nordland,Bodø,297.78,451.0,563,2.0,Ikke påbegynt,0.0,2506.0,2506.0,LACINO62,Planlagt,True
+1824,Vefsn,18,Nordland,Bodø,1183.48,1838.0,2266,6.0,Ikke påbegynt,0.0,8559.0,8559.0,LACINO62,Planlagt,True
+1825,Grane,18,Nordland,Bodø,666.52,1881.0,1827,5.0,Ikke påbegynt,0.0,4468.0,4468.0,,,False
+1826,Aarborte - Hattfjelldal,18,Nordland,Bodø,854.25,2411.0,2341,6.0,Ikke påbegynt,0.0,4610.0,4610.0,,,False
+1827,Dønna,18,Nordland,Bodø,175.89,186.0,280,1.0,Ikke påbegynt,0.0,1732.0,1732.0,LACINO62,Planlagt,True
+1828,Nesna,18,Nordland,Bodø,207.19,181.0,305,1.0,Ikke påbegynt,0.0,1141.0,1141.0,"LACINO61,LACINO62",Planlagt,True
+1832,Hemnes,18,Nordland,Bodø,869.1,1430.0,1716,4.0,Ikke påbegynt,0.0,4516.0,4516.0,"LACINO51,LACINO62","Planlagt,Pågående",True
+1833,Rana,18,Nordland,Bodø,1813.92,4203.0,4375,10.0,Ikke påbegynt,0.0,10959.0,10959.0,"LACINO51,LACINO62","Planlagt,Pågående",True
+1834,Lurøy,18,Nordland,Bodø,197.01,258.0,346,1.0,Ikke påbegynt,0.0,1485.0,1485.0,"LACINO51,LACINO62","Planlagt,Pågående",True
+1835,Træna,18,Nordland,Bodø,11.12,16.0,20,1.0,Ikke påbegynt,0.0,88.0,88.0,,,False
+1836,Rødøy,18,Nordland,Bodø,232.38,686.0,657,2.0,Ikke påbegynt,0.0,1257.0,1257.0,LACINO62,Planlagt,True
+1837,Meløy,18,Nordland,Bodø,584.95,798.0,1048,3.0,Ikke påbegynt,0.0,4215.0,4215.0,"LACINO51,LACINO62","Planlagt,Pågående",True
+1838,Gildeskål,18,Nordland,Bodø,363.8,622.0,734,2.0,Ikke påbegynt,0.0,2461.0,2461.0,LACINO62,Planlagt,True
+1839,Beiarn,18,Nordland,Bodø,590.5,1178.0,1300,3.0,Ikke påbegynt,0.0,3086.0,3086.0,LACINO62,Planlagt,True
+1840,Saltdal,18,Nordland,Bodø,1138.68,2084.0,2386,6.0,Ikke påbegynt,0.0,5167.0,5167.0,"LACINO61,LACINO62",Planlagt,True
+1841,Fauske - Fuossko,18,Nordland,Bodø,745.84,1107.0,1395,4.0,Ikke påbegynt,0.0,5814.0,5814.0,"LACINO61,LACINO62",Planlagt,True
+1845,Sørfold,18,Nordland,Bodø,510.73,1471.0,1419,4.0,Ikke påbegynt,0.0,3450.0,3450.0,LACINO61,Planlagt,True
+1848,Steigen,18,Nordland,Bodø,651.73,964.0,1216,3.0,Ikke påbegynt,0.0,4379.0,4379.0,,,False
+1851,Lødingen,18,Nordland,Bodø,283.95,508.0,587,2.0,Ikke påbegynt,0.0,2014.0,2014.0,,,False
+1853,Evenes - Evenášši,18,Nordland,Bodø,377.36,241.0,498,2.0,Ikke påbegynt,0.0,2823.0,2823.0,,,False
+1856,Røst,18,Nordland,Bodø,34.4,10.0,38,1.0,Ikke påbegynt,0.0,455.0,455.0,,,False
+1857,Værøy,18,Nordland,Bodø,32.37,19.0,42,1.0,Ikke påbegynt,0.0,187.0,187.0,,,False
+1859,Flakstad,18,Nordland,Bodø,226.52,169.0,315,1.0,Ikke påbegynt,0.0,2889.0,2889.0,,,False
+1860,Vestvågøy,18,Nordland,Bodø,646.46,407.0,849,2.0,Ikke påbegynt,0.0,4988.0,4988.0,,,False
+1865,Vågan,18,Nordland,Bodø,477.14,460.0,731,2.0,Ikke påbegynt,0.0,4309.0,4309.0,,,False
+1866,Hadsel,18,Nordland,Bodø,694.67,551.0,986,3.0,Ikke påbegynt,0.0,4661.0,4661.0,,,False
+1867,Bø,18,Nordland,Bodø,330.08,235.0,451,2.0,Påbegynt,25.0,1613.0,1210.0,,,False
+1868,Øksnes,18,Nordland,Bodø,323.61,311.0,495,2.0,Ferdig,100.0,2602.0,0.0,,,False
+1870,Sortland - Suortá,18,Nordland,Bodø,669.36,697.0,1059,3.0,Ikke påbegynt,0.0,4121.0,4121.0,,,False
+1871,Andøy,18,Nordland,Bodø,1034.32,617.0,1336,4.0,Ikke påbegynt,0.0,7827.0,7827.0,,,False
+1874,Moskenes,18,Nordland,Bodø,88.58,110.0,152,1.0,Ikke påbegynt,0.0,949.0,949.0,,,False
+1875,Hábmer - Hamarøy,18,Nordland,Bodø,784.33,1838.0,1905,5.0,Ikke påbegynt,0.0,5093.0,5093.0,,,False
+3101,Halden,31,Østfold,Oslo,1358.82,595.0,1615,4.0,Ferdig,100.0,11913.0,0.0,,,False
+3103,Moss,31,Østfold,Oslo,462.05,128.0,501,2.0,Ikke påbegynt,0.0,6581.0,6581.0,,,False
+3105,Sarpsborg,31,Østfold,Oslo,1027.46,370.0,1169,3.0,Ikke påbegynt,0.0,13048.0,13048.0,,,False
+3107,Fredrikstad,31,Østfold,Oslo,988.5,284.0,1078,3.0,Ikke påbegynt,0.0,14235.0,14235.0,,,False
+3110,Hvaler,31,Østfold,Oslo,258.87,90.0,292,1.0,Ikke påbegynt,0.0,4834.0,4834.0,,,False
+3112,Råde,31,Østfold,Oslo,202.34,105.0,251,1.0,Ferdig,100.0,2288.0,0.0,,,False
+3114,Våler,31,Østfold,Oslo,614.35,239.0,711,2.0,Ikke påbegynt,0.0,8900.0,8900.0,,,False
+3116,Skiptvet,31,Østfold,Oslo,182.52,93.0,225,1.0,Påbegynt,80.0,1677.0,335.0,,,False
+3118,Indre Østfold,31,Østfold,Oslo,1616.36,755.0,1952,5.0,Ikke påbegynt,0.0,15270.0,15270.0,,,False
+3120,Rakkestad,31,Østfold,Oslo,608.67,421.0,824,2.0,Påbegynt,95.0,3807.0,190.0,,,False
+3122,Marker,31,Østfold,Oslo,436.44,368.0,634,2.0,Ferdig,100.0,2269.0,0.0,,,False
+3124,Aremark,31,Østfold,Oslo,273.62,282.0,431,2.0,Ferdig,100.0,1483.0,0.0,,,False
+3201,Bærum,32,Akershus,Oslo,717.84,189.0,772,2.0,Påbegynt,80.0,10234.0,2047.0,LACIAK61,Pågående,True
+3203,Asker,32,Akershus,Oslo,1324.64,364.0,1434,4.0,Ikke påbegynt,0.0,16870.0,16870.0,LACIAK61,Pågående,True
+3205,Lillestrøm,32,Akershus,Oslo,1054.89,410.0,1220,3.0,Ikke påbegynt,0.0,10677.0,10677.0,,,False
+3207,Nordre Follo,32,Akershus,Oslo,574.38,196.0,647,2.0,Ferdig,100.0,6990.0,0.0,,,False
+3209,Ullensaker,32,Akershus,Oslo,666.12,250.0,765,2.0,Ikke påbegynt,0.0,5340.0,5340.0,,,False
+3212,Nesodden,32,Akershus,Oslo,224.69,61.0,243,1.0,Ferdig,100.0,2953.0,0.0,,,False
+3214,Frogn,32,Akershus,Oslo,284.07,85.0,312,1.0,Ferdig,100.0,4201.0,0.0,,,False
+3216,Vestby,32,Akershus,Oslo,418.93,134.0,466,2.0,Ferdig,100.0,4345.0,0.0,,,False
+3218,Ås,32,Akershus,Oslo,259.82,101.0,300,1.0,Ferdig,100.0,3084.0,0.0,,,False
+3220,Enebakk,32,Akershus,Oslo,490.83,195.0,570,2.0,Ferdig,100.0,4093.0,0.0,,,False
+3222,Lørenskog,32,Akershus,Oslo,170.12,67.0,197,1.0,Ikke påbegynt,0.0,2091.0,2091.0,,,False
+3224,Rælingen,32,Akershus,Oslo,222.81,56.0,238,1.0,Ferdig,100.0,3352.0,0.0,,,False
+3226,Aurskog-Høland,32,Akershus,Oslo,1678.31,1053.0,2202,5.0,Ikke påbegynt,0.0,10975.0,10975.0,,,False
+3228,Nes,32,Akershus,Oslo,1250.62,612.0,1528,4.0,Ikke påbegynt,0.0,7813.0,7813.0,,,False
+3230,Gjerdrum,32,Akershus,Oslo,184.59,82.0,220,1.0,Ferdig,100.0,1443.0,0.0,,,False
+3232,Nittedal,32,Akershus,Oslo,623.5,179.0,680,2.0,Påbegynt,0.0,5357.0,5357.0,,,False
+3234,Lunner,32,Akershus,Oslo,726.79,272.0,834,2.0,Ferdig,100.0,5579.0,0.0,,,False
+3236,Jevnaker,32,Akershus,Oslo,463.54,194.0,545,2.0,Ferdig,100.0,3494.0,0.0,,,False
+3238,Nannestad,32,Akershus,Oslo,722.65,324.0,864,2.0,Ferdig,100.0,4444.0,0.0,,,False
+3240,Eidsvoll,32,Akershus,Oslo,830.41,386.0,1002,3.0,Ferdig,100.0,5707.0,0.0,,,False
+3242,Hurdal,32,Akershus,Oslo,715.03,261.0,816,2.0,Ferdig,100.0,4543.0,0.0,,,False
+3301,Drammen,33,Buskerud,Oslo,1077.76,305.0,1172,3.0,Ikke påbegynt,0.0,11937.0,11937.0,,,False
+3303,Kongsberg,33,Buskerud,Oslo,2170.21,754.0,2452,6.0,Ikke påbegynt,0.0,18936.0,18936.0,,,False
+3305,Ringerike,33,Buskerud,Oslo,3496.22,1422.0,4085,10.0,Ikke påbegynt,0.0,27311.0,27311.0,,,False
+3310,Hole,33,Buskerud,Oslo,419.26,135.0,467,2.0,Ferdig,100.0,3102.0,0.0,,,False
+3312,Lier,33,Buskerud,Oslo,822.18,282.0,926,3.0,Ikke påbegynt,0.0,6724.0,6724.0,,,False
+3314,Øvre Eiker,33,Buskerud,Oslo,920.49,418.0,1104,3.0,Ikke påbegynt,0.0,6486.0,6486.0,,,False
+3316,Modum,33,Buskerud,Oslo,1353.27,463.0,1524,4.0,Påbegynt,0.0,10613.0,10613.0,,,False
+3318,Krødsherad,33,Buskerud,Oslo,837.06,340.0,978,3.0,Ferdig,100.0,7775.0,0.0,,,False
+3320,Flå,33,Buskerud,Oslo,1065.49,671.0,1399,4.0,Ikke påbegynt,0.0,6856.0,6856.0,,,False
+3322,Nesbyen,33,Buskerud,Oslo,1720.16,772.0,2057,5.0,Ikke påbegynt,0.0,11185.0,11185.0,,,False
+3324,Gol,33,Buskerud,Oslo,1351.45,514.0,1556,4.0,Ikke påbegynt,0.0,9600.0,9600.0,,,False
+3326,Hemsedal,33,Buskerud,Oslo,1039.28,712.0,1403,4.0,Ikke påbegynt,0.0,8110.0,8110.0,,,False
+3328,Ål,33,Buskerud,Oslo,2265.72,1081.0,2751,7.0,Ikke påbegynt,0.0,16194.0,16194.0,,,False
+3330,Hol,33,Buskerud,Oslo,2523.6,1653.0,3356,8.0,Påbegynt,20.0,14988.0,11990.0,,,False
+3332,Sigdal,33,Buskerud,Oslo,1915.51,811.0,2259,6.0,Ikke påbegynt,0.0,17054.0,17054.0,,,False
+3334,Flesberg,33,Buskerud,Oslo,1009.34,538.0,1262,3.0,Ferdig,100.0,10021.0,0.0,,,False
+3336,Rollag,33,Buskerud,Oslo,852.55,430.0,1050,3.0,Påbegynt,35.0,7744.0,5034.0,,,False
+3338,Nore og Uvdal,33,Buskerud,Oslo,2752.34,2266.0,3962,9.0,Ikke påbegynt,0.0,13281.0,13281.0,,,False
+3401,Kongsvinger,34,Innlandet,Hamar,1833.61,953.0,2277,6.0,Påbegynt,95.0,10212.0,511.0,,,False
+3403,Hamar,34,Innlandet,Hamar,490.53,338.0,663,2.0,Påbegynt,95.0,3151.0,158.0,LACIIN63,Pågående,True
+3405,Lillehammer,34,Innlandet,Hamar,1235.18,451.0,1410,4.0,Ikke påbegynt,0.0,10606.0,10606.0,LACIIN53,Pågående,True
+3407,Gjøvik,34,Innlandet,Hamar,1180.56,629.0,1476,4.0,Ikke påbegynt,0.0,7897.0,7897.0,"LACIIN53,LACIIN61","Planlagt,Pågående",True
+3411,Ringsaker,34,Innlandet,Hamar,1796.16,1123.0,2354,6.0,Påbegynt,95.0,12701.0,635.0,LACIIN63,Pågående,True
+3412,Løten,34,Innlandet,Hamar,463.16,362.0,654,2.0,Påbegynt,95.0,2884.0,144.0,LACIIN63,Pågående,True
+3413,Stange,34,Innlandet,Hamar,1098.96,641.0,1410,4.0,Påbegynt,95.0,7796.0,390.0,,,False
+3414,Nord-Odal,34,Innlandet,Hamar,636.82,475.0,885,2.0,Ferdig,100.0,3411.0,0.0,,,False
+3415,Sør-Odal,34,Innlandet,Hamar,960.99,479.0,1180,3.0,Ferdig,100.0,5776.0,0.0,,,False
+3416,Eidskog,34,Innlandet,Hamar,970.57,603.0,1269,3.0,Ferdig,100.0,5440.0,0.0,,,False
+3417,Grue,34,Innlandet,Hamar,868.74,777.0,1291,3.0,Ferdig,100.0,4204.0,0.0,,,False
+3418,Åsnes,34,Innlandet,Hamar,967.29,1004.0,1528,4.0,Ferdig,100.0,5531.0,0.0,,,False
+3419,Våler,34,Innlandet,Hamar,939.14,678.0,1290,3.0,Påbegynt,95.0,8900.0,445.0,LACIIN63,Pågående,True
+3420,Elverum,34,Innlandet,Hamar,2046.99,1209.0,2637,6.0,Påbegynt,95.0,11666.0,583.0,LACIIN63,Pågående,True
+3421,Trysil,34,Innlandet,Hamar,3173.77,2941.0,4782,11.0,Påbegynt,95.0,16189.0,809.0,LACIIN63,Pågående,True
+3422,Åmot,34,Innlandet,Hamar,1496.86,1293.0,2194,5.0,Ikke påbegynt,0.0,9088.0,9088.0,LACIIN63,Pågående,True
+3423,Stor-Elvdal,34,Innlandet,Hamar,2621.48,2127.0,3753,9.0,Påbegynt,95.0,13617.0,681.0,"LACHIN42,LACIIN63",Pågående,True
+3424,Rendalen,34,Innlandet,Hamar,3235.68,3061.0,4916,11.0,Ikke påbegynt,0.0,11980.0,11980.0,LACHIN42,Pågående,True
+3425,Engerdal,34,Innlandet,Hamar,1647.08,1916.0,2735,7.0,Påbegynt,95.0,6538.0,327.0,LACHIN42,Pågående,True
+3426,Tolga,34,Innlandet,Hamar,1747.4,1097.0,2293,6.0,Påbegynt,95.0,8559.0,428.0,LACHIN42,Pågående,True
+3427,Tynset,34,Innlandet,Hamar,2278.7,1822.0,3245,8.0,Ikke påbegynt,0.0,10498.0,10498.0,LACHIN42,Pågående,True
+3428,Alvdal,34,Innlandet,Hamar,2111.75,919.0,2506,6.0,Ikke påbegynt,0.0,10557.0,10557.0,LACHIN42,Pågående,True
+3429,Folldal,34,Innlandet,Hamar,1852.43,1260.0,2494,6.0,Påbegynt,95.0,8494.0,425.0,LACHIN42,Pågående,True
+3430,Os,34,Innlandet,Hamar,984.16,1007.0,1545,4.0,Påbegynt,95.0,5106.0,255.0,LACHIN42,Pågående,True
+3431,Dovre,34,Innlandet,Hamar,1733.34,1349.0,2444,6.0,Ikke påbegynt,0.0,8098.0,8098.0,LACIIN52,Pågående,True
+3432,Lesja,34,Innlandet,Hamar,1355.25,2167.0,2635,6.0,Ikke påbegynt,0.0,6501.0,6501.0,LACIIN52,Pågående,True
+3433,Skjåk,34,Innlandet,Hamar,1090.6,1965.0,2265,6.0,Ikke påbegynt,0.0,5069.0,5069.0,LACIIN52,Pågående,True
+3434,Lom,34,Innlandet,Hamar,1229.92,1887.0,2340,6.0,Ikke påbegynt,0.0,6259.0,6259.0,LACIIN52,Pågående,True
+3435,Vågå,34,Innlandet,Hamar,1743.14,1252.0,2390,6.0,Ikke påbegynt,0.0,10194.0,10194.0,LACIIN52,Pågående,True
+3436,Nord-Fron,34,Innlandet,Hamar,1952.39,1092.0,2475,6.0,Ikke påbegynt,0.0,12207.0,12207.0,LACIIN52,Pågående,True
+3437,Sel,34,Innlandet,Hamar,2052.21,888.0,2432,6.0,Ikke påbegynt,0.0,14777.0,14777.0,LACIIN52,Pågående,True
+3438,Sør-Fron,34,Innlandet,Hamar,1345.17,712.0,1679,4.0,Ikke påbegynt,0.0,7916.0,7916.0,LACIIN52,Pågående,True
+3439,Ringebu,34,Innlandet,Hamar,2943.26,1221.0,3454,8.0,Ikke påbegynt,0.0,18435.0,18435.0,,,False
+3440,Øyer,34,Innlandet,Hamar,1668.43,616.0,1908,5.0,Ikke påbegynt,0.0,10070.0,10070.0,,,False
+3441,Gausdal,34,Innlandet,Hamar,2242.52,1146.0,2772,7.0,Ikke påbegynt,0.0,12287.0,12287.0,,,False
+3442,Østre Toten,34,Innlandet,Hamar,964.03,485.0,1187,3.0,Ikke påbegynt,0.0,4326.0,4326.0,LACIIN61,Planlagt,True
+3443,Vestre Toten,34,Innlandet,Hamar,500.43,233.0,604,2.0,Ikke påbegynt,0.0,3356.0,3356.0,LACIIN61,Planlagt,True
+3446,Gran,34,Innlandet,Hamar,1181.75,657.0,1495,4.0,Ikke påbegynt,0.0,8906.0,8906.0,,,False
+3447,Søndre Land,34,Innlandet,Hamar,1261.37,659.0,1569,4.0,Ikke påbegynt,0.0,7653.0,7653.0,LACIIN61,Planlagt,True
+3448,Nordre Land,34,Innlandet,Hamar,2265.45,920.0,2646,6.0,Ikke påbegynt,0.0,12435.0,12435.0,"LACIIN53,LACIIN61","Planlagt,Pågående",True
+3449,Sør-Aurdal,34,Innlandet,Hamar,2160.85,1068.0,2648,6.0,Ikke påbegynt,0.0,13249.0,13249.0,,,False
+3450,Etnedal,34,Innlandet,Hamar,929.71,443.0,1128,3.0,Ikke påbegynt,0.0,6276.0,6276.0,LACIIN53,Pågående,True
+3451,Nord-Aurdal,34,Innlandet,Hamar,1959.26,849.0,2323,6.0,Ikke påbegynt,0.0,13002.0,13002.0,LACIIN53,Pågående,True
+3452,Vestre Slidre,34,Innlandet,Hamar,1298.84,415.0,1444,4.0,Ikke påbegynt,0.0,11716.0,11716.0,,,False
+3453,Øystre Slidre,34,Innlandet,Hamar,1273.36,886.0,1727,4.0,Ikke påbegynt,0.0,7995.0,7995.0,,,False
+3454,Vang,34,Innlandet,Hamar,1422.38,1309.0,2137,5.0,Ikke påbegynt,0.0,8187.0,8187.0,,,False
+3901,Horten,39,Vestfold,Skien,193.77,69.0,220,1.0,Ikke påbegynt,0.0,2273.0,2273.0,LACIVE51,Pågående,True
+3903,Holmestrand,39,Vestfold,Skien,1155.14,412.0,1312,3.0,Ikke påbegynt,0.0,8664.0,8664.0,LACIVE51,Pågående,True
+3905,Tønsberg,39,Vestfold,Skien,975.43,326.0,1094,3.0,Ikke påbegynt,0.0,10065.0,10065.0,LACIVE51,Pågående,True
+3907,Sandefjord,39,Vestfold,Skien,1310.65,414.0,1454,4.0,Ikke påbegynt,0.0,13753.0,13753.0,LACIVE51,Pågående,True
+3909,Larvik,39,Vestfold,Skien,2065.11,771.0,2368,6.0,Ikke påbegynt,0.0,20251.0,20251.0,LACIVE51,Pågående,True
+3911,Færder,39,Vestfold,Skien,345.38,100.0,377,1.0,Ikke påbegynt,0.0,5132.0,5132.0,LACIVE51,Pågående,True
+4001,Porsgrunn,40,Telemark,Skien,652.21,161.0,694,2.0,Påbegynt,0.0,7351.0,7351.0,LACITE61,Planlagt,True
+4003,Skien,40,Telemark,Skien,1589.44,719.0,1904,5.0,Ikke påbegynt,0.0,11644.0,11644.0,LACITE61,Planlagt,True
+4005,Notodden,40,Telemark,Skien,1383.55,912.0,1844,5.0,Påbegynt,0.0,8977.0,8977.0,,,False
+4010,Siljan,40,Telemark,Skien,437.25,202.0,527,2.0,Ikke påbegynt,0.0,2674.0,2674.0,,,False
+4012,Bamble,40,Telemark,Skien,516.47,282.0,650,2.0,Ikke påbegynt,0.0,5868.0,5868.0,LACITE61,Planlagt,True
+4014,Kragerø,40,Telemark,Skien,713.35,289.0,833,2.0,Ikke påbegynt,0.0,8153.0,8153.0,LACITE61,Planlagt,True
+4016,Drangedal,40,Telemark,Skien,1453.62,995.0,1961,5.0,Ikke påbegynt,0.0,9597.0,9597.0,LACITE61,Planlagt,True
+4018,Nome,40,Telemark,Skien,708.73,385.0,891,2.0,Ikke påbegynt,0.0,4661.0,4661.0,LACITE61,Planlagt,True
+4020,Midt-Telemark,40,Telemark,Skien,1393.38,487.0,1576,4.0,Ferdig,100.0,9207.0,0.0,,,False
+4022,Seljord,40,Telemark,Skien,1336.31,669.0,1643,4.0,Ikke påbegynt,0.0,9972.0,9972.0,,,False
+4024,Hjartdal,40,Telemark,Skien,1055.66,737.0,1434,4.0,Ikke påbegynt,0.0,8171.0,8171.0,,,False
+4026,Tinn,40,Telemark,Skien,2578.3,1848.0,3533,8.0,Ikke påbegynt,0.0,13385.0,13385.0,,,False
+4028,Kviteseid,40,Telemark,Skien,907.25,623.0,1225,3.0,Ikke påbegynt,0.0,5611.0,5611.0,,,False
+4030,Nissedal,40,Telemark,Skien,960.64,786.0,1380,4.0,Ikke påbegynt,0.0,6540.0,6540.0,,,False
+4032,Fyresdal,40,Telemark,Skien,968.84,1107.0,1596,4.0,Ikke påbegynt,0.0,5047.0,5047.0,LACITE52,Pågående,True
+4034,Tokke,40,Telemark,Skien,1141.51,905.0,1621,4.0,Ikke påbegynt,0.0,6401.0,6401.0,LACITE52,Pågående,True
+4036,Vinje,40,Telemark,Skien,2317.61,2725.0,3868,9.0,Ikke påbegynt,0.0,12380.0,12380.0,LACITE52,Pågående,True
+4201,Risør,42,Agder,Kristiansand,644.33,171.0,693,2.0,Ikke påbegynt,0.0,7458.0,7458.0,,,False
+4202,Grimstad,42,Agder,Kristiansand,590.11,272.0,710,2.0,Ikke påbegynt,0.0,6512.0,6512.0,,,False
+4203,Arendal,42,Agder,Kristiansand,1212.87,255.0,1262,3.0,Ikke påbegynt,0.0,18178.0,18178.0,LACIAG61,Planlagt,True
+4204,Kristiansand,42,Agder,Kristiansand,2282.93,610.0,2460,6.0,Ikke påbegynt,0.0,27939.0,27939.0,LACIAG61,Planlagt,True
+4205,Lindesnes,42,Agder,Kristiansand,3097.54,883.0,3373,8.0,Ikke påbegynt,0.0,30608.0,30608.0,LACIAG61,Planlagt,True
+4206,Farsund,42,Agder,Kristiansand,654.72,252.0,756,2.0,Ikke påbegynt,0.0,8160.0,8160.0,,,False
+4207,Flekkefjord,42,Agder,Kristiansand,1088.67,482.0,1297,3.0,Ikke påbegynt,0.0,10002.0,10002.0,LACIAG63,Pågående,True
+4211,Gjerstad,42,Agder,Kristiansand,822.19,308.0,943,3.0,Påbegynt,95.0,5328.0,266.0,,,False
+4212,Vegårshei,42,Agder,Kristiansand,1046.56,322.0,1155,3.0,Ikke påbegynt,0.0,8548.0,8548.0,,,False
+4213,Tvedestrand,42,Agder,Kristiansand,816.78,212.0,876,2.0,Ikke påbegynt,0.0,8806.0,8806.0,,,False
+4214,Froland,42,Agder,Kristiansand,912.82,601.0,1216,3.0,Påbegynt,95.0,6254.0,313.0,,,False
+4215,Lillesand,42,Agder,Kristiansand,496.92,180.0,566,2.0,Påbegynt,0.0,6111.0,6111.0,,,False
+4216,Birkenes,42,Agder,Kristiansand,1321.88,596.0,1582,4.0,Ikke påbegynt,0.0,10577.0,10577.0,,,False
+4217,Åmli,42,Agder,Kristiansand,1349.34,1058.0,1908,5.0,Ikke påbegynt,0.0,8190.0,8190.0,,,False
+4218,Iveland,42,Agder,Kristiansand,488.62,246.0,602,2.0,Påbegynt,80.0,3446.0,689.0,,,False
+4219,Evje og Hornnes,42,Agder,Kristiansand,936.03,549.0,1203,3.0,Ikke påbegynt,0.0,7758.0,7758.0,LACIAG61,Planlagt,True
+4220,Bygland,42,Agder,Kristiansand,1148.18,1150.0,1786,4.0,Ikke påbegynt,0.0,7574.0,7574.0,,,False
+4221,Valle,42,Agder,Kristiansand,1163.01,1130.0,1786,4.0,Ikke påbegynt,0.0,7136.0,7136.0,LACIAG63,Pågående,True
+4222,Bykle,42,Agder,Kristiansand,633.15,1254.0,1388,4.0,Ikke påbegynt,0.0,4958.0,4958.0,"LACIAG61,LACIAG63","Planlagt,Pågående",True
+4223,Vennesla,42,Agder,Kristiansand,1082.58,362.0,1214,3.0,Påbegynt,90.0,10530.0,1053.0,LACIAG61,Planlagt,True
+4224,Åseral,42,Agder,Kristiansand,691.46,797.0,1144,3.0,Ikke påbegynt,0.0,5558.0,5558.0,LACIAG61,Planlagt,True
+4225,Lyngdal,42,Agder,Kristiansand,1390.63,606.0,1651,4.0,Ikke påbegynt,0.0,13449.0,13449.0,LACIAG61,Planlagt,True
+4226,Hægebostad,42,Agder,Kristiansand,671.59,424.0,883,2.0,Ferdig,100.0,5244.0,0.0,,,False
+4227,Kvinesdal,42,Agder,Kristiansand,1347.36,886.0,1794,4.0,Ikke påbegynt,0.0,10186.0,10186.0,,,False
+4228,Sirdal,42,Agder,Kristiansand,1082.7,1373.0,1872,5.0,Ikke påbegynt,0.0,8126.0,8126.0,LACIAG63,Pågående,True
+4601,Bergen,46,Vestland,Bergen,1711.47,445.0,1836,5.0,Ikke påbegynt,0.0,30466.0,30466.0,LACIVL64,Planlagt,True
+4602,Kinn,46,Vestland,Bergen,954.96,763.0,1360,4.0,Ikke påbegynt,0.0,9385.0,9385.0,LACHVL39,Planlagt,True
+4611,Etne,46,Vestland,Bergen,1158.58,691.0,1497,4.0,Ikke påbegynt,0.0,10118.0,10118.0,,,False
+4612,Sveio,46,Vestland,Bergen,690.69,224.0,770,2.0,Ikke påbegynt,0.0,8328.0,8328.0,LACIVL61,Planlagt,True
+4613,Bømlo,46,Vestland,Bergen,567.12,236.0,666,2.0,Påbegynt,70.0,6759.0,2028.0,LACIVL61,Planlagt,True
+4614,Stord,46,Vestland,Bergen,470.6,137.0,514,2.0,Ikke påbegynt,0.0,5301.0,5301.0,LACIVL61,Planlagt,True
+4615,Fitjar,46,Vestland,Bergen,439.6,135.0,485,2.0,Ferdig,100.0,4648.0,0.0,LACIVL61,Planlagt,True
+4616,Tysnes,46,Vestland,Bergen,640.2,245.0,738,2.0,Ferdig,100.0,7572.0,0.0,LACIVL61,Planlagt,True
+4617,Kvinnherad,46,Vestland,Bergen,1118.43,1042.0,1689,4.0,Ikke påbegynt,0.0,8939.0,8939.0,,,False
+4618,Ullensvang,46,Vestland,Bergen,2631.96,2962.0,4306,10.0,Ikke påbegynt,0.0,18650.0,18650.0,,,False
+4619,Eidfjord,46,Vestland,Bergen,1132.6,1388.0,1927,5.0,Ikke påbegynt,0.0,5017.0,5017.0,LACIVL02,Pågående,True
+4620,Ulvik,46,Vestland,Bergen,493.29,663.0,877,2.0,Ikke påbegynt,0.0,2743.0,2743.0,,,False
+4621,Voss,46,Vestland,Bergen,2587.84,1958.0,3613,9.0,Ikke påbegynt,0.0,23191.0,23191.0,,,False
+4622,Kvam,46,Vestland,Bergen,1250.23,580.0,1507,4.0,Ikke påbegynt,0.0,11908.0,11908.0,,,False
+4623,Samnanger,46,Vestland,Bergen,320.94,257.0,457,2.0,Ikke påbegynt,0.0,2675.0,2675.0,,,False
+4624,Bjørnafjorden,46,Vestland,Bergen,975.99,487.0,1199,3.0,Ikke påbegynt,0.0,10297.0,10297.0,,,False
+4625,Austevoll,46,Vestland,Bergen,210.14,114.0,264,1.0,Ferdig,100.0,2012.0,0.0,LACIVL61,Planlagt,True
+4626,Øygarden,46,Vestland,Bergen,971.5,300.0,1073,3.0,Ikke påbegynt,0.0,11226.0,11226.0,,,False
+4627,Askøy,46,Vestland,Bergen,416.14,94.0,437,2.0,Ikke påbegynt,0.0,5218.0,5218.0,,,False
+4628,Vaksdal,46,Vestland,Bergen,564.92,682.0,954,3.0,Ikke påbegynt,0.0,4528.0,4528.0,LACIVL01,Pågående,True
+4629,Modalen,46,Vestland,Bergen,247.66,379.0,470,2.0,Ferdig,100.0,1428.0,0.0,LACHVL39,Planlagt,True
+4630,Osterøy,46,Vestland,Bergen,801.64,244.0,883,2.0,Ikke påbegynt,0.0,8960.0,8960.0,LACIVL01,Pågående,True
+4631,Alver,46,Vestland,Bergen,1977.05,651.0,2210,5.0,Ikke påbegynt,0.0,27783.0,27783.0,LACIVL01,Pågående,True
+4632,Austrheim,46,Vestland,Bergen,207.18,57.0,224,1.0,Ikke påbegynt,0.0,3305.0,3305.0,,,False
+4633,Fedje,46,Vestland,Bergen,46.72,9.0,48,1.0,Ferdig,100.0,778.0,0.0,,,False
+4634,Masfjorden,46,Vestland,Bergen,503.95,509.0,787,2.0,Ikke påbegynt,0.0,4590.0,4590.0,LACIVL01,Pågående,True
+4635,Gulen,46,Vestland,Bergen,391.6,577.0,729,2.0,Ikke påbegynt,0.0,4082.0,4082.0,LACIVL01,Pågående,True
+4636,Solund,46,Vestland,Bergen,135.6,219.0,265,1.0,Ikke påbegynt,0.0,1189.0,1189.0,,,False
+4637,Hyllestad,46,Vestland,Bergen,417.78,248.0,539,2.0,Ikke påbegynt,0.0,3011.0,3011.0,,,False
+4638,Høyanger,46,Vestland,Bergen,571.42,928.0,1120,3.0,Ikke påbegynt,0.0,3476.0,3476.0,LACHVL39,Planlagt,True
+4639,Vik,46,Vestland,Bergen,856.15,795.0,1291,3.0,Ikke påbegynt,0.0,4624.0,4624.0,LACHVL39,Planlagt,True
+4640,Sogndal,46,Vestland,Bergen,1377.92,1229.0,2045,5.0,Ikke påbegynt,0.0,9640.0,9640.0,LACHVL39,Planlagt,True
+4641,Aurland,46,Vestland,Bergen,951.96,1376.0,1756,4.0,Ikke påbegynt,0.0,4599.0,4599.0,"LACHVL39,LACIVL03","Planlagt,Pågående",True
+4642,Lærdal,46,Vestland,Bergen,672.49,1275.0,1438,4.0,Ikke påbegynt,0.0,3598.0,3598.0,LACHVL39,Planlagt,True
+4643,Årdal,46,Vestland,Bergen,562.88,930.0,1114,3.0,Ikke påbegynt,0.0,2758.0,2758.0,LACIVL03,Pågående,True
+4644,Luster,46,Vestland,Bergen,1476.41,2597.0,3025,7.0,Påbegynt,25.0,6200.0,4650.0,LACIVL62,Planlagt,True
+4645,Askvoll,46,Vestland,Bergen,533.13,313.0,685,2.0,Ikke påbegynt,0.0,4575.0,4575.0,,,False
+4646,Fjaler,46,Vestland,Bergen,502.55,390.0,708,2.0,Ikke påbegynt,0.0,3672.0,3672.0,,,False
+4647,Sunnfjord,46,Vestland,Bergen,2735.56,2065.0,3816,9.0,Ikke påbegynt,0.0,22959.0,22959.0,"LACHVL39,LACIVL62",Planlagt,True
+4648,Bremanger,46,Vestland,Bergen,675.68,786.0,1122,3.0,Ikke påbegynt,0.0,4648.0,4648.0,LACHVL39,Planlagt,True
+4649,Stad,46,Vestland,Bergen,1437.14,695.0,1751,4.0,Ikke påbegynt,0.0,12853.0,12853.0,LACHVL39,Planlagt,True
+4650,Gloppen,46,Vestland,Bergen,932.87,963.0,1470,4.0,Ikke påbegynt,0.0,7841.0,7841.0,LACHVL39,Planlagt,True
+4651,Stryn,46,Vestland,Bergen,1075.74,1326.0,1835,5.0,Ikke påbegynt,0.0,7377.0,7377.0,"LACHVL39,LACIVL63",Planlagt,True
+5001,Trondheim - Tråante,50,Trøndelag,Trondheim,1618.92,496.0,1786,4.0,Ikke påbegynt,0.0,20525.0,20525.0,,,False
+5006,Steinkjer,50,Trøndelag,Trondheim,2724.54,1937.0,3723,9.0,Ferdig,100.0,15485.0,0.0,,,False
+5007,Namsos - Nåavmesjenjaelmie,50,Trøndelag,Trondheim,1628.75,1998.0,2772,7.0,Ferdig,100.0,9057.0,0.0,,,False
+5014,Frøya,50,Trøndelag,Trondheim,489.91,230.0,592,2.0,Ferdig,100.0,6058.0,0.0,,,False
+5020,Osen,50,Trøndelag,Trondheim,335.79,370.0,544,2.0,Ferdig,100.0,2487.0,0.0,,,False
+5021,Oppdal,50,Trøndelag,Trondheim,3520.02,2201.0,4613,11.0,Ikke påbegynt,0.0,37049.0,37049.0,,,False
+5022,Rennebu,50,Trøndelag,Trondheim,1297.5,924.0,1774,4.0,Ferdig,100.0,9074.0,0.0,,,False
+5025,Rosse - Røros,50,Trøndelag,Trondheim,2140.76,1756.0,3077,7.0,Ikke påbegynt,0.0,11912.0,11912.0,,,False
+5026,Holtålen,50,Trøndelag,Trondheim,1032.47,1171.0,1695,4.0,Ikke påbegynt,0.0,6292.0,6292.0,,,False
+5027,Midtre Gauldal,50,Trøndelag,Trondheim,1978.38,1803.0,2961,7.0,Ikke påbegynt,0.0,13652.0,13652.0,LACITL61,Planlagt,True
+5028,Melhus,50,Trøndelag,Trondheim,1118.2,653.0,1435,4.0,Ikke påbegynt,0.0,7720.0,7720.0,LACITL61,Planlagt,True
+5029,Skaun,50,Trøndelag,Trondheim,537.69,213.0,624,2.0,Ikke påbegynt,0.0,4079.0,4079.0,LACITL61,Planlagt,True
+5031,Malvik,50,Trøndelag,Trondheim,405.44,162.0,472,2.0,Ferdig,100.0,3146.0,0.0,,,False
+5032,Selbu,50,Trøndelag,Trondheim,1028.79,1140.0,1672,4.0,Ikke påbegynt,0.0,6104.0,6104.0,,,False
+5033,Tydal,50,Trøndelag,Trondheim,1260.27,1217.0,1931,5.0,Ikke påbegynt,0.0,9999.0,9999.0,,,False
+5034,Meråker,50,Trøndelag,Trondheim,1156.53,1188.0,1818,5.0,Ikke påbegynt,0.0,7116.0,7116.0,,,False
+5035,Stjørdal,50,Trøndelag,Trondheim,1854.39,913.0,2270,6.0,Ikke påbegynt,0.0,13808.0,13808.0,,,False
+5036,Frosta,50,Trøndelag,Trondheim,248.35,74.0,273,1.0,Ferdig,100.0,2623.0,0.0,,,False
+5037,Levanger,50,Trøndelag,Trondheim,1422.45,610.0,1682,4.0,Ferdig,100.0,12304.0,0.0,,,False
+5038,Verdal,50,Trøndelag,Trondheim,1452.89,1475.0,2273,6.0,Påbegynt,25.0,9686.0,7264.0,,,False
+5041,Snåase - Snåsa,50,Trøndelag,Trondheim,1182.67,2146.0,2466,6.0,Ikke påbegynt,0.0,5861.0,5861.0,,,False
+5042,Lierne,50,Trøndelag,Trondheim,815.32,2630.0,2449,6.0,Ikke påbegynt,0.0,2972.0,2972.0,,,False
+5043,Raarvihke - Røyrvik,50,Trøndelag,Trondheim,188.27,1330.0,1036,3.0,Ikke påbegynt,0.0,772.0,772.0,,,False
+5044,Namsskogan,50,Trøndelag,Trondheim,407.16,1353.0,1249,3.0,Ikke påbegynt,0.0,2245.0,2245.0,,,False
+5045,Grong,50,Trøndelag,Trondheim,917.3,1095.0,1542,4.0,Ikke påbegynt,0.0,4904.0,4904.0,,,False
+5046,Høylandet,50,Trøndelag,Trondheim,357.95,703.0,781,2.0,Ikke påbegynt,0.0,2199.0,2199.0,,,False
+5047,Overhalla,50,Trøndelag,Trondheim,625.24,689.0,1013,3.0,Ikke påbegynt,0.0,3968.0,3968.0,,,False
+5049,Flatanger,50,Trøndelag,Trondheim,207.09,434.0,470,2.0,Påbegynt,2.0,1418.0,1390.0,,,False
+5052,Leka,50,Trøndelag,Trondheim,110.9,108.0,171,1.0,Ferdig,100.0,743.0,0.0,,,False
+5053,Inderøy,50,Trøndelag,Trondheim,917.64,351.0,1058,3.0,Ikke påbegynt,0.0,7306.0,7306.0,,,False
+5054,Indre Fosen,50,Trøndelag,Trondheim,1648.98,1030.0,2160,5.0,Ikke påbegynt,0.0,9918.0,9918.0,,,False
+5055,Heim,50,Trøndelag,Trondheim,1264.49,980.0,1780,4.0,Ikke påbegynt,0.0,10013.0,10013.0,,,False
+5056,Hitra,50,Trøndelag,Trondheim,833.69,715.0,1219,3.0,Påbegynt,0.0,8759.0,8759.0,,,False
+5057,Ørland,50,Trøndelag,Trondheim,526.37,429.0,755,2.0,Ferdig,100.0,3888.0,0.0,,,False
+5058,Åfjord,50,Trøndelag,Trondheim,1098.51,1251.0,1807,5.0,Ikke påbegynt,0.0,8387.0,8387.0,,,False
+5059,Orkland,50,Trøndelag,Trondheim,2510.04,1818.0,3451,8.0,Ikke påbegynt,0.0,21540.0,21540.0,LACITL61,Planlagt,True
+5060,Nærøysund,50,Trøndelag,Trondheim,1036.25,1286.0,1773,4.0,Ferdig,0.0,7867.0,7867.0,,,False
+5061,Rindal,50,Trøndelag,Trondheim,680.39,612.0,1013,3.0,Ikke påbegynt,0.0,4368.0,4368.0,,,False
+5501,Tromsø,55,Troms,Tromsø,2442.24,2472.0,3816,9.0,Ikke påbegynt,0.0,27947.0,27947.0,"LACHTF51,LACITF61","Planlagt,Pågående",True
+5503,Harstad - Hárstták,55,Troms,Tromsø,1503.82,428.0,1637,4.0,Ikke påbegynt,0.0,16861.0,16861.0,LACHTF51,Pågående,True
+5510,Kvæfjord,55,Troms,Tromsø,732.98,497.0,986,3.0,Ferdig,100.0,5849.0,0.0,,,False
+5512,Dielddanuorri - Tjeldsund,55,Troms,Tromsø,1053.13,775.0,1456,4.0,Ikke påbegynt,0.0,8058.0,8058.0,,,False
+5514,Ibestad,55,Troms,Tromsø,408.08,234.0,521,2.0,Påbegynt,0.0,3259.0,3259.0,,,False
+5516,Gratangen,55,Troms,Tromsø,299.02,306.0,469,2.0,Ikke påbegynt,0.0,2092.0,2092.0,LACHTF51,Pågående,True
+5518,Loabák - Lavangen,55,Troms,Tromsø,263.07,296.0,430,2.0,Ikke påbegynt,0.0,1546.0,1546.0,LACHTF51,Pågående,True
+5520,Bardu,55,Troms,Tromsø,1106.08,2514.0,2636,6.0,Ikke påbegynt,0.0,6502.0,6502.0,LACHTF51,Pågående,True
+5522,Salangen,55,Troms,Tromsø,477.39,438.0,716,2.0,Ikke påbegynt,0.0,2841.0,2841.0,LACHTF51,Pågående,True
+5524,Målselv,55,Troms,Tromsø,2449.13,3203.0,4298,10.0,Påbegynt,90.0,14811.0,1481.0,,,False
+5526,Sørreisa,55,Troms,Tromsø,449.73,347.0,632,2.0,Ikke påbegynt,0.0,3369.0,3369.0,,,False
+5528,Dyrøy,55,Troms,Tromsø,305.35,277.0,456,2.0,Påbegynt,90.0,1965.0,196.0,,,False
+5530,Senja,55,Troms,Tromsø,2138.08,1861.0,3143,8.0,Ikke påbegynt,0.0,17646.0,17646.0,,,False
+5532,Balsfjord,55,Troms,Tromsø,2010.49,1440.0,2754,7.0,Påbegynt,90.0,13047.0,1305.0,,,False
+5534,Karlsøy,55,Troms,Tromsø,907.04,1051.0,1504,4.0,Ikke påbegynt,0.0,5355.0,5355.0,,,False
+5536,Lyngen,55,Troms,Tromsø,631.47,795.0,1088,3.0,Ikke påbegynt,0.0,4562.0,4562.0,LACITF61,Planlagt,True
+5538,Storfjord - Omasvuotna - Omasvuono,55,Troms,Tromsø,773.97,1477.0,1661,4.0,Ferdig,100.0,3674.0,0.0,,,False
+5540,Gáivuotna - Kåfjord - Kaivuono,55,Troms,Tromsø,495.91,950.0,1067,3.0,Ferdig,100.0,2539.0,0.0,LACITF61,Planlagt,True
+5542,Skjervøy,55,Troms,Tromsø,393.16,465.0,658,2.0,Påbegynt,90.0,2218.0,222.0,LACITF61,Planlagt,True
+5544,Nordreisa - Ráisa - Raisi,55,Troms,Tromsø,1127.31,3334.0,3189,8.0,Ikke påbegynt,0.0,4821.0,4821.0,,,False
+5546,Kvænangen,55,Troms,Tromsø,719.15,2008.0,1957,5.0,Ikke påbegynt,0.0,4328.0,4328.0,,,False
+5601,Alta,56,Finnmark,Tromsø,2416.34,3651.0,4560,11.0,Påbegynt,4.0,17457.0,16759.0,,,False
+5603,Hammerfest - Hámmerfeasta,56,Finnmark,Tromsø,1125.7,2558.0,2682,6.0,Ikke påbegynt,0.0,6601.0,6601.0,,,False
+5605,Sør-Varanger,56,Finnmark,Tromsø,1589.23,3459.0,3688,9.0,Ikke påbegynt,0.0,7082.0,7082.0,,,False
+5607,Vadsø,56,Finnmark,Tromsø,1001.43,1233.0,1708,4.0,Ikke påbegynt,0.0,5170.0,5170.0,,,False
+5610,Kárášjohka - Karasjok,56,Finnmark,Tromsø,2643.28,5211.0,5781,13.0,Ikke påbegynt,0.0,8565.0,8565.0,,,False
+5612,Guovdageaidnu - Kautokeino,56,Finnmark,Tromsø,5442.12,8972.0,10758,24.0,Ikke påbegynt,0.0,19267.0,19267.0,,,False
+5614,Loppa,56,Finnmark,Tromsø,289.52,671.0,698,2.0,Ikke påbegynt,0.0,1446.0,1446.0,,,False
+5616,Hasvik,56,Finnmark,Tromsø,239.66,534.0,564,2.0,Ikke påbegynt,0.0,1313.0,1313.0,,,False
+5618,Måsøy,56,Finnmark,Tromsø,466.75,1068.0,1117,3.0,Ikke påbegynt,0.0,1802.0,1802.0,,,False
+5620,Nordkapp,56,Finnmark,Tromsø,442.81,892.0,981,3.0,Ikke påbegynt,0.0,1716.0,1716.0,LACITF61,Planlagt,True
+5622,Porsanger - Porsáŋgu - Porsanki,56,Finnmark,Tromsø,2459.11,4641.0,5243,12.0,Ikke påbegynt,0.0,9568.0,9568.0,LACITF61,Planlagt,True
+5624,Lebesby,56,Finnmark,Tromsø,629.42,3231.0,2672,6.0,Påbegynt,0.0,3191.0,3191.0,,,False
+5626,Gamvik,56,Finnmark,Tromsø,240.08,1355.0,1099,3.0,Ferdig,100.0,945.0,0.0,,,False
+5628,Deatnu - Tana,56,Finnmark,Tromsø,2067.93,3832.0,4363,10.0,Ikke påbegynt,0.0,9359.0,9359.0,,,False
+5630,Berlevåg,56,Finnmark,Tromsø,328.46,1083.0,1002,3.0,Ferdig,100.0,1390.0,0.0,,,False
+5632,Båtsfjord,56,Finnmark,Tromsø,228.2,1417.0,1129,3.0,Ferdig,100.0,1337.0,0.0,,,False
+5634,Vardø,56,Finnmark,Tromsø,221.56,585.0,581,2.0,Ferdig,100.0,1053.0,0.0,,,False
+5636,Unjárga - Nesseby,56,Finnmark,Tromsø,1030.16,1363.0,1818,5.0,Ikke påbegynt,0.0,3635.0,3635.0,,,False

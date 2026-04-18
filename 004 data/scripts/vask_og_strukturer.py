@@ -98,7 +98,8 @@ def parse_laaseperiode(tekst):
 
 
 def les_base():
-    """Leser StatistikkTraktorvegSti som base. Ignorerer feil fylkesnr/fylkesnavn."""
+    """Leser StatistikkTraktorvegSti som base. Ignorerer feil fylkesnr/fylkesnavn.
+    Bevarer arealLand som brukes til dokumentasjon av Ber_Tidbruk_Min-formelen."""
     print("1. Leser StatistikkTraktorvegSti (base)...")
     df = pd.read_excel(os.path.join(RAW_DIR, '20250903StatistikkTraktorvegSti.xlsx'),
                        sheet_name='Data')
@@ -109,12 +110,54 @@ def les_base():
     df['Kartkontor'] = df['Fylkesnr'].map(FYLKE_TIL_KONTOR)
 
     base = df[['KomNr', 'kommunenavn', 'Fylkesnr', 'Fylke', 'Kartkontor',
-               'km_kurve', 'Ber_tidbruk_minutter', 'Dagsverk']].copy()
+               'km_kurve', 'arealLand', 'Ber_tidbruk_minutter', 'Dagsverk']].copy()
     base.columns = ['KomNr', 'Kommune', 'Fylkesnr', 'Fylke', 'Kartkontor',
-                    'Km_Kurve', 'Ber_Tidbruk_Min', 'Ber_Dagsverk']
+                    'Km_Kurve', 'ArealLand_Km2', 'Ber_Tidbruk_Min', 'Ber_Dagsverk']
     base['Kommune'] = base['Kommune'].str.strip()
     print(f"   {len(base)} kommuner lastet")
     return base
+
+
+def les_tidbruk_kalibrering():
+    """Leser Tidbruk-fanen i StatistikkTraktorvegSti.
+
+    Inneholder 58 kartblader med faktisk malt tidsbruk (MIN) og utledede verdier
+    MIN/KM og MIN/KM2. Brukes som empirisk kalibreringsgrunnlag for formelen:
+        Ber_Tidbruk_Min = Km_Kurve * 0.9035 + ArealLand_Km2 * 0.6510
+
+    De to konstantene leses ogsaa ut fra fanen (i kolonne 9-10 paa rad 1 og 2).
+    """
+    print("1b. Leser Tidbruk-kalibrering...")
+    path = os.path.join(RAW_DIR, '20250903StatistikkTraktorvegSti.xlsx')
+
+    df = pd.read_excel(path, sheet_name='Tidbruk', header=0)
+
+    # Hent konstantene fra kolonne 9 og 10 (de to siste kolonnene i raad 1-2)
+    label_kol = df.columns[-2]
+    verdi_kol = df.columns[-1]
+    konst_navn_1 = str(label_kol).strip()
+    konst_verdi_1 = float(verdi_kol)
+    konst_navn_2 = str(df.iloc[0, -2]).strip()
+    konst_verdi_2 = float(df.iloc[0, -1])
+
+    konstanter = pd.DataFrame([
+        {'Konstant': 'Gjennomsnitt_Min_Per_Km', 'Verdi': round(konst_verdi_1, 6),
+         'Enhet': 'min/km',
+         'Beskrivelse': ('Empirisk gjennomsnittlig tidsbruk per km TVS-lenke, '
+                         'utledet fra 58 kartblader. Kilde: fanen "Tidbruk" i StatistikkTraktorvegSti')},
+        {'Konstant': 'Grunnpakke_Min_Per_Km2', 'Verdi': round(konst_verdi_2, 6),
+         'Enhet': 'min/km2',
+         'Beskrivelse': ('Grunnpakke-tillegg for landareal. '
+                         'Brukes sammen med Gjennomsnitt_Min_Per_Km i formelen for Ber_Tidbruk_Min')},
+    ])
+
+    # Lag kalibreringsdatasett
+    kalibrering = df.iloc[:, :8].copy()
+    kalibrering.columns = ['Kartblad', 'Objekttype', 'Minutter', 'Lengde_M',
+                           'Lengde_Km', 'Min_Per_Km', 'Min_Per_Km2', 'Region']
+    kalibrering = kalibrering.dropna(subset=['Kartblad'])
+    print(f"   {len(kalibrering)} kartblader, 2 konstanter ({konst_navn_1}, {konst_navn_2})")
+    return kalibrering, konstanter
 
 
 def les_fremdrift():
@@ -444,6 +487,20 @@ def valider(master, kapasitet, geovekst):
                   f"status={r['Status']}, låst={r['Er_Laast']}")
 
 
+def valider_tidbruk_formel(master, konstanter):
+    """Verifiserer at Ber_Tidbruk_Min = Km_Kurve * konst1 + ArealLand_Km2 * konst2."""
+    k1 = konstanter.loc[konstanter['Konstant'] == 'Gjennomsnitt_Min_Per_Km', 'Verdi'].iloc[0]
+    k2 = konstanter.loc[konstanter['Konstant'] == 'Grunnpakke_Min_Per_Km2', 'Verdi'].iloc[0]
+    beregnet = master['Km_Kurve'] * k1 + master['ArealLand_Km2'] * k2
+    avvik = (beregnet - master['Ber_Tidbruk_Min']).abs()
+    print(f"\n--- Verifisering av Ber_Tidbruk_Min-formel ---")
+    print(f"  Formel: Ber_Tidbruk_Min = Km_Kurve * {k1} + ArealLand_Km2 * {k2}")
+    print(f"  Maks avvik fra oppgitt verdi: {avvik.max():.2f} min")
+    print(f"  Median avvik: {avvik.median():.2f} min")
+    if avvik.max() > 5:
+        print(f"  ADVARSEL: Stort avvik - formelen er kanskje unoyaktig")
+
+
 def main():
     print("=" * 60)
     print("DATAVASK OG STRUKTURERING - TraktorvegSti")
@@ -452,22 +509,30 @@ def main():
     master, alle_geovekst = bygg_master()
     kapasitet = bygg_kapasitet(master)
     geovekst = bygg_geovekst(alle_geovekst, master)
+    tidbruk_kal, tidbruk_konst = les_tidbruk_kalibrering()
 
     # Lagre
     master_path = os.path.join(OUT_DIR, 'master_kommuner.csv')
     kap_path = os.path.join(OUT_DIR, 'kapasitet_kontorer.csv')
     gv_path = os.path.join(OUT_DIR, 'geovekst_prosjekter.csv')
+    tb_kal_path = os.path.join(OUT_DIR, 'tidbruk_kalibrering.csv')
+    tb_konst_path = os.path.join(OUT_DIR, 'tidbruk_konstanter.csv')
 
     master.to_csv(master_path, index=False, encoding='utf-8-sig')
     kapasitet.to_csv(kap_path, index=False, encoding='utf-8-sig')
     geovekst.to_csv(gv_path, index=False, encoding='utf-8-sig')
+    tidbruk_kal.to_csv(tb_kal_path, index=False, encoding='utf-8-sig')
+    tidbruk_konst.to_csv(tb_konst_path, index=False, encoding='utf-8-sig')
 
     print(f"\nFiler lagret:")
     print(f"  {master_path}")
     print(f"  {kap_path}")
     print(f"  {gv_path}")
+    print(f"  {tb_kal_path}")
+    print(f"  {tb_konst_path}")
 
     valider(master, kapasitet, geovekst)
+    valider_tidbruk_formel(master, tidbruk_konst)
 
 
 if __name__ == '__main__':

@@ -133,21 +133,29 @@ Kartverket har 10 fylkeskartkontor som hver i dag har ansvar for sine fylker, og
 
 ![Figur 1: Fylkeskartkontor og antall kommuner per kontor](figurer/01_kart_kontorer.png)
 
-Kontorene har svært ulik arbeidsbelastning og kapasitet (se figur 2). Oslo har 52 kommuner under sitt ansvar, mens Stavanger og Skien har 23 hver. Årlig kapasitet (uttrykt i ukesverk disponibelt for TVS-prosjektet i 2026) varierer fra 22 ukesverk (Bodø) til 52 ukesverk (Trondheim).
+*Figur 1 Fylkeskartkontorenes ansvarsområder og antall kommuner per kontor*
+
+Kontorene har svært ulik arbeidsbelastning og kapasitet. Oslo har 52 kommuner under sitt ansvar, mens Stavanger og Skien har 23 hver. Årlig kapasitet (uttrykt i ukesverk disponibelt for TVS-prosjektet i 2026) varierer fra 22 ukesverk (Bodø) til 52 ukesverk (Trondheim). Figur 2 (venstre) sammenligner årlig kapasitet i timer med estimert total arbeidsmengde per kontor, mens høyre panel viser estimert varighet i år ved full kapasitetsutnyttelse uten Geovekst-låsning. Mismatchen mellom kapasitet og arbeid er en hovedmotivasjon for å vurdere omfordeling av kommuner mellom kontor.
 
 ![Figur 2: Årlig kapasitet vs. estimert arbeidsmengde, og estimert varighet per kontor](figurer/02_kapasitet_vs_arbeid.png)
 
+*Figur 2 Årlig kapasitet vs. estimert arbeidsmengde og estimert varighet per kartkontor*
+
 ## 4.4 Fremdrift per april 2026
 
-Av 357 kommuner er 62 ferdig kvalitetshevet, 48 påbegynt og 247 ikke startet. Ingen kommuner er ennå overført til NVDB. Fremdriften er ulikt fordelt mellom kontorene (figur 3).
+Av 357 kommuner er 62 ferdig kvalitetshevet, 48 påbegynt og 247 ikke startet. Ingen kommuner er ennå overført til NVDB. Fremdriften er ulikt fordelt mellom kontorene: figur 3 viser antall kommuner per status for hvert kartkontor.
 
 ![Figur 3: Fremdriftsstatus per kartkontor (april 2026)](figurer/03_status_per_kontor.png)
 
+*Figur 3 Fremdriftsstatus per kartkontor per april 2026*
+
 ## 4.5 Geovekst-låsing
 
-Parallelt med TVS-prosjektet pågår ordinære Geovekst-kartleggingsprosjekter i flere kommuner. Under kartleggingsperiodene er kommunene låst for TVS-kvalitetsheving fordi dataene er under endring. I april 2026 er 152 kommuner berørt av slike låsninger, og låseperiodene strekker seg fra mars 2026 til mars 2027 (figur 5). Planleggingen må hensynta at låste kommuner ikke kan behandles før låseperioden er over.
+Parallelt med TVS-prosjektet pågår ordinære Geovekst-kartleggingsprosjekter i flere kommuner. Under kartleggingsperiodene er kommunene låst for TVS-kvalitetsheving fordi dataene er under endring. I april 2026 er 152 kommuner berørt av slike låsninger, og låseperiodene strekker seg fra mars 2026 til mars 2027. Heatmap-cellen i figur 5 angir antall unike kommuner under hvert kontor som er i aktiv låseperiode den aktuelle måneden. De fleste låsningene er konsentrert om sommer og høst 2026, med enkelte prosjekter som fortsetter inn i 2027. Planleggingen må hensynta at låste kommuner ikke kan behandles før låseperioden er over.
 
 ![Figur 5: Antall kommuner låst av Geovekst per måned og kontor](figurer/05_geovekst_heatmap.png)
+
+*Figur 5 Antall kommuner låst av Geovekst-prosjekter per måned og kartkontor*
 
 ## 4.6 Hvorfor dette er et planleggingsproblem
 
@@ -159,9 +167,11 @@ Problemet kombinerer klassiske elementer fra ressursallokering og produksjonspla
 - **Nedstrøms flaskehals:** NVDB-overføringen har lav manuell kapasitet og blir trolig flaskehalsen i kjeden.
 - **Målkonflikter:** Minimere total varighet, utnytte kapasitet, og unngå arbeid i låseperioder – disse kan trekke i ulike retninger.
 
+Figur 6 (venstre) viser et histogram over antall lenker per kommune, med markert median og gjennomsnitt. Median er betydelig lavere enn snittet, noe som bekrefter en høyreskjev fordeling. Pareto-kurven (høyre) viser at arbeidet er sterkt konsentrert på få kommuner: omtrent 30 % av kommunene står for 80 % av de samlede lenkene. Dette har betydning for prioritering i heuristikken – å starte med de største kommunene kan gi rask reduksjon i gjenstående arbeid.
+
 ![Figur 6: Fordeling av antall lenker per kommune og Pareto-kurve for arbeidskonsentrasjon](figurer/06_lenker_histogram.png)
 
-Pareto-kurven (figur 6, høyre) viser at arbeidet er sterkt konsentrert på få kommuner: en liten andel av kommunene står for det meste av lenkene. Dette har betydning for prioritering i heuristikken – å starte med de største kommunene kan gi rask reduksjon i gjenstående arbeid.
+*Figur 6 Fordeling av arbeidsmengde per kommune og Pareto-kurve for arbeidskonsentrasjon*
 
 ---
 
@@ -195,9 +205,24 @@ Rådataene hadde flere kvalitetsproblemer som måtte håndteres:
 - **Arbeidsmengde i ulike enheter:** Arbeidsmengde angis som antall lenker (ikke kilometer), ettersom produksjonstakten oppgis i lenker per person per dag.
 - **Manuelle justeringer av kapasitetsdata:** Oslo-kontorets opprinnelige oppgitte kapasitet (20 ukesverk, 20–60 timer per kommune) ble vurdert som urealistisk lav sammenlignet med kontorets størrelse og øvrige kontorers nivå. Etter dialog ble verdiene justert til 30 ukesverk og 30–90 timer per kommune.
 
-Datarensingen er implementert i `004 data/scripts/vask_og_strukturer.py` og produserer fire behandlede datasett.
+Datarensingen er implementert i `004 data/scripts/vask_og_strukturer.py` og produserer seks behandlede datasett.
 
-### 5.2.3 Behandlede datasett
+### 5.2.3 Formel for beregnet tidsbruk per kommune
+
+Den beregnede tidsbruken per kommune (`Ber_Tidbruk_Min` i rådatasettet) er ikke en empirisk måling, men en avledet størrelse beregnet ved følgende lineære formel:
+
+$$
+\text{Ber\_Tidbruk\_Min} = \text{Km\_Kurve} \times 0{,}9035 + \text{ArealLand\_Km}^2 \times 0{,}6510
+$$
+
+Koeffisientene kommer fra fanen `Tidbruk` i `20250903StatistikkTraktorvegSti.xlsx` og dokumenterer hvordan Kartverket estimerer ressursbehov for kvalitetsheving av TVS-data:
+
+- **0,9035 min/km lenke:** empirisk gjennomsnitt av målt tidsbruk per kilometer TVS-lenke, utledet fra registreringer av faktisk tidsbruk på 58 kartblader.
+- **0,6510 min/km² landareal:** standardtillegg for kommunens landareal ("grunnpakke"), som fanger opp arbeid som ikke skalerer direkte med lenkelengde (nettverkskontroll, topologisk kontroll, arkivarbeid m.m.).
+
+Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker med median 0,2 minutter og maksimalt 0,5 minutter fra oppgitt verdi for alle 357 kommuner. De 58 kartbladmålingene viser samtidig betydelig spredning i MIN/KM: fra 0,10 til 3,44 med standardavvik 0,55 – omtrent 60 % av gjennomsnittet. Dette betyr at `Ber_Tidbruk_Min` er et punktestimat basert på en gjennomsnittssats, og reell tidsbruk per kommune kan avvike betydelig. Denne empiriske variasjonen danner grunnlag for usikkerhetsvurdering i modellen.
+
+### 5.2.4 Behandlede datasett
 
 | Fil | Rader | Innhold |
 |-----|-------|---------|
@@ -205,8 +230,10 @@ Datarensingen er implementert i `004 data/scripts/vask_og_strukturer.py` og prod
 | `kapasitet_kontorer.csv` | 10 | Én rad per kartkontor: årlig kapasitet (ukesverk), min/maks tidsbruk per kommune, aggregerte nøkkeltall |
 | `geovekst_prosjekter.csv` | 173 | Én rad per kommune-prosjekt-par: prosjektkode, kommune, kartkontor, status, låseperiode (start/slutt) |
 | `nvdb_overfoering.csv` | 3 | Tre scenarioer for NVDB-overføring med varierende automasjonsgrad (85 %, 90 %, 96 %) |
+| `tidbruk_kalibrering.csv` | 58 | Én rad per kartblad med faktisk målt tidsbruk (MIN, LENGTH, MIN/KM, MIN/KM²) |
+| `tidbruk_konstanter.csv` | 2 | Koeffisientene 0,9035 min/km og 0,6510 min/km² som brukes i formelen for Ber_Tidbruk_Min |
 
-### 5.2.4 Nøkkeltall og deskriptiv statistikk
+### 5.2.5 Nøkkeltall og deskriptiv statistikk
 
 | Størrelse | Verdi |
 |-----------|-------|
@@ -220,11 +247,13 @@ Datarensingen er implementert i `004 data/scripts/vask_og_strukturer.py` og prod
 
 Fordelingen av antall lenker per kommune er sterkt høyreskjev (figur 6): medianen er langt lavere enn gjennomsnittet, og noen få store kommuner (f.eks. Oslo, Bergen, Trondheim) inneholder en uforholdsmessig stor andel av totalen. Dette har betydning for modelleringen, ettersom små og store kommuner bør behandles ulikt i prioriteringen.
 
-Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor (figur 4). Enkelte kontor (som Oslo, Hamar og Bergen) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Molde og Bodø) har en jevnere fordeling av små og mellomstore kommuner.
+Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor. I figur 4 representerer hver horisontal søyle ett kontors samlede gjenstående arbeid, og hvert segment er én kommune sortert fra størst til minst. Enkelte kontor (som Oslo, Hamar og Bergen) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Molde og Bodø) har en jevnere fordeling av små og mellomstore kommuner.
 
 ![Figur 4: Lastfordeling per kontor, hver kommune som segment](figurer/04_lastfordeling.png)
 
-### 5.2.5 Antagelser og begrensninger
+*Figur 4 Lastfordeling per kartkontor, hvert segment er én kommune*
+
+### 5.2.6 Antagelser og begrensninger
 
 - Kapasitet oppgitt i ukesverk for 2026 antas å gjelde også for etterfølgende år i modellen.
 - Individuell effektivitet per saksbehandler er ikke modellert; kapasiteten behandles som en aggregert ressurs per kontor.
