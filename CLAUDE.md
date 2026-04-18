@@ -40,20 +40,30 @@ G16-lotte-individuell/
 ├── 003 references/
 ├── 004 data/
 │   ├── raw_data/                    ← Rådata + kartverket_fylker.geojson
-│   ├── processed_data/              ← Vaskede data (output)
+│   ├── processed_data/              ← Vaskede data + resultatdata
 │   │   ├── master_kommuner.csv
 │   │   ├── kapasitet_kontorer.csv
 │   │   ├── geovekst_prosjekter.csv
-│   │   └── nvdb_overfoering.csv
+│   │   ├── nvdb_overfoering.csv
+│   │   ├── tidbruk_kalibrering.csv        (58 kartbladmålinger)
+│   │   ├── tidbruk_konstanter.csv         (0,9035 og 0,6510)
+│   │   ├── tidsplan_<scenario>.csv        (heuristikk-output)
+│   │   ├── kapasitetsbruk_per_uke_*.csv
+│   │   ├── flaskehals_nvdb_*.csv
+│   │   ├── oppsummering_scenarioer.csv
+│   │   └── monte_carlo_*.csv              (summary, varigheter, per_kommune, ko_percentiles)
 │   ├── scripts/
 │   │   ├── vask_og_strukturer.py    ← Hovedscript for datavask
-│   │   ├── figurer.py               ← Genererer deskriptive figurer
+│   │   ├── heuristikk.py            ← Regelbasert baseline-simulering
+│   │   ├── monte_carlo.py           ← Usikkerhetsanalyse (500 iter × 3 scenarioer)
+│   │   ├── figurer.py               ← Genererer deskriptive figurer (1-6)
+│   │   ├── figurer_resultater.py    ← Resultatfigurer fra heuristikk (7-10)
 │   │   ├── generer_status.py        ← Genererer STATUS.md fra prosjektplan.json
 │   │   └── generer_master_data.py   ← Eldre script (referanse)
 │   └── generer_excel_med_faner.py   ← Datainnsamlingsmal
 ├── 005 report/
 │   ├── rapport.md                   ← Rapport (seksjon 4 og 5.2 utkast ferdig)
-│   └── figurer/                     ← 6 PNG-figurer
+│   └── figurer/                     ← PNG-figurer (1-10)
 ├── 011 fase 1 - proposal/
 │   └── proposal.md                  ← Godkjent proposal
 ├── 012 fase 2 - plan/
@@ -137,6 +147,21 @@ Besluttet 2026-04-16:
 ### LÅST: To-stegs modell inkluderer NVDB
 
 Både kartkontor-allokering og NVDB-overføring modelleres. NVDB er sannsynlig flaskehals (175 lenker/dag manuelt ved 85% auto).
+
+### LÅST: Monte Carlo-usikkerhetsanalyse
+
+Implementert 2026-04-18 i `monte_carlo.py`. Tre stokastiske kilder per iterasjon:
+
+1. **MIN/KM per kommune:** bootstrap fra empirisk fordeling (58 kartblader, range 0,10–3,44)
+2. **Produksjonstakt_Manuell:** Uniform(300, 400) lenker/person/dag
+3. **Automasjonsgrad_FME:** Normal(scenariopunkt, 0,01), klippet til [0,5; 0,99]
+
+500 iterasjoner per scenario. Resultater (varighet i år, P5/P50/P95):
+- Basis_85: 7,27 / 8,64 / 10,17
+- Middels_90: 4,54 / 5,73 / 7,10
+- Samferdsel_96: 1,41 / 2,20 / 3,22
+
+**Nøkkelfunn:** scenarioene overlapper IKKE – P95 av Samferdsel (3,22) er under P5 av Middels (4,54). Automasjonsgraden er den dominerende usikkerhetskilden, ikke tidsbruk per kommune. Kartkontor-varighet er stabilt ~488 dager (P5-P95: 475-504).
 
 ### LÅST: NVDB-scenarioanalyse på automasjonsgrad
 
