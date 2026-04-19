@@ -1,0 +1,4 @@
+Scenario,Status,Makespan_Mnd,Makespan_Aar,Objective,Kommuner_Omfordelt,Aktive_Kommuner,Solver_Tid_Sek,Variabler,Bibindelser
+Basis_85,Optimal,104,8.67,103.9999999999986,0,295,466.0,392590,76565
+Middels_90,Optimal,69,5.75,68.9999999999986,0,295,187.0,262710,52405
+Samferdsel_96,Optimal,27,2.25,26.99999999999964,0,295,45.9,106854,23413

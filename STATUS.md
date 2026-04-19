@@ -4,7 +4,7 @@
 **Fag:** LOG650 Logistikk og KI | **Institusjon:** Høgskolen i Molde  
 **Prosjektleder:** Lotte Picard | **Kunde:** Statens Kartverk, Region og Samfunnskontakt  
 **Periode:** 2026-01-12 → 2026-06-01  
-**Sist oppdatert:** 2026-04-18
+**Sist oppdatert:** 2026-04-19
 
 > Denne fila er auto-generert fra `012 fase 2 - plan/prosjektplan.json`. Kjør `python "004 data/scripts/generer_status.py"` for å oppdatere.
 
@@ -13,8 +13,8 @@
 ## Overordnet status
 
 - **Nåværende fase:** Fase 3 – Gjennomføring
-- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (11 dager)
-- **Dager igjen til innlevering:** 44
+- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (10 dager)
+- **Dager igjen til innlevering:** 43
 - **Kritisk linje:** Planleggingsleveranse → Datainnsamling → Analyse/modelldel → Diskusjon → Peer review → Sluttføring av rapport
 
 ### Faseoversikt
@@ -46,8 +46,8 @@
 | 15 | Introduksjon og problemstilling | 16.03 – 18.03 | 🔄 Pågående | 50% |  |
 | 16 | Teori og litteratursøk | 19.03 – 25.03 | 🔄 Pågående | 30% |  |
 | 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | ✅ Ferdig | 100% | Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert |
-| 18 | Data/metode og modellering | 06.04 – 14.04 | 🔄 Pågående | 85% | Heuristikk.py implementert og kjørt for 3 NVDB-scenarioer. Monte Carlo (500 iter × 3 scenarioer) implementert med sampling av MIN/KM, manuell takt og automasjonsgrad. Ber_Tidbruk_Min-formelen avdekket og dokumentert (konstanter 0.9035 og 0.6510 fra Tidbruk-fanen). 13 figurer produsert (6 deskriptive, 4 resultat, 3 usikkerhet). Rapport-seksjon 4 og 5.2 utkast ferdig. Gjenstår: skrive 5.1 Metode, 6.0 Modellering, samt MIP-modell (avventer svar fra samferdselsavdelingen). |
-| 19 | Analyse og resultater | 15.04 – 21.04 | 🔄 Pågående | 40% | Resultater produsert fra heuristikk og Monte Carlo (oppsummering_scenarioer.csv, monte_carlo_summary.csv, 7 resultatfigurer). Nøkkelfunn: scenarioene overlapper ikke - P95 Samferdsel (3.22 år) under P5 Middels (4.54 år). Gjenstår: skrive rapport-seksjon 7.0 Analyse og 8.0 Resultat. |
+| 18 | Data/metode og modellering | 06.04 – 14.04 | ✅ Ferdig | 100% | Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet lex-opt målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 4 varianter (S0/S1/S3/S4) × 3 scenarioer = 12 MIP-kjøringer. Monte Carlo på MIP-plan bekrefter identiske usikkerhetsbånd som heuristikk-MC. Rapport-seksjon 6.0 Modellering skrevet. |
+| 19 | Analyse og resultater | 15.04 – 21.04 | 🔄 Pågående | 85% | Rapport-seksjon 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Nøkkelfunn: (1) MIP bekrefter heuristikken er nær-optimal for makespan, (2) NVDB er flaskehalsen i alle scenarioer, (3) kapasitetsvariansjoner påvirker ikke makespan, (4) scenarioene overlapper ikke - P95 Samferdsel (3.22 år) under P5 Middels (4.54 år). Gjenstår: figur 17 fanchart MIP, mindre finpuss rapport. |
 | 20 | Diskusjon | 22.04 – 24.04 | ⏳ Ikke startet | 0% |  |
 | 21 | Peer review | 27.04 – 28.04 | ⏳ Ikke startet | 0% |  |
 
@@ -151,4 +151,4 @@
 
 | Dato | Endring |
 |------|---------|
-| 2026-04-18 | STATUS.md regenerert fra prosjektplan.json |
+| 2026-04-19 | STATUS.md regenerert fra prosjektplan.json |

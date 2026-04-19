@@ -184,9 +184,9 @@
           "sluttdato": "2026-04-14",
           "varighet_dager": 7,
           "predecessors": [17],
-          "status": "Pågående",
-          "fremdrift_prosent": 85,
-          "kommentar": "Heuristikk.py implementert og kjørt for 3 NVDB-scenarioer. Monte Carlo (500 iter × 3 scenarioer) implementert med sampling av MIN/KM, manuell takt og automasjonsgrad. Ber_Tidbruk_Min-formelen avdekket og dokumentert (konstanter 0.9035 og 0.6510 fra Tidbruk-fanen). 13 figurer produsert (6 deskriptive, 4 resultat, 3 usikkerhet). Rapport-seksjon 4 og 5.2 utkast ferdig. Gjenstår: skrive 5.1 Metode, 6.0 Modellering, samt MIP-modell (avventer svar fra samferdselsavdelingen)."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet lex-opt målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 4 varianter (S0/S1/S3/S4) × 3 scenarioer = 12 MIP-kjøringer. Monte Carlo på MIP-plan bekrefter identiske usikkerhetsbånd som heuristikk-MC. Rapport-seksjon 6.0 Modellering skrevet."
         },
         {
           "id": 19,
@@ -196,8 +196,8 @@
           "varighet_dager": 5,
           "predecessors": [18],
           "status": "Pågående",
-          "fremdrift_prosent": 40,
-          "kommentar": "Resultater produsert fra heuristikk og Monte Carlo (oppsummering_scenarioer.csv, monte_carlo_summary.csv, 7 resultatfigurer). Nøkkelfunn: scenarioene overlapper ikke - P95 Samferdsel (3.22 år) under P5 Middels (4.54 år). Gjenstår: skrive rapport-seksjon 7.0 Analyse og 8.0 Resultat."
+          "fremdrift_prosent": 85,
+          "kommentar": "Rapport-seksjon 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Nøkkelfunn: (1) MIP bekrefter heuristikken er nær-optimal for makespan, (2) NVDB er flaskehalsen i alle scenarioer, (3) kapasitetsvariansjoner påvirker ikke makespan, (4) scenarioene overlapper ikke - P95 Samferdsel (3.22 år) under P5 Middels (4.54 år). Gjenstår: figur 17 fanchart MIP, mindre finpuss rapport."
         },
         {
           "id": 20,

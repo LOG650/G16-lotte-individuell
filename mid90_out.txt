@@ -1,0 +1,34 @@
+============================================================
+MIP-MODELL FOR TVS-ALLOKERING
+============================================================
+Kommuner: 357 (62 pre-ferdige)
+Kontor: 10
+Geovekst-prosjekter: 173
+Scenarioer: 1
+
+============================================================
+Scenario: Middels_90 (horisont T = 80 maaneder)
+============================================================
+  Aktive kommuner: 295
+  Kontor: 10
+  Tidssteg: 80
+  NVDB-kapasitet: 37917 lenker/mnd
+  Totale lenker (NVDB): 2630964
+  Variabler: 262710
+  Bibindelser: 52405
+    Vektet objektiv (W1=2e+10, W2=3e+03)
+    Ferdig (268.4s, status Optimal), makespan = 69 mnd
+  Solver-tid: 268.4s
+  Status: Optimal
+  Makespan (mnd): 70
+  Makespan (aar): 5.83
+  Kommuner omfordelt: 59/295
+  Kartkontor-ferdig: max=10 mnd, median=3.0 mnd
+
+============================================================
+Sammendrag
+============================================================
+  Scenario  Varighet_Heuristikk_Aar  Varighet_MIP_Aar  Forbedring_Aar  Forbedring_Pst  Kommuner_Omfordelt
+Middels_90                     5.76              5.83           -0.07            -1.2                  59
+
+Output lagret i C:\IT_studier\LOG650_Logistikk_og_KI\Prosjekt\G16-lotte-individuell\004 data\scripts\..\processed_data

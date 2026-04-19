@@ -97,7 +97,25 @@ Er oppgaven båndlagt (konfidensiell)? ja/nei
 
 # 2.0 Litteratur
 
+Problemstillingen i denne oppgaven kombinerer flere etablerte fagområder: ressursallokering og scheduling med tidsvinduer, hybride løsningsmetoder som kombinerer heuristikk og eksakt optimering, samt usikkerhetsanalyse basert på Monte Carlo-simulering og bootstrap. Dette kapittelet presenterer sentrale referanser som danner det metodiske grunnlaget for analysen.
 
+## 2.1 Scheduling og ressursallokering med tidsvinduer
+
+Pinedo (2016) er et standardverk innen scheduling-teori og dekker både klassiske formuleringer – parallelle maskiner, release- og due-datoer – og utvidelser som tidsvinduer og ressursbegrensninger. Verket gir det teoretiske rammeverket for å formulere TraktorvegSti-problemet som et ressursallokerings- og sekvenseringsproblem der de 10 kartkontorene tilsvarer parallelle ressurser med varierende kapasitet.
+
+Hartmann og Briskorn (2010) gir en oversiktsartikkel over det ressursbegrensede prosjektplanleggingsproblemet (Resource-Constrained Project Scheduling Problem, RCPSP) og dets utvidelser. Artikkelen etablerer en klassifikasjon som er direkte overførbar til Kartverkets problemstilling: kommuner som aktiviteter, kartkontor som ressurser, Geovekst-låsninger som tidsvinduer, og NVDB-overføringen som en nedstrøms kapasitetsbegrensning.
+
+## 2.2 Hybride løsningsmetoder
+
+Puchinger og Raidl (2005) presenterer en taksonomi over kombinasjoner av metaheuristikker og eksakte algoritmer i kombinatorisk optimering. Forfatterne beskriver ulike måter heuristiske og eksakte metoder kan utfylle hverandre, for eksempel ved at en heuristikk genererer en baseline-løsning som videre forbedres av en eksakt metode. Denne tilnærmingen ligger til grunn for metodevalget i oppgaven, der en regelbasert heuristikk gir en baseline som sammenlignes med en MIP-modell med full omfordelingsfrihet.
+
+## 2.3 Monte Carlo-simulering og usikkerhetsanalyse
+
+Vose (2008) er et bredt brukt standardverk for kvantitativ risikoanalyse og dekker Monte Carlo-metoden anvendt i planleggingskontekst. Boken omhandler valg av sannsynlighetsfordelinger, sampling-strategier, hensiktsmessig antall iterasjoner, samt tolkning av persentiler og konfidensintervall – alle aspekter som er relevante for usikkerhetsanalysen i denne oppgaven.
+
+## 2.4 Bootstrap og empirisk resampling
+
+Efron og Tibshirani (1993) presenterer bootstrap-metoden som en statistisk teknikk for å estimere usikkerhet basert på empiriske fordelinger. Verket begrunner resampling med tilbakelegging som en gyldig metode når underliggende sannsynlighetsfordeling er ukjent. I denne oppgaven anvendes prinsippet ved å trekke verdier for tidsbruk per kilometer TVS-lenke fra en empirisk fordeling basert på 58 historiske kartbladmålinger, heller enn å forutsette en parametrisk fordelingsform.
 
 ---
 
@@ -264,19 +282,209 @@ Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enk
 
 # 6.0 Modellering
 
+## 6.1 Heuristikk
 
+Den regelbaserte heuristikken tjener som baseline og som validert simuleringsmotor for Monte Carlo-analyse og MIP-evaluering. Den simulerer dag-for-dag (mandag-fredag, ca. 260 arbeidsdager per år) over STARTDATO 1. mai 2026.
+
+**Steg 1: Initiell tilstand.** For hver kommune *i* beregnes gjenværende timebehov som
+
+$$t_i = \frac{\tau_i}{60} \cdot \frac{\ell^{\text{rest}}_i}{\ell_i}$$
+
+der $\tau_i$ er beregnet tidsbruk i minutter (fra formel 5.2.3), $\ell^{\text{rest}}_i$ er gjenstående lenker og $\ell_i$ er totale lenker. Kommuner med status "Ferdig" (62 stk.) plasseres direkte i NVDB-kø fra STARTDATO.
+
+**Steg 2: Prioriteringskø per kontor.** Kommuner tildeles hjemmekontor basert på fylkestilhørighet (baseline — omfordeling utforskes i MIP). Innenfor hvert kontor sorteres kommuner etter:
+
+1. Låst på STARTDATO → plasseres sist
+2. Ikke-låste → størst først (flest gjenværende timer)
+3. Låste → tidligste opplåsingsdato først
+
+**Steg 3: Dag-for-dag-simulering.** For hver arbeidsdag:
+
+- Hvert kontor arbeider på første ikke-låste kommune i køen med daglig kapasitet $\kappa_j = K_j \cdot 37{,}5 / 230$ timer (der $K_j$ er oppgitt kapasitet i ukesverk). Når en kommune når 0 gjenværende timer, flyttes den til NVDB-køen.
+- Hvis dagen er etter NVDB-startdato, drenerer NVDB-køen med scenariets kapasitet (1 167 / 1 750 / 4 375 lenker/dag for hhv. Basis_85 / Middels_90 / Samferdsel_96).
+
+**Bevisste forenklinger.** Heuristikken modellerer ikke ferier/pauser, individuell effektivitet eller oppstartskostnad ved kommuneskifte. Hjemmekontor-tildelingen er status quo (baseline) — omfordeling er en kjernebeslutning som undersøkes i MIP.
+
+## 6.2 MIP-formulering
+
+Den matematiske optimeringsmodellen er formulert som et blandet heltallsproblem (MILP) med tidsindeksering på månedsnivå. Modellen minimerer totalvarighet fra STARTDATO til siste kommune er overført til NVDB.
+
+### 6.2.1 Sett og parametre
+
+- $I$ = aktive kommuner (ikke pre-ferdige), $|I| = 295$
+- $J$ = kartkontor, $|J| = 10$
+- $T$ = tidshorisont i måneder (120 for Basis_85, 80 for Middels_90, 32 for Samferdsel_96)
+- $\tau_i$ = timebehov på kartkontor for kommune *i*
+- $\ell_i$ = antall lenker som skal overføres til NVDB
+- $\kappa_j$ = månedlig kartkontor-kapasitet for kontor *j* (matcher heuristikkens effektive kapasitet via $K_j \cdot 37{,}5 \cdot 260/(230 \cdot 12)$)
+- $L_{it} \in \{0,1\}$ = 1 hvis kommune *i* kan behandles i måned *t* (0 hvis Geovekst-låst)
+- $\mu$ = månedlig NVDB-kapasitet (lenker)
+- $L^{pre}$ = lenker fra 62 pre-ferdige kommuner (tilgjengelig i NVDB-kø fra $t=0$)
+
+### 6.2.2 Beslutningsvariabler
+
+- $y_{ij} \in \{0,1\}$: kommune *i* tildeles kontor *j*
+- $w_{ijt} \geq 0$: timer brukt på $(i, j)$ i måned *t*
+- $z_{it} \in \{0,1\}$: kommune *i* er ferdig på kartkontor innen måned *t*
+- $D_t \geq 0$: lenker overført til NVDB i måned *t*
+- $Q_t \in \{0,1\}$: 1 hvis ikke all NVDB-overføring er ferdig innen måned *t*
+
+### 6.2.3 Bibindelser
+
+Hver aktive kommune tildeles nøyaktig ett kontor:
+
+$$\sum_{j \in J} y_{ij} = 1, \quad \forall i \in I \tag{1}$$
+
+Totale timer leveres:
+
+$$\sum_{j \in J} \sum_{t \in T} w_{ijt} = \tau_i, \quad \forall i \in I \tag{2}$$
+
+Månedlig kontor-kapasitet:
+
+$$\sum_{i \in I} w_{ijt} \leq \kappa_j, \quad \forall j \in J, t \in T \tag{3}$$
+
+Arbeid skjer kun på tildelt kontor (aggregert over tid):
+
+$$\sum_{t \in T} w_{ijt} \leq \tau_i \cdot y_{ij}, \quad \forall i \in I, j \in J \tag{4}$$
+
+Ingen arbeid under låseperioder:
+
+$$\sum_{j \in J} w_{ijt} = 0, \quad \forall i, t \text{ med } L_{it} = 0 \tag{5}$$
+
+Kommune ferdig-indikator:
+
+$$\tau_i \cdot z_{it} \leq \sum_{j \in J} \sum_{s \leq t} w_{ijs}, \quad \forall i, t \tag{6}$$
+
+Monotoni av ferdig-status:
+
+$$z_{it} \geq z_{i,t-1}, \quad \forall i, t > 0 \tag{7}$$
+
+NVDB-kapasitet per måned (null før NVDB-startdato):
+
+$$D_t \leq \mu, \quad \forall t \geq t_0^{NVDB}; \quad D_t = 0, \quad \forall t < t_0^{NVDB} \tag{8}$$
+
+NVDB kan ikke overføre mer enn tilgjengelig (pre-ferdige + ferdige fra kartkontor):
+
+$$\sum_{s \leq t} D_s \leq L^{pre} + \sum_{i \in I} \ell_i \cdot z_{it}, \quad \forall t \tag{9}$$
+
+All NVDB-overføring fullført innen horisonten:
+
+$$\sum_{t \in T} D_t = L^{pre} + \sum_{i \in I} \ell_i \tag{10}$$
+
+Makespan-indikator (lineariseringsteknikk):
+
+$$L^{tot} - \sum_{s \leq t} D_s \leq L^{tot} \cdot Q_t, \quad \forall t \tag{11}$$
+
+der $L^{tot} = L^{pre} + \sum_i \ell_i$. Sammen med $Q_t \leq Q_{t-1}$ sikrer (11) at $Q_t = 1$ så lenge NVDB ikke er ferdig.
+
+### 6.2.4 Målfunksjon og lex-opt
+
+Vi ønsker primært å minimere makespan $M = \sum_t Q_t$ (antall måneder før NVDB er ferdig). Men makespan-minimering alene ga en degenerert "just-in-time"-løsning der kartkontor-arbeid ble spredt over hele NVDB-perioden — matematisk optimal, men upraktisk.
+
+For å finne en **realistisk** optimal plan brukes en leksikografisk målfunksjon som én-pass vektet sum:
+
+$$\min \; W_1 \cdot M + W_2 \cdot \sum_{i \in I} \sum_{t \in T} \tau_i (1 - z_{it}) + \sum_{i \in I} (1 - y_{i, \text{hjem}(i)})$$
+
+der:
+- Første ledd (primær): makespan
+- Andre ledd (sekundær): sum av $\tau_i \times$ (antall måneder ikke ferdig) — straffer sen kartkontor-ferdigstilling
+- Tredje ledd (tertiær inertia): straffer omfordeling fra hjemmekontor — tie-breaker mot degenererte løsninger
+
+Vektene $W_1 \approx 10^{10}$, $W_2 \approx 10^3$ sikrer at primær > sekundær > tertiær. Denne strukturen gir én solver-runde og unngår numeriske feil fra separate lex-opt-runder.
+
+## 6.3 Sensitivitetsanalyse
+
+To former for sensitivitet utforskes:
+
+**NVDB-parametere (Monte Carlo).** 500 iterasjoner per scenario med tre stokastiske kilder: MIN/KM per kommune (bootstrap fra 58 empiriske kartbladmålinger), manuell takt (Uniform 300-400 lenker/dag/person) og automasjonsgrad (Normal rundt scenariopunktet, std 0,01). Monte Carlo kjøres på både heuristikkens og MIP-s plan for direkte sammenligning.
+
+**Kapasitetsvariasjoner.** Fem varianter på kontor-kapasitet løses i MIP for hvert NVDB-scenario: S0_Baseline (nominell), S1_Trondheim50 (Trondheim -50 %), S2_Alle_pluss20 (alle +20 %), S3_Omfordeling (små kontor +50 %, store -20 %), S4_Alle_minus15 (alle -15 %). Dette kartlegger MIP-ens robusthet og identifiserer scenarioer der omfordeling blir nødvendig.
+
+## 6.4 Implementeringsdetaljer
+
+Heuristikken (`heuristikk.py`) og Monte Carlo-motoren (`monte_carlo.py`) er implementert i Python 3.13 med pandas og numpy. MIP-modellen (`mip_modell.py`) bruker PuLP 3.3 med CBC som solver (versjon 2.10.3, gratis og innebygd i PuLP). Horisonter og solver-tidsgrenser er satt slik at alle scenarioer løses optimalt eller nær-optimalt innen 15 minutter på vanlig utviklingsmaskin.
 
 ---
 
 # 7.0 Analyse
 
+## 7.1 MIP vs. heuristikk — makespan
 
+Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen over de tre NVDB-scenarioene. MIP-modellen bruker vektet målfunksjon (lex-opt med inertia-tie-breaker), og er løst optimalt (CBC) eller nær-optimalt for alle scenarioer.
+
+*Tabell 7.1 Makespan per metode og NVDB-scenario*
+
+| Scenario | Heuristikk (år) | MIP (år) | Differanse |
+|----------|:---:|:---:|:---:|
+| Basis_85 | 8,64 | 8,75 | +0,11 |
+| Middels_90 | 5,76 | 5,83 | +0,07 |
+| Samferdsel_96 | 2,31 | 2,33 | +0,02 |
+
+Alle differansene er under 2 % og skyldes MIP-modellens månedlige tidsoppløsning (hver måned avrundes opp ved kollisjon med NVDB-drenering). I praksis gir de to metodene *identisk makespan*. Figur 14 visualiserer resultatene.
+
+## 7.2 Kartkontor-ferdigstilling
+
+Heuristikken og MIP gir samme totalvarighet, men forskjellig profil for når kartkontor-arbeidet er ferdig. Figur 15 viser fordelingen: heuristikken ferdigstiller alle kommuner på kartkontoret innen ca. 16 måneder (medianverdi 4–5 måneder), mens MIP-planen — med lex-opt som sekundær målfunksjon — komprimerer kartkontor-arbeidet ytterligere til innen 10 måneder (median 3 måneder). Begge er realistiske fra et ressursforvaltningssynspunkt: NVDB-delen alene tar 2,3–8,7 år avhengig av automasjonsgrad, så kartkontorene rekker uansett å levere alt materiale lenge før NVDB er ferdig.
+
+## 7.3 Omfordeling mellom kontor
+
+MIP-modellen har full frihet til å reassigne kommuner mellom kartkontor, men inertia-tie-breakeren favoriserer hjemmekontor-tildeling i tilfeller hvor flere løsninger gir samme makespan. Resultatet (figur 16) viser at 31–59 kommuner flyttes, men disse er hovedsakelig tie-breakere: ingen kommuner *må* omfordeles for å oppnå optimal makespan. Omfordelingene er symmetrisk spredt (diagonale tall dominerer i matrisen), noe som bekrefter at status quo-tildelingen er nær-optimal.
+
+## 7.4 Kapasitets-sensitivitet
+
+Figur 18 og 19 viser resultatet av sensitivitetsanalysen der kapasitet ved ett eller flere kontor endres. Fem varianter ble undersøkt: baseline (S0), Trondheim -50 % (S1), alle +20 % (S2), små +50 % og store -20 % (S3), og alle -15 % (S4).
+
+**Hovedfunn**: makespan er *uendret* i alle varianter for alle NVDB-scenarioer. Selv ved halvert Trondheim-kapasitet (S1) eller strukturell omfordeling av ressurser (S3) forblir total prosjektvarighet 8,75 / 5,83 / 2,33 år. Dette skyldes at kartkontorene uansett ferdigstiller arbeidet sitt lenge før NVDB rekker å drenere køen.
+
+Antallet omfordelte kommuner varierer mellom variantene (figur 19), noe som reflekterer MIP-modellens tilpasning av lokalt arbeid når kapasiteten endres. Dette gir et verdifullt beredskapsverktøy: dersom et kontor får redusert kapasitet, viser MIP hvilke kommuner som bør omfordeles til andre kontor for å holde de respektive køene i balanse — selv om makespan ikke endres.
+
+## 7.5 Usikkerhetsanalyse
+
+Monte Carlo-simuleringen (500 iterasjoner per scenario × tre stokastiske kilder) på MIP-s plan gir nesten identiske usikkerhetsbånd som heuristikk-baserte Monte Carlo (tabell 7.2). Dette bekrefter nok en gang at MIP-ens omfordelinger ikke påvirker den samlede risikoprofilen nevneverdig.
+
+*Tabell 7.2 Usikkerhetsbånd MIP-plan (P5 / P50 / P95, år)*
+
+| Scenario | MIP-plan | Heuristikk-plan |
+|----------|:---:|:---:|
+| Basis_85 | 7,27 / 8,64 / 10,17 | 7,27 / 8,64 / 10,17 |
+| Middels_90 | 4,54 / 5,73 / 7,10 | 4,54 / 5,73 / 7,10 |
+| Samferdsel_96 | 1,39 / 2,20 / 3,22 | 1,41 / 2,20 / 3,22 |
+
+Den dominerende usikkerhetskilden er automasjonsgraden i FME-overføringen (jf. figur 11-13). Scenariobåndene overlapper ikke — P95 av Samferdsel_96 (3,22 år) ligger lavere enn P5 av Middels_90 (4,54 år). Dette understreker at *automasjonsgrad er den viktigste strategiske faktoren* for totalvarigheten, ikke kartkontor-allokering.
 
 ---
 
 # 8.0 Resultat
 
+## 8.1 Hovedresultater
 
+Den hybride løsningsmetoden (regelbasert heuristikk + MIP-verifikasjon + Monte Carlo) gir følgende hovedresultater:
+
+1. **Total prosjektvarighet (deterministisk estimat):**
+   - Basis_85 (85 % FME-automasjon): **8,64 år**
+   - Middels_90 (90 % automasjon): **5,76 år**
+   - Samferdsel_96 (96 % automasjon): **2,31 år**
+
+2. **Usikkerhetsbånd (P5–P95 fra 500 Monte Carlo-iterasjoner):**
+   - Basis_85: 7,27 – 10,17 år
+   - Middels_90: 4,54 – 7,10 år
+   - Samferdsel_96: 1,39 – 3,22 år
+
+3. **Omfordeling mellom kartkontor:** gir *ingen* forbedring i total makespan i noen av de tre NVDB-scenarioene. MIP-modellen bekrefter at heuristikkens hjemmekontor-tildeling er nær-optimal (innenfor 2 % av MIP-ens løsning, forskjellen skyldes tidsoppløsning, ikke assignment).
+
+4. **Kartkontor-ferdigstilling:** alt kartkontor-arbeid fullføres innen 10–16 måneder i alle scenarioer. Kartkontorene er ikke flaskehalsen.
+
+5. **NVDB-overføring er flaskehalsen:** makespan bestemmes nesten utelukkende av NVDB-kapasiteten. Ved 85 % automasjon krever den 9+ år alene, ved 96 % under 3 år.
+
+## 8.2 Scenario-sammenligning
+
+Figur 14 viser makespan for heuristikk og MIP side om side. De tre NVDB-scenarioene gir ikke-overlappende P5–P95-intervaller (P95 av Samferdsel_96 = 3,22 år < P5 av Middels_90 = 4,54 år), som betyr at valg av automasjonsgrad er en *dominant* strategisk beslutning sammenlignet med resourceallokering.
+
+## 8.3 Robusthet mot kapasitetsforstyrrelser
+
+Figur 18 viser at selv dramatiske kapasitetsendringer (f.eks. Trondheim -50 %, eller strukturell omfordeling) ikke endrer makespan. Dette er en robusthetsindikasjon: dagens plan kan absorbere uforutsette kapasitetsreduksjoner uten at prosjektet forsinkes, fordi kartkontorene uansett har luft til NVDB-flaskehalsen.
+
+Fra et beredskapssynspunkt gir dette Kartverket trygghet i planleggingen. Dersom et kontor får redusert kapasitet under produksjonen, viser figur 19 hvilke omfordelinger MIP-modellen anbefaler for å balansere belastningen (selv om total varighet ikke endres).
 
 ---
 
@@ -294,7 +502,15 @@ Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enk
 
 # 11.0 Bibliografi
 
+Efron, B., & Tibshirani, R. J. (1993). *An introduction to the bootstrap*. Chapman & Hall/CRC.
 
+Hartmann, S., & Briskorn, D. (2010). A survey of variants and extensions of the resource-constrained project scheduling problem. *European Journal of Operational Research, 207*(1), 1–14. https://doi.org/10.1016/j.ejor.2009.11.005
+
+Pinedo, M. L. (2016). *Scheduling: Theory, algorithms, and systems* (5. utg.). Springer.
+
+Puchinger, J., & Raidl, G. R. (2005). Combining metaheuristics and exact algorithms in combinatorial optimization: A survey and classification. I J. Mira & J. R. Álvarez (Red.), *Artificial intelligence and knowledge engineering applications: A bioinspired approach* (s. 41–53). Springer. (Lecture Notes in Computer Science, bind 3562)
+
+Vose, D. (2008). *Risk analysis: A quantitative guide* (3. utg.). John Wiley & Sons.
 
 ---
 

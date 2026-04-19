@@ -191,91 +191,89 @@ Bemanning (0.5 årsverk) og manuell produksjonstakt (350 lenker/dag) holdes kons
 - **152** kommuner låst av Geovekst-prosjekter
 - **173** kommune-prosjekt-par i geovekst
 
-## Neste steg: heuristikk.py
+## MIP-modell (mip_modell.py)
 
-Ikke skrevet ennå. Skal ligge i `004 data/scripts/heuristikk.py`.
+Implementert 2026-04-19. Time-indeksert MILP med månedlig granularitet. Beslutningsvariabler:
+- `y_ij ∈ {0,1}`: kommune i tildeles kontor j
+- `w_ijt ≥ 0`: timer brukt på (i, j) i måned t
+- `z_it ∈ {0,1}`: kommune i er ferdig på kartkontor innen måned t
+- `D_t ≥ 0`: lenker overført til NVDB i måned t (aggregert)
+- `Q_t ∈ {0,1}`: 1 hvis ikke alt NVDB overført innen måned t
 
-### Algoritme (pseudokode)
+Horisonter: Basis_85 T=120, Middels_90 T=80, Samferdsel_96 T=32. Tidsoppløsning: kalendermåneder (21,67 arbeidsdager/måned for å matche heuristikkens mandag-fredag-skjema).
 
-```
-INPUT:
-  kommuner       — master_kommuner.csv
-  kontorer       — kapasitet_kontorer.csv
-  geovekst       — geovekst_prosjekter.csv
-  nvdb_scenario  — én rad fra nvdb_overfoering.csv
+### Tre modi (via `--mode`)
 
-KONSTANTER:
-  TIMER_PER_UKESVERK = 37.5
-  ARBEIDSDAGER_PER_AAR = 230
-  STARTDATO = 2026-05-01
+- **makespan**: min sum Q_t alene. CBC stopper ofte prematurt uten å bevise optimalitet.
+- **lex**: sekvensiell lex-opt. Runde 1 min makespan, runde 2 min sum_i timer_i × (1 - z_it) gitt makespan-constraint. Robust men langsom (2 solver-runder).
+- **vektet** (default): én-pass obj = W1 × makespan + W2 × kartkontor-ferdig + inertia. W1 ≈ 10¹⁰, W2 ≈ 10³. Raskest og mest stabil; CBC løser grundig.
 
-STEG 1: Beregn gjenvaerende_timer per kommune
-  For hver kommune:
-    Hvis Status == 'Ferdig': ferdigdato_kartkontor = STARTDATO, skip
-    Ellers: gjenvaerende_timer = (Ber_Tidbruk_Min / 60) * (Gjenstaaende_Lenker / Antall_Lenker)
+### Resultater (vektet-modus, 2026-04-19)
 
-STEG 2: Bygg prioriteringskø per kontor
-  For hvert kontor:
-    sorter kommuner etter:
-      1. Låst på STARTDATO → sist
-      2. Ikke-låste: størst først
-      3. Låste: tidligste opplåsing først
+| Scenario | Heuristikk | MIP | Omfordelinger | Kartkontor siste mnd |
+|----------|-----------|-----|---------------|----------------------|
+| Basis_85 | 8,64 år | 8,75 år | 59 | 10 |
+| Middels_90 | 5,76 år | 5,83 år | 59 | 10 |
+| Samferdsel_96 | 2,31 år | 2,33 år | 31 | 10 |
 
-STEG 3: Simuler dag for dag (arbeidsdager, hopp over helg)
-  gjeldende_dato = STARTDATO
-  nvdb_ko = []
+**Hovedfunn**: MIP bekrefter at heuristikkens hjemmekontor-assignment er nær optimal for makespan. 1–2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er tie-breakers, ikke nødvendige for makespan. NVDB er konsistent flaskehals — kartkontor-delen er ferdig innen 10 måneder (MIP) eller ~16 måneder (heuristikk) i alle scenarioer.
 
-  Mens ikke alle kommuner er ferdige NVDB:
-    For hvert kontor parallelt:
-      aktiv = første kommune i køen som ikke er låst på gjeldende_dato
-      timer_i_dag = kontor.Kapasitet_Ukesverk * 37.5 / ARBEIDSDAGER_PER_AAR  # årlig kapasitet fordelt på arbeidsdager
-      aktiv.gjenvaerende_timer -= timer_i_dag
-      Hvis aktiv.gjenvaerende_timer <= 0:
-        aktiv.ferdigdato_kartkontor = gjeldende_dato
-        nvdb_ko.append(aktiv)
-        fjern fra kontor.ko
+### Solver-valg: CBC (gratis, innebygd i PuLP)
 
-    Hvis gjeldende_dato >= nvdb_scenario.Startdato og nvdb_ko ikke tom:
-      kapasitet = nvdb_scenario.Total_Throughput_Per_Dag
-      Mens kapasitet > 0 og nvdb_ko ikke tom:
-        ta fra kommune i front av køen, trekk fra lenker
-        hvis ferdig: kommune.ferdigdato_nvdb = gjeldende_dato
+HiGHS (nyere, raskere) ble testet men pulp-integrasjonen var ikke stabil via `highspy`. CBC løser alle 3 scenarioer optimalt eller nær-optimalt innen 7 minutter.
 
-    gjeldende_dato += 1 arbeidsdag
+CBC-særegenhet: enkelte kjøringer stopper tidlig med status "Optimal" før B&B er fullført. Vektet-modus med inertia-tie-breaker omgår dette.
 
-OUTPUT:
-  tidsplan.csv                — per kommune: KomNr, start/slutt kartkontor og NVDB
-  kapasitetsbruk_per_uke.csv  — per uke per kontor: timer brukt, utnyttelse
-  flaskehals_nvdb.csv         — per uke: kø-lengde, ferdige kommuner totalt
-```
+### Bolk B: Kapasitets-sensitivitetsanalyse (mip_kapasitet_sensitivitet.py)
 
-### Bevisste forenklinger for v1 (baseline-heuristikk)
+5 varianter × 3 NVDB-scenarioer = 15 MIP-kjøringer:
+- S0_Baseline: nominell kapasitet
+- S1_Trondheim50: Trondheim -50 % (krise)
+- S2_Alle_pluss20: alle kontor +20 % (rekruttering)
+- S3_Omfordeling: små +50 %, store -20 %
+- S4_Alle_minus15: alle kontor -15 % (sparekrav)
 
-- Ingen planlegging av ferier/pauser
-- Ingen individuell effektivitet per person
-- Ingen oppstartskostnad ved kommuneskifte
-- **Baseline:** kommuner tildeles sitt "hjemme-kontor" basert på fylke (status quo). Dette er KUN baseline – omfordeling mellom kontor er en kjernebeslutning i prosjektet (jf. proposal) og skal undersøkes i MIP og evt. en utvidet heuristikk-variant.
+### Bolk D: Monte Carlo på MIP-plan (monte_carlo_mip.py)
 
-### Skal kjøres for alle 3 NVDB-scenarioer for sensitivitetsanalyse
+Bruker eksisterende `monte_carlo.py`-motor med MIP-assignment fra `tidsplan_mip_vektet_<scenario>.csv` som fast tildeling. 500 iterasjoner × 3 scenarioer med samme 3 stokastiske kilder som heuristikk-MC.
 
 ## Pågående arbeid
 
-Se `STATUS.md` for detaljert fremdrift. Nåværende fokus:
+Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-18, fase 3 er 70 % ferdig):
 
-1. ✅ Datavask fullført (4 processed CSV-filer)
-2. ✅ Metodevalg låst (hybrid heuristikk + MIP)
+1. ✅ Datavask fullført (6 processed CSV-filer inkl. tidbruk-kalibrering)
+2. ✅ Metodevalg låst (hybrid heuristikk + MIP + Monte Carlo)
 3. ✅ NVDB-scenarioer definert
-4. ✅ 6 deskriptive figurer produsert
-5. ✅ Rapport-seksjon 4 (Casebeskrivelse) og 5.2 (Data) utkast skrevet
-6. 🔄 Heuristikk-implementering (neste)
-7. ⏳ MIP-modell
-8. ⏳ Resultater og diskusjon
-9. ⏳ Rapport-seksjoner 1, 2, 3, 6, 7, 8, 9, 10
+4. ✅ 13 figurer produsert (6 deskriptive + 4 resultat + 3 usikkerhet)
+5. ✅ Heuristikk-implementering (`heuristikk.py`) kjørt for alle 3 scenarioer
+6. ✅ Monte Carlo-analyse (`monte_carlo.py`) – 500 iterasjoner med 3 stokastiske kilder
+7. ✅ Rapport-seksjon 2.0 Litteratur, 4.0 Casebeskrivelse, 5.2 Data (inkl. 5.2.3 formelen) og 11.0 Bibliografi
+8. 🔄 **Neste: Rapport-seksjon 5.1 Metode + 6.0 Modellering** (starter 2026-04-19)
+9. ⏳ Rapport-seksjon 7.0 Analyse + 8.0 Resultat (planlagt 20-21. apr)
+10. ⏳ MIP-modell i PuLP (start 20. april parallelt, avventer samferdselsavdelingens svar for endelige scenarioparametere)
+11. ⏳ Rapport-seksjon 9.0 Diskusjon (22-24. apr)
+12. ⏳ Peer review (27-28. apr)
+13. ⏳ Fase 4: seksjonene 1, 3, 10 + kvalitetssikring
 
 ### Viktige milepæler
 
-- **29.04.2026** - Godkjent hovedutkast (12 dager unna per 2026-04-17)
+- **29.04.2026** - Godkjent hovedutkast (11 dager unna per 2026-04-18)
 - **01.06.2026** - Innlevert rapport
+
+### Strategiske beslutninger (2026-04-18)
+
+- **MIP-strategi:** start nå med dagens scenarioparametere (alternativ B). Samferdselsavdelingens svar kan rekjøres som sensitivitetsanalyse hvis de kommer.
+- **Rapportarbeid:** seksjon-for-seksjon-dialog; Claude skriver utkast, bruker reviderer.
+- **Litteratur:** 5 kjerne-referanser lagt inn i 2.0 Litteratur og 11.0 Bibliografi. Full litteraturgjennomgang og 3.0 Teori utsettes til fase 4. Bibliografi må verifiseres mot HiM-bibliotek/Oria (se TODO).
+
+### Oppsummering av økt 2026-04-18
+
+- Rapport korrigert: fylke-til-kontor-tildeling framstår nå som baseline (ikke forenkling); omfordeling er beslutningsvariabel
+- Tidbruk-fanen i StatistikkTVS integrert: formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand × 0,6510` dokumentert og verifisert (maks avvik 0,5 min)
+- Monte Carlo-modul implementert med 3 stokastiske kilder: MIN/KM per kommune (bootstrap fra 58 kartbladmålinger), Produksjonstakt_Manuell (Uniform 300-400), Automasjonsgrad (Normal rundt scenariopunkt, std 0,01)
+- Nøkkelfunn: scenarioene overlapper ikke. P95 Samferdsel (3,22 år) < P5 Middels (4,54 år). Automasjonsgrad er dominerende usikkerhetskilde
+- 3 usikkerhetsfigurer + 4-ukers glatting på diskrete kommune-kurver
+- Rapport: 2.0 Litteratur med fem referanser og 11.0 Bibliografi i APA-format
 
 ## Kommunikasjonsstil
 
@@ -296,10 +294,15 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus:
 For rask kontekst-gjenoppretting:
 1. `STATUS.md` - Hvor er vi akkurat nå? (auto-generert fra JSON)
 2. `012 fase 2 - plan/prosjektplan.json` - **Single source of truth** for prosjektstatus
-3. `004 data/processed_data/master_kommuner.csv` - Hoveddatasett
+3. `004 data/processed_data/master_kommuner.csv` - Hoveddatasett (inkl. ArealLand_Km2)
 4. `004 data/processed_data/nvdb_overfoering.csv` - NVDB-scenarioer
-5. `004 data/scripts/vask_og_strukturer.py` - Datavask-logikk
-6. `005 report/rapport.md` - Aktuell rapport (seksjon 4 og 5.2 har innhold)
+5. `004 data/processed_data/tidbruk_konstanter.csv` - Koeffisientene 0,9035 og 0,6510
+6. `004 data/processed_data/monte_carlo_summary.csv` - Usikkerhetsresultater P5/P50/P95
+7. `004 data/processed_data/oppsummering_scenarioer.csv` - Heuristikk-resultater
+8. `004 data/scripts/vask_og_strukturer.py` - Datavask-logikk (inkluderer Tidbruk-fanen)
+9. `004 data/scripts/heuristikk.py` - Simuleringsmotor
+10. `004 data/scripts/monte_carlo.py` - Usikkerhetsanalyse
+11. `005 report/rapport.md` - Aktuell rapport (seksjon 2.0, 4.0, 5.2, 11.0 har innhold; 5.1, 6.0, 7.0, 8.0, 9.0 neste)
 
 ## Workflow for statusoppdatering
 

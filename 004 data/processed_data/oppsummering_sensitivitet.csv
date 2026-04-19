@@ -1,0 +1,13 @@
+Variant,NVDB_Scenario,Makespan_Mnd,Makespan_Aar,Kartkontor_Siste_Mnd,Kommuner_Omfordelt,Aktive_Kommuner
+S0_Baseline,Basis_85,105,8.75,10,59,295
+S0_Baseline,Middels_90,70,5.83,10,59,295
+S0_Baseline,Samferdsel_96,28,2.33,10,31,295
+S1_Trondheim50,Basis_85,105,8.75,10,33,295
+S1_Trondheim50,Middels_90,70,5.83,10,33,295
+S1_Trondheim50,Samferdsel_96,28,2.33,10,35,295
+S3_Omfordeling,Basis_85,105,8.75,10,42,295
+S3_Omfordeling,Middels_90,70,5.83,10,41,295
+S3_Omfordeling,Samferdsel_96,28,2.33,10,50,295
+S4_Alle_minus15,Basis_85,105,8.75,10,62,295
+S4_Alle_minus15,Middels_90,70,5.83,10,29,295
+S4_Alle_minus15,Samferdsel_96,28,2.33,10,46,295

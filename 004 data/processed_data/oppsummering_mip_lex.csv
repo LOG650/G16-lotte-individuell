@@ -1,0 +1,2 @@
+Scenario,Mode,Status,Makespan_Mnd,Makespan_Aar,Kartkontor_Maks_Mnd,Kartkontor_Median_Mnd,Kommuner_Omfordelt,Aktive_Kommuner,Solver_Tid_Sek,Variabler,Bibindelser
+Samferdsel_96,lex,Optimal / Not Solved,14,1.17,10,3.0,276,295,705.9,106854,23413

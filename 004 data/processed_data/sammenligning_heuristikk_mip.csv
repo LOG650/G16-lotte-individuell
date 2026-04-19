@@ -1,0 +1,4 @@
+Scenario,Varighet_Heuristikk_Aar,Varighet_MIP_Aar,Forbedring_Aar,Forbedring_Pst,Kommuner_Omfordelt
+Basis_85,8.64,8.67,-0.03,-0.3,0
+Middels_90,5.76,5.75,0.01,0.2,0
+Samferdsel_96,2.31,2.25,0.06,2.6,0
