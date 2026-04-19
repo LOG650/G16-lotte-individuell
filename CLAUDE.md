@@ -299,10 +299,17 @@ For rask kontekst-gjenoppretting:
 5. `004 data/processed_data/tidbruk_konstanter.csv` - Koeffisientene 0,9035 og 0,6510
 6. `004 data/processed_data/monte_carlo_summary.csv` - Usikkerhetsresultater P5/P50/P95
 7. `004 data/processed_data/oppsummering_scenarioer.csv` - Heuristikk-resultater
-8. `004 data/scripts/vask_og_strukturer.py` - Datavask-logikk (inkluderer Tidbruk-fanen)
-9. `004 data/scripts/heuristikk.py` - Simuleringsmotor
-10. `004 data/scripts/monte_carlo.py` - Usikkerhetsanalyse
-11. `005 report/rapport.md` - Aktuell rapport (seksjon 2.0, 4.0, 5.2, 11.0 har innhold; 5.1, 6.0, 7.0, 8.0, 9.0 neste)
+8. `004 data/processed_data/oppsummering_mip_vektet.csv` - MIP-resultater per scenario
+9. `004 data/processed_data/sammenligning_heuristikk_mip_vektet.csv` - heuristikk vs MIP
+10. `004 data/processed_data/oppsummering_sensitivitet.csv` - kapasitets-sensitivitet (4 varianter × 3 scenarioer)
+11. `004 data/scripts/vask_og_strukturer.py` - Datavask-logikk (inkluderer Tidbruk-fanen)
+12. `004 data/scripts/heuristikk.py` - Simuleringsmotor
+13. `004 data/scripts/monte_carlo.py` - Usikkerhetsanalyse (heuristikk)
+14. `004 data/scripts/mip_modell.py` - MILP-modell (PuLP/CBC), tre modi (makespan/lex/vektet)
+15. `004 data/scripts/mip_kapasitet_sensitivitet.py` - Kapasitets-sensitivitet (Bolk B)
+16. `004 data/scripts/monte_carlo_mip.py` - Monte Carlo på MIP-assignment
+17. `004 data/scripts/figurer_mip.py` - MIP-figurer (14-19)
+18. `005 report/rapport.md` - Aktuell rapport (seksjon 2.0, 4.0, 5.2, 6.0, 7.0, 8.0, 11.0 har innhold; 5.1, 9.0 neste)
 
 ## Workflow for statusoppdatering
 
@@ -347,3 +354,16 @@ Regenereres med: `python "004 data/scripts/figurer_resultater.py"`
 | 13 | `13_per_kontor_boxplot.png` | Per-kontor spredning i NVDB-ferdigdato per kommune (Middels_90) |
 
 Regenereres med: `python "004 data/scripts/figurer_usikkerhet.py"`
+
+### MIP-figurer (fig 14-19)
+
+| Nr | Fil | Innhold |
+|----|-----|---------|
+| 14 | `14_heuristikk_vs_mip.png` | Søyle: total varighet heuristikk vs MIP per scenario |
+| 15 | `15_kartkontor_ferdig.png` | Histogram: fordeling av kartkontor-ferdigmåned, heur vs MIP, 3 paneler |
+| 16 | `16_omfordeling_matrise.png` | Heatmap: hjemmekontor → MIP-kontor (Middels_90) |
+| 17 | *reservert for fan chart MIP (droppet — MC er identisk med heuristikk-MC)* |
+| 18 | `18_kapasitet_sensitivitet.png` | Søyle: makespan per kapasitetsvariant × scenario |
+| 19 | `19_omfordeling_varianter.png` | Søyle: antall omfordelinger per variant × scenario |
+
+Regenereres med: `python "004 data/scripts/figurer_mip.py"`

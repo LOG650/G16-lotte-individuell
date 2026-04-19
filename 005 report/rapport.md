@@ -422,21 +422,41 @@ Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen 
 
 Alle differansene er under 2 % og skyldes MIP-modellens månedlige tidsoppløsning (hver måned avrundes opp ved kollisjon med NVDB-drenering). I praksis gir de to metodene *identisk makespan*. Figur 14 visualiserer resultatene.
 
+![Figur 14: Total varighet heuristikk vs MIP per NVDB-scenario](figurer/14_heuristikk_vs_mip.png)
+
+*Figur 14 Total varighet heuristikk vs MIP per NVDB-scenario*
+
 ## 7.2 Kartkontor-ferdigstilling
 
 Heuristikken og MIP gir samme totalvarighet, men forskjellig profil for når kartkontor-arbeidet er ferdig. Figur 15 viser fordelingen: heuristikken ferdigstiller alle kommuner på kartkontoret innen ca. 16 måneder (medianverdi 4–5 måneder), mens MIP-planen — med lex-opt som sekundær målfunksjon — komprimerer kartkontor-arbeidet ytterligere til innen 10 måneder (median 3 måneder). Begge er realistiske fra et ressursforvaltningssynspunkt: NVDB-delen alene tar 2,3–8,7 år avhengig av automasjonsgrad, så kartkontorene rekker uansett å levere alt materiale lenge før NVDB er ferdig.
+
+![Figur 15: Fordeling av kartkontor-ferdigmåned heuristikk vs MIP per NVDB-scenario](figurer/15_kartkontor_ferdig.png)
+
+*Figur 15 Fordeling av kartkontor-ferdigmåned heuristikk vs MIP per NVDB-scenario*
 
 ## 7.3 Omfordeling mellom kontor
 
 MIP-modellen har full frihet til å reassigne kommuner mellom kartkontor, men inertia-tie-breakeren favoriserer hjemmekontor-tildeling i tilfeller hvor flere løsninger gir samme makespan. Resultatet (figur 16) viser at 31–59 kommuner flyttes, men disse er hovedsakelig tie-breakere: ingen kommuner *må* omfordeles for å oppnå optimal makespan. Omfordelingene er symmetrisk spredt (diagonale tall dominerer i matrisen), noe som bekrefter at status quo-tildelingen er nær-optimal.
 
+![Figur 16: Omfordeling hjemmekontor til MIP-kontor for Middels_90](figurer/16_omfordeling_matrise.png)
+
+*Figur 16 Omfordeling hjemmekontor til MIP-kontor for Middels_90*
+
 ## 7.4 Kapasitets-sensitivitet
 
-Figur 18 og 19 viser resultatet av sensitivitetsanalysen der kapasitet ved ett eller flere kontor endres. Fem varianter ble undersøkt: baseline (S0), Trondheim -50 % (S1), alle +20 % (S2), små +50 % og store -20 % (S3), og alle -15 % (S4).
+Figur 18 og 19 viser resultatet av sensitivitetsanalysen der kapasitet ved ett eller flere kontor endres. Fire varianter ble undersøkt: baseline (S0), Trondheim -50 % (S1), små kontor +50 % og store -20 % (S3), og alle -15 % (S4).
 
 **Hovedfunn**: makespan er *uendret* i alle varianter for alle NVDB-scenarioer. Selv ved halvert Trondheim-kapasitet (S1) eller strukturell omfordeling av ressurser (S3) forblir total prosjektvarighet 8,75 / 5,83 / 2,33 år. Dette skyldes at kartkontorene uansett ferdigstiller arbeidet sitt lenge før NVDB rekker å drenere køen.
 
+![Figur 18: Makespan per kapasitetsvariant og NVDB-scenario](figurer/18_kapasitet_sensitivitet.png)
+
+*Figur 18 Makespan per kapasitetsvariant og NVDB-scenario*
+
 Antallet omfordelte kommuner varierer mellom variantene (figur 19), noe som reflekterer MIP-modellens tilpasning av lokalt arbeid når kapasiteten endres. Dette gir et verdifullt beredskapsverktøy: dersom et kontor får redusert kapasitet, viser MIP hvilke kommuner som bør omfordeles til andre kontor for å holde de respektive køene i balanse — selv om makespan ikke endres.
+
+![Figur 19: Antall omfordelte kommuner per kapasitetsvariant og NVDB-scenario](figurer/19_omfordeling_varianter.png)
+
+*Figur 19 Antall omfordelte kommuner per kapasitetsvariant og NVDB-scenario*
 
 ## 7.5 Usikkerhetsanalyse
 
