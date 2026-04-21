@@ -87,7 +87,7 @@ def beregn_timer_med_sampled_mpk(kommuner, sampled_mpk):
 
 
 def sample_nvdb_params(rng, scenario_automasjon):
-    """Sample Manuell_Takt (Uniform[300, 400]) og Automasjonsgrad (Normal rundt
+    """Sample Manuell_Takt (Uniform[275, 325]) og Automasjonsgrad (Normal rundt
     scenariopunkt). Returnerer (manuell_takt, automasjon, total_throughput)."""
     manuell_takt = rng.uniform(MANUELL_TAKT_LOW, MANUELL_TAKT_HIGH)
     automasjon = rng.normal(scenario_automasjon, AUTOMASJON_STD)

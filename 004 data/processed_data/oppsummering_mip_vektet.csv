@@ -1,2 +1,4 @@
 Scenario,Mode,Status,Makespan_Mnd,Makespan_Aar,Kartkontor_Maks_Mnd,Kartkontor_Median_Mnd,Kommuner_Omfordelt,Aktive_Kommuner,Solver_Tid_Sek,Variabler,Bibindelser
-Samferdsel_96,vektet,Optimal,33,2.75,10,3.0,39,295,167.5,158806,33077
+Basis_85,vektet,Optimal,122,10.17,10,3.0,36,295,702.8,470518,91061
+Middels_90,vektet,Optimal,81,6.75,10,3.0,38,295,283.0,314662,62069
+Samferdsel_96,vektet,Optimal,33,2.75,10,3.0,39,295,166.8,158806,33077

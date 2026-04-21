@@ -186,7 +186,7 @@
           "predecessors": [17],
           "status": "Ferdig",
           "fremdrift_prosent": 100,
-          "kommentar": "Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet lex-opt målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 4 varianter (S0/S1/S3/S4) × 3 scenarioer = 12 MIP-kjøringer. Monte Carlo på MIP-plan bekrefter identiske usikkerhetsbånd som heuristikk-MC. Rapport-seksjon 6.0 Modellering skrevet."
+          "kommentar": "Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet lex-opt målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 6 varianter (S0-S5) × 3 scenarioer = 18 MIP-kjøringer. S5_Alle_minus50 gir Not Solved etter timeout og er flagget upaalitelig (LP-relax, ikke IP-feasible). Monte Carlo på MIP-plan gir i hovedsak samme usikkerhetsbånd som heuristikk-MC, men P95 for Basis_85 er 13,28 år mot heuristikkens 11,98 år — deterministisk optimum ≠ stokastisk robust. Rapport-seksjon 6.0 Modellering skrevet."
         },
         {
           "id": 19,

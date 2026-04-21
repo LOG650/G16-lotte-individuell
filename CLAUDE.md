@@ -51,7 +51,8 @@ G16-lotte-individuell/
 │   │   ├── kapasitetsbruk_per_uke_*.csv
 │   │   ├── flaskehals_nvdb_*.csv
 │   │   ├── oppsummering_scenarioer.csv
-│   │   └── monte_carlo_*.csv              (summary, varigheter, per_kommune, ko_percentiles)
+│   │   ├── monte_carlo_*.csv              (summary, varigheter, per_kommune, ko_percentiles)
+│   │   └── arkiv_pre_kalibrering/         (utdaterte MIP-CSV fra pre-kalibrering 2026-04-19)
 │   ├── scripts/
 │   │   ├── vask_og_strukturer.py    ← Hovedscript for datavask
 │   │   ├── heuristikk.py            ← Regelbasert baseline-simulering
@@ -238,11 +239,15 @@ CBC-særegenhet: enkelte kjøringer stopper tidlig med status "Optimal" før B&B
 - S4_Alle_minus15: alle kontor -15 % (sparekrav)
 - S5_Alle_minus50: alle kontor -50 % (ekstrem, for å vise kartkontor-bundet regime)
 
-**Hovedfunn (2026-04-21):** makespan er **identisk på tvers av alle 6 kapasitetsvarianter** per NVDB-scenario (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år). NVDB er dominerende flaskehals i hele det testede kapasitetsområdet. Kartkontor-ferdigmåned stiger først merkbart ved S4_Alle_minus15 + Middels_90 (73 mnd vs 10 i baseline) – men ligger fortsatt under NVDB-makespan på 81 mnd. S5_Alle_minus50 gir solver-timeout (*Not Solved* for alle 3 NVDB-scenarioer etter 2400 s), men finner feasible løsninger med samme makespan som baseline.
+**Hovedfunn (2026-04-21):** makespan er **identisk på tvers av alle 6 kapasitetsvarianter** per NVDB-scenario (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år). NVDB er dominerende flaskehals i hele det testede kapasitetsområdet. Kartkontor-ferdigmåned stiger først merkbart ved S4_Alle_minus15 + Middels_90 (73 mnd vs 10 i baseline) – men ligger fortsatt under NVDB-makespan på 81 mnd.
+
+**S5_Alle_minus50 er upålitelig (2026-04-21 code review):** solveren stopper Not Solved etter 2400 s og rapporterer Kartkontor_Siste_Mnd=11 for alle tre NVDB-scenarioer. Matematisk nedre grense ved halvert kapasitet er ~20 mnd (baseline 10 mnd × 2), så tallene må komme fra LP-relaksjonen (z-fraksjoner som passerer 0.5-terskelen), ikke fra en IP-feasible incumbent. `ekstraher_loesning` i `mip_modell.py` flagger nå dette eksplisitt (Upaalitelig=True) når rapportert kartkontor-maks er under 0,9 × total_timer/total_kapasitet. S5 skal rapporteres som illustrasjon på regime der solveren bryter sammen, ikke som gyldig resultat.
 
 ### Bolk D: Monte Carlo på MIP-plan (monte_carlo_mip.py)
 
 Bruker eksisterende `monte_carlo.py`-motor med MIP-assignment fra `tidsplan_mip_vektet_<scenario>.csv` som fast tildeling. 500 iterasjoner × 3 scenarioer med samme 3 stokastiske kilder som heuristikk-MC.
+
+**Funn (2026-04-21 code review):** for Basis_85 gir MIP-basert MC *dårligere* P95 enn heuristikk-MC (13,28 år vs 11,98 år), til tross for identisk P5 og P50 (6,46/10,01). MIP-tildelingen er deterministisk optimal, men blir mindre robust mot MIN/KM- og throughput-usikkerhet enn hjemmekontor-tildelingen. For Middels_90 er alle tre percentiler identiske (3,25/6,67/9,91), for Samferdsel_96 er P5 bedre i MIP (1,0 vs 1,32) mens P50/P95 er like. Diskusjon: deterministisk optimum ≠ robust optimum – relevant diskusjonspoeng for rapportseksjon 9.
 
 ## Pågående arbeid
 

@@ -7,7 +7,8 @@
       "WebFetch(domain:github.com)",
       "Bash(tasklist /FO CSV)",
       "Bash(wmic process *)",
-      "Bash(sort -k8)"
+      "Bash(sort -k8)",
+      "Bash(tee ../../mip_rekjoring.log)"
     ]
   }
 }

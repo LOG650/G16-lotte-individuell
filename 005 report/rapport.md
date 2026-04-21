@@ -505,7 +505,9 @@ Figur 18 og 19 viser resultatet av sensitivitetsanalysen der kapasitet ved ett e
 
 **Hovedfunn**: makespan er *identisk* i alle varianter for alle NVDB-scenarioer (10,17 / 6,75 / 2,75 år). Selv ved halvert Trondheim-kapasitet (S1), strukturell omfordeling (S3) eller halvert total kapasitet (S5) forblir total prosjektvarighet uendret. Dette skyldes at kartkontorene ferdigstiller arbeidet sitt lenge før NVDB rekker å drenere køen, og NVDB-kapasiteten er ikke berørt av kartkontor-kapasitetsendringer.
 
-Kartkontor-ferdigmåneden er imidlertid sensitiv til kapasitet. I S4_Alle_minus15 stiger siste kartkontor-ferdigmåned for Middels_90 fra 10 måneder (baseline) til 73 måneder — en sjudobling som *nesten* når NVDB-makespan på 81 måneder. Dette gir et varsel om at ytterligere kapasitetsreduksjon vil kunne produsere et kartkontor-bundet regime. Ekstremvarianten S5_Alle_minus50 gir solver-timeout etter 40 minutter per kjøring (status *Not Solved*), men finner feasible løsninger med samme makespan — bekreftelse på at NVDB fortsatt dominerer selv ved halvert total kapasitet.
+Kartkontor-ferdigmåneden er imidlertid sensitiv til kapasitet. I S4_Alle_minus15 stiger siste kartkontor-ferdigmåned for Middels_90 fra 10 måneder (baseline) til 73 måneder — en sjudobling som *nesten* når NVDB-makespan på 81 måneder. Dette gir et varsel om at ytterligere kapasitetsreduksjon vil kunne produsere et kartkontor-bundet regime.
+
+Ekstremvarianten S5_Alle_minus50 gir solver-timeout etter 40 minutter per kjøring (status *Not Solved*) og må behandles med forbehold: CBC rapporterer Kartkontor_Siste_Mnd = 11 for alle tre NVDB-scenarioer, men matematisk nedre grense ved halvert total kapasitet er 20 måneder (total timer / halvert månedskapasitet). Det rapporterte tallet kommer derfor fra LP-relaksjonens brøkdelsverdier av z-variablene, ikke fra en IP-feasible incumbent. S5 vises i figur 18–19 som illustrasjon av regime der solveren bryter sammen, men tallet skal ikke tolkes som bevis på at NVDB fortsatt dominerer ved 50 % kapasitetskutt. Gjennom S4 (minus 15 %) er det allerede klart at kartkontor-fasen nærmer seg NVDB-slutten, så et ytterligere kutt vil med høy sannsynlighet tippe over i kartkontor-bundet regime.
 
 ![Figur 18: Makespan per kapasitetsvariant og NVDB-scenario](figurer/18_kapasitet_sensitivitet.png)
 
@@ -519,7 +521,7 @@ Antallet omfordelte kommuner varierer mellom variantene (figur 19), noe som refl
 
 ## 7.5 Usikkerhetsanalyse
 
-Monte Carlo-simuleringen (500 iterasjoner per scenario × tre stokastiske kilder) på MIP-ens plan gir identiske totalvarighet-bånd som heuristikk-baserte Monte Carlo (tabell 7.2). Totalvarigheten er dominert av NVDB-flaskehalsen, og omfordelingene i MIP påvirker ikke denne. Kartkontor-fasen blir derimot merkbart raskere på MIP-planen (P50 kartkontor-varighet 406–427 dager mot heuristikkens 488 dager).
+Monte Carlo-simuleringen (500 iterasjoner per scenario × tre stokastiske kilder) kjøres både med heuristikkens hjemmekontor-tildeling og med MIP-ens optimerte tildeling som fast plan. Totalvarighet-båndene er overlappende men ikke identiske (tabell 7.2). Middels_90 gir helt like percentiler, Samferdsel_96 gir litt bedre P5 for MIP (1,00 år vs 1,32), men for Basis_85 gir MIP-planen *dårligere* P95 (13,28 år mot 11,98). Det er et interessant, om enn moderat, uttrykk for at en deterministisk optimal plan ikke nødvendigvis er stokastisk mest robust: når usikkerhetene i MIN/KM per kommune og NVDB-throughput slår inn, har heuristikkens enklere hjemmekontor-tildeling marginalt mindre hale i verst-fall-scenarioet. Kartkontor-fasen blir derimot merkbart raskere på MIP-planen (P50 kartkontor-varighet 406–427 dager mot heuristikkens 488 dager), som forventet.
 
 *Tabell 7.2 Usikkerhetsbånd totalvarighet (P5 / P50 / P95, år) – MIP-plan og heuristikk-plan*
 
@@ -561,7 +563,7 @@ Figur 14 viser makespan for heuristikk og MIP side om side. De tre NVDB-scenario
 
 ## 8.3 Robusthet mot kapasitetsforstyrrelser
 
-Figur 18 viser at selv dramatiske kapasitetsendringer (Trondheim −50 %, +20 % til alle, strukturell omfordeling, −50 % til alle) ikke endrer makespan. Dette er en sterk robusthetsindikasjon: dagens plan kan absorbere uforutsette kapasitetsreduksjoner uten at prosjektet forsinkes, fordi kartkontorene uansett har luft til NVDB-flaskehalsen.
+Figur 18 viser at makespan er uendret for varianter der solveren beviste optimalitet (Trondheim −50 %, +20 % til alle, strukturell omfordeling, −15 % til alle). S5_Alle_minus50 gir solver-timeout og rapporterte tall er ikke IP-feasible (jf. avsnitt 7.4), men S4_Alle_minus15 viser allerede at kartkontor-fasen nærmer seg NVDB-slutten ved 15 % kapasitetskutt. Dagens plan kan altså absorbere *rimelige* kapasitetsreduksjoner uten at prosjektet forsinkes, fordi kartkontorene har luft til NVDB-flaskehalsen — men ved mer enn ~15–20 % kapasitetskutt tipper regimet over i kartkontor-bundet.
 
 Kartkontor-ferdigmåneden er derimot sensitiv: ved 15 % kapasitetsreduksjon på alle kontor nærmer kartkontor-fasen for Middels_90 seg NVDB-fasens slutt (73 mot 81 måneder). Dette er en verdifull advarsel — hvis ytterligere kapasitetsreduksjon inntreffer, kan kartkontor-fasen bli medflaskehals, og da *vil* omfordeling og kapasitetsomfordeling få reell effekt på makespan.
 

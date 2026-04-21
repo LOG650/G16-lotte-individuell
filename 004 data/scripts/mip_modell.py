@@ -469,7 +469,14 @@ def fifo_nvdb_per_kommune(data):
 
 
 def ekstraher_loesning(prob, data):
-    """Hent y_ij, z_it, D_t og bygg komplett tidsplan (kartkontor + NVDB)."""
+    """Hent y_ij, z_it, D_t og bygg komplett tidsplan (kartkontor + NVDB).
+
+    Pipeline sjekker om rapportert kartkontor-ferdigmnd er konsistent med en
+    matematisk nedre grense (total_timer / total_kapasitet). Hvis solveren
+    stoppet med Not Solved og returnerer LP-relax-verdier, kan z[(i,t)] ha
+    fraksjoner som passerer 0.5-terskelen for enkelte kommuner og gi
+    kunstig lave ferdigmaaneder. Upaalitelig-flagg settes naar dette skjer.
+    """
     y, z, D, Q = data['y'], data['z'], data['D'], data['Q']
     I, J, T = data['I'], data['J'], data['T']
 
@@ -507,6 +514,28 @@ def ekstraher_loesning(prob, data):
     else:
         makespan_mnd = T
 
+    # Sanity: minimum kartkontor-maaneder ved full parallell utnyttelse.
+    # Hvis rapportert max er under dette, har solveren returnert LP-relax
+    # (z-fraksjoner), ikke en IP-feasible incumbent.
+    status_str = pulp.LpStatus[prob.status]
+    total_timer = sum(data['timer_i'].values())
+    total_kap_mnd = sum(data['kap'].values())
+    min_kk_mnd = total_timer / total_kap_mnd if total_kap_mnd > 0 else 0
+    kk_maks = max(
+        (v for v in ferdig_kk.values() if v is not None),
+        default=None,
+    )
+    upaalitelig = False
+    if status_str != 'Optimal' and kk_maks is not None:
+        if kk_maks + 1 < min_kk_mnd * 0.9:
+            upaalitelig = True
+            print(
+                f'  !! ADVARSEL: solver-status={status_str}, rapportert '
+                f'kartkontor-maks={kk_maks+1} mnd < matematisk minimum '
+                f'{min_kk_mnd:.1f} mnd. Tallene kommer fra LP-relaksjonen '
+                f'og er ikke IP-feasible. Rapporter ikke som gyldig loesning.'
+            )
+
     return {
         'scenario': data['scenario_navn'],
         'assignment': assignment,
@@ -515,7 +544,9 @@ def ekstraher_loesning(prob, data):
         'D_t': D_t,
         'makespan_mnd': int(makespan_mnd),
         'objective': pulp.value(prob.objective),
-        'status': pulp.LpStatus[prob.status],
+        'status': status_str,
+        'upaalitelig': upaalitelig,
+        'min_kartkontor_mnd': round(min_kk_mnd, 1),
     }
 
 
@@ -668,6 +699,8 @@ def main():
             'Scenario': navn,
             'Mode': args.mode,
             'Status': status_str,
+            'Upaalitelig': losning.get('upaalitelig', False),
+            'Min_Kartkontor_Mnd': losning.get('min_kartkontor_mnd'),
             'Makespan_Mnd': losning['makespan_mnd'],
             'Makespan_Aar': round(losning['makespan_mnd'] / 12, 2),
             'Kartkontor_Maks_Mnd': kk_maks_mnd,

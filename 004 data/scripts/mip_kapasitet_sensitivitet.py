@@ -169,6 +169,8 @@ def main():
                 'NVDB_Scenario': nvdb_navn,
                 'Total_Ukesverk': kontorer_var['Kapasitet_Ukesverk'].sum(),
                 'Status': status_str,
+                'Upaalitelig': los.get('upaalitelig', False),
+                'Min_Kartkontor_Mnd': los.get('min_kartkontor_mnd'),
                 'Makespan_Mnd': los['makespan_mnd'],
                 'Makespan_Aar': round(los['makespan_mnd'] / 12, 2),
                 'Kartkontor_Siste_Mnd': kk_max,
