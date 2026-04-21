@@ -20,9 +20,9 @@ Prosjektet er planlagt i fire hovedfaser: initiering, planlegging, gjennomførin
 
 Dette prosjektet svarer på behovet for bedre planlegging av et nasjonalt kvalitetshevingsarbeid der TraktorvegSti-data skal forbedres før innlegging i NVDB. Arbeidet gjennomføres kommunevis ved Kartverkets fylkeskartkontorer, og tidsbruken påvirkes av blant annet topologiske feil, mangelfull stedfesting, manuell redigering og kommuner som er midlertidig låst av Geovekst-prosjekter. Det er også ulik kapasitet mellom kartkontorene. Dette skaper et tydelig behov for en planleggingsmodell som kan støtte ressursallokering og prioritering av kommuner.
 
-## Kunde
+## Kunde/clear
 
-Den faglige kunden for prosjektet er **Kartverket**, nærmere bestemt arbeid knyttet til fylkeskartkontorenes del av kvalitetshevingen og klarmelding av kommuner for videre innlegging i NVDB. Sluttbrukere av prosjektets resultater er aktører som er avhengige av et mer sammenhengende nasjonalt vegnettverk for kjørende, gående og syklende. Dette bygger på proposalens beskrivelse av Kartverket, NVDB og TraktorvegSti-datasettet. 
+Den faglige kunden for prosjektet er **Kartverket**, nærmere bestemt arbeid knyttet til fylkeskartkontorenes del av kvalitetshevingen og klarmelding av kommuner for videre innlegging i NVDB. Sluttbrukere av prosjektets resultater er aktører som er avhengige av et mer sammenhengende nasjonalt vegnettverk for kjørende, gående og syklende. Dette bygger på proposalens beskrivelse av Kartverket, NVDB og TraktorvegSti-datasettet.
 
 ## Forretningscase
 
@@ -180,7 +180,7 @@ Dette prosjektet har ikke et formelt økonomisk budsjett i kroner, siden det gje
 
 # Risiko
 
-Denne seksjonen beskriver risikostyringsprosessen og prosjektets risikoregister. Risikoene er utviklet med utgangspunkt i proposalens beskrivelse av usikkerhet knyttet til datakvalitet, kapasitet og endringer i kartleggingsprosjekter. 
+Denne seksjonen beskriver risikostyringsprosessen og prosjektets risikoregister. Risikoene er utviklet med utgangspunkt i proposalens beskrivelse av usikkerhet knyttet til datakvalitet, kapasitet og endringer i kartleggingsprosjekter.
 
 ## Prosess for risikostyring
 
@@ -236,7 +236,6 @@ Prosjektteamet består i praksis av én student:
 | ------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Lotte Picard | Prosjektleder / analytiker / rapportansvarlig | Planlegging, datainnsamling, analyse, modellering, rapportskriving og fremdriftsoppfølging |
 
-
 ## Ressursbelastning
 
 Ressursbelastningen er størst i tre perioder:
@@ -283,15 +282,15 @@ Fagfellevurdering brukes som et viktig kvalitetstiltak i prosjektet. Utkast til 
 
 ### Uformelle fagfellevurderinger
 
-Uformelle fagfellevurderinger brukes på rapportutkast, problemformulering, metodebeskrivelse og analysekapitler. Kommentarer samles inn og brukes til forbedring av teksten før neste versjon. 
+Uformelle fagfellevurderinger brukes på rapportutkast, problemformulering, metodebeskrivelse og analysekapitler. Kommentarer samles inn og brukes til forbedring av teksten før neste versjon.
 
 ### Formelle fagfellevurderinger
 
-Det planlegges ingen formell ekstern QA-prosess utover kravene i emnet, men peer review-aktiviteten i prosjektplanen fungerer som en formell kvalitetssjekk av hovedutkastet før sluttføring. 
+Det planlegges ingen formell ekstern QA-prosess utover kravene i emnet, men peer review-aktiviteten i prosjektplanen fungerer som en formell kvalitetssjekk av hovedutkastet før sluttføring.
 
 ## Brukerreviews
 
-Prosjektet har ikke en full brukerreview-prosess med eksterne sluttbrukere. I denne sammenhengen ivaretas brukerperspektivet gjennom caseforankringen i Kartverket og ved at rapporten vurderer hvor godt den foreslåtte planleggingsløsningen svarer på de praktiske utfordringene som er beskrevet i proposalen. 
+Prosjektet har ikke en full brukerreview-prosess med eksterne sluttbrukere. I denne sammenhengen ivaretas brukerperspektivet gjennom caseforankringen i Kartverket og ved at rapporten vurderer hvor godt den foreslåtte planleggingsløsningen svarer på de praktiske utfordringene som er beskrevet i proposalen.
 
 # Anskaffelser
 
