@@ -1,3 +1,8 @@
+# MERK: S1_Trondheim50 x Samferdsel_96 ble kjoert med utvidet tidsgrense
+# (~30362 s = 8,4 t) i et forsoek paa aa naa bevist optimum. Kjoeringen
+# returnerte status Not Solved med feasible loesning; makespan 33 mnd er
+# oevre grense (ikke bevist). Alle oevrige kjoeringer respekterer default
+# tidsgrense 1800 s / 3600 s.
 Kjorer 6 varianter x 3 NVDB-scenarioer = 18 MIP-losninger
 
 ============================================================

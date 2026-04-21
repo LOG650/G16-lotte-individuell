@@ -315,9 +315,12 @@ def solve_lex_opt(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg
 
     print('    Runde 1: min makespan')
     r1_status, r1_elapsed = solve_modell(prob, tidsgrense=tidsgrense, gap=gap, msg=msg)
+    # Q-sum fra R1 brukes som bindende skranke i R2. Det er ikke det samme som
+    # endelig makespan (se FIFO-rekonstruksjon i ekstraher_loesning), og kan
+    # avvike hvis CBC stoppet med Not Solved.
     makespan_opt = int(round(sum((pulp.value(Q[t]) or 0) for t in Tid)))
     print(f'    Runde 1 ferdig ({r1_elapsed:.1f}s, status {pulp.LpStatus[r1_status]}), '
-          f'makespan = {makespan_opt} mnd')
+          f'Q-sum = {makespan_opt} mnd (brukes som skranke i R2)')
 
     print('    Runde 2: min kartkontor-ferdigtid gitt makespan optimum')
     prob += pulp.lpSum(Q[t] for t in Tid) <= makespan_opt, 'LexOpt_Makespan_Bundet'
@@ -381,16 +384,17 @@ def solve_vektet(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg=
 
     print(f'    Vektet objektiv (W1={W1:.0e}, W2={W2:.0e})')
     status, elapsed = solve_modell(prob, tidsgrense=tidsgrense, gap=gap, msg=msg)
-    makespan_opt = int(round(sum((pulp.value(Q[t]) or 0) for t in Tid)))
-    print(f'    Ferdig ({elapsed:.1f}s, status {pulp.LpStatus[status]}), '
-          f'makespan = {makespan_opt} mnd')
+    # Merk: endelig makespan hentes fra ekstraher_loesning (FIFO-rekonstruksjon
+    # over z_it). Vi printer ikke en intermediær Q-sum her, fordi den kan avvike
+    # fra FIFO-verdien i Not-Solved-tilfeller og skape forvirring mellom stdout
+    # og CSV-output.
+    print(f'    Ferdig ({elapsed:.1f}s, status {pulp.LpStatus[status]})')
 
     return {
         'status_1': status,
         'status_2': None,
         'tid_1': elapsed,
         'tid_2': 0,
-        'makespan_opt': makespan_opt,
     }
 
 

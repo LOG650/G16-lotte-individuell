@@ -17,10 +17,12 @@ Output i processed_data/:
 
 import os
 import sys
+import argparse
 import numpy as np
 import pandas as pd
 
-# heuristikk.py og monte_carlo.py wrapper sys.stdout selv - ikke dobbeltwrap her
+# heuristikk.py wrapper sys.stdout paa Windows; monte_carlo.py arver det via import.
+# Vi trenger derfor ikke wrappe her saa lenge heuristikk importeres foerst.
 from heuristikk import (
     last_data, bygg_laseintervaller, bygg_kommunestate, simuler, STARTDATO,
 )
@@ -32,7 +34,7 @@ from monte_carlo import (
 BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 DATA_DIR = os.path.join(BASE_DIR, 'processed_data')
 
-MIP_MODE = 'vektet'  # hvilken MIP-loesning vi tar assignment fra
+DEFAULT_MIP_MODE = 'vektet'  # default, overstyres av --mode
 
 
 def overstyr_tildeling(kommuner, mip_df):
@@ -44,8 +46,17 @@ def overstyr_tildeling(kommuner, mip_df):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--mode', choices=['makespan', 'lex', 'vektet'],
+                        default=DEFAULT_MIP_MODE,
+                        help=f'Hvilken MIP-loesning MC skal bruke som assignment '
+                             f'(default {DEFAULT_MIP_MODE}). Leser '
+                             f'tidsplan_mip_<mode>_<scenario>.csv.')
+    args = parser.parse_args()
+    mip_mode = args.mode
+
     print('=' * 60)
-    print('MONTE CARLO PAA MIP-PLAN')
+    print(f'MONTE CARLO PAA MIP-PLAN (mode={mip_mode})')
     print('=' * 60)
 
     kommuner, kontorer, geovekst, nvdb = last_data()
@@ -64,7 +75,7 @@ def main():
 
     for _, scenario in nvdb.iterrows():
         navn = scenario['Scenario']
-        mip_fil = os.path.join(DATA_DIR, f'tidsplan_mip_{MIP_MODE}_{navn}.csv')
+        mip_fil = os.path.join(DATA_DIR, f'tidsplan_mip_{mip_mode}_{navn}.csv')
         if not os.path.exists(mip_fil):
             print(f'\n!! Mangler {mip_fil}, hopper over scenario')
             continue
@@ -109,7 +120,7 @@ def main():
         ])
         summary_rader.append({
             'Scenario': navn,
-            'Plan_Type': 'MIP_' + MIP_MODE,
+            'Plan_Type': 'MIP_' + mip_mode,
             'N_Iterasjoner': len(varigheter_dager),
             'N_Omfordelte': int(n_omfordelt),
             'Kartkontor_Dager_P5': int(np.percentile(kk_arr, 5)),
@@ -137,7 +148,7 @@ def main():
             dager = [(d - STARTDATO).days for d in gyldige]
             per_kommune_rader.append({
                 'Scenario': navn,
-                'Plan_Type': 'MIP_' + MIP_MODE,
+                'Plan_Type': 'MIP_' + mip_mode,
                 'KomNr': komnr,
                 'N_Iterasjoner': len(gyldige),
                 'Dager_P5': int(np.percentile(dager, 5)),
@@ -147,7 +158,7 @@ def main():
 
         uke_agg = aggreger_uke_percentiler(alle_ukentlige)
         uke_agg.insert(0, 'Scenario', navn)
-        uke_agg.insert(1, 'Plan_Type', 'MIP_' + MIP_MODE)
+        uke_agg.insert(1, 'Plan_Type', 'MIP_' + mip_mode)
         uke_rader.append(uke_agg)
 
     pd.DataFrame(summary_rader).to_csv(
