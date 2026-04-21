@@ -1,4 +1,4 @@
 Scenario,Plan_Type,N_Iterasjoner,N_Omfordelte,Kartkontor_Dager_P5,Kartkontor_Dager_P50,Kartkontor_Dager_P95,Varighet_Dager_P5,Varighet_Dager_P50,Varighet_Dager_P95,Varighet_Aar_P5,Varighet_Aar_P50,Varighet_Aar_P95,Throughput_P5,Throughput_P50,Throughput_P95
-Basis_85,MIP_vektet,500,59,367,390,439,2656,3154,3713,7.27,8.64,10.17,992,1168,1387
-Middels_90,MIP_vektet,500,59,340,346,426,1658,2092,2594,4.54,5.73,7.1,1419,1760,2219
-Samferdsel_96,MIP_vektet,500,31,355,426,444,509,804,1176,1.39,2.2,3.22,3129,4581,7234
+Basis_85,MIP_vektet,500,36,397,427,444,2358,3657,4851,6.46,10.01,13.28,759,1007,1561
+Middels_90,MIP_vektet,500,38,355,406,433,1188,2435,3620,3.25,6.67,9.91,1017,1512,3098
+Samferdsel_96,MIP_vektet,500,39,356,426,444,367,862,2149,1.0,2.36,5.88,1713,4271,15499

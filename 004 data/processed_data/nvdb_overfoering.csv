@@ -1,4 +1,4 @@
 Scenario,Antall_Stillinger,Stillingsprosent,Effektiv_Aarsverk,Produksjonstakt_Manuell,Automasjonsgrad_FME,Manuell_Kapasitet_Per_Dag,Total_Throughput_Per_Dag,Arbeidsdager_Per_Uke,Startdato,Kommentar
-Basis_85,2,0.25,0.5,350,0.85,175,1167,5,2026-05-01,Opprinnelig antagelse fra CLAUDE.md (midtverdi av 80-90%). Gir ca 7 aar totalt
-Middels_90,2,0.25,0.5,350,0.90,175,1750,5,2026-05-01,Moderat forbedring av FME-automasjon. Gir ca 4.7 aar totalt
-Samferdsel_96,2,0.25,0.5,350,0.96,175,4375,5,2026-05-01,Bakregnet fra samferdselsavdelingens anslag om ca 2 aar
+Basis_85,2,0.25,0.5,300,0.85,150,1000,5,2026-05-01,Baseline 85 prosent automasjon med samferdselsavdelingens manuell takt 300 lenker/dag
+Middels_90,2,0.25,0.5,300,0.90,150,1500,5,2026-05-01,Samferdselsavdelingens eksplisitte regnestykke 300 lenker/dag 90 prosent auto gir 7.22 aar med 240 arbeidsdager/aar
+Samferdsel_96,2,0.25,0.5,300,0.96,150,3750,5,2026-05-01,Optimistisk oevre grense - 96 prosent automasjon er bakoverregnet for aa treffe 2-aars-maalet. Samferdselsavdelingen opererer selv med 80-90 prosent automasjon

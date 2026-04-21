@@ -1,0 +1,205 @@
+Kjorer 6 varianter x 3 NVDB-scenarioer = 18 MIP-losninger
+
+============================================================
+Variant: S0_Baseline
+  Total aarlig kap: 12262 timer (327 ukesverk)
+============================================================
+
+  --- Basis_85 (T=144) ---
+    Vektet objektiv (W1=3e+10, W2=3e+03)
+    Ferdig (675.0s, status Optimal), makespan = 121 mnd
+    Tid: 675s | status: Optimal
+    Makespan: 122 mnd (10.17 aar)
+    Omfordelt: 36/295
+    Kartkontor siste mnd: 10
+
+  --- Middels_90 (T=96) ---
+    Vektet objektiv (W1=2e+10, W2=3e+03)
+    Ferdig (266.2s, status Optimal), makespan = 80 mnd
+    Tid: 266s | status: Optimal
+    Makespan: 81 mnd (6.75 aar)
+    Omfordelt: 38/295
+    Kartkontor siste mnd: 10
+
+  --- Samferdsel_96 (T=48) ---
+    Vektet objektiv (W1=1e+10, W2=3e+03)
+    Ferdig (161.7s, status Optimal), makespan = 32 mnd
+    Tid: 162s | status: Optimal
+    Makespan: 33 mnd (2.75 aar)
+    Omfordelt: 39/295
+    Kartkontor siste mnd: 10
+
+============================================================
+Variant: S1_Trondheim50
+  Total aarlig kap: 11288 timer (301 ukesverk)
+  Endringer: {'Trondheim': 0.5}
+============================================================
+
+  --- Basis_85 (T=144) ---
+    Vektet objektiv (W1=3e+10, W2=3e+03)
+    Ferdig (518.9s, status Optimal), makespan = 121 mnd
+    Tid: 519s | status: Optimal
+    Makespan: 122 mnd (10.17 aar)
+    Omfordelt: 37/295
+    Kartkontor siste mnd: 10
+
+  --- Middels_90 (T=96) ---
+    Vektet objektiv (W1=2e+10, W2=3e+03)
+    Ferdig (327.2s, status Optimal), makespan = 80 mnd
+    Tid: 327s | status: Optimal
+    Makespan: 81 mnd (6.75 aar)
+    Omfordelt: 36/295
+    Kartkontor siste mnd: 10
+
+  --- Samferdsel_96 (T=48) ---
+    Vektet objektiv (W1=1e+10, W2=3e+03)
+    Ferdig (30362.3s, status Not Solved), makespan = 16 mnd
+    Tid: 30362s | status: Not Solved
+    Makespan: 33 mnd (2.75 aar)
+    Omfordelt: 33/295
+    Kartkontor siste mnd: 10
+
+============================================================
+Variant: S2_Alle_pluss20
+  Total aarlig kap: 14715 timer (392 ukesverk)
+  Endringer: {'Oslo': 1.2, 'Hamar': 1.2, 'Skien': 1.2, 'Kristiansand': 1.2, 'Stavanger': 1.2, 'Bergen': 1.2, 'Molde': 1.2, 'Trondheim': 1.2, 'Bodø': 1.2, 'Tromsø': 1.2}
+============================================================
+
+  --- Basis_85 (T=144) ---
+    Vektet objektiv (W1=3e+10, W2=3e+03)
+    Ferdig (366.6s, status Optimal), makespan = 121 mnd
+    Tid: 367s | status: Optimal
+    Makespan: 122 mnd (10.17 aar)
+    Omfordelt: 41/295
+    Kartkontor siste mnd: 10
+
+  --- Middels_90 (T=96) ---
+    Vektet objektiv (W1=2e+10, W2=3e+03)
+    Ferdig (192.2s, status Optimal), makespan = 80 mnd
+    Tid: 192s | status: Optimal
+    Makespan: 81 mnd (6.75 aar)
+    Omfordelt: 40/295
+    Kartkontor siste mnd: 10
+
+  --- Samferdsel_96 (T=48) ---
+    Vektet objektiv (W1=1e+10, W2=3e+03)
+    Ferdig (81.8s, status Optimal), makespan = 32 mnd
+    Tid: 82s | status: Optimal
+    Makespan: 33 mnd (2.75 aar)
+    Omfordelt: 40/295
+    Kartkontor siste mnd: 10
+
+============================================================
+Variant: S3_Omfordeling
+  Total aarlig kap: 13504 timer (360 ukesverk)
+  Endringer: {'Bodø': 1.5, 'Molde': 1.5, 'Skien': 1.5, 'Stavanger': 1.5, 'Oslo': 0.8, 'Bergen': 0.8, 'Trondheim': 0.8}
+============================================================
+
+  --- Basis_85 (T=144) ---
+    Vektet objektiv (W1=3e+10, W2=3e+03)
+    Ferdig (373.9s, status Optimal), makespan = 121 mnd
+    Tid: 374s | status: Optimal
+    Makespan: 122 mnd (10.17 aar)
+    Omfordelt: 42/295
+    Kartkontor siste mnd: 10
+
+  --- Middels_90 (T=96) ---
+    Vektet objektiv (W1=2e+10, W2=3e+03)
+    Ferdig (218.3s, status Optimal), makespan = 80 mnd
+    Tid: 218s | status: Optimal
+    Makespan: 81 mnd (6.75 aar)
+    Omfordelt: 41/295
+    Kartkontor siste mnd: 10
+
+  --- Samferdsel_96 (T=48) ---
+    Vektet objektiv (W1=1e+10, W2=3e+03)
+    Ferdig (129.8s, status Optimal), makespan = 32 mnd
+    Tid: 130s | status: Optimal
+    Makespan: 33 mnd (2.75 aar)
+    Omfordelt: 54/295
+    Kartkontor siste mnd: 10
+
+============================================================
+Variant: S4_Alle_minus15
+  Total aarlig kap: 10423 timer (278 ukesverk)
+  Endringer: {'Oslo': 0.85, 'Hamar': 0.85, 'Skien': 0.85, 'Kristiansand': 0.85, 'Stavanger': 0.85, 'Bergen': 0.85, 'Molde': 0.85, 'Trondheim': 0.85, 'Bodø': 0.85, 'Tromsø': 0.85}
+============================================================
+
+  --- Basis_85 (T=144) ---
+    Vektet objektiv (W1=3e+10, W2=3e+03)
+    Ferdig (587.5s, status Optimal), makespan = 121 mnd
+    Tid: 587s | status: Optimal
+    Makespan: 122 mnd (10.17 aar)
+    Omfordelt: 35/295
+    Kartkontor siste mnd: 10
+
+  --- Middels_90 (T=96) ---
+    Vektet objektiv (W1=2e+10, W2=3e+03)
+    Ferdig (339.1s, status Optimal), makespan = 80 mnd
+    Tid: 339s | status: Optimal
+    Makespan: 81 mnd (6.75 aar)
+    Omfordelt: 73/295
+    Kartkontor siste mnd: 10
+
+  --- Samferdsel_96 (T=48) ---
+    Vektet objektiv (W1=1e+10, W2=3e+03)
+    Ferdig (143.0s, status Optimal), makespan = 32 mnd
+    Tid: 143s | status: Optimal
+    Makespan: 33 mnd (2.75 aar)
+    Omfordelt: 33/295
+    Kartkontor siste mnd: 10
+
+============================================================
+Variant: S5_Alle_minus50
+  Total aarlig kap: 6131 timer (164 ukesverk)
+  Endringer: {'Oslo': 0.5, 'Hamar': 0.5, 'Skien': 0.5, 'Kristiansand': 0.5, 'Stavanger': 0.5, 'Bergen': 0.5, 'Molde': 0.5, 'Trondheim': 0.5, 'Bodø': 0.5, 'Tromsø': 0.5}
+============================================================
+
+  --- Basis_85 (T=144) ---
+    Vektet objektiv (W1=3e+10, W2=3e+03)
+    Ferdig (2723.8s, status Not Solved), makespan = 60 mnd
+    Tid: 2724s | status: Not Solved
+    Makespan: 122 mnd (10.17 aar)
+    Omfordelt: 27/295
+    Kartkontor siste mnd: 11
+
+  --- Middels_90 (T=96) ---
+    Vektet objektiv (W1=2e+10, W2=3e+03)
+    Ferdig (2427.5s, status Not Solved), makespan = 40 mnd
+    Tid: 2428s | status: Not Solved
+    Makespan: 81 mnd (6.75 aar)
+    Omfordelt: 27/295
+    Kartkontor siste mnd: 11
+
+  --- Samferdsel_96 (T=48) ---
+    Vektet objektiv (W1=1e+10, W2=3e+03)
+    Ferdig (2574.8s, status Not Solved), makespan = 16 mnd
+    Tid: 2575s | status: Not Solved
+    Makespan: 33 mnd (2.75 aar)
+    Omfordelt: 27/295
+    Kartkontor siste mnd: 11
+
+============================================================
+Oppsummering
+============================================================
+        Variant NVDB_Scenario  Total_Ukesverk     Status  Makespan_Mnd  Makespan_Aar  Kartkontor_Siste_Mnd  Kommuner_Omfordelt  Aktive_Kommuner  Solver_Tid_Sek
+    S0_Baseline      Basis_85          327.00    Optimal           122         10.17                    10                  36              295           675.0
+    S0_Baseline    Middels_90          327.00    Optimal            81          6.75                    10                  38              295           266.2
+    S0_Baseline Samferdsel_96          327.00    Optimal            33          2.75                    10                  39              295           161.7
+ S1_Trondheim50      Basis_85          301.00    Optimal           122         10.17                    10                  37              295           518.9
+ S1_Trondheim50    Middels_90          301.00    Optimal            81          6.75                    10                  36              295           327.2
+ S1_Trondheim50 Samferdsel_96          301.00 Not Solved            33          2.75                    10                  33              295         30362.3
+S2_Alle_pluss20      Basis_85          392.40    Optimal           122         10.17                    10                  41              295           366.6
+S2_Alle_pluss20    Middels_90          392.40    Optimal            81          6.75                    10                  40              295           192.2
+S2_Alle_pluss20 Samferdsel_96          392.40    Optimal            33          2.75                    10                  40              295            81.8
+ S3_Omfordeling      Basis_85          360.10    Optimal           122         10.17                    10                  42              295           373.9
+ S3_Omfordeling    Middels_90          360.10    Optimal            81          6.75                    10                  41              295           218.3
+ S3_Omfordeling Samferdsel_96          360.10    Optimal            33          2.75                    10                  54              295           129.8
+S4_Alle_minus15      Basis_85          277.95    Optimal           122         10.17                    10                  35              295           587.5
+S4_Alle_minus15    Middels_90          277.95    Optimal            81          6.75                    10                  73              295           339.1
+S4_Alle_minus15 Samferdsel_96          277.95    Optimal            33          2.75                    10                  33              295           143.0
+S5_Alle_minus50      Basis_85          163.50 Not Solved           122         10.17                    11                  27              295          2723.8
+S5_Alle_minus50    Middels_90          163.50 Not Solved            81          6.75                    11                  27              295          2427.5
+S5_Alle_minus50 Samferdsel_96          163.50 Not Solved            33          2.75                    11                  27              295          2574.8
+
+Lagret: oppsummering_sensitivitet.csv + 18 tidsplaner

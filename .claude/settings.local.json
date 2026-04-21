@@ -4,7 +4,10 @@
       "Bash(python *)",
       "Bash(pip install *)",
       "WebFetch(domain:nedlasting.geonorge.no)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(tasklist /FO CSV)",
+      "Bash(wmic process *)",
+      "Bash(sort -k8)"
     ]
   }
 }

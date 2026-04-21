@@ -35,7 +35,7 @@ TIMER_PER_UKESVERK = 37.5
 # utledes ved aa dele paa antall arbeidsdager i aaret.
 ARBEIDSDAGER_PER_AAR = 230
 STARTDATO = date(2026, 5, 1)
-MAX_AAR = 12  # sikkerhetscutoff for simuleringsloekka
+MAX_AAR = 15  # sikkerhetscutoff. Basis_85 P95 = 12 aar etter kalibrering 2026-04-20; marginen gir plass til ekstreme MC-halvfaner uten aa klippe
 
 
 # --- Datainnlasting -------------------------------------------------------

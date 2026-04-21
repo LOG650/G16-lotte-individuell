@@ -50,9 +50,11 @@ MIP_GAP = 0.05  # akseptkriterie 5 %
 
 # Horisonter per scenario (maaneder), ca 15 % buffer over heuristikk
 T_MAX = {
-    'Basis_85': 120,      # heuristikk 8.64 aar = 104 mnd
-    'Middels_90': 80,     # heuristikk 5.76 aar = 69 mnd
-    'Samferdsel_96': 32,  # heuristikk 2.31 aar = 28 mnd
+    # Etter kalibrering 2026-04-20: manuell takt 300 (var 350), gir ~15 % laengre
+    # varighet enn tidligere. Horisontene er justert med ~15 % buffer.
+    'Basis_85': 144,      # forventet heuristikk ~10 aar (120 mnd)
+    'Middels_90': 96,     # forventet heuristikk ~6.7 aar (80 mnd)
+    'Samferdsel_96': 48,  # forventet heuristikk ~2.7 aar (33 mnd)
 }
 
 
@@ -335,7 +337,8 @@ def solve_lex_opt(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg
     }
 
 
-def solve_vektet(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg=True):
+def solve_vektet(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg=True,
+                 w2_scale=1.0):
     """En-pass vektet objektiv med tre niveauer:
        obj = W1 * makespan + W2 * kartkontor-ferdigtid + inertia
 
@@ -343,6 +346,10 @@ def solve_vektet(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg=
       1. makespan (W1 dominerer)
       2. kartkontor-ferdigtid tidlig (W2 dominerer inertia)
       3. inertia: behold hjemmekontor ved like objektiv
+
+    w2_scale multipliserer W2. Verdi < 1 svekker kartkontor-ferdigtid-prioritet
+    og gir mer vekt til inertia. Brukes til aa undersoke om faerre omfordelinger
+    kan oppnaas uten aa oke makespan.
     """
     Q = data['Q']
     z = data['z']
@@ -360,8 +367,8 @@ def solve_vektet(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg=
     max_inertia = len(I)
 
     # Vektvalg: W1 > W2 * max_kartkontor + max_inertia; W2 > max_inertia
-    W2 = max(10 * max_inertia, 1000)          # dominerer inertia
-    W1 = max(10 * (W2 * max_kartkontor + max_inertia), 1e9)  # dominerer kartkontor+inertia
+    W2 = max(10 * max_inertia, 1000) * w2_scale
+    W1 = max(10 * (max(W2, 1) * max_kartkontor + max_inertia), 1e9)
 
     makespan_term = pulp.lpSum(Q[t] for t in Tid)
     kartkontor_term = pulp.lpSum(
@@ -431,9 +438,10 @@ def fifo_nvdb_per_kommune(data):
             'Gjenstaaende_Lenker': lenker_i[i],
         })
 
-    # Sorter FIFO: forst etter Ledig_Fra_Mnd, deretter etter storrelse (storst forst?)
-    # Heuristikken bruker FIFO paa rekkefolgen de blir ferdig, saa vi beholder den.
-    kommuner_koe.sort(key=lambda k: (k['Ledig_Fra_Mnd'], k['KomNr']))
+    # Sorter FIFO: primaert etter Ledig_Fra_Mnd. Ved like maaneder tas stoerste
+    # kommune foerst (negativ Lenker = storst foerst) slik at gjenstaaende
+    # kapasitet fylles effektivt. KomNr som siste tie-breaker for determinisme.
+    kommuner_koe.sort(key=lambda k: (k['Ledig_Fra_Mnd'], -k['Lenker'], k['KomNr']))
 
     # Drener mu per maaned
     ferdig_nvdb_mnd = {}
@@ -564,6 +572,11 @@ def main():
                         help='makespan: bare min makespan. lex: sekvensiell lex-opt '
                              '(2 solver-runder). vektet: en-pass kombinert objektiv '
                              '(BIG*makespan + kartkontor). Default vektet (raskere).')
+    parser.add_argument('--w2-scale', type=float, default=1.0,
+                        help='Multiplikator paa W2 (kartkontor-ferdigtid-vekt) i vektet-modus. '
+                             'Verdi < 1 gir mer vekt til inertia og faerre omfordelinger. Default 1.0.')
+    parser.add_argument('--msg', action='store_true',
+                        help='Vis CBC solver-output (gap, bestBound, osv.)')
     args = parser.parse_args()
 
     kommuner, kontorer, geovekst, nvdb = last_data()
@@ -610,18 +623,19 @@ def main():
         print(f'  Bibindelser: {n_con}')
 
         if args.mode == 'lex':
-            lex = solve_lex_opt(prob, data, tidsgrense=args.tidsgrense, msg=False)
+            lex = solve_lex_opt(prob, data, tidsgrense=args.tidsgrense, msg=args.msg)
             total_elapsed = lex['tid_1'] + lex['tid_2']
             print(f'  Solver-tid total: {total_elapsed:.1f}s '
                   f'(R1 {lex["tid_1"]:.1f}s, R2 {lex["tid_2"]:.1f}s)')
             status_str = f'{pulp.LpStatus[lex["status_1"]]} / {pulp.LpStatus[lex["status_2"]]}'
         elif args.mode == 'vektet':
-            res = solve_vektet(prob, data, tidsgrense=args.tidsgrense, msg=False)
+            res = solve_vektet(prob, data, tidsgrense=args.tidsgrense, msg=args.msg,
+                               w2_scale=args.w2_scale)
             total_elapsed = res['tid_1']
             print(f'  Solver-tid: {total_elapsed:.1f}s')
             status_str = pulp.LpStatus[res['status_1']]
         else:
-            status, total_elapsed = solve_modell(prob, tidsgrense=args.tidsgrense)
+            status, total_elapsed = solve_modell(prob, tidsgrense=args.tidsgrense, msg=args.msg)
             print(f'  Solver-tid: {total_elapsed:.1f}s')
             status_str = pulp.LpStatus[status]
 
@@ -675,11 +689,12 @@ def main():
             'Kommuner_Omfordelt': n_reassigned,
         })
 
+    suffiks = '' if args.w2_scale == 1.0 else f'_w2-{args.w2_scale}'
     pd.DataFrame(oppsummering).to_csv(
-        os.path.join(DATA_DIR, f'oppsummering_mip_{args.mode}.csv'), index=False
+        os.path.join(DATA_DIR, f'oppsummering_mip_{args.mode}{suffiks}.csv'), index=False
     )
     pd.DataFrame(sammenligning).to_csv(
-        os.path.join(DATA_DIR, f'sammenligning_heuristikk_mip_{args.mode}.csv'), index=False
+        os.path.join(DATA_DIR, f'sammenligning_heuristikk_mip_{args.mode}{suffiks}.csv'), index=False
     )
 
     print(f'\n{"=" * 60}')

@@ -1,10 +1,77 @@
 # Reviewrapport – modellering LOG650 (kritisk gjennomgang)
 
-**Dato:** 2026-04-20
+**Dato:** 2026-04-20 (oppdatert med samferdselsavdelingens tall samme dag)
 **Omfang:** `heuristikk.py`, `monte_carlo.py`, `mip_modell.py`, `mip_kapasitet_sensitivitet.py`, `monte_carlo_mip.py` + utvalgte output-CSV-filer.
 **Formål:** Identifisere svakheter, antagelser som bør gjøres eksplisitte, og risikopunkter i modellene før skriving av rapportseksjon 9 (diskusjon).
 
 Issuene er sortert etter alvorlighet. Hver har en **anbefaling** til hva som bør gjøres før innlevering.
+
+---
+
+## Tilleggsfunn 2026-04-20: Samferdselsavdelingens egne tall
+
+Samferdselsavdelingen leverte følgende regnestykke:
+
+| Lenker | Manuell andel | Lenker manuelt | Arbeidsdager (300/dag) | Årsverk (240 d/år) |
+|---|---|---|---|---|
+| 2 600 000 | 0,10 | 260 000 | 866,67 | 3,61 |
+| 2 600 000 | 0,20 | 520 000 | 1 733,33 | 7,22 |
+
+Med 0,5 årsverk (som prosjektet antar) gir dette:
+- **90 % automasjon: 7,22 år**
+- **80 % automasjon: 14,44 år**
+
+### Kritisk sammenligning med prosjektets tall
+
+| Auto | Samferdsel (0,5 årsv.) | Prosjektet (heuristikk) | Avvik |
+|---|---|---|---|
+| 80 % | 14,44 år | – | – |
+| 85 % | 10,83 år | 8,64 år | +25 % |
+| 90 % | 7,22 år | 5,76 år | +25 % |
+| 96 % | 2,89 år | 2,31 år | +25 % |
+
+Prosjektet **undervurderer varigheten med ~25 %** i alle scenarioer, fordi:
+- Manuell takt: prosjekt 350 vs samferdsel **300** (−14 %)
+- Arbeidsdager/år: prosjekt 260 vs samferdsel **240** (−8 %)
+
+### Implikasjoner
+
+1. **`Samferdsel_96` er IKKE samferdselsavdelingens eksplisitte anslag.** Kommentaren i `nvdb_overfoering.csv` ("Bakregnet fra samferdselsavdelingens anslag om ca 2 aar") er misvisende. Samferdselsavdelingen regner kun på 80 og 90 % automasjon – de har aldri eksplisitt brukt 96 %. CLAUDE.md må rettes.
+2. **Automasjonsgradintervallet 80–90 %** bør være baseline-antagelsen, ikke 85–96 %. Dette snur både scenariovalget og Monte Carlo-parametrene (issue 2.3 blir enda skarpere).
+3. **`Produksjonstakt_Manuell = 300`** er samferdselsavdelingens punktestimat. Monte Carlo-modellen bruker Uniform(300, 400), med senteret 50 lenker/dag over kundens tall. Dette har kombinert samme effekt som å velge et gunstigere scenario.
+4. **Arbeidsdager/år = 240** er kundens implisitte antagelse (4 uker ferie + helligdager). Prosjektets 260 dager uten tilgjengelighetsfaktor er dermed urealistisk.
+
+### Ny scenariorad lagt til: `Samferdsel_90`
+
+Lagt til i `nvdb_overfoering.csv`:
+```
+Samferdsel_90,2,0.25,0.5,300,0.90,150,1500,5,2026-05-01,Samferdselsavdelingens eksplisitte regnestykke
+```
+
+Heuristikk-resultat (med prosjektets 260-dagers konvensjon): **6,72 år**.
+Samferdselsavdelingens tall (med 240 dager): 7,22 år.
+Differansen 0,5 år (~7 %) er akkurat det som kapasitetskonvensjonen (260/240) produserer. **Dette validerer issue 1.3 kvantitativt.**
+
+**MIP-resultat for Samferdsel_90:** 81 mnd = **6,75 år**, status Optimal, 266 s solver-tid, 38 omfordelinger. Konsistent med mønsteret fra de andre scenarioene: MIP gir marginalt verre makespan enn heuristikken (−0,03 år, −0,4 %) pga. månedlig diskretisering. Interessant: Samferdsel_90 er den *eneste* av de fire scenarioene hvor solveren faktisk beviser optimalitet – Basis_85/Middels_90 er også `Optimal`, men Samferdsel_96 er `Not Solved`. Det styrker posisjonen om at MIP-modellen er solid formulert; timeout-issuen er scenariospesifikk.
+
+### Full resultattabell (etter oppdatering)
+
+| Scenario | Auto | Takt | Heuristikk | MIP | MC P50 | Status |
+|---|---|---|---|---|---|---|
+| Basis_85 | 85 % | 350 | 8,64 år | 8,75 år | 8,64 | Optimal |
+| Middels_90 | 90 % | 350 | 5,76 år | 5,83 år | 5,73 | Optimal |
+| **Samferdsel_90 (ny)** | **90 %** | **300** | **6,72 år** | **6,75 år** | – | **Optimal** |
+| Samferdsel_96 | 96 % | 350 | 2,31 år | 2,33 år | 2,20 | Not Solved |
+| *Referanse: Samferdsel (240 d)* | *90 %* | *300* | – | – | – | *7,22 år* |
+
+### Oppfølgingspunkter for rapporten
+
+- Eksplisitt kalibreringstabell som viser samferdselsavdelingens regnestykke side om side med prosjektmodellen (seksjon 7 eller 8).
+- Revider CLAUDE.md: rett `Samferdsel_96`-kommentaren til "ekstrem-optimistisk øvre grense, bakoverregnet fra antatt 2-års-mål".
+- Revider prosjektplanen: hovedfunn er nå `Samferdsel_90 = 7,2 år`, ikke `Samferdsel_96 = 2,3 år`.
+- Monte Carlo bør rekjøres med utvidet usikkerhet på automasjonsgrad (std 3–5 prosentpoeng) og takt sentrert på 300, slik at scenariofordelinger realistisk kan overlappe.
+
+---
 
 ---
 

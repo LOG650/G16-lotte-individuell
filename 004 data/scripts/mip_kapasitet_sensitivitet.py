@@ -11,6 +11,7 @@ Variasjoner:
   S2_Alle_pluss20 - alle kontor +20 %% (rekruttering/utvidelse)
   S3_Omfordeling - smaa kontor +50 %%, store -20 %% (politisk omfordeling)
   S4_Alle_minus15 - alle kontor -15 %% (sparekrav)
+  S5_Alle_minus50 - alle kontor -50 %% (ekstrem, for aa vise kartkontor-bundet regime)
 
 Output i processed_data/:
   mip_sensitivitet_<sensitivitet>_<nvdb_scenario>.csv  (tidsplan per case)
@@ -48,6 +49,10 @@ def lag_varianter():
         ('S3_Omfordeling', {**{k: 1.5 for k in smaa_kontor},
                             **{k: 0.8 for k in stor_kontor}}),
         ('S4_Alle_minus15', {k: 0.85 for k in [
+            'Oslo', 'Hamar', 'Skien', 'Kristiansand', 'Stavanger',
+            'Bergen', 'Molde', 'Trondheim', 'Bodø', 'Tromsø',
+        ]}),
+        ('S5_Alle_minus50', {k: 0.5 for k in [
             'Oslo', 'Hamar', 'Skien', 'Kristiansand', 'Stavanger',
             'Bergen', 'Molde', 'Trondheim', 'Bodø', 'Tromsø',
         ]}),

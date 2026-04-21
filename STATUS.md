@@ -4,7 +4,7 @@
 **Fag:** LOG650 Logistikk og KI | **Institusjon:** Høgskolen i Molde  
 **Prosjektleder:** Lotte Picard | **Kunde:** Statens Kartverk, Region og Samfunnskontakt  
 **Periode:** 2026-01-12 → 2026-06-01  
-**Sist oppdatert:** 2026-04-19
+**Sist oppdatert:** 2026-04-21
 
 > Denne fila er auto-generert fra `012 fase 2 - plan/prosjektplan.json`. Kjør `python "004 data/scripts/generer_status.py"` for å oppdatere.
 
@@ -13,8 +13,8 @@
 ## Overordnet status
 
 - **Nåværende fase:** Fase 3 – Gjennomføring
-- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (10 dager)
-- **Dager igjen til innlevering:** 43
+- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (8 dager)
+- **Dager igjen til innlevering:** 41
 - **Kritisk linje:** Planleggingsleveranse → Datainnsamling → Analyse/modelldel → Diskusjon → Peer review → Sluttføring av rapport
 
 ### Faseoversikt
@@ -23,7 +23,7 @@
 |------|---------|--------|-----------|
 | 1. Initiering | 12.01 – 09.02.26 | ✅ Ferdig | 100% |
 | 2. Planlegging | 02.03 – 20.03.26 | ✅ Ferdig | 100% |
-| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 70% |
+| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 85% |
 | 4. Avslutning | 27.04 – 31.05.26 | ⏳ Ikke startet | 0% |
 
 ---
@@ -47,7 +47,7 @@
 | 16 | Teori og litteratursøk | 19.03 – 25.03 | 🔄 Pågående | 30% |  |
 | 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | ✅ Ferdig | 100% | Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert |
 | 18 | Data/metode og modellering | 06.04 – 14.04 | ✅ Ferdig | 100% | Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet lex-opt målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 4 varianter (S0/S1/S3/S4) × 3 scenarioer = 12 MIP-kjøringer. Monte Carlo på MIP-plan bekrefter identiske usikkerhetsbånd som heuristikk-MC. Rapport-seksjon 6.0 Modellering skrevet. |
-| 19 | Analyse og resultater | 15.04 – 21.04 | 🔄 Pågående | 85% | Rapport-seksjon 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Nøkkelfunn: (1) MIP bekrefter heuristikken er nær-optimal for makespan, (2) NVDB er flaskehalsen i alle scenarioer, (3) kapasitetsvariansjoner påvirker ikke makespan, (4) scenarioene overlapper ikke - P95 Samferdsel (3.22 år) under P5 Middels (4.54 år). Gjenstår: figur 17 fanchart MIP, mindre finpuss rapport. |
+| 19 | Analyse og resultater | 15.04 – 21.04 | 🔄 Pågående | 90% | Rapport-seksjon 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21): Produksjonstakt_Manuell 350→300, Monte Carlo-std 0,01→0,03, lagt til S5_Alle_minus50. Nye resultater: Basis_85 10,17 år, Middels_90 6,75 år (matcher samferdsel 7,22 år innen 240/260-konvensjonen), Samferdsel_96 2,75 år. Alle MIP Optimal. Scenarioer overlapper nå realistisk (P95 Samferdsel 5,88 > P5 Middels 3,25). Kapasitets-sensitivitet 6×3=18 MIP-kjøringer: makespan identisk på tvers av alle varianter, S4 Middels_90 gir kartkontor 73 mnd (baseline 10). Gjenstår: rapportseksjon 5.1 Metode. |
 | 20 | Diskusjon | 22.04 – 24.04 | ⏳ Ikke startet | 0% |  |
 | 21 | Peer review | 27.04 – 28.04 | ⏳ Ikke startet | 0% |  |
 
@@ -151,4 +151,4 @@
 
 | Dato | Endring |
 |------|---------|
-| 2026-04-19 | STATUS.md regenerert fra prosjektplan.json |
+| 2026-04-21 | STATUS.md regenerert fra prosjektplan.json |

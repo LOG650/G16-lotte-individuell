@@ -4,10 +4,11 @@ Monte Carlo usikkerhetsanalyse for tidsbruk per kommune OG NVDB-takt.
 Tre stokastiske kilder per iterasjon:
   1. MIN/KM per kommune - bootstraper fra empirisk fordeling (58 kartblader
      i tidbruk_kalibrering.csv). Påvirker kartkontor-varighet og kø-rekkefølge.
-  2. Produksjonstakt_Manuell - Uniform(300, 400) lenker/person/dag. Påvirker
-     total NVDB-throughput.
-  3. Automasjonsgrad_FME - Normal(scenariopunkt, 0,01), klippet til [0,5; 0,99].
-     Påvirker total NVDB-throughput via formelen
+  2. Produksjonstakt_Manuell - Uniform(275, 325) lenker/person/dag, sentrert
+     på samferdselsavdelingens punktestimat 300. Påvirker total NVDB-throughput.
+  3. Automasjonsgrad_FME - Normal(scenariopunkt, 0,03), klippet til [0,5; 0,99].
+     Standardavviket 0,03 (3 prosentpoeng) reflekterer realistisk måle-
+     usikkerhet på FME-automasjon. Påvirker total NVDB-throughput via
      Total_Throughput = 0,5 × Manuell_Takt / (1 - Automasjonsgrad).
 
 Sampling-strategi: per-kommune, globalt, med tilbakelegging for MIN/KM.
@@ -44,10 +45,16 @@ SEED = 42
 # Grunnpakke-tillegg holdes konstant (ingen empirisk fordeling for km²-leddet)
 GRUNNPAKKE_MIN_PER_KM2 = 0.651042
 
-# NVDB-takt usikkerhet
-MANUELL_TAKT_LOW = 300   # lenker/person/dag (nedre grense iht. kilde 300-400)
-MANUELL_TAKT_HIGH = 400
-AUTOMASJON_STD = 0.01    # standardavvik rundt scenariopunktet
+# NVDB-takt usikkerhet. Sentrert paa samferdselsavdelingens punktestimat 300
+# lenker/dag, med +/- 25 som maaleusikkerhet (dekker ogsaa CLAUDE.md-intervallet
+# 300-400 i oevre hale, men gir symmetri rundt kundens tall).
+MANUELL_TAKT_LOW = 275
+MANUELL_TAKT_HIGH = 325
+# AUTOMASJON_STD 0.03 gir realistisk +/- 3 prosentpoeng maaleusikkerhet paa
+# FME-automasjonsgrad. Tidligere verdi 0.01 gjorde at scenariofordelingene
+# ikke overlappet - den overlapp-frie konklusjonen var dermed et designvalg,
+# ikke et empirisk funn (jf. review issue 2.3).
+AUTOMASJON_STD = 0.03
 AUTOMASJON_CLIP_LOW = 0.5
 AUTOMASJON_CLIP_HIGH = 0.99
 ANTALL_STILLINGER = 2

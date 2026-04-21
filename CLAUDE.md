@@ -107,7 +107,7 @@ Produsert av `004 data/scripts/vask_og_strukturer.py`:
 - **Kapasitet_Ukesverk** = årlig disponibel kapasitet for TVS-prosjektet i 2026. Antas tilsvarende for senere år i modellen.
 - **Fylkesnr/fylkesnavn** i StatistikkTVS er feil/shufflet → utledes fra kommunenummer (komm // 100)
 - **Arbeidsmengde** = antall lenker (ikke km)
-- **Produksjonstakt NVDB:** 300-400 lenker/person/dag manuelt
+- **Produksjonstakt NVDB:** 300 lenker/person/dag manuelt (samferdselsavdelingens punktestimat, kalibrert 2026-04-20). Monte Carlo sampler Uniform(275, 325) som måleusikkerhet.
 - **data.csv "Ferdig"** = kartkontoret er ferdig (IKKE overført til NVDB ennå)
 - **Ber_Tidbruk_Min-formel:** `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510`. Koeffisientene er hentet fra fanen `Tidbruk` i StatistikkTVS og bygger på 58 kartbladmålinger. Empirisk spredning i MIN/KM: 0,10–3,44, std 0,55 (~60 % av snitt). Formel verifisert numerisk (maks avvik 0,5 min på alle 357 kommuner).
 
@@ -146,34 +146,36 @@ Besluttet 2026-04-16:
 
 ### LÅST: To-stegs modell inkluderer NVDB
 
-Både kartkontor-allokering og NVDB-overføring modelleres. NVDB er sannsynlig flaskehals (175 lenker/dag manuelt ved 85% auto).
+Både kartkontor-allokering og NVDB-overføring modelleres. NVDB er sannsynlig flaskehals (150 lenker/dag manuelt ved 85 % auto, kalibrert 2026-04-20).
 
 ### LÅST: Monte Carlo-usikkerhetsanalyse
 
-Implementert 2026-04-18 i `monte_carlo.py`. Tre stokastiske kilder per iterasjon:
+Implementert 2026-04-18 i `monte_carlo.py`, kalibrert 2026-04-20. Tre stokastiske kilder per iterasjon:
 
 1. **MIN/KM per kommune:** bootstrap fra empirisk fordeling (58 kartblader, range 0,10–3,44)
-2. **Produksjonstakt_Manuell:** Uniform(300, 400) lenker/person/dag
-3. **Automasjonsgrad_FME:** Normal(scenariopunkt, 0,01), klippet til [0,5; 0,99]
+2. **Produksjonstakt_Manuell:** Uniform(275, 325) lenker/person/dag – sentrert på samferdselsavdelingens punktestimat 300
+3. **Automasjonsgrad_FME:** Normal(scenariopunkt, 0,03), klippet til [0,5; 0,99]. Std 0,03 reflekterer realistisk måleusikkerhet på FME-automasjon
 
-500 iterasjoner per scenario. Resultater (varighet i år, P5/P50/P95):
-- Basis_85: 7,27 / 8,64 / 10,17
-- Middels_90: 4,54 / 5,73 / 7,10
-- Samferdsel_96: 1,41 / 2,20 / 3,22
+500 iterasjoner per scenario. Resultater (varighet i år, P5/P50/P95, post-kalibrering 2026-04-20):
+- Basis_85: 6,46 / 10,01 / 11,98
+- Middels_90: 3,25 / 6,67 / 9,91
+- Samferdsel_96: 1,32 / 2,36 / 5,88
 
-**Nøkkelfunn:** scenarioene overlapper IKKE – P95 av Samferdsel (3,22) er under P5 av Middels (4,54). Automasjonsgraden er den dominerende usikkerhetskilden, ikke tidsbruk per kommune. Kartkontor-varighet er stabilt ~488 dager (P5-P95: 475-504).
+**Nøkkelfunn (revidert):** scenarioene overlapper nå realistisk — P95 Samferdsel_96 (5,88 år) er over P5 Middels_90 (3,25 år). Den tidligere "ingen overlapp"-konklusjonen (AUTOMASJON_STD=0,01) var et designvalg, ikke et empirisk funn. Automasjonsgrad er fortsatt dominerende usikkerhetskilde. Kartkontor-varighet stabilt ~488 dager (P5-P95: 475-504).
 
 ### LÅST: NVDB-scenarioanalyse på automasjonsgrad
 
-Samferdselsavdelingens uformelle anslag (~2 år) avviker fra CLAUDE.md-baseline (~7 år). Forskjellen tolkes som automasjonsgrad. Tre scenarioer i `nvdb_overfoering.csv`:
+Kalibrert 2026-04-20 mot samferdselsavdelingens eksplisitte regnestykke (300 lenker/dag, 240 arbeidsdager/år). Tre scenarioer i `nvdb_overfoering.csv`:
 
-| Scenario | Automasjon | Manuell | Total/dag | Estimert |
-|----------|-----------|---------|-----------|----------|
-| Basis_85 | 85% | 175 | 1 167 | ~7 år |
-| Middels_90 | 90% | 175 | 1 750 | ~4.7 år |
-| Samferdsel_96 | 96% | 175 | 4 375 | ~2 år |
+| Scenario | Automasjon | Manuell takt | Manuell kap./dag | Total/dag | Estimert |
+|----------|-----------|--------------|------------------|-----------|----------|
+| Basis_85 | 85 % | 300 | 150 | 1 000 | ~10 år |
+| Middels_90 | 90 % | 300 | 150 | 1 500 | ~6,7 år (prosjekt 260 d) / 7,22 år (samf.avd. 240 d) |
+| Samferdsel_96 | 96 % | 300 | 150 | 3 750 | ~2,7 år (optimistisk øvre grense) |
 
-Bemanning (0.5 årsverk) og manuell produksjonstakt (350 lenker/dag) holdes konstant. NVDB-startdato: 2026-05-01.
+Bemanning (0,5 årsverk) og manuell produksjonstakt (300 lenker/dag) holdes konstant. NVDB-startdato: 2026-05-01.
+
+**Merknad om Samferdsel_96:** Samferdselsavdelingen opererer selv med 80–90 % automasjon. Scenarioet er en optimistisk øvre grense bakoverregnet mot et 2-års-mål, ikke et eksplisitt anslag fra avdelingen. Middels_90 er samferdselsavdelingens eksplisitte regnestykke, oversatt til prosjektets 260-dagers kalenderkonvensjon.
 
 ### LÅST: Valideringsstrategi
 
@@ -200,7 +202,7 @@ Implementert 2026-04-19. Time-indeksert MILP med månedlig granularitet. Beslutn
 - `D_t ≥ 0`: lenker overført til NVDB i måned t (aggregert)
 - `Q_t ∈ {0,1}`: 1 hvis ikke alt NVDB overført innen måned t
 
-Horisonter: Basis_85 T=120, Middels_90 T=80, Samferdsel_96 T=32. Tidsoppløsning: kalendermåneder (21,67 arbeidsdager/måned for å matche heuristikkens mandag-fredag-skjema).
+Horisonter (etter kalibrering 2026-04-20): Basis_85 T=144, Middels_90 T=96, Samferdsel_96 T=48. Tidsoppløsning: kalendermåneder (21,67 arbeidsdager/måned for å matche heuristikkens mandag-fredag-skjema).
 
 ### Tre modi (via `--mode`)
 
@@ -208,15 +210,17 @@ Horisonter: Basis_85 T=120, Middels_90 T=80, Samferdsel_96 T=32. Tidsoppløsning
 - **lex**: sekvensiell lex-opt. Runde 1 min makespan, runde 2 min sum_i timer_i × (1 - z_it) gitt makespan-constraint. Robust men langsom (2 solver-runder).
 - **vektet** (default): én-pass obj = W1 × makespan + W2 × kartkontor-ferdig + inertia. W1 ≈ 10¹⁰, W2 ≈ 10³. Raskest og mest stabil; CBC løser grundig.
 
-### Resultater (vektet-modus, 2026-04-19)
+### Resultater (vektet-modus, post-kalibrering 2026-04-20)
 
-| Scenario | Heuristikk | MIP | Omfordelinger | Kartkontor siste mnd |
-|----------|-----------|-----|---------------|----------------------|
-| Basis_85 | 8,64 år | 8,75 år | 59 | 10 |
-| Middels_90 | 5,76 år | 5,83 år | 59 | 10 |
-| Samferdsel_96 | 2,31 år | 2,33 år | 31 | 10 |
+| Scenario | Heuristikk | MIP | Diff | Omfordelinger | Status | Solver-tid |
+|----------|-----------|-----|------|---------------|--------|------------|
+| Basis_85 | 10,08 år | 10,17 år | −0,9 % | 36 / 295 | Optimal | 686 s |
+| Middels_90 | 6,72 år | 6,75 år | −0,4 % | 38 / 295 | Optimal | 265 s |
+| Samferdsel_96 | 2,69 år | 2,75 år | −2,2 % | 39 / 295 | Optimal | 158 s |
 
-**Hovedfunn**: MIP bekrefter at heuristikkens hjemmekontor-assignment er nær optimal for makespan. 1–2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er tie-breakers, ikke nødvendige for makespan. NVDB er konsistent flaskehals — kartkontor-delen er ferdig innen 10 måneder (MIP) eller ~16 måneder (heuristikk) i alle scenarioer.
+**Hovedfunn**: MIP bekrefter at heuristikkens hjemmekontor-assignment er nær optimal for makespan. <2,2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er tie-breakers, ikke nødvendige for makespan. NVDB er konsistent flaskehals — kartkontor-delen er ferdig innen 10 måneder (MIP) eller ~16 måneder (heuristikk) i alle scenarioer.
+
+**Post-kalibrering:** Samferdsel_96 løser nå *Optimal* (tidligere *Not Solved*). Den tidligere statusen skyldtes at horisonten T=32 var marginal for makespan 28 mnd — utvidet til T=48 gir rask bevist optimalitet. Antall omfordelinger falt også (59/59/31 → 36/38/39) pga. FIFO-tie-breaker på størrelse.
 
 ### Solver-valg: CBC (gratis, innebygd i PuLP)
 
@@ -226,12 +230,15 @@ CBC-særegenhet: enkelte kjøringer stopper tidlig med status "Optimal" før B&B
 
 ### Bolk B: Kapasitets-sensitivitetsanalyse (mip_kapasitet_sensitivitet.py)
 
-5 varianter × 3 NVDB-scenarioer = 15 MIP-kjøringer:
+6 varianter × 3 NVDB-scenarioer = 18 MIP-kjøringer:
 - S0_Baseline: nominell kapasitet
 - S1_Trondheim50: Trondheim -50 % (krise)
 - S2_Alle_pluss20: alle kontor +20 % (rekruttering)
 - S3_Omfordeling: små +50 %, store -20 %
 - S4_Alle_minus15: alle kontor -15 % (sparekrav)
+- S5_Alle_minus50: alle kontor -50 % (ekstrem, for å vise kartkontor-bundet regime)
+
+**Hovedfunn (2026-04-21):** makespan er **identisk på tvers av alle 6 kapasitetsvarianter** per NVDB-scenario (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år). NVDB er dominerende flaskehals i hele det testede kapasitetsområdet. Kartkontor-ferdigmåned stiger først merkbart ved S4_Alle_minus15 + Middels_90 (73 mnd vs 10 i baseline) – men ligger fortsatt under NVDB-makespan på 81 mnd. S5_Alle_minus50 gir solver-timeout (*Not Solved* for alle 3 NVDB-scenarioer etter 2400 s), men finner feasible løsninger med samme makespan som baseline.
 
 ### Bolk D: Monte Carlo på MIP-plan (monte_carlo_mip.py)
 
@@ -239,21 +246,20 @@ Bruker eksisterende `monte_carlo.py`-motor med MIP-assignment fra `tidsplan_mip_
 
 ## Pågående arbeid
 
-Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-18, fase 3 er 70 % ferdig):
+Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-21, fase 3 er 85 % ferdig):
 
 1. ✅ Datavask fullført (6 processed CSV-filer inkl. tidbruk-kalibrering)
 2. ✅ Metodevalg låst (hybrid heuristikk + MIP + Monte Carlo)
-3. ✅ NVDB-scenarioer definert
-4. ✅ 13 figurer produsert (6 deskriptive + 4 resultat + 3 usikkerhet)
+3. ✅ NVDB-scenarioer kalibrert mot samferdselsavdelingens tall (2026-04-20)
+4. ✅ 18 figurer produsert (6 deskriptive + 4 resultat + 3 usikkerhet + 5 MIP)
 5. ✅ Heuristikk-implementering (`heuristikk.py`) kjørt for alle 3 scenarioer
-6. ✅ Monte Carlo-analyse (`monte_carlo.py`) – 500 iterasjoner med 3 stokastiske kilder
-7. ✅ Rapport-seksjon 2.0 Litteratur, 4.0 Casebeskrivelse, 5.2 Data (inkl. 5.2.3 formelen) og 11.0 Bibliografi
-8. 🔄 **Neste: Rapport-seksjon 5.1 Metode + 6.0 Modellering** (starter 2026-04-19)
-9. ⏳ Rapport-seksjon 7.0 Analyse + 8.0 Resultat (planlagt 20-21. apr)
-10. ⏳ MIP-modell i PuLP (start 20. april parallelt, avventer samferdselsavdelingens svar for endelige scenarioparametere)
-11. ⏳ Rapport-seksjon 9.0 Diskusjon (22-24. apr)
-12. ⏳ Peer review (27-28. apr)
-13. ⏳ Fase 4: seksjonene 1, 3, 10 + kvalitetssikring
+6. ✅ Monte Carlo-analyse (heur + MIP) – 500 iterasjoner med 3 stokastiske kilder, utvidet usikkerhet
+7. ✅ MIP-modell (vektet) – alle 3 scenarioer løser Optimal etter kalibrering
+8. ✅ Kapasitets-sensitivitet – 6 varianter × 3 NVDB-scenarioer = 18 MIP-kjøringer
+9. ✅ Rapport-seksjon 2.0 Litteratur, 4.0 Casebeskrivelse, 5.2 Data, 6.0 Modellering, 7.0 Analyse, 8.0 Resultat, 11.0 Bibliografi
+10. 🔄 **Neste: Rapport-seksjon 5.1 Metode + 9.0 Diskusjon** (review-issues innarbeides)
+11. ⏳ Peer review (27-28. apr)
+12. ⏳ Fase 4: seksjonene 1, 3, 10 + kvalitetssikring
 
 ### Viktige milepæler
 
