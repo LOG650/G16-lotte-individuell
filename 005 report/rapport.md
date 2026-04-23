@@ -207,7 +207,7 @@ Problemet er et kombinert *ressursallokeringsproblem* (tilordne 295 aktive kommu
 
 **Steg 3 — Monte Carlo-analyse** (`monte_carlo.py`, `monte_carlo_mip.py`). Kvantifiserer hvordan usikkerhet i sentrale parametre propageres til totalvarighet. 500 iterasjoner × tre stokastiske kilder × tre NVDB-scenarioer × to plantyper (heuristikk og MIP) gir 9 000 simulerte prosjektforløp.
 
-Valget av ML-basert metode (regresjon på ferdigtid per kommune) ble tidlig vurdert og forkastet, primært fordi kun 62 av 357 kommuner har fullført kartkontor-fasen og mangler i tillegg faktisk-tidsbruk-registrering (jf. review-funn 3.1). Treningsgrunnlaget er for lite og for usikkert til å gi meningsfylte prediksjoner på 295 uferdige kommuner. De 62 ferdige brukes i stedet til sanity-sjekk av den deterministiske formelen for beregnet tidsbruk (5.2.3).
+Valget av ML-basert metode (regresjon på ferdigtid per kommune) ble tidlig vurdert og forkastet, primært fordi kun 62 av 357 kommuner har fullført kartkontor-fasen, og fordi faktisk tidsbruk ikke er registrert for disse. Treningsgrunnlaget er for lite og for usikkert til å gi meningsfylte prediksjoner på 295 uferdige kommuner. De 62 ferdige brukes i stedet til sanity-sjekk av den deterministiske formelen for beregnet tidsbruk (5.2.3).
 
 ### 5.1.2 Kalenderkonvensjon og kapasitet
 
@@ -231,9 +231,9 @@ Daglig NVDB-kapasitet modelleres som
 
 $$\mu = \frac{\text{årsverk} \cdot \text{manuell takt}}{1 - \text{automasjonsgrad}}$$
 
-Formelen hviler på antagelsen at FME-prosessen er uendelig rask og at den manuelle etterbehandlingen er eneste flaskehals. Formelens struktur gir stor følsomhet nær automasjonsgrad = 1 (f.eks. 175 vs. 17 500 lenker/dag ved 99 % vs. 85 %). Dette betyr at konklusjonen "automasjonsgrad er dominerende usikkerhetskilde" delvis følger *analytisk* fra formelen, ikke bare empirisk. Følgevirkningen er behandlet i 9.0 Diskusjon.
+Formelen hviler på antagelsen at FME-prosessen er uendelig rask og at den manuelle etterbehandlingen er eneste flaskehals. Formelens struktur gir stor følsomhet nær automasjonsgrad = 1 (f.eks. 1 000 vs. 15 000 lenker/dag ved 85 % vs. 99 %). Dette betyr at konklusjonen "automasjonsgrad er dominerende usikkerhetskilde" delvis følger *analytisk* fra formelen, ikke bare empirisk. Følgevirkningen er behandlet i 9.0 Diskusjon.
 
-Manuell takt er satt til **300 lenker/person/dag** etter kalibrering mot samferdselsavdelingens eksplisitte regnestykke (2026-04-20). CLAUDE.md nevnte opprinnelig et intervall 300–400; samferdselsavdelingens egne regnestykker bruker konsekvent 300, og dette er adoptert som punktestimat. Monte Carlo-modellen sampler rundt 300 med ±25 (Uniform 275–325) som representerer måleusikkerhet. Stillingsbemanning er 0,5 årsverk (2 personer × 25 % stillingsandel) og holdes konstant på tvers av scenarioer.
+Manuell takt er satt til **300 lenker/person/dag** etter kalibrering mot samferdselsavdelingens eksplisitte regnestykke (2026-04-20). Monte Carlo-modellen sampler rundt 300 med ±25 (Uniform 275–325) som representerer måleusikkerhet. Stillingsbemanning er 0,5 årsverk (2 personer × 25 % stillingsandel) og holdes konstant på tvers av scenarioer.
 
 ### 5.1.5 Scenariodesign
 
@@ -255,7 +255,7 @@ Tre stokastiske kilder samples per iterasjon:
 
 2. **Manuell takt** — Uniform(275, 325), sentrert på samferdselsavdelingens punktestimat 300. Representerer måleusikkerhet, ikke reell spredning i erfaringsdata.
 
-3. **Automasjonsgrad** — Normal(scenariopunkt, std = 0,03), klippet til [0,5; 0,99]. Standardavviket 0,03 (3 prosentpoeng) reflekterer realistisk måleusikkerhet på FME-automasjon ved ulike kommunegeografier. Den tidligere verdien std = 0,01 ga scenarioer som ikke overlappet hverandre, og dette var et *designvalg*, ikke et empirisk funn (review-issue 2.3).
+3. **Automasjonsgrad** — Normal(scenariopunkt, std = 0,03), klippet til [0,5; 0,99]. Standardavviket 0,03 (3 prosentpoeng) reflekterer realistisk måleusikkerhet på FME-automasjon ved ulike kommunegeografier. Den tidligere verdien std = 0,01 ga scenarioer som ikke overlappet hverandre, og dette var et *designvalg*, ikke et empirisk funn.
 
 Grunnpakke-tillegget (0,6510 min/km²) holdes konstant i Monte Carlo. Areal-koeffisienten er ikke identifiserbar fra kalibreringsdataene — alle 58 kartblader har identisk areal (7,68 km²) — og har dermed ingen empirisk spredning å bootstrape fra. Konsekvensen er at usikkerhetsintervallene i Monte Carlo representerer måleusikkerhet i MIN/KM, manuell NVDB-takt og automasjonsgrad, men ikke usikkerhet knyttet til grunnpakke-leddet. Dette drøftes som forbehold i 9.2. Kartkontor-kapasitet og Geovekst-låseperioder holdes også konstante i Monte Carlo-kjøringen.
 
@@ -591,7 +591,7 @@ Kalibreringen mot samferdselsavdelingens eksplisitte regnestykke (300 lenker/dag
 
 ## 9.2 Tidbruk-formelens identifiserbarhet
 
-Alle timer-estimater bygger på formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510`, med koeffisienter hentet fra Tidbruk-fanen i `StatistikkTraktorvegSti.xlsx`. En uavhengig validering (`013 fase 3 - review/validering_tidbruk_formel.md`) avdekket tre forbehold.
+Alle timer-estimater bygger på formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510`, med koeffisienter hentet fra Tidbruk-fanen i `StatistikkTraktorvegSti.xlsx`. En uavhengig validering avdekket tre forbehold.
 
 **Koeffisientene er ikke OLS-estimert.** De 58 kalibrerings-kartbladene har identisk areal (7,68 km²), slik at areal-leddet ikke kan identifiseres separat fra lengde-leddet. Koeffisienten 0,9035 er gjennomsnittlig MIN/KM, ikke en regresjonskoeffisient; 0,6510 har uklart empirisk opphav. OLS på samme data gir β_lengde = 0,84 og β_areal = 0,09 (ikke signifikant).
 
