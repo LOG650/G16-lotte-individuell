@@ -37,12 +37,12 @@ DATA_DIR = os.path.join(BASE_DIR, 'processed_data')
 
 # --- Konstanter -----------------------------------------------------------
 TIMER_PER_UKESVERK = 37.5
-# Heuristikken jobber mandag-fredag (260 dg/aar) men deler kapasitet paa 230
-# i daglig_kap-formelen, noe som gir effektiv overbruk 260/230 ≈ 1.13. MIP
-# matcher denne konvensjonen saa sammenligning blir rettferdig. Rapporten
-# dokumenterer dette tydelig.
+# Kapasitet_Ukesverk er netto aarlig disponibel kapasitet; simuleringen kjoerer
+# mandag-fredag (260 kalenderdager/aar), saa maaneds- og dagkapasitet utledes
+# direkte fra 37.5 timer/ukesverk / 12 mnd. Heuristikken og MIP bruker samme
+# konvensjon slik at sammenligning blir rettferdig. Endret 2026-04-22 etter
+# review_modellering.md funn 2.1 (fjernet tidligere 260/230-overbruk paa 13 %).
 ARBEIDSDAGER_PER_KALENDERAAR = 260   # mandag-fredag per aar
-ARBEIDSDAGER_I_DATAFILEN = 230       # nominell referanse fra heuristikken
 ARBEIDSDAGER_PER_MND = ARBEIDSDAGER_PER_KALENDERAAR / 12  # ≈ 21.67
 STARTDATO = date(2026, 5, 1)
 SOLVER_TIDSGRENSE_SEK = 1800  # 30 min per scenario
@@ -54,7 +54,7 @@ T_MAX = {
     # varighet enn tidligere. Horisontene er justert med ~15 % buffer.
     'Basis_85': 144,      # forventet heuristikk ~10 aar (120 mnd)
     'Middels_90': 96,     # forventet heuristikk ~6.7 aar (80 mnd)
-    'Samferdsel_96': 48,  # forventet heuristikk ~2.7 aar (33 mnd)
+    'Samferdsel_96': 54,  # forventet heuristikk ~2.7 aar (33 mnd) - utvidet fra 48 2026-04-22 for ekstra buffer etter 260-fiks
 }
 
 
@@ -136,10 +136,10 @@ def bygg_kommunedata(kommuner_df):
 def beregn_kapasitet_per_maaned(kontorer_df):
     """Timer per maaned per kontor - matcher heuristikkens effektive kap.
 
-    Heuristikk: daglig_kap = K * 37.5 / 230, kjoeres 260 dg/aar
-              => maanedskap = K * 37.5 * 260 / (230 * 12)
+    Heuristikk: daglig_kap = K * 37.5 / 260, kjoeres 260 dg/aar
+              => maanedskap = K * 37.5 / 12
     """
-    faktor = TIMER_PER_UKESVERK * ARBEIDSDAGER_PER_KALENDERAAR / (ARBEIDSDAGER_I_DATAFILEN * 12)
+    faktor = TIMER_PER_UKESVERK / 12
     return {
         r['Kartkontor']: r['Kapasitet_Ukesverk'] * faktor
         for _, r in kontorer_df.iterrows()

@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-21T11:00"
+    "sist_oppdatert": "2026-04-23T00:30"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -144,7 +144,7 @@
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
       "status": "Pågående",
-      "fremdrift_prosent": 85,
+      "fremdrift_prosent": 90,
       "oppgaver": [
         {
           "id": 15,
@@ -186,7 +186,7 @@
           "predecessors": [17],
           "status": "Ferdig",
           "fremdrift_prosent": 100,
-          "kommentar": "Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet lex-opt målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 6 varianter (S0-S5) × 3 scenarioer = 18 MIP-kjøringer. S5_Alle_minus50 gir Not Solved etter timeout og er flagget upaalitelig (LP-relax, ikke IP-feasible). Monte Carlo på MIP-plan gir i hovedsak samme usikkerhetsbånd som heuristikk-MC, men P95 for Basis_85 er 13,28 år mot heuristikkens 11,98 år — deterministisk optimum ≠ stokastisk robust. Rapport-seksjon 6.0 Modellering skrevet."
+          "kommentar": "Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 6 varianter (S0-S5) × 3 scenarioer = 18 MIP-kjøringer. Post-260-fiks (2026-04-23): 6/18 Optimal, 12/18 Not Solved pga økt solverkompleksitet ved lavere kapasitet. Makespan fortsatt identisk på tvers av alle varianter (NVDB dominerer). Monte Carlo på MIP-plan gir nå identiske percentiler med heuristikk-MC for Basis_85 (6,46/10,01/13,28); tidligere observert gap var artefakt av 260/230-overbruket. Rapport-seksjon 6.0 Modellering skrevet."
         },
         {
           "id": 19,
@@ -196,8 +196,8 @@
           "varighet_dager": 5,
           "predecessors": [18],
           "status": "Pågående",
-          "fremdrift_prosent": 90,
-          "kommentar": "Rapport-seksjon 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21): Produksjonstakt_Manuell 350→300, Monte Carlo-std 0,01→0,03, lagt til S5_Alle_minus50. Nye resultater: Basis_85 10,17 år, Middels_90 6,75 år (matcher samferdsel 7,22 år innen 240/260-konvensjonen), Samferdsel_96 2,75 år. Alle MIP Optimal. Scenarioer overlapper nå realistisk (P95 Samferdsel 5,88 > P5 Middels 3,25). Kapasitets-sensitivitet 6×3=18 MIP-kjøringer: makespan identisk på tvers av alle varianter, S4 Middels_90 gir kartkontor 73 mnd (baseline 10). Gjenstår: rapportseksjon 5.1 Metode."
+          "fremdrift_prosent": 95,
+          "kommentar": "Rapport-seksjon 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21). Post-260-fiks (2026-04-23): alle modeller og MC rekjørt etter review-funn 2.1; makespan uendret (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år), omfordelinger økt (97/76/54 fra 36/38/39), MC P95 Basis_85 11,98→13,28 år. Sensitivitet: makespan identisk på tvers av 6 varianter, kartkontor 10-13 mnd i alle (inkl S5 -50% som tidligere ga 11 mnd = LP-relax). Gjenstår: rapportseksjon 5.1 Metode + 9.0 Diskusjon."
         },
         {
           "id": 20,

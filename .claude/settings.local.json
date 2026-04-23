@@ -8,7 +8,10 @@
       "Bash(tasklist /FO CSV)",
       "Bash(wmic process *)",
       "Bash(sort -k8)",
-      "Bash(tee ../../mip_rekjoring.log)"
+      "Bash(tee ../../mip_rekjoring.log)",
+      "Bash(mkdir -p \"004 data/processed_data/arkiv_pre_230_fiks\")",
+      "Bash(mv flaskehals_nvdb_*.csv kapasitetsbruk_per_uke_*.csv tidsplan_*.csv mip_sensitivitet_*.csv monte_carlo_*.csv oppsummering_scenarioer.csv oppsummering_mip_vektet.csv oppsummering_sensitivitet.csv sammenligning_heuristikk_mip_vektet.csv arkiv_pre_230_fiks/)",
+      "Bash(git add *)"
     ]
   }
 }

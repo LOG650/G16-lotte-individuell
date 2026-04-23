@@ -31,9 +31,12 @@ DATA_DIR = os.path.join(BASE_DIR, 'processed_data')
 
 # --- Konstanter -----------------------------------------------------------
 TIMER_PER_UKESVERK = 37.5
-# Kapasitet_Ukesverk er aarlig kapasitet (jf. CLAUDE.md). Daglig kapasitet
-# utledes ved aa dele paa antall arbeidsdager i aaret.
-ARBEIDSDAGER_PER_AAR = 230
+# Kapasitet_Ukesverk er aarlig netto-disponibel kapasitet (ferie og
+# helligdager allerede fratrukket, jf. CLAUDE.md). Simuleringen kjoeres
+# mandag-fredag (52*5 = 260 kalenderdager/aar), saa daglig kapasitet
+# utledes ved aa dele aarskapasiteten paa 260. Endret fra 230 til 260
+# 2026-04-22 etter review_modellering.md funn 2.1.
+ARBEIDSDAGER_PER_AAR = 260
 STARTDATO = date(2026, 5, 1)
 MAX_AAR = 30  # sikkerhetscutoff. Basis_85 P95 = 11,98 aar etter kalibrering 2026-04-20; stor margin slik at alternative scenarioer (lavere automasjon, lavere kapasitet) ikke risikerer aa bli klippet uten varsel
 
