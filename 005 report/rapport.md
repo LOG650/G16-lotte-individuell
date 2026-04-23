@@ -629,6 +629,17 @@ MIP-modellen er ikke kjørt med skalert tidbruk. Siden uniform skalering bevarer
 
 **Formel-avhengig følsomhet.** NVDB-throughput-formelen $\mu = A/(1-a)$ divergerer nær $a = 1$. Modellen klipper automasjon til [0,5; 0,99], men i intervallet 95–99 % vokser sensitiviteten raskt. Konklusjonen "automasjonsgrad er dominerende usikkerhetskilde" er delvis en *analytisk konsekvens* av formelens struktur, ikke et empirisk funn. En alternativ modell der FME-prosessen også har en øvre kapasitetsgrense (mvh. maskin- og sanitetsbegrensninger) ville dempet dette, men krever data som ikke er tilgjengelig.
 
+**Sensitivitet for automasjonsgrad-standardavviket.** Standardavviket på 0,03 brukt i Monte Carlo er et designvalg, ikke en empirisk størrelse. For å kvantifisere designvalget er Monte Carlo rekjørt med std ∈ {0,01; 0,02; 0,03; 0,05} for alle tre scenarioer (`monte_carlo_automasjon_sensitivitet.py`).
+
+| Std | Basis_85 P5/P50/P95 (år) | Middels_90 P5/P50/P95 (år) | Samferdsel_96 P5/P50/P95 (år) |
+|-----|---------------------------|------------------------------|----------------------------------|
+| 0,01 | 8,75 / 10,09 / 11,39 | 5,45 / 6,72 / 7,87 | 1,51 / 2,66 / 3,75 |
+| 0,02 | 7,60 / 10,10 / 12,29 | 4,31 / 6,67 / 8,85 | 1,37 / 2,66 / 4,81 |
+| 0,03 | 6,46 / 10,01 / 13,28 | 3,20 / 6,67 / 9,93 | 1,36 / 2,68 / 5,86 |
+| 0,05 | 4,22 / 10,01 / 15,38 | 1,38 / 6,65 / 12,03 | 1,36 / 2,70 / 8,06 |
+
+Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at standardavviket ikke flytter sentraltendensen, kun haleformen. P5-P95-båndet utvider seg derimot monotont: ved std = 0,01 er båndet 2,6 år bredt for Basis_85, mens det er 11,2 år ved std = 0,05. Konsekvensen for scenario-overlapping er tydelig: ved std = 0,01 ligger P5–P95-båndene helt adskilt (Middels_90 P95 = 7,87 < Basis_85 P5 = 8,75), mens ved std ≥ 0,02 begynner båndene å overlappe. Verdien 0,03 ligger som et rimelig kompromiss mellom et urealistisk "skarpt" scenarioskille (std = 0,01, som ville framstilt designet av tre punkter i automasjonsgrad som skarpere bevisst enn det er) og en for vid haleestimering (std = 0,05) der P95 for Samferdsel_96 vokser til 8 år — utenfor det realistiske spennet samferdselsavdelingen selv anslår.
+
 **Deterministisk rammeverk utenfor de tre stokastiske kildene.** Monte Carlo varierer kun MIN/KM, manuell NVDB-takt og automasjonsgrad. Geovekst-låseperioder, kartkontor-kapasitet og fremdriftsstatus (62 ferdig, 48 påbegynt) holdes konstante i alle 500 iterasjoner. I virkeligheten kan Geovekst-prosjekter forsinkes eller fremskyndes, og kapasiteten kan variere fra år til år med personalomsetning og konkurrerende oppgaver. Usikkerhetsintervallene P5–P95 reflekterer derfor stokastikk i tre av flere mulige dimensjoner, og reell usikkerhet i absolutt varighet er bredere enn tallene antyder. Kapasitets-sensitivitetsanalysen i 7.4 dekker deler av dette gapet ved å kjøre deterministiske varianter (S0–S5), men en kombinert stokastisk-deterministisk analyse er utenfor prosjektets omfang.
 
 ## 9.5 Modellens begrensninger for sensoren

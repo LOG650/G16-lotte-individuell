@@ -56,6 +56,8 @@ G16-lotte-individuell/
 │   │   ├── monte_carlo_tidbruk_summary.csv             (jobb #1, 2026-04-23)
 │   │   ├── monte_carlo_tidbruk_varigheter.csv          (jobb #1, 2026-04-23)
 │   │   ├── tidsplan_<scenario>_skala<X>.csv            (jobb #1, 6 filer)
+│   │   ├── monte_carlo_automasjon_summary.csv          (jobb #2, 2026-04-23)
+│   │   ├── monte_carlo_automasjon_varigheter.csv       (jobb #2, 2026-04-23)
 │   │   ├── arkiv_pre_kalibrering/         (utdaterte MIP-CSV fra pre-kalibrering 2026-04-19)
 │   │   └── arkiv_pre_230_fiks/            (42 resultat-CSV fra før 260-fiks 2026-04-23)
 │   ├── scripts/
@@ -64,6 +66,7 @@ G16-lotte-individuell/
 │   │   ├── monte_carlo.py           ← Usikkerhetsanalyse (500 iter × 3 scenarioer)
 │   │   ├── heuristikk_tidbruk_sensitivitet.py  ← Tidbruk-skalering (jobb #1)
 │   │   ├── monte_carlo_tidbruk_sensitivitet.py ← Tidbruk-skalering MC (jobb #1)
+│   │   ├── monte_carlo_automasjon_sensitivitet.py ← AUTOMASJON_STD-sensitivitet (jobb #2)
 │   │   ├── figurer.py               ← Genererer deskriptive figurer (1-6)
 │   │   ├── figurer_resultater.py    ← Resultatfigurer fra heuristikk (7-10)
 │   │   ├── generer_status.py        ← Genererer STATUS.md fra prosjektplan.json
@@ -274,6 +277,27 @@ Modell-evalueringsjobb #1 (2026-04-23). Skaler `Ber_Tidbruk_Min` med faktor 1,5 
 
 **Konklusjon:** Hovedbudskapet "NVDB-flaskehalsen dominerer" overlever en dobling av tidbruk-formelen for de to mest realistiske scenarioene. MIP er ikke kjørt med skalert tidbruk; uniform skalering bevarer relativ rangering, så omfordelingsstrategien antas kvalitativt uendret.
 
+### Bolk F: AUTOMASJON_STD-sensitivitet (monte_carlo_automasjon_sensitivitet.py)
+
+Modell-evalueringsjobb #2 (2026-04-23). Kjør Monte Carlo med std ∈ {0,01; 0,02; 0,03; 0,05} for alle 3 scenarioer = 12 kjøringer × 500 iter = 6000 iter totalt. Adresserer review-funn 3.1: "0,03-standardavviket er et designvalg som bestemmer om scenariofordelingene overlapper".
+
+**Hovedfunn:** Median (P50) er praktisk talt uendret på tvers av std-verdier (Basis_85: 10,01–10,10; Middels_90: 6,65–6,72; Samferdsel_96: 2,66–2,70). Kun haleformen påvirkes:
+
+| Std | Basis_85 P5-P95 (år) | Middels_90 P5-P95 (år) | Samferdsel_96 P5-P95 (år) |
+|-----|------------------------|---------------------------|------------------------------|
+| 0,01 | 8,75–11,39 | 5,45–7,87 | 1,51–3,75 |
+| 0,02 | 7,60–12,29 | 4,31–8,85 | 1,37–4,81 |
+| 0,03 | 6,46–13,28 | 3,20–9,93 | 1,36–5,86 |
+| 0,05 | 4,22–15,38 | 1,38–12,03 | 1,36–8,06 |
+
+**Scenario-overlapping (P5-P95-bånd):**
+- std = 0,01: ingen overlapp (Middels_90 P95 = 7,87 < Basis_85 P5 = 8,75; Samferdsel_96 P95 = 3,75 < Middels_90 P5 = 5,45)
+- std ≥ 0,02: overlapp begynner
+- std = 0,03: betydelig overlapp (valgt verdi)
+- std = 0,05: overlapp så stor at P95 Samferdsel_96 = 8,06 år, urealistisk
+
+**Konklusjon:** 0,03 ligger som rimelig kompromiss mellom urealistisk skarpt (0,01) og urealistisk vidt (0,05). Rapport 9.4 fikk eget avsnitt med tabell og rettferdiggjøring.
+
 ## Pågående arbeid
 
 Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 3 er 90 % ferdig):
@@ -292,7 +316,7 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 
 12. ✅ Rapport-seksjon 5.1 Metode + 9.0 Diskusjon utkast ferdig (2026-04-23) — alle ni review-funn innarbeidet (260-fiks-dokumentasjon i 5.1.2, LPT-Graham i 6.1, FIFO-post-processing i 6.2.5, tidbruk-formelens identifiserbarhet i ny 9.2, MC-begrensninger utvidet i 9.4, MIP-MC + S5 Not Solved i 9.5, cherry-picking i 9.6 pkt 5, Graham 1969 APA 7 i 11.0)
 13. ✅ Helhetsgjennomlesing av 5.0+9.0 (2026-04-23) — interne arbeidsreferanser fjernet, numerisk feil i 5.1.4 fikset (1 000 vs 15 000 lenker/dag)
 14. ✅ **Modell-jobb #1 ferdig (2026-04-23): tidbruk-skaleringssensitivitet** — heuristikk + MC kjørt for alle 3 NVDB-scenarioer × skala 1,5 og 2,0. Hovedbudskap (NVDB-flaskehalsen) overlever en dobling av tidbruk-formelen. Resultat innarbeidet i 9.2 med konkret tabell. Se Bolk E ovenfor.
-15. 🔄 Andre åpne modell-jobber (kan tas i fase 4 eller hoppes over): #2 AUTOMASJON_STD-sensitivitet, #3 løse 12 Not Solved-varianter, #4 re-sortering av heuristikk-kø
+15. ✅ **Modell-jobb #2 ferdig (2026-04-23): AUTOMASJON_STD-sensitivitet** — MC for std ∈ {0,01; 0,02; 0,03; 0,05} × 3 scenarioer. Median uendret, P5-P95-bånd utvides monotont. std=0,03 rettferdiggjort som rimelig midtpunkt. Tabell i 9.4. Se Bolk F ovenfor. Resterende: #3 (løse 12 Not Solved) og #4 (re-sortering heuristikk-kø) — hoppes over.
 16. 🔄 **Rapport-skriving før 29.04:** 1.0 Innledning, 10.0 Konklusjon-skisse, sammendrag/abstract
 17. ⏳ Peer review (27-28. apr)
 18. ⏳ Fase 4: seksjonene 1 (ferdigstille), 3, 10 (ferdigstille) + kvalitetssikring
