@@ -273,9 +273,10 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 
 9. ✅ Rapport-seksjon 2.0 Litteratur, 4.0 Casebeskrivelse, 5.2 Data, 6.0 Modellering, 7.0 Analyse, 8.0 Resultat, 11.0 Bibliografi
 10. ✅ Uavhengig review av modellering + tidbruk-formel (2026-04-22) — to notat i `013 fase 3 - review/`
 11. ✅ 260-fiks etter review 2.1 — alle modeller og MC rekjørt, 18 figurer regenerert, arkiv i `arkiv_pre_230_fiks/`
-12. 🔄 **Neste: Rapport-seksjon 5.1 Metode + 9.0 Diskusjon** (review-issues innarbeides — særlig tidbruk-formelens V1-V3 og det justerte MIP-MC-funnet)
-13. ⏳ Peer review (27-28. apr)
-14. ⏳ Fase 4: seksjonene 1, 3, 10 + kvalitetssikring
+12. ✅ Rapport-seksjon 5.1 Metode + 9.0 Diskusjon utkast ferdig (2026-04-23) — alle ni review-funn innarbeidet (260-fiks-dokumentasjon i 5.1.2, LPT-Graham i 6.1, FIFO-post-processing i 6.2.5, tidbruk-formelens identifiserbarhet i ny 9.2, MC-begrensninger utvidet i 9.4, MIP-MC + S5 Not Solved i 9.5, cherry-picking i 9.6 pkt 5, Graham 1969 APA 7 i 11.0)
+13. 🔄 **Neste: Helhetsgjennomlesing av 5.0+9.0 for flyt; 1.0 Innledning; 10.0 Konklusjon-skisse; sammendrag/abstract før hovedutkast-frist 29.04**
+14. ⏳ Peer review (27-28. apr)
+15. ⏳ Fase 4: seksjonene 1 (ferdigstille), 3, 10 (ferdigstille) + kvalitetssikring
 
 ### Viktige milepæler
 

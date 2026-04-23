@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-23T00:30"
+    "sist_oppdatert": "2026-04-23T14:00"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -195,9 +195,9 @@
           "sluttdato": "2026-04-21",
           "varighet_dager": 5,
           "predecessors": [18],
-          "status": "Pågående",
-          "fremdrift_prosent": 95,
-          "kommentar": "Rapport-seksjon 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21). Post-260-fiks (2026-04-23): alle modeller og MC rekjørt etter review-funn 2.1; makespan uendret (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år), omfordelinger økt (97/76/54 fra 36/38/39), MC P95 Basis_85 11,98→13,28 år. Sensitivitet: makespan identisk på tvers av 6 varianter, kartkontor 10-13 mnd i alle (inkl S5 -50% som tidligere ga 11 mnd = LP-relax). Gjenstår: rapportseksjon 5.1 Metode + 9.0 Diskusjon."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Rapport-seksjon 5.0 Metode og data, 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21). Post-260-fiks (2026-04-23): alle modeller og MC rekjørt etter review-funn 2.1; makespan uendret (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år), omfordelinger økt (97/76/54 fra 36/38/39), MC P95 Basis_85 11,98→13,28 år. Sensitivitet: makespan identisk på tvers av 6 varianter, kartkontor 10-13 mnd i alle. Review-funn fra modellering- og tidbruk-review innarbeidet i 5.1, 5.2, 6.1, 6.2.5 (FIFO-post-processing) og 11.0 (Graham 1969, APA 7)."
         },
         {
           "id": 20,
@@ -206,8 +206,9 @@
           "sluttdato": "2026-04-24",
           "varighet_dager": 3,
           "predecessors": [19],
-          "status": "Ikke startet",
-          "fremdrift_prosent": 0
+          "status": "Pågående",
+          "fremdrift_prosent": 80,
+          "kommentar": "Rapport-seksjon 9.0 Diskusjon utkast ferdig med alle seks underavsnitt (9.1 hovedbudskap, 9.2 tidbruk-formelens identifiserbarhet, 9.3 hva modellen ikke fanger, 9.4 usikkerhetsanalysens antagelser, 9.5 modellens begrensninger for sensoren, 9.6 praktiske implikasjoner). Ni review-funn fra modellering- og tidbruk-review innarbeidet. Gjenstår: helhetsgjennomlesing av 5.0+9.0 for flyt og sammenheng."
         },
         {
           "id": 21,
