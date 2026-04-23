@@ -599,7 +599,17 @@ Alle timer-estimater bygger på formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 +
 
 **Cherry-picking av ferdige kommuner.** De 62 ferdige kommunene har median estimat 667 minutter; de 295 gjenstående 1 336 minutter. Gjenstående arbeid er systematisk dobbelt så tungt per kommune som det allerede gjorte.
 
-Samlet kan formelen underestimere reell tidsbruk med faktor opptil ~2. Det ville forskyve absolutt kartkontor-varighet fra 10–16 til 20–32 måneder og heuristikk-baseline for Basis_85 fra 10,1 år til 15–20 år. Rangeringen mellom scenarioene og NVDB som dominerende flaskehals er upåvirket av nivåskalering; hovedkonklusjonen står seg. Absolutte varighetstall bør likevel leses med reservasjon.
+Samlet kan formelen underestimere reell tidsbruk med faktor opptil ~2. For å teste om hovedkonklusjonen (NVDB-flaskehalsen) overlever en slik skalering er heuristikken og Monte Carlo kjørt for alle tre NVDB-scenarioer med skaleringsfaktor 1,5 og 2,0 på `Ber_Tidbruk_Min` (`heuristikk_tidbruk_sensitivitet.py`, `monte_carlo_tidbruk_sensitivitet.py`).
+
+| Skala | Kartkontor P50 (mnd) | Basis_85 P50/P95 (år) | Middels_90 P50/P95 (år) | Samferdsel_96 P50/P95 (år) |
+|-------|----------------------|------------------------|--------------------------|-----------------------------|
+| 1,0 (baseline) | 16,5 | 10,01 / 13,28 | 6,67 / 9,91 | 2,36 / 5,88 |
+| 1,5 | 19,9 | 10,01 / 13,28 | 6,67 / 9,93 | 2,68 / 5,86 |
+| 2,0 | 26,5 | 10,01 / 13,28 | 6,67 / 9,93 | 2,70 / 5,86 |
+
+Kartkontor-fasen vokser proporsjonalt med skala (Monte Carlo P50: 16,5 → 19,9 → 26,5 måneder), men **total varighet (NVDB-makespan) er praktisk talt uendret** for Basis_85 og Middels_90 i alle tre kjøringer. Bare for Samferdsel_96 — der NVDB er minst flaskehals — presses P5 opp fra 1,36 til 2,03 år ved skala 2, fordi kartkontor-tiden begynner å bestemme ferdigdatoen i de raskeste iterasjonene. Hovedbudskapet "NVDB er flaskehalsen" overlever altså en dobling av tidbruk-formelen for de to mest realistiske scenarioene, mens det svekkes marginalt i det optimistiske 96 %-scenarioet.
+
+MIP-modellen er ikke kjørt med skalert tidbruk. Siden uniform skalering bevarer relativ rangering mellom kommuner, antas omfordelingsstrategien å være kvalitativt uendret; den marginale forskjellen mellom MIP og heuristikk på makespan (<2,2 %) gjør at en MIP-rekjøring uansett ikke ville rokket ved konklusjonen om NVDB-dominans.
 
 ## 9.3 Hva modellen ikke fanger
 

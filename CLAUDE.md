@@ -52,12 +52,18 @@ G16-lotte-individuell/
 │   │   ├── flaskehals_nvdb_*.csv
 │   │   ├── oppsummering_scenarioer.csv
 │   │   ├── monte_carlo_*.csv              (summary, varigheter, per_kommune, ko_percentiles)
+│   │   ├── oppsummering_tidbruk_sensitivitet_heur.csv  (jobb #1, 2026-04-23)
+│   │   ├── monte_carlo_tidbruk_summary.csv             (jobb #1, 2026-04-23)
+│   │   ├── monte_carlo_tidbruk_varigheter.csv          (jobb #1, 2026-04-23)
+│   │   ├── tidsplan_<scenario>_skala<X>.csv            (jobb #1, 6 filer)
 │   │   ├── arkiv_pre_kalibrering/         (utdaterte MIP-CSV fra pre-kalibrering 2026-04-19)
 │   │   └── arkiv_pre_230_fiks/            (42 resultat-CSV fra før 260-fiks 2026-04-23)
 │   ├── scripts/
 │   │   ├── vask_og_strukturer.py    ← Hovedscript for datavask
 │   │   ├── heuristikk.py            ← Regelbasert baseline-simulering
 │   │   ├── monte_carlo.py           ← Usikkerhetsanalyse (500 iter × 3 scenarioer)
+│   │   ├── heuristikk_tidbruk_sensitivitet.py  ← Tidbruk-skalering (jobb #1)
+│   │   ├── monte_carlo_tidbruk_sensitivitet.py ← Tidbruk-skalering MC (jobb #1)
 │   │   ├── figurer.py               ← Genererer deskriptive figurer (1-6)
 │   │   ├── figurer_resultater.py    ← Resultatfigurer fra heuristikk (7-10)
 │   │   ├── generer_status.py        ← Genererer STATUS.md fra prosjektplan.json
@@ -258,6 +264,16 @@ Bruker eksisterende `monte_carlo.py`-motor med MIP-assignment fra `tidsplan_mip_
 
 **Funn (2026-04-23, post-260-fiks):** for Basis_85 gir MIP-basert MC og heuristikk-MC nå **identiske** percentiler (6,46 / 10,01 / 13,28) — tidligere gap (P95 13,28 MIP vs 11,98 heur) var et artefakt av 260/230-overbruket. For Middels_90 er alle tre percentiler identiske (3,25 / 6,67 / 9,91). For Samferdsel_96 er P5 marginalt bedre i MIP (1,06 vs 1,36) mens P50/P95 er like. Etter fiksen er det derfor ikke lenger grunnlag for "deterministisk optimum ≠ robust optimum"-funnet på makespan-nivå. MIP-planen gir fortsatt markant kortere kartkontor-tid i MC (P50: 430 dager vs 503 for Basis_85), men denne forskjellen er skjult av NVDB-flaskehalsen i total varighet.
 
+### Bolk E: Tidbruk-skaleringssensitivitet (heuristikk_tidbruk_sensitivitet.py + monte_carlo_tidbruk_sensitivitet.py)
+
+Modell-evalueringsjobb #1 (2026-04-23). Skaler `Ber_Tidbruk_Min` med faktor 1,5 og 2,0 for å teste om hovedbudskapet "NVDB er flaskehalsen" overlever at tidbruk-formelen underestimerer (jf. validering_tidbruk_formel.md V2/V3: 8/10 kontor har median formel-estimat under sitt eget bånd; ferdige kommuner ~halvparten så tunge per stk som de gjenstående). 6 heuristikk-kjøringer + 6 MC-kjøringer (500 iter hver, 3000 iter totalt).
+
+**Hovedfunn:** NVDB-makespan **uendret** for Basis_85 og Middels_90 i alle tre kjøringer (heuristikk: 10,08/6,72/2,69 år. MC P50: 10,01/6,67 år for Basis_85 og Middels_90 også ved skala 2,0). Kartkontor-fasen vokser proporsjonalt med skala (MC P50: 16,5 → 19,9 → 26,5 mnd), men forblir mindre enn NVDB-tiden i alle scenarioer med flaskehals > 6 år.
+
+**Eneste merkbare effekt:** Samferdsel_96 (raskest NVDB) får P5 presset opp fra 1,36 → 1,59 → 2,03 år ved skala 2 fordi kartkontor-tiden begynner å bestemme ferdigdatoen i de raskeste iterasjonene. P50 og P95 forblir uendret.
+
+**Konklusjon:** Hovedbudskapet "NVDB-flaskehalsen dominerer" overlever en dobling av tidbruk-formelen for de to mest realistiske scenarioene. MIP er ikke kjørt med skalert tidbruk; uniform skalering bevarer relativ rangering, så omfordelingsstrategien antas kvalitativt uendret.
+
 ## Pågående arbeid
 
 Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 3 er 90 % ferdig):
@@ -274,9 +290,12 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 
 10. ✅ Uavhengig review av modellering + tidbruk-formel (2026-04-22) — to notat i `013 fase 3 - review/`
 11. ✅ 260-fiks etter review 2.1 — alle modeller og MC rekjørt, 18 figurer regenerert, arkiv i `arkiv_pre_230_fiks/`
 12. ✅ Rapport-seksjon 5.1 Metode + 9.0 Diskusjon utkast ferdig (2026-04-23) — alle ni review-funn innarbeidet (260-fiks-dokumentasjon i 5.1.2, LPT-Graham i 6.1, FIFO-post-processing i 6.2.5, tidbruk-formelens identifiserbarhet i ny 9.2, MC-begrensninger utvidet i 9.4, MIP-MC + S5 Not Solved i 9.5, cherry-picking i 9.6 pkt 5, Graham 1969 APA 7 i 11.0)
-13. 🔄 **Neste: Helhetsgjennomlesing av 5.0+9.0 for flyt; 1.0 Innledning; 10.0 Konklusjon-skisse; sammendrag/abstract før hovedutkast-frist 29.04**
-14. ⏳ Peer review (27-28. apr)
-15. ⏳ Fase 4: seksjonene 1 (ferdigstille), 3, 10 (ferdigstille) + kvalitetssikring
+13. ✅ Helhetsgjennomlesing av 5.0+9.0 (2026-04-23) — interne arbeidsreferanser fjernet, numerisk feil i 5.1.4 fikset (1 000 vs 15 000 lenker/dag)
+14. ✅ **Modell-jobb #1 ferdig (2026-04-23): tidbruk-skaleringssensitivitet** — heuristikk + MC kjørt for alle 3 NVDB-scenarioer × skala 1,5 og 2,0. Hovedbudskap (NVDB-flaskehalsen) overlever en dobling av tidbruk-formelen. Resultat innarbeidet i 9.2 med konkret tabell. Se Bolk E ovenfor.
+15. 🔄 Andre åpne modell-jobber (kan tas i fase 4 eller hoppes over): #2 AUTOMASJON_STD-sensitivitet, #3 løse 12 Not Solved-varianter, #4 re-sortering av heuristikk-kø
+16. 🔄 **Rapport-skriving før 29.04:** 1.0 Innledning, 10.0 Konklusjon-skisse, sammendrag/abstract
+17. ⏳ Peer review (27-28. apr)
+18. ⏳ Fase 4: seksjonene 1 (ferdigstille), 3, 10 (ferdigstille) + kvalitetssikring
 
 ### Viktige milepæler
 
