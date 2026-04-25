@@ -1,19 +1,19 @@
 Variant,NVDB_Scenario,Total_Ukesverk,Status,Upaalitelig,Min_Kartkontor_Mnd,Makespan_Mnd,Makespan_Aar,Kartkontor_Siste_Mnd,Kommuner_Omfordelt,Aktive_Kommuner,Solver_Tid_Sek
-S0_Baseline,Basis_85,327.0,Optimal,False,6.8,122,10.17,11,97,295,698.1
-S0_Baseline,Middels_90,327.0,Optimal,False,6.8,81,6.75,10,76,295,373.4
-S0_Baseline,Samferdsel_96,327.0,Optimal,False,6.8,33,2.75,10,54,295,191.1
-S1_Trondheim50,Basis_85,301.0,Not Solved,False,7.4,122,10.17,10,32,295,1849.1
-S1_Trondheim50,Middels_90,301.0,Not Solved,False,7.4,81,6.75,10,32,295,1822.6
-S1_Trondheim50,Samferdsel_96,301.0,Not Solved,False,7.4,33,2.75,10,32,295,1809.9
-S2_Alle_pluss20,Basis_85,392.4,Not Solved,False,5.6,122,10.17,10,33,295,1851.6
-S2_Alle_pluss20,Middels_90,392.4,Optimal,False,5.6,81,6.75,10,42,295,245.5
-S2_Alle_pluss20,Samferdsel_96,392.4,Optimal,False,5.6,33,2.75,10,42,295,118.4
-S3_Omfordeling,Basis_85,360.1,Not Solved,False,6.2,122,10.17,10,36,295,2003.8
-S3_Omfordeling,Middels_90,360.1,Optimal,False,6.2,81,6.75,10,40,295,313.1
-S3_Omfordeling,Samferdsel_96,360.1,Optimal,False,6.2,33,2.75,10,42,295,180.9
-S4_Alle_minus15,Basis_85,277.95,Not Solved,False,8.0,122,10.17,10,30,295,1854.4
-S4_Alle_minus15,Middels_90,277.95,Not Solved,False,8.0,81,6.75,10,30,295,1824.2
-S4_Alle_minus15,Samferdsel_96,277.95,Not Solved,False,8.0,33,2.75,10,30,295,1813.0
-S5_Alle_minus50,Basis_85,163.5,Not Solved,False,13.6,122,10.17,13,22,295,2373.2
-S5_Alle_minus50,Middels_90,163.5,Not Solved,False,13.6,81,6.75,13,22,295,2086.5
-S5_Alle_minus50,Samferdsel_96,163.5,Not Solved,False,13.6,33,2.75,13,22,295,1814.5
+S0_Baseline,Basis_85,327.0,Not Solved,False,7.2,122,10.17,10,29,295,1941.3
+S0_Baseline,Middels_90,327.0,Optimal,False,7.2,81,6.75,10,36,295,671.9
+S0_Baseline,Samferdsel_96,327.0,Optimal,False,7.2,33,2.75,11,71,295,387.2
+S1_Trondheim50,Basis_85,301.0,Not Solved,False,7.8,122,10.17,10,31,295,2152.2
+S1_Trondheim50,Middels_90,301.0,Optimal,False,7.8,81,6.75,10,58,295,860.1
+S1_Trondheim50,Samferdsel_96,301.0,Not Solved,False,7.8,33,2.75,10,31,295,1815.3
+S2_Alle_pluss20,Basis_85,392.4,Optimal,False,6.0,122,10.17,10,34,295,1125.2
+S2_Alle_pluss20,Middels_90,392.4,Optimal,False,6.0,81,6.75,10,35,295,508.8
+S2_Alle_pluss20,Samferdsel_96,392.4,Optimal,False,6.0,33,2.75,10,35,295,378.3
+S3_Omfordeling,Basis_85,360.1,Not Solved,False,6.5,122,10.17,10,38,295,2394.2
+S3_Omfordeling,Middels_90,360.1,Optimal,False,6.5,81,6.75,11,59,295,592.3
+S3_Omfordeling,Samferdsel_96,360.1,Optimal,False,6.5,33,2.75,10,40,295,373.5
+S4_Alle_minus15,Basis_85,277.95,Optimal,False,8.5,122,10.17,11,60,295,1395.5
+S4_Alle_minus15,Middels_90,277.95,Not Solved,False,8.5,81,6.75,10,33,295,1851.6
+S4_Alle_minus15,Samferdsel_96,277.95,Not Solved,False,8.5,33,2.75,10,33,295,1816.5
+S5_Alle_minus50,Basis_85,163.5,Not Solved,False,14.4,122,10.17,14,20,295,2900.5
+S5_Alle_minus50,Middels_90,163.5,Not Solved,False,14.4,81,6.75,14,20,295,2199.2
+S5_Alle_minus50,Samferdsel_96,163.5,Not Solved,False,14.4,33,2.75,14,20,295,2393.1

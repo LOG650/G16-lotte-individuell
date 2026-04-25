@@ -147,11 +147,18 @@ Oslo-kontorets opprinnelige oppgitte verdier ble vurdert som urealistisk lave. E
 
 Ulike tekstformater i rådata ("Juni-Desember", "7", "August 2026 - mars 2027"). Standardiseres til datoer. For ukjente brukes **mai-desember 2026** (7 mnd).
 
-### LÅST: Kapasitetskonvensjon — 260 arbeidsdager per år
+### LÅST: Kapasitetskonvensjon — 245 effektive arbeidsdager per år (kartkontor)
 
-Heuristikk og MIP deler på **260 arbeidsdager/år** (52 uker × 5 dager) for å konvertere `Kapasitet_Ukesverk` til daglig eller månedlig kapasitet. Endret 2026-04-23 etter review_modellering.md funn 2.1 — tidligere ble det delt på 230 mens simuleringen kjørte 260 dager/år, noe som ga skjult 13 %-overbruk. Nå er daglig kapasitet = `K × 37,5 / 260` (heuristikk) og månedlig kapasitet = `K × 37,5 / 12` (MIP). `Kapasitet_Ukesverk` tolkes som netto disponible ukesverk/år, fordelt jevnt over 260 kalenderarbeidsdager.
+Kartkontor-kapasitet er **245 effektive arbeidsdager/år** av 260 mandag-fredag-dager. Folk har ferie spredt utover året (sommervikarer demper, men ikke nok). Konsekvens: daglig/månedlig kapasitet skaleres med faktor 245/260 ≈ 0,9423. Heuristikk: `dag_kap = K × 37,5 × (245/260) / 260`. MIP: `mnd_kap = K × 37,5 × (245/260) / 12`. Total per år = `K × 37,5 × (245/260)` ≈ 0,942 × K × 37,5 timer. Endret 2026-04-24 etter avklaring med oppdragsgiver.
 
-**Effekt av fiksen:** makespan-tall er uendret i alle 3 NVDB-scenarioer fordi NVDB dominerer som flaskehals. Kartkontor-siste-ferdig forskyves 10 dager (heuristikk) eller 0-1 måned (MIP). MC-P95 for Basis_85 økte 11,98 → 13,28 år (heuristikk) — halen er mer sensitiv til kapasitet. MIP-omfordelinger økte fra 36/38/39 til 97/76/54 kommuner (Basis/Middels/Samferdsel) fordi MIPen utnytter lavere slakk mer aktivt.
+**Historikk:**
+- Pre-2026-04-22: dag_kap = K × 37,5 / 230, simulering 260 dager → 13 % overbruk (skjult, jf. review_modellering.md funn 2.1)
+- 2026-04-22 (260-fiks): dag_kap = K × 37,5 / 260, simulering 260 dager → 0 % overbruk, men brukte feil arbeidsdagstall
+- 2026-04-24 (245-fiks): dag_kap = K × 37,5 × (245/260) / 260, simulering 260 dager → reflekterer faktiske 245 produktive dager
+
+**NVDB-konvensjon uendret:** NVDB-throughput konverteres fortsatt med 260/12 = 21,67 dg/mnd i MIP. Samferdselsavdelingen opererer selv med 240 dg/år i sitt eget regnestykke; det dokumenterte 240/260-gapet (samferdsel 7,22 år vs modell 6,72 år for Middels_90) er beholdt som drøftelsespoeng i 5.1.2.
+
+**Effekt av 245-fiksen:** makespan uendret i alle 3 NVDB-scenarioer (NVDB dominerer flaskehalsen). Kartkontor-siste-ferdig forskyves ~30 dager (heuristikk: 2027-08 → 2027-09-16, 16 → 16,5 mnd). MC-percentiler for total varighet praktisk talt uendret pga NVDB-dominans. Kartkontor-MC P50 økte fra 503 → 510 dager (~6 %). MIP- og MC-tall er gjenkjørt 2026-04-24.
 
 ### LÅST: Hovedmetode er hybrid heuristikk + MIP
 
@@ -227,17 +234,17 @@ Horisonter (etter kalibrering 2026-04-20, Samferdsel_96 utvidet 2026-04-23 etter
 - **lex**: sekvensiell lex-opt. Runde 1 min makespan, runde 2 min sum_i timer_i × (1 - z_it) gitt makespan-constraint. Robust men langsom (2 solver-runder).
 - **vektet** (default): én-pass obj = W1 × makespan + W2 × kartkontor-ferdig + inertia. W1 ≈ 10¹⁰, W2 ≈ 10³. Raskest og mest stabil; CBC løser grundig.
 
-### Resultater (vektet-modus, post-260-fiks 2026-04-23)
+### Resultater (vektet-modus, post-245-fiks 2026-04-24)
 
 | Scenario | Heuristikk | MIP | Diff | Omfordelinger | Status | Solver-tid |
 |----------|-----------|-----|------|---------------|--------|------------|
-| Basis_85 | 10,08 år | 10,17 år | −0,9 % | 97 / 295 | Optimal | 711 s |
-| Middels_90 | 6,72 år | 6,75 år | −0,4 % | 76 / 295 | Optimal | 374 s |
-| Samferdsel_96 | 2,69 år | 2,75 år | −2,2 % | 54 / 295 | Optimal | 190 s |
+| Basis_85 | 10,08 år | 10,17 år | −0,9 % | 29 / 295 | Not Solved | 1 945 s |
+| Middels_90 | 6,72 år | 6,75 år | −0,4 % | 36 / 295 | Optimal | 675 s |
+| Samferdsel_96 | 2,69 år | 2,75 år | −2,2 % | 71 / 295 | Optimal | 391 s |
 
-**Hovedfunn**: MIP bekrefter at heuristikkens hjemmekontor-assignment er nær optimal for makespan. <2,2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er ikke nødvendige for makespan — NVDB er konsistent flaskehals og kartkontor-delen er ferdig innen 10-11 måneder (MIP) eller ~16 måneder (heuristikk) i alle scenarioer.
+**Hovedfunn**: MIP bekrefter at heuristikkens hjemmekontor-assignment er nær optimal for makespan. <2,2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er ikke nødvendige for makespan — NVDB er konsistent flaskehals og kartkontor-delen er ferdig innen 10-11 måneder (MIP) eller ~16,5 måneder (heuristikk) i alle scenarioer.
 
-**Post-260-fiks:** makespan er uendret i alle 3 scenarioer (NVDB dominerer). Omfordelingene økte fra 36/38/39 til 97/76/54 fordi MIPen utnytter den lavere slakken til å flytte arbeid vekk fra tight kontorer (Hamar, Bergen). Dette endrer ikke makespan, men forbedrer kartkontor-ferdigmåneden marginalt (Basis_85 10 → 11 mnd — svak økning pga lavere kapasitet, men likevel dominert av NVDB).
+**Post-245-fiks:** makespan uendret i alle 3 scenarioer (NVDB dominerer). Min_Kartkontor_Mnd matematisk grense: 6,8 → 7,2 mnd (~6 % økning fra 245/260-faktor). Kartkontor-ferdig-måned i MIP uendret (10/10/11 mnd, median 4 mnd). Omfordelingsmønsteret endret: Basis 97→29, Middels 76→36, Samferdsel 54→71 — dette er ikke et systematisk skift men reflekterer at vektet objektiv har flere nær-optimale assignmenter, og CBC kan finne ulike incumbenter. Basis_85 er nå Not Solved ved 1800s timeout (var Optimal pre-245); løsningen er IP-feasible men ikke bevist optimal.
 
 ### Solver-valg: CBC (gratis, innebygd i PuLP)
 
@@ -300,7 +307,7 @@ Modell-evalueringsjobb #2 (2026-04-23). Kjør Monte Carlo med std ∈ {0,01; 0,0
 
 ## Pågående arbeid
 
-Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 3 er 90 % ferdig):
+Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-24, fase 3 er 90 % ferdig):
 
 1. ✅ Datavask fullført (6 processed CSV-filer inkl. tidbruk-kalibrering)
 2. ✅ Metodevalg låst (hybrid heuristikk + MIP + Monte Carlo)
@@ -308,18 +315,19 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 
 4. ✅ 18 figurer produsert (6 deskriptive + 4 resultat + 3 usikkerhet + 5 MIP)
 5. ✅ Heuristikk-implementering (`heuristikk.py`) kjørt for alle 3 scenarioer
 6. ✅ Monte Carlo-analyse (heur + MIP) – 500 iterasjoner med 3 stokastiske kilder, utvidet usikkerhet
-7. ✅ MIP-modell (vektet) – alle 3 scenarioer løser Optimal etter kalibrering
+7. ✅ MIP-modell (vektet) – alle 3 scenarioer kjørt etter 245-fiks (Basis_85 Not Solved ved timeout, Middels/Samferdsel Optimal)
 8. ✅ Kapasitets-sensitivitet – 6 varianter × 3 NVDB-scenarioer = 18 MIP-kjøringer
 9. ✅ Rapport-seksjon 2.0 Litteratur, 4.0 Casebeskrivelse, 5.2 Data, 6.0 Modellering, 7.0 Analyse, 8.0 Resultat, 11.0 Bibliografi
 10. ✅ Uavhengig review av modellering + tidbruk-formel (2026-04-22) — to notat i `013 fase 3 - review/`
 11. ✅ 260-fiks etter review 2.1 — alle modeller og MC rekjørt, 18 figurer regenerert, arkiv i `arkiv_pre_230_fiks/`
-12. ✅ Rapport-seksjon 5.1 Metode + 9.0 Diskusjon utkast ferdig (2026-04-23) — alle ni review-funn innarbeidet (260-fiks-dokumentasjon i 5.1.2, LPT-Graham i 6.1, FIFO-post-processing i 6.2.5, tidbruk-formelens identifiserbarhet i ny 9.2, MC-begrensninger utvidet i 9.4, MIP-MC + S5 Not Solved i 9.5, cherry-picking i 9.6 pkt 5, Graham 1969 APA 7 i 11.0)
-13. ✅ Helhetsgjennomlesing av 5.0+9.0 (2026-04-23) — interne arbeidsreferanser fjernet, numerisk feil i 5.1.4 fikset (1 000 vs 15 000 lenker/dag)
-14. ✅ **Modell-jobb #1 ferdig (2026-04-23): tidbruk-skaleringssensitivitet** — heuristikk + MC kjørt for alle 3 NVDB-scenarioer × skala 1,5 og 2,0. Hovedbudskap (NVDB-flaskehalsen) overlever en dobling av tidbruk-formelen. Resultat innarbeidet i 9.2 med konkret tabell. Se Bolk E ovenfor.
-15. ✅ **Modell-jobb #2 ferdig (2026-04-23): AUTOMASJON_STD-sensitivitet** — MC for std ∈ {0,01; 0,02; 0,03; 0,05} × 3 scenarioer. Median uendret, P5-P95-bånd utvides monotont. std=0,03 rettferdiggjort som rimelig midtpunkt. Tabell i 9.4. Se Bolk F ovenfor. Resterende: #3 (løse 12 Not Solved) og #4 (re-sortering heuristikk-kø) — hoppes over.
-16. 🔄 **Rapport-skriving før 29.04:** 1.0 Innledning, 10.0 Konklusjon-skisse, sammendrag/abstract
-17. ⏳ Peer review (27-28. apr)
-18. ⏳ Fase 4: seksjonene 1 (ferdigstille), 3, 10 (ferdigstille) + kvalitetssikring
+12. ✅ Rapport-seksjon 5.1 Metode + 9.0 Diskusjon utkast ferdig (2026-04-23) — alle ni review-funn innarbeidet
+13. ✅ Helhetsgjennomlesing av 5.0+9.0 (2026-04-23) — interne arbeidsreferanser fjernet, numerisk feil i 5.1.4 fikset
+14. ✅ **Modell-jobb #1 ferdig (2026-04-23): tidbruk-skaleringssensitivitet** — gjenoppfrisket etter 245-fiks 2026-04-24
+15. ✅ **Modell-jobb #2 ferdig (2026-04-23): AUTOMASJON_STD-sensitivitet** — gjenoppfrisket etter 245-fiks 2026-04-24
+16. ✅ **245-fiks etter avklaring med oppdragsgiver (2026-04-24)** — Kartkontor 260 → 245 effektive arbeidsdager (faktor 245/260). Alle modeller rekjørt, 53 CSV arkivert i `arkiv_pre_245_fiks/`. NVDB-makespan uendret. Kartkontor-tid +6 %.
+17. 🔄 **Rapport-skriving før 29.04:** 1.0 Innledning, 10.0 Konklusjon-skisse, sammendrag/abstract
+18. ⏳ Peer review (27-28. apr)
+19. ⏳ Fase 4: seksjonene 1 (ferdigstille), 3, 10 (ferdigstille) + kvalitetssikring
 
 ### Viktige milepæler
 
@@ -332,15 +340,22 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-23, fase 
 - **Rapportarbeid:** seksjon-for-seksjon-dialog; Claude skriver utkast, bruker reviderer.
 - **Litteratur:** 5 kjerne-referanser lagt inn i 2.0 Litteratur og 11.0 Bibliografi. Full litteraturgjennomgang og 3.0 Teori utsettes til fase 4. Bibliografi må verifiseres mot HiM-bibliotek/Oria (se TODO).
 
+### Oppsummering av økt 2026-04-24 (245-fiks)
+
+- Oppdragsgiver avklarte at faktiske produktive arbeidsdager er ca 245/år (ikke 260 som modellen brukte). Sommervikarer kompenserer noe for sommerferie, men ikke fullt ut. NVDB beholder samferdselsavd's egen 240-dagers konvensjon (uendret).
+- **Kapasitetsfaktor 245/260 ≈ 0,9423** lagt inn i heuristikk.py og mip_modell.py. Daglig/månedlig kartkontor-kapasitet skaleres ned med ~5,8 %. Konsekvens: kartkontor-tid forlenges ~6 %.
+- **Makespan uendret** i alle 3 NVDB-scenarioer (NVDB dominerer): heuristikk 10,08 / 6,72 / 2,69 år, MIP 10,17 / 6,75 / 2,75 år (identiske med pre-245).
+- **MC P5/P50/P95 totalvarighet praktisk talt identiske** med pre-245 (NVDB dominerer): Basis 6,46/10,01/13,28; Middels 3,25/6,67/9,91; Samferdsel 1,38/2,36/5,88 år.
+- **Kartkontor-MC P50 økte:** 503 → 510 dager (~6 %). Heuristikk siste-ferdig 2027-08 → 2027-09-16 (~30 dager senere).
+- **MIP solver-kompleksitet økte:** Basis_85 nå Not Solved ved 1800s timeout (var Optimal pre-245 ved 711s). Middels og Samferdsel fortsatt Optimal.
+- **MIP-omfordelinger endret:** Basis 97→29, Middels 76→36, Samferdsel 54→71. Ikke et systematisk skift; vektet objektiv har flere nær-optimale incumbenter ved lavere kapasitet.
+- 53 CSV arkivert i `arkiv_pre_245_fiks/` for diff-sammenligning.
+
 ### Oppsummering av økt 2026-04-23
 
 - Review av modellering (`013 fase 3 - review/review_modellering.md`) og tidbruk-formel (`validering_tidbruk_formel.md`) gjennomgått. Begge dokumenterer forbehold for seksjon 9 Diskusjon.
-- Alvorligste funn (review 2.1) var skjult 13 %-overbruk pga 260 simuleringsdager / 230 i kapasitetsnevner. **Fikset:** `ARBEIDSDAGER_PER_AAR=230→260` i heuristikk.py og forenklet faktor i mip_modell.py.
+- Alvorligste funn (review 2.1) var skjult 13 %-overbruk pga 260 simuleringsdager / 230 i kapasitetsnevner. **Fikset:** `ARBEIDSDAGER_PER_AAR=230→260` i heuristikk.py og forenklet faktor i mip_modell.py. (Erstattet av 245-fiks 2026-04-24.)
 - Alle modeller rekjørt med nye tall. 18 CSV arkivert i `arkiv_pre_230_fiks/` for diff-sammenligning.
-- **Makespan uendret** i alle 3 NVDB-scenarioer (NVDB dominerer flaskehalsen): heuristikk 10,08 / 6,72 / 2,69 år, MIP 10,17 / 6,75 / 2,75 år.
-- **MIP-omfordelinger økte betydelig:** Basis_85 36→97, Middels_90 38→76, Samferdsel_96 39→54.
-- **MC P95 Basis_85 økte 11,98→13,28 år** (heuristikk) — mer kapasitetsfølsom hale. MIP-MC og heur-MC gir nå identiske percentiler; gapet var et artefakt av 260/230-overbruket.
-- **Kapasitets-sensitivitet:** makespan fortsatt identisk på tvers av alle 6 varianter. 6/18 Optimal, 12/18 Not Solved (solverkompleksitet økte ved lavere kapasitet). S5 rapporterer nå plausible tall (kartkontor 13 mnd mot minimum 13,6) men status Not Solved.
 - Figurer 7-19 regenerert. T_MAX Samferdsel_96 utvidet 48→54 for ekstra buffer.
 
 ### Oppsummering av økt 2026-04-18

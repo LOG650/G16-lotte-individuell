@@ -1,0 +1,358 @@
+KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kartkontor_Mnd,Ferdigdato_Kartkontor,Ferdigdato_NVDB_Mnd,Ferdigdato_NVDB
+0301,Oslo,Oslo,Trondheim,True,30.63,35397.0,1,2026-06-15,19,2027-12-15
+1101,Eigersund,Stavanger,Stavanger,False,0.15,6942.0,3,2026-08-15,42,2029-11-15
+1103,Stavanger,Stavanger,Stavanger,False,15.98,13831.0,2,2026-07-15,28,2028-09-15
+1106,Haugesund,Stavanger,Stavanger,False,2.82,1601.0,5,2026-10-15,65,2031-10-15
+1108,Sandnes,Stavanger,Stavanger,False,35.68,17326.0,5,2026-10-15,58,2031-03-15
+1111,Sokndal,Stavanger,Stavanger,False,0.06,2134.0,4,2026-09-15,54,2030-11-15
+1112,Lund,Stavanger,Stavanger,False,0.1,2758.0,4,2026-09-15,54,2030-11-15
+1114,Bjerkreim,Stavanger,Tromsø,True,0.22,7158.0,0,2026-05-15,11,2027-04-15
+1119,Hå,Stavanger,Stavanger,False,14.53,6268.0,4,2026-09-15,51,2030-08-15
+1120,Klepp,Stavanger,Stavanger,False,5.17,3414.0,4,2026-09-15,53,2030-10-15
+1121,Time,Stavanger,Stavanger,False,12.28,5798.0,4,2026-09-15,52,2030-09-15
+1122,Gjesdal,Stavanger,Stavanger,False,19.68,5779.0,2,2026-07-15,34,2029-03-15
+1124,Sola,Stavanger,Stavanger,False,3.7,2924.0,5,2026-10-15,65,2031-10-15
+1127,Randaberg,Stavanger,Stavanger,False,1.5,1161.0,6,2026-11-15,71,2032-04-15
+1130,Strand,Stavanger,Stavanger,False,12.47,6598.0,4,2026-09-15,50,2030-07-15
+1133,Hjelmeland,Stavanger,Kristiansand,True,25.62,7360.0,2,2026-07-15,32,2029-01-15
+1134,Suldal,Stavanger,Stavanger,False,38.55,9362.0,3,2026-08-15,40,2029-09-15
+1135,Sauda,Stavanger,Stavanger,False,12.13,4201.0,4,2026-09-15,53,2030-10-15
+1144,Kvitsøy,Stavanger,Stavanger,False,0.32,207.0,6,2026-11-15,71,2032-04-15
+1145,Bokn,Stavanger,Stavanger,False,2.07,948.0,5,2026-10-15,66,2031-11-15
+1146,Tysvær,Stavanger,Stavanger,False,17.93,7926.0,5,2026-10-15,63,2031-08-15
+1149,Karmøy,Stavanger,Stavanger,False,11.97,6834.0,5,2026-10-15,63,2031-08-15
+1151,Utsira,Stavanger,Stavanger,False,0.2,66.0,6,2026-11-15,71,2032-04-15
+1160,Vindafjord,Stavanger,Bodø,True,25.1,8327.0,5,2026-10-15,62,2031-07-15
+1505,Kristiansund,Molde,Molde,False,4.33,2048.0,4,2026-09-15,54,2030-11-15
+1506,Molde,Molde,Oslo,True,19.37,9849.0,0,2026-05-15,7,2026-12-15
+1508,Ålesund,Molde,Molde,False,15.72,8749.0,0,2026-05-15,8,2027-01-15
+1525,Stranda,Molde,Molde,False,17.03,3918.0,0,2026-05-15,15,2027-08-15
+1528,Sykkylven,Molde,Molde,False,9.0,2501.0,0,2026-05-15,17,2027-10-15
+1535,Vestnes,Molde,Molde,False,7.31,5719.0,0,2026-05-15,12,2027-05-15
+1547,Aukra,Molde,Molde,False,1.12,900.0,2,2026-07-15,35,2029-04-15
+1554,Averøy,Molde,Molde,False,7.85,3601.0,5,2026-10-15,64,2031-09-15
+1557,Gjemnes,Molde,Kristiansand,True,12.08,3596.0,3,2026-08-15,44,2030-01-15
+1560,Tingvoll,Molde,Molde,False,13.55,5373.0,5,2026-10-15,63,2031-08-15
+1563,Sunndal,Molde,Skien,True,35.35,7848.0,0,2026-05-15,9,2027-02-15
+1566,Surnadal,Molde,Molde,False,33.22,7330.0,3,2026-08-15,42,2029-11-15
+1576,Aure,Molde,Molde,False,16.5,4577.0,6,2026-11-15,70,2032-03-15
+1578,Fjord,Molde,Stavanger,True,24.97,5931.0,0,2026-05-15,12,2027-05-15
+1579,Hustadvika,Molde,Molde,False,21.07,7743.0,2,2026-07-15,32,2029-01-15
+1580,Haram,Molde,Molde,False,9.7,4153.0,0,2026-05-15,15,2027-08-15
+1804,Bodø,Bodø,Bergen,True,34.38,11982.0,3,2026-08-15,39,2029-08-15
+1806,Narvik,Bodø,Skien,True,55.82,12335.0,2,2026-07-15,28,2028-09-15
+1811,Bindal,Bodø,Bodø,False,18.83,2467.0,4,2026-09-15,54,2030-11-15
+1812,Sømna,Bodø,Bodø,False,5.93,1993.0,5,2026-10-15,65,2031-10-15
+1813,Brønnøy,Bodø,Bodø,False,21.05,5124.0,3,2026-08-15,44,2030-01-15
+1815,Vega,Bodø,Bodø,False,3.77,1249.0,6,2026-11-15,71,2032-04-15
+1816,Vevelstad,Bodø,Bodø,False,8.72,1471.0,6,2026-11-15,71,2032-04-15
+1818,Herøy,Bodø,Bodø,False,2.02,3933.0,6,2026-11-15,70,2032-03-15
+1820,Alstahaug,Bodø,Bodø,False,6.78,3019.0,5,2026-10-15,65,2031-10-15
+1822,Leirfjord,Bodø,Bodø,False,9.38,2506.0,5,2026-10-15,65,2031-10-15
+1824,Vefsn,Bodø,Skien,True,37.77,8559.0,3,2026-08-15,41,2029-10-15
+1825,Grane,Bodø,Bodø,False,30.45,4468.0,2,2026-07-15,34,2029-03-15
+1826,Aarborte - Hattfjelldal,Bodø,Stavanger,True,39.02,4610.0,2,2026-07-15,34,2029-03-15
+1827,Dønna,Bodø,Bodø,False,4.67,1732.0,5,2026-10-15,65,2031-10-15
+1828,Nesna,Bodø,Bodø,False,5.08,1141.0,4,2026-09-15,54,2030-11-15
+1832,Hemnes,Bodø,Bodø,False,28.6,4516.0,1,2026-06-15,24,2028-05-15
+1833,Rana,Bodø,Trondheim,True,72.92,10959.0,4,2026-09-15,47,2030-04-15
+1834,Lurøy,Bodø,Bodø,False,5.77,1485.0,6,2026-11-15,71,2032-04-15
+1835,Træna,Bodø,Bodø,False,0.33,88.0,6,2026-11-15,71,2032-04-15
+1836,Rødøy,Bodø,Bodø,False,10.95,1257.0,5,2026-10-15,65,2031-10-15
+1837,Meløy,Bodø,Bodø,False,17.47,4215.0,1,2026-06-15,24,2028-05-15
+1838,Gildeskål,Bodø,Bodø,False,12.23,2461.0,2,2026-07-15,35,2029-04-15
+1839,Beiarn,Bodø,Bodø,False,21.67,3086.0,4,2026-09-15,53,2030-10-15
+1840,Saltdal,Bodø,Skien,True,39.77,5167.0,0,2026-05-15,13,2027-06-15
+1841,Fauske - Fuossko,Bodø,Bodø,False,23.25,5814.0,3,2026-08-15,43,2029-12-15
+1845,Sørfold,Bodø,Bodø,False,23.65,3450.0,0,2026-05-15,16,2027-09-15
+1848,Steigen,Bodø,Bodø,False,20.27,4379.0,3,2026-08-15,44,2030-01-15
+1851,Lødingen,Bodø,Bodø,False,9.78,2014.0,6,2026-11-15,71,2032-04-15
+1853,Evenes - Evenášši,Bodø,Bodø,False,8.3,2823.0,6,2026-11-15,71,2032-04-15
+1856,Røst,Bodø,Bodø,False,0.63,455.0,6,2026-11-15,71,2032-04-15
+1857,Værøy,Bodø,Oslo,True,0.7,187.0,6,2026-11-15,71,2032-04-15
+1859,Flakstad,Bodø,Bodø,False,5.25,2889.0,7,2026-12-15,74,2032-07-15
+1860,Vestvågøy,Bodø,Bodø,False,14.15,4988.0,4,2026-09-15,53,2030-10-15
+1865,Vågan,Bodø,Bodø,False,12.18,4309.0,6,2026-11-15,70,2032-03-15
+1866,Hadsel,Bodø,Molde,True,16.43,4661.0,3,2026-08-15,44,2030-01-15
+1867,Bø,Bodø,Bodø,False,5.64,1613.0,6,2026-11-15,71,2032-04-15
+1870,Sortland - Suortá,Bodø,Bodø,False,17.65,4121.0,6,2026-11-15,70,2032-03-15
+1871,Andøy,Bodø,Bodø,False,22.27,7827.0,1,2026-06-15,23,2028-04-15
+1874,Moskenes,Bodø,Kristiansand,True,2.53,949.0,6,2026-11-15,71,2032-04-15
+1875,Hábmer - Hamarøy,Bodø,Bodø,False,31.75,5093.0,2,2026-07-15,34,2029-03-15
+3103,Moss,Oslo,Kristiansand,True,8.35,6581.0,4,2026-09-15,51,2030-08-15
+3105,Sarpsborg,Oslo,Oslo,False,19.48,13048.0,2,2026-07-15,28,2028-09-15
+3107,Fredrikstad,Oslo,Oslo,False,17.97,14235.0,4,2026-09-15,46,2030-03-15
+3110,Hvaler,Oslo,Oslo,False,4.87,4834.0,6,2026-11-15,70,2032-03-15
+3114,Våler,Oslo,Oslo,False,11.85,8900.0,4,2026-09-15,48,2030-05-15
+3116,Skiptvet,Oslo,Oslo,False,0.75,1677.0,6,2026-11-15,71,2032-04-15
+3118,Indre Østfold,Oslo,Oslo,False,32.53,15270.0,3,2026-08-15,37,2029-06-15
+3120,Rakkestad,Oslo,Oslo,False,0.69,3807.0,6,2026-11-15,71,2032-04-15
+3201,Bærum,Oslo,Oslo,False,2.57,10234.0,0,2026-05-15,5,2026-10-15
+3203,Asker,Oslo,Oslo,False,23.9,16870.0,0,2026-05-15,3,2026-08-15
+3205,Lillestrøm,Oslo,Oslo,False,20.33,10677.0,4,2026-09-15,47,2030-04-15
+3209,Ullensaker,Oslo,Oslo,False,12.75,5340.0,4,2026-09-15,52,2030-09-15
+3222,Lørenskog,Oslo,Oslo,False,3.28,2091.0,6,2026-11-15,71,2032-04-15
+3226,Aurskog-Høland,Oslo,Oslo,False,36.7,10975.0,2,2026-07-15,29,2028-10-15
+3228,Nes,Oslo,Oslo,False,25.47,7813.0,4,2026-09-15,50,2030-07-15
+3232,Nittedal,Oslo,Hamar,True,11.33,5357.0,3,2026-08-15,43,2029-12-15
+3301,Drammen,Oslo,Oslo,False,19.53,11937.0,4,2026-09-15,46,2030-03-15
+3303,Kongsberg,Oslo,Oslo,False,40.87,18936.0,2,2026-07-15,27,2028-08-15
+3305,Ringerike,Oslo,Skien,True,68.08,27311.0,3,2026-08-15,36,2029-05-15
+3312,Lier,Oslo,Oslo,False,15.43,6724.0,4,2026-09-15,50,2030-07-15
+3314,Øvre Eiker,Oslo,Oslo,False,18.4,6486.0,4,2026-09-15,51,2030-08-15
+3316,Modum,Oslo,Molde,True,25.4,10613.0,5,2026-10-15,61,2031-06-15
+3320,Flå,Oslo,Oslo,False,23.32,6856.0,2,2026-07-15,33,2029-02-15
+3322,Nesbyen,Oslo,Oslo,False,34.28,11185.0,0,2026-05-15,5,2026-10-15
+3324,Gol,Oslo,Oslo,False,25.93,9600.0,2,2026-07-15,30,2028-11-15
+3326,Hemsedal,Oslo,Oslo,False,23.38,8110.0,3,2026-08-15,41,2029-10-15
+3328,Ål,Oslo,Skien,True,45.85,16194.0,1,2026-06-15,19,2027-12-15
+3330,Hol,Oslo,Bergen,True,44.75,14988.0,3,2026-08-15,38,2029-07-15
+3332,Sigdal,Oslo,Bodø,True,37.65,17054.0,0,2026-05-15,2,2026-07-15
+3336,Rollag,Oslo,Oslo,False,11.38,7744.0,3,2026-08-15,42,2029-11-15
+3338,Nore og Uvdal,Oslo,Stavanger,True,66.03,13281.0,1,2026-06-15,20,2028-01-15
+3401,Kongsvinger,Hamar,Bergen,True,1.9,10212.0,0,2026-05-15,6,2026-11-15
+3403,Hamar,Hamar,Hamar,False,0.55,3151.0,7,2026-12-15,74,2032-07-15
+3405,Lillehammer,Hamar,Hamar,False,23.5,10606.0,6,2026-11-15,68,2032-01-15
+3407,Gjøvik,Hamar,Hamar,False,24.6,7897.0,8,2027-01-15,77,2032-10-15
+3411,Ringsaker,Hamar,Hamar,False,1.96,12701.0,7,2026-12-15,73,2032-06-15
+3412,Løten,Hamar,Hamar,False,0.54,2884.0,7,2026-12-15,74,2032-07-15
+3413,Stange,Hamar,Hamar,False,1.18,7796.0,0,2026-05-15,9,2027-02-15
+3419,Våler,Hamar,Hamar,False,1.07,8900.0,7,2026-12-15,74,2032-07-15
+3420,Elverum,Hamar,Hamar,False,2.2,11666.0,7,2026-12-15,73,2032-06-15
+3421,Trysil,Hamar,Hamar,False,3.98,16189.0,7,2026-12-15,72,2032-05-15
+3422,Åmot,Hamar,Hamar,False,36.57,9088.0,7,2026-12-15,74,2032-07-15
+3423,Stor-Elvdal,Hamar,Hamar,False,3.13,13617.0,7,2026-12-15,73,2032-06-15
+3424,Rendalen,Hamar,Molde,True,81.93,11980.0,6,2026-11-15,67,2031-12-15
+3425,Engerdal,Hamar,Trondheim,True,2.28,6538.0,6,2026-11-15,69,2032-02-15
+3426,Tolga,Hamar,Hamar,False,1.91,8559.0,6,2026-11-15,68,2032-01-15
+3427,Tynset,Hamar,Skien,True,54.08,10498.0,6,2026-11-15,68,2032-01-15
+3428,Alvdal,Hamar,Molde,True,41.77,10557.0,5,2026-10-15,61,2031-06-15
+3429,Folldal,Hamar,Hamar,False,2.08,8494.0,6,2026-11-15,69,2032-02-15
+3430,Os,Hamar,Hamar,False,1.29,5106.0,6,2026-11-15,69,2032-02-15
+3431,Dovre,Hamar,Kristiansand,True,40.73,8098.0,4,2026-09-15,49,2030-06-15
+3432,Lesja,Hamar,Skien,True,43.92,6501.0,4,2026-09-15,51,2030-08-15
+3433,Skjåk,Hamar,Hamar,False,37.75,5069.0,5,2026-10-15,64,2031-09-15
+3434,Lom,Hamar,Hamar,False,39.0,6259.0,4,2026-09-15,52,2030-09-15
+3435,Vågå,Hamar,Hamar,False,39.83,10194.0,5,2026-10-15,62,2031-07-15
+3436,Nord-Fron,Hamar,Stavanger,True,41.25,12207.0,4,2026-09-15,46,2030-03-15
+3437,Sel,Hamar,Skien,True,40.53,14777.0,5,2026-10-15,59,2031-04-15
+3438,Sør-Fron,Hamar,Hamar,False,27.98,7916.0,4,2026-09-15,49,2030-06-15
+3439,Ringebu,Hamar,Stavanger,True,57.57,18435.0,3,2026-08-15,36,2029-05-15
+3440,Øyer,Hamar,Hamar,False,31.8,10070.0,1,2026-06-15,22,2028-03-15
+3441,Gausdal,Hamar,Kristiansand,True,46.2,12287.0,0,2026-05-15,4,2026-09-15
+3442,Østre Toten,Hamar,Hamar,False,19.78,4326.0,0,2026-05-15,14,2027-07-15
+3443,Vestre Toten,Hamar,Hamar,False,10.07,3356.0,0,2026-05-15,16,2027-09-15
+3446,Gran,Hamar,Hamar,False,24.92,8906.0,1,2026-06-15,22,2028-03-15
+3447,Søndre Land,Hamar,Hamar,False,26.15,7653.0,1,2026-06-15,23,2028-04-15
+3448,Nordre Land,Hamar,Hamar,False,44.1,12435.0,8,2027-01-15,76,2032-09-15
+3449,Sør-Aurdal,Hamar,Hamar,False,44.13,13249.0,3,2026-08-15,38,2029-07-15
+3450,Etnedal,Hamar,Hamar,False,18.8,6276.0,6,2026-11-15,69,2032-02-15
+3451,Nord-Aurdal,Hamar,Hamar,False,38.72,13002.0,6,2026-11-15,67,2031-12-15
+3452,Vestre Slidre,Hamar,Hamar,False,24.07,11716.0,2,2026-07-15,29,2028-10-15
+3453,Øystre Slidre,Hamar,Skien,True,28.78,7995.0,2,2026-07-15,31,2028-12-15
+3454,Vang,Hamar,Hamar,False,35.62,8187.0,0,2026-05-15,9,2027-02-15
+3901,Horten,Skien,Hamar,True,3.67,2273.0,8,2027-01-15,79,2032-12-15
+3903,Holmestrand,Skien,Skien,False,21.87,8664.0,8,2027-01-15,77,2032-10-15
+3905,Tønsberg,Skien,Skien,False,18.23,10065.0,8,2027-01-15,76,2032-09-15
+3907,Sandefjord,Skien,Skien,False,24.23,13753.0,8,2027-01-15,75,2032-08-15
+3909,Larvik,Skien,Bergen,True,39.47,20251.0,8,2027-01-15,75,2032-08-15
+3911,Færder,Skien,Bergen,True,6.28,5132.0,8,2027-01-15,78,2032-11-15
+4001,Porsgrunn,Skien,Skien,False,11.57,7351.0,8,2027-01-15,78,2032-11-15
+4003,Skien,Skien,Oslo,True,31.73,11644.0,8,2027-01-15,76,2032-09-15
+4005,Notodden,Skien,Skien,False,30.73,8977.0,3,2026-08-15,40,2029-09-15
+4010,Siljan,Skien,Skien,False,8.78,2674.0,5,2026-10-15,65,2031-10-15
+4012,Bamble,Skien,Skien,False,10.83,5868.0,8,2027-01-15,78,2032-11-15
+4014,Kragerø,Skien,Skien,False,13.88,8153.0,8,2027-01-15,77,2032-10-15
+4016,Drangedal,Skien,Trondheim,True,32.68,9597.0,8,2027-01-15,77,2032-10-15
+4018,Nome,Skien,Skien,False,14.85,4661.0,8,2027-01-15,78,2032-11-15
+4022,Seljord,Skien,Skien,False,27.38,9972.0,2,2026-07-15,30,2028-11-15
+4024,Hjartdal,Skien,Skien,False,23.9,8171.0,4,2026-09-15,49,2030-06-15
+4026,Tinn,Skien,Skien,False,58.88,13385.0,1,2026-06-15,20,2028-01-15
+4028,Kviteseid,Skien,Skien,False,20.42,5611.0,4,2026-09-15,52,2030-09-15
+4030,Nissedal,Skien,Skien,False,23.0,6540.0,4,2026-09-15,51,2030-08-15
+4032,Fyresdal,Skien,Tromsø,True,26.6,5047.0,8,2027-01-15,78,2032-11-15
+4034,Tokke,Skien,Oslo,True,27.02,6401.0,8,2027-01-15,78,2032-11-15
+4036,Vinje,Skien,Bodø,True,64.47,12380.0,9,2027-02-15,79,2032-12-15
+4201,Risør,Kristiansand,Kristiansand,False,11.55,7458.0,4,2026-09-15,50,2030-07-15
+4202,Grimstad,Kristiansand,Kristiansand,False,11.83,6512.0,2,2026-07-15,33,2029-02-15
+4203,Arendal,Kristiansand,Bergen,True,21.03,18178.0,5,2026-10-15,57,2031-02-15
+4204,Kristiansand,Kristiansand,Kristiansand,False,41.0,27939.0,5,2026-10-15,56,2031-01-15
+4205,Lindesnes,Kristiansand,Trondheim,True,56.22,30608.0,5,2026-10-15,55,2030-12-15
+4206,Farsund,Kristiansand,Kristiansand,False,12.6,8160.0,4,2026-09-15,49,2030-06-15
+4207,Flekkefjord,Kristiansand,Kristiansand,False,21.62,10002.0,4,2026-09-15,47,2030-04-15
+4211,Gjerstad,Kristiansand,Kristiansand,False,0.78,5328.0,4,2026-09-15,53,2030-10-15
+4212,Vegårshei,Kristiansand,Hamar,True,19.25,8548.0,3,2026-08-15,41,2029-10-15
+4213,Tvedestrand,Kristiansand,Hamar,True,14.6,8806.0,3,2026-08-15,40,2029-09-15
+4214,Froland,Kristiansand,Kristiansand,False,1.01,6254.0,4,2026-09-15,52,2030-09-15
+4215,Lillesand,Kristiansand,Kristiansand,False,9.43,6111.0,3,2026-08-15,43,2029-12-15
+4216,Birkenes,Kristiansand,Kristiansand,False,26.37,10577.0,1,2026-06-15,21,2028-02-15
+4217,Åmli,Kristiansand,Kristiansand,False,31.8,8190.0,1,2026-06-15,23,2028-04-15
+4218,Iveland,Kristiansand,Kristiansand,False,2.01,3446.0,4,2026-09-15,53,2030-10-15
+4219,Evje og Hornnes,Kristiansand,Kristiansand,False,20.05,7758.0,6,2026-11-15,69,2032-02-15
+4220,Bygland,Kristiansand,Kristiansand,False,29.77,7574.0,3,2026-08-15,42,2029-11-15
+4221,Valle,Kristiansand,Kristiansand,False,29.77,7136.0,2,2026-07-15,32,2029-01-15
+4222,Bykle,Kristiansand,Kristiansand,False,23.13,4958.0,6,2026-11-15,70,2032-03-15
+4223,Vennesla,Kristiansand,Molde,True,2.02,10530.0,5,2026-10-15,61,2031-06-15
+4224,Åseral,Kristiansand,Kristiansand,False,19.07,5558.0,5,2026-10-15,63,2031-08-15
+4225,Lyngdal,Kristiansand,Kristiansand,False,27.52,13449.0,5,2026-10-15,59,2031-04-15
+4227,Kvinesdal,Kristiansand,Oslo,True,29.9,10186.0,1,2026-06-15,22,2028-03-15
+4228,Sirdal,Kristiansand,Kristiansand,False,31.2,8126.0,2,2026-07-15,31,2028-12-15
+4601,Bergen,Bergen,Bergen,False,30.6,30466.0,0,2026-05-15,0,2026-05-15
+4602,Kinn,Bergen,Bergen,False,22.67,9385.0,1,2026-06-15,22,2028-03-15
+4611,Etne,Bergen,Trondheim,True,24.95,10118.0,5,2026-10-15,62,2031-07-15
+4612,Sveio,Bergen,Bergen,False,12.83,8328.0,0,2026-05-15,8,2027-01-15
+4613,Bømlo,Bergen,Tromsø,True,3.33,6759.0,0,2026-05-15,11,2027-04-15
+4614,Stord,Bergen,Trondheim,True,8.57,5301.0,0,2026-05-15,13,2027-06-15
+4617,Kvinnherad,Bergen,Bergen,False,28.15,8939.0,4,2026-09-15,48,2030-05-15
+4618,Ullensvang,Bergen,Skien,True,71.77,18650.0,5,2026-10-15,57,2031-02-15
+4619,Eidfjord,Bergen,Bergen,False,32.12,5017.0,6,2026-11-15,70,2032-03-15
+4620,Ulvik,Bergen,Bergen,False,14.62,2743.0,4,2026-09-15,54,2030-11-15
+4621,Voss,Bergen,Bergen,False,60.22,23191.0,2,2026-07-15,26,2028-07-15
+4622,Kvam,Bergen,Bergen,False,25.12,11908.0,3,2026-08-15,39,2029-08-15
+4623,Samnanger,Bergen,Bergen,False,7.62,2675.0,5,2026-10-15,65,2031-10-15
+4624,Bjørnafjorden,Bergen,Bergen,False,19.98,10297.0,5,2026-10-15,61,2031-06-15
+4626,Øygarden,Bergen,Bergen,False,17.88,11226.0,5,2026-10-15,60,2031-05-15
+4627,Askøy,Bergen,Bergen,False,7.28,5218.0,5,2026-10-15,64,2031-09-15
+4628,Vaksdal,Bergen,Bergen,False,15.9,4528.0,10,2027-03-15,80,2033-01-15
+4630,Osterøy,Bergen,Bergen,False,14.72,8960.0,10,2027-03-15,80,2033-01-15
+4631,Alver,Bergen,Kristiansand,True,36.83,27783.0,10,2027-03-15,80,2033-01-15
+4632,Austrheim,Bergen,Hamar,True,3.73,3305.0,5,2026-10-15,64,2031-09-15
+4634,Masfjorden,Bergen,Trondheim,True,13.12,4590.0,10,2027-03-15,80,2033-01-15
+4635,Gulen,Bergen,Bergen,False,12.15,4082.0,10,2027-03-15,80,2033-01-15
+4636,Solund,Bergen,Trondheim,True,4.42,1189.0,5,2026-10-15,66,2031-11-15
+4637,Hyllestad,Bergen,Trondheim,True,8.98,3011.0,6,2026-11-15,71,2032-04-15
+4638,Høyanger,Bergen,Stavanger,True,18.67,3476.0,1,2026-06-15,24,2028-05-15
+4639,Vik,Bergen,Bergen,False,21.52,4624.0,1,2026-06-15,24,2028-05-15
+4640,Sogndal,Bergen,Trondheim,True,34.08,9640.0,0,2026-05-15,7,2026-12-15
+4641,Aurland,Bergen,Bergen,False,29.27,4599.0,2,2026-07-15,34,2029-03-15
+4642,Lærdal,Bergen,Bergen,False,23.97,3598.0,0,2026-05-15,16,2027-09-15
+4643,Årdal,Bergen,Bergen,False,18.57,2758.0,3,2026-08-15,44,2030-01-15
+4644,Luster,Bergen,Bergen,False,37.81,6200.0,2,2026-07-15,33,2029-02-15
+4645,Askvoll,Bergen,Kristiansand,True,11.42,4575.0,4,2026-09-15,53,2030-10-15
+4646,Fjaler,Bergen,Bergen,False,11.8,3672.0,3,2026-08-15,44,2030-01-15
+4647,Sunnfjord,Bergen,Skien,True,63.6,22959.0,2,2026-07-15,27,2028-08-15
+4648,Bremanger,Bergen,Bergen,False,18.7,4648.0,1,2026-06-15,24,2028-05-15
+4649,Stad,Bergen,Bergen,False,29.18,12853.0,1,2026-06-15,21,2028-02-15
+4650,Gloppen,Bergen,Bergen,False,24.5,7841.0,2,2026-07-15,32,2029-01-15
+4651,Stryn,Bergen,Bergen,False,30.58,7377.0,2,2026-07-15,32,2029-01-15
+5001,Trondheim - Tråante,Trondheim,Trondheim,False,29.77,20525.0,4,2026-09-15,45,2030-02-15
+5021,Oppdal,Trondheim,Trondheim,False,76.88,37049.0,6,2026-11-15,67,2031-12-15
+5025,Rosse - Røros,Trondheim,Trondheim,False,51.28,11912.0,1,2026-06-15,21,2028-02-15
+5026,Holtålen,Trondheim,Trondheim,False,28.25,6292.0,3,2026-08-15,43,2029-12-15
+5027,Midtre Gauldal,Trondheim,Trondheim,False,49.35,13652.0,0,2026-05-15,4,2026-09-15
+5028,Melhus,Trondheim,Trondheim,False,23.92,7720.0,0,2026-05-15,10,2027-03-15
+5029,Skaun,Trondheim,Trondheim,False,10.4,4079.0,0,2026-05-15,15,2027-08-15
+5032,Selbu,Trondheim,Trondheim,False,27.87,6104.0,3,2026-08-15,43,2029-12-15
+5033,Tydal,Trondheim,Hamar,True,32.18,9999.0,2,2026-07-15,29,2028-10-15
+5034,Meråker,Trondheim,Kristiansand,True,30.3,7116.0,2,2026-07-15,33,2029-02-15
+5035,Stjørdal,Trondheim,Trondheim,False,37.83,13808.0,3,2026-08-15,38,2029-07-15
+5038,Verdal,Trondheim,Trondheim,False,28.41,9686.0,4,2026-09-15,48,2030-05-15
+5041,Snåase - Snåsa,Trondheim,Molde,True,41.1,5861.0,1,2026-06-15,24,2028-05-15
+5042,Lierne,Trondheim,Trondheim,False,40.82,2972.0,2,2026-07-15,35,2029-04-15
+5043,Raarvihke - Røyrvik,Trondheim,Trondheim,False,17.27,772.0,5,2026-10-15,66,2031-11-15
+5044,Namsskogan,Trondheim,Trondheim,False,20.82,2245.0,1,2026-06-15,24,2028-05-15
+5045,Grong,Trondheim,Trondheim,False,25.7,4904.0,5,2026-10-15,64,2031-09-15
+5046,Høylandet,Trondheim,Trondheim,False,13.02,2199.0,4,2026-09-15,54,2030-11-15
+5047,Overhalla,Trondheim,Trondheim,False,16.88,3968.0,5,2026-10-15,64,2031-09-15
+5049,Flatanger,Trondheim,Trondheim,False,7.68,1418.0,5,2026-10-15,65,2031-10-15
+5053,Inderøy,Trondheim,Trondheim,False,17.63,7306.0,4,2026-09-15,50,2030-07-15
+5054,Indre Fosen,Trondheim,Trondheim,False,36.0,9918.0,2,2026-07-15,30,2028-11-15
+5055,Heim,Trondheim,Trondheim,False,29.67,10013.0,0,2026-05-15,6,2026-11-15
+5056,Hitra,Trondheim,Trondheim,False,20.32,8759.0,3,2026-08-15,41,2029-10-15
+5058,Åfjord,Trondheim,Trondheim,False,30.12,8387.0,2,2026-07-15,31,2028-12-15
+5059,Orkland,Trondheim,Stavanger,True,57.52,21540.0,0,2026-05-15,1,2026-06-15
+5061,Rindal,Trondheim,Trondheim,False,16.88,4368.0,5,2026-10-15,64,2031-09-15
+5501,Tromsø,Tromsø,Molde,True,63.6,27947.0,2,2026-07-15,25,2028-06-15
+5503,Harstad - Hárstták,Tromsø,Tromsø,False,27.28,16861.0,5,2026-10-15,58,2031-03-15
+5512,Dielddanuorri - Tjeldsund,Tromsø,Tromsø,False,24.27,8058.0,5,2026-10-15,63,2031-08-15
+5514,Ibestad,Tromsø,Tromsø,False,8.68,3259.0,5,2026-10-15,65,2031-10-15
+5516,Gratangen,Tromsø,Tromsø,False,7.82,2092.0,5,2026-10-15,65,2031-10-15
+5518,Loabák - Lavangen,Tromsø,Tromsø,False,7.17,1546.0,4,2026-09-15,54,2030-11-15
+5520,Bardu,Tromsø,Kristiansand,True,43.93,6502.0,3,2026-08-15,42,2029-11-15
+5522,Salangen,Tromsø,Tromsø,False,11.93,2841.0,5,2026-10-15,65,2031-10-15
+5524,Målselv,Tromsø,Tromsø,False,7.16,14811.0,5,2026-10-15,59,2031-04-15
+5526,Sørreisa,Tromsø,Bodø,True,10.53,3369.0,5,2026-10-15,64,2031-09-15
+5528,Dyrøy,Tromsø,Tromsø,False,0.76,1965.0,5,2026-10-15,65,2031-10-15
+5530,Senja,Tromsø,Tromsø,False,52.38,17646.0,0,2026-05-15,2,2026-07-15
+5532,Balsfjord,Tromsø,Bergen,True,4.59,13047.0,5,2026-10-15,60,2031-05-15
+5534,Karlsøy,Tromsø,Tromsø,False,25.07,5355.0,3,2026-08-15,43,2029-12-15
+5536,Lyngen,Tromsø,Tromsø,False,18.13,4562.0,4,2026-09-15,53,2030-10-15
+5542,Skjervøy,Tromsø,Tromsø,False,1.1,2218.0,4,2026-09-15,54,2030-11-15
+5544,Nordreisa - Ráisa - Raisi,Tromsø,Tromsø,False,53.15,4821.0,0,2026-05-15,14,2027-07-15
+5546,Kvænangen,Tromsø,Tromsø,False,32.62,4328.0,2,2026-07-15,34,2029-03-15
+5601,Alta,Tromsø,Molde,True,72.96,17457.0,3,2026-08-15,37,2029-06-15
+5603,Hammerfest - Hámmerfeasta,Tromsø,Tromsø,False,44.7,6601.0,2,2026-07-15,33,2029-02-15
+5605,Sør-Varanger,Tromsø,Tromsø,False,61.47,7082.0,1,2026-06-15,23,2028-04-15
+5607,Vadsø,Tromsø,Tromsø,False,28.47,5170.0,3,2026-08-15,44,2030-01-15
+5610,Kárášjohka - Karasjok,Tromsø,Tromsø,False,96.35,8565.0,4,2026-09-15,48,2030-05-15
+5612,Guovdageaidnu - Kautokeino,Tromsø,Oslo,True,179.3,19267.0,7,2026-12-15,72,2032-05-15
+5614,Loppa,Tromsø,Tromsø,False,11.63,1446.0,3,2026-08-15,44,2030-01-15
+5616,Hasvik,Tromsø,Tromsø,False,9.4,1313.0,5,2026-10-15,65,2031-10-15
+5618,Måsøy,Tromsø,Tromsø,False,18.62,1802.0,3,2026-08-15,44,2030-01-15
+5620,Nordkapp,Tromsø,Tromsø,False,16.35,1716.0,4,2026-09-15,54,2030-11-15
+5622,Porsanger - Porsáŋgu - Porsanki,Tromsø,Trondheim,True,87.38,9568.0,3,2026-08-15,39,2029-08-15
+5624,Lebesby,Tromsø,Tromsø,False,44.53,3191.0,4,2026-09-15,53,2030-10-15
+5628,Deatnu - Tana,Tromsø,Trondheim,True,72.72,9359.0,2,2026-07-15,31,2028-12-15
+5636,Unjárga - Nesseby,Tromsø,Tromsø,False,30.3,3635.0,2,2026-07-15,34,2029-03-15
+1511,Vanylven,Molde,Molde,False,0.0,3853.0,0,2026-05-01,15,2027-08-15
+1514,Sande,Molde,Molde,False,0.0,1741.0,0,2026-05-01,17,2027-10-15
+1515,Herøy,Molde,Molde,False,0.0,3933.0,0,2026-05-01,15,2027-08-15
+1516,Ulstein,Molde,Molde,False,0.0,2064.0,0,2026-05-01,17,2027-10-15
+1517,Hareid,Molde,Molde,False,0.0,1697.0,0,2026-05-01,17,2027-10-15
+1520,Ørsta,Molde,Molde,False,0.0,7613.0,0,2026-05-01,10,2027-03-15
+1531,Sula,Molde,Molde,False,0.0,2706.0,0,2026-05-01,17,2027-10-15
+1532,Giske,Molde,Molde,False,0.0,1996.0,0,2026-05-01,17,2027-10-15
+1539,Rauma,Molde,Molde,False,0.0,7546.0,0,2026-05-01,10,2027-03-15
+1573,Smøla,Molde,Molde,False,0.0,1964.0,0,2026-05-01,17,2027-10-15
+1577,Volda,Molde,Molde,False,0.0,7345.0,0,2026-05-01,11,2027-04-15
+1868,Øksnes,Bodø,Bodø,False,0.0,2602.0,0,2026-05-01,17,2027-10-15
+3101,Halden,Oslo,Oslo,False,0.0,11913.0,0,2026-05-01,5,2026-10-15
+3112,Råde,Oslo,Oslo,False,0.0,2288.0,0,2026-05-01,17,2027-10-15
+3122,Marker,Oslo,Oslo,False,0.0,2269.0,0,2026-05-01,17,2027-10-15
+3124,Aremark,Oslo,Oslo,False,0.0,1483.0,0,2026-05-01,17,2027-10-15
+3207,Nordre Follo,Oslo,Oslo,False,0.0,6990.0,0,2026-05-01,11,2027-04-15
+3212,Nesodden,Oslo,Oslo,False,0.0,2953.0,0,2026-05-01,16,2027-09-15
+3214,Frogn,Oslo,Oslo,False,0.0,4201.0,0,2026-05-01,14,2027-07-15
+3216,Vestby,Oslo,Oslo,False,0.0,4345.0,0,2026-05-01,14,2027-07-15
+3218,Ås,Oslo,Oslo,False,0.0,3084.0,0,2026-05-01,16,2027-09-15
+3220,Enebakk,Oslo,Oslo,False,0.0,4093.0,0,2026-05-01,15,2027-08-15
+3224,Rælingen,Oslo,Oslo,False,0.0,3352.0,0,2026-05-01,16,2027-09-15
+3230,Gjerdrum,Oslo,Oslo,False,0.0,1443.0,0,2026-05-01,17,2027-10-15
+3234,Lunner,Oslo,Oslo,False,0.0,5579.0,0,2026-05-01,13,2027-06-15
+3236,Jevnaker,Oslo,Oslo,False,0.0,3494.0,0,2026-05-01,16,2027-09-15
+3238,Nannestad,Oslo,Oslo,False,0.0,4444.0,0,2026-05-01,14,2027-07-15
+3240,Eidsvoll,Oslo,Oslo,False,0.0,5707.0,0,2026-05-01,12,2027-05-15
+3242,Hurdal,Oslo,Oslo,False,0.0,4543.0,0,2026-05-01,14,2027-07-15
+3310,Hole,Oslo,Oslo,False,0.0,3102.0,0,2026-05-01,16,2027-09-15
+3318,Krødsherad,Oslo,Oslo,False,0.0,7775.0,0,2026-05-01,9,2027-02-15
+3334,Flesberg,Oslo,Oslo,False,0.0,10021.0,0,2026-05-01,6,2026-11-15
+3414,Nord-Odal,Hamar,Hamar,False,0.0,3411.0,0,2026-05-01,16,2027-09-15
+3415,Sør-Odal,Hamar,Hamar,False,0.0,5776.0,0,2026-05-01,12,2027-05-15
+3416,Eidskog,Hamar,Hamar,False,0.0,5440.0,0,2026-05-01,13,2027-06-15
+3417,Grue,Hamar,Hamar,False,0.0,4204.0,0,2026-05-01,14,2027-07-15
+3418,Åsnes,Hamar,Hamar,False,0.0,5531.0,0,2026-05-01,13,2027-06-15
+4020,Midt-Telemark,Skien,Skien,False,0.0,9207.0,0,2026-05-01,7,2026-12-15
+4226,Hægebostad,Kristiansand,Kristiansand,False,0.0,5244.0,0,2026-05-01,13,2027-06-15
+4615,Fitjar,Bergen,Bergen,False,0.0,4648.0,0,2026-05-01,14,2027-07-15
+4616,Tysnes,Bergen,Bergen,False,0.0,7572.0,0,2026-05-01,10,2027-03-15
+4625,Austevoll,Bergen,Bergen,False,0.0,2012.0,0,2026-05-01,17,2027-10-15
+4629,Modalen,Bergen,Bergen,False,0.0,1428.0,0,2026-05-01,18,2027-11-15
+4633,Fedje,Bergen,Bergen,False,0.0,778.0,0,2026-05-01,18,2027-11-15
+5006,Steinkjer,Trondheim,Trondheim,False,0.0,15485.0,0,2026-05-01,3,2026-08-15
+5007,Namsos - Nåavmesjenjaelmie,Trondheim,Trondheim,False,0.0,9057.0,0,2026-05-01,8,2027-01-15
+5014,Frøya,Trondheim,Trondheim,False,0.0,6058.0,0,2026-05-01,11,2027-04-15
+5020,Osen,Trondheim,Trondheim,False,0.0,2487.0,0,2026-05-01,17,2027-10-15
+5022,Rennebu,Trondheim,Trondheim,False,0.0,9074.0,0,2026-05-01,7,2026-12-15
+5031,Malvik,Trondheim,Trondheim,False,0.0,3146.0,0,2026-05-01,16,2027-09-15
+5036,Frosta,Trondheim,Trondheim,False,0.0,2623.0,0,2026-05-01,17,2027-10-15
+5037,Levanger,Trondheim,Trondheim,False,0.0,12304.0,0,2026-05-01,4,2026-09-15
+5052,Leka,Trondheim,Trondheim,False,0.0,743.0,0,2026-05-01,18,2027-11-15
+5057,Ørland,Trondheim,Trondheim,False,0.0,3888.0,0,2026-05-01,15,2027-08-15
+5060,Nærøysund,Trondheim,Trondheim,False,0.0,7867.0,0,2026-05-01,9,2027-02-15
+5510,Kvæfjord,Tromsø,Tromsø,False,0.0,5849.0,0,2026-05-01,12,2027-05-15
+5538,Storfjord - Omasvuotna - Omasvuono,Tromsø,Tromsø,False,0.0,3674.0,0,2026-05-01,15,2027-08-15
+5540,Gáivuotna - Kåfjord - Kaivuono,Tromsø,Tromsø,False,0.0,2539.0,0,2026-05-01,17,2027-10-15
+5626,Gamvik,Tromsø,Tromsø,False,0.0,945.0,0,2026-05-01,18,2027-11-15
+5630,Berlevåg,Tromsø,Tromsø,False,0.0,1390.0,0,2026-05-01,18,2027-11-15
+5632,Båtsfjord,Tromsø,Tromsø,False,0.0,1337.0,0,2026-05-01,18,2027-11-15
+5634,Vardø,Tromsø,Tromsø,False,0.0,1053.0,0,2026-05-01,18,2027-11-15

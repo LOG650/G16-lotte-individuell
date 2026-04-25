@@ -1,7 +1,7 @@
 Skala,NVDB_Scenario,Ferdig_Kartkontor_Sist,Kartkontor_Dager,Kartkontor_Mnd,Ferdig_NVDB_Sist,Varighet_Dager,Varighet_Aar,Uferdig_NVDB_Kommuner,Tidsplan_Fil
-1.5,Basis_85,2028-01-03,612,20.1,2036-05-30,3682,10.08,0,tidsplan_Basis_85_skala1_5.csv
-1.5,Middels_90,2028-01-03,612,20.1,2033-01-19,2455,6.72,0,tidsplan_Middels_90_skala1_5.csv
-1.5,Samferdsel_96,2028-01-03,612,20.1,2029-01-08,983,2.69,0,tidsplan_Samferdsel_96_skala1_5.csv
-2.0,Basis_85,2028-07-24,815,26.8,2036-05-30,3682,10.08,0,tidsplan_Basis_85_skala2_0.csv
-2.0,Middels_90,2028-07-24,815,26.8,2033-01-19,2455,6.72,0,tidsplan_Middels_90_skala2_0.csv
-2.0,Samferdsel_96,2028-07-24,815,26.8,2029-01-08,983,2.69,0,tidsplan_Samferdsel_96_skala2_0.csv
+1.5,Basis_85,2028-02-08,648,21.3,2036-05-30,3682,10.08,0,tidsplan_Basis_85_skala1_5.csv
+1.5,Middels_90,2028-02-08,648,21.3,2033-01-19,2455,6.72,0,tidsplan_Middels_90_skala1_5.csv
+1.5,Samferdsel_96,2028-02-08,648,21.3,2029-01-08,983,2.69,0,tidsplan_Samferdsel_96_skala1_5.csv
+2.0,Basis_85,2028-09-12,865,28.4,2036-05-30,3682,10.08,0,tidsplan_Basis_85_skala2_0.csv
+2.0,Middels_90,2028-09-12,865,28.4,2033-01-19,2455,6.72,0,tidsplan_Middels_90_skala2_0.csv
+2.0,Samferdsel_96,2028-09-12,865,28.4,2029-01-08,983,2.69,0,tidsplan_Samferdsel_96_skala2_0.csv

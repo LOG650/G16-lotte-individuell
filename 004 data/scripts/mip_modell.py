@@ -37,13 +37,20 @@ DATA_DIR = os.path.join(BASE_DIR, 'processed_data')
 
 # --- Konstanter -----------------------------------------------------------
 TIMER_PER_UKESVERK = 37.5
-# Kapasitet_Ukesverk er netto aarlig disponibel kapasitet; simuleringen kjoerer
-# mandag-fredag (260 kalenderdager/aar), saa maaneds- og dagkapasitet utledes
-# direkte fra 37.5 timer/ukesverk / 12 mnd. Heuristikken og MIP bruker samme
-# konvensjon slik at sammenligning blir rettferdig. Endret 2026-04-22 etter
-# review_modellering.md funn 2.1 (fjernet tidligere 260/230-overbruk paa 13 %).
-ARBEIDSDAGER_PER_KALENDERAAR = 260   # mandag-fredag per aar
-ARBEIDSDAGER_PER_MND = ARBEIDSDAGER_PER_KALENDERAAR / 12  # ≈ 21.67
+# Kalenderkonvensjon er 260 mandag-fredag-dager/aar, men kontorene har
+# bare ~245 effektive arbeidsdager/aar pga ferie spredt utover (sommer-
+# vikarer demper sommeren, men ikke nok). Kartkontor-kapasitet skaleres
+# derfor med faktoren 245/260 slik at total levert arbeid per aar blir
+# K * 37,5 * (245/260). Heuristikken og MIP bruker samme konvensjon.
+# NVDB-throughput beholder 260-konvensjonen i denne modellen; samferds-
+# elsavd's egen 240-dagers regnestykke gir et dokumentert 240/260-gap
+# som er drøftet i 5.1.2 i rapporten. Endret fra 260 til 245 2026-04-24
+# etter avklaring med oppdragsgiver. Forrige fix (230 -> 260, 2026-04-22)
+# loste 13 %-overbruk men brukte feil aarstall; riktig verdi er 245.
+ARBEIDSDAGER_PER_KALENDERAAR = 260   # mandag-fredag per aar (simuleringskalender, NVDB-throughput)
+EFFEKTIVE_ARBEIDSDAGER_PER_AAR = 245  # produktive dager pga ferieuttak (kartkontor)
+KAPASITET_FAKTOR = EFFEKTIVE_ARBEIDSDAGER_PER_AAR / ARBEIDSDAGER_PER_KALENDERAAR  # 0.9423
+ARBEIDSDAGER_PER_MND = ARBEIDSDAGER_PER_KALENDERAAR / 12  # ≈ 21.67 (NVDB-konvertering)
 STARTDATO = date(2026, 5, 1)
 SOLVER_TIDSGRENSE_SEK = 1800  # 30 min per scenario
 MIP_GAP = 0.05  # akseptkriterie 5 %
@@ -136,10 +143,11 @@ def bygg_kommunedata(kommuner_df):
 def beregn_kapasitet_per_maaned(kontorer_df):
     """Timer per maaned per kontor - matcher heuristikkens effektive kap.
 
-    Heuristikk: daglig_kap = K * 37.5 / 260, kjoeres 260 dg/aar
-              => maanedskap = K * 37.5 / 12
+    Heuristikk: daglig_kap = K * 37.5 * (245/260) / 260, kjoeres 260 dg/aar
+              => total per aar = K * 37.5 * (245/260)
+              => maanedskap = K * 37.5 * (245/260) / 12
     """
-    faktor = TIMER_PER_UKESVERK / 12
+    faktor = TIMER_PER_UKESVERK * KAPASITET_FAKTOR / 12
     return {
         r['Kartkontor']: r['Kapasitet_Ukesverk'] * faktor
         for _, r in kontorer_df.iterrows()

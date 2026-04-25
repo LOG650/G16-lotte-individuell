@@ -31,12 +31,18 @@ DATA_DIR = os.path.join(BASE_DIR, 'processed_data')
 
 # --- Konstanter -----------------------------------------------------------
 TIMER_PER_UKESVERK = 37.5
-# Kapasitet_Ukesverk er aarlig netto-disponibel kapasitet (ferie og
-# helligdager allerede fratrukket, jf. CLAUDE.md). Simuleringen kjoeres
-# mandag-fredag (52*5 = 260 kalenderdager/aar), saa daglig kapasitet
-# utledes ved aa dele aarskapasiteten paa 260. Endret fra 230 til 260
-# 2026-04-22 etter review_modellering.md funn 2.1.
+# Simuleringen kjoeres mandag-fredag (52*5 = 260 kalenderdager/aar).
+# Kontorene har imidlertid bare ~245 effektive arbeidsdager/aar fordi
+# folk tar ferie spredt utover aaret (sommervikarer demper sommeren,
+# men ikke nok til aa naa 260). Daglig kapasitet skaleres derfor med
+# faktoren 245/260 slik at total levert arbeid per aar blir
+# K * 37,5 * (245/260) timer. Endret fra 260 til 245 2026-04-24
+# etter avklaring med oppdragsgiver. Forrige fix (230 -> 260,
+# 2026-04-22) loste 13 % overbruk men brukte feil aarstall;
+# riktig verdi er 245.
 ARBEIDSDAGER_PER_AAR = 260
+EFFEKTIVE_ARBEIDSDAGER_PER_AAR = 245
+KAPASITET_FAKTOR = EFFEKTIVE_ARBEIDSDAGER_PER_AAR / ARBEIDSDAGER_PER_AAR  # 0.9423
 STARTDATO = date(2026, 5, 1)
 MAX_AAR = 30  # sikkerhetscutoff. Basis_85 P95 = 11,98 aar etter kalibrering 2026-04-20; stor margin slik at alternative scenarioer (lavere automasjon, lavere kapasitet) ikke risikerer aa bli klippet uten varsel
 
@@ -154,7 +160,10 @@ def uke_key(d):
 # --- Simulering -----------------------------------------------------------
 def simuler(kommunestate, kontorer, lock_intervals, nvdb_scenario):
     dag_kap = {
-        r['Kartkontor']: r['Kapasitet_Ukesverk'] * TIMER_PER_UKESVERK / ARBEIDSDAGER_PER_AAR
+        r['Kartkontor']: (
+            r['Kapasitet_Ukesverk'] * TIMER_PER_UKESVERK
+            * KAPASITET_FAKTOR / ARBEIDSDAGER_PER_AAR
+        )
         for _, r in kontorer.iterrows()
     }
     koer = bygg_koer(kommunestate, lock_intervals)

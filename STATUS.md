@@ -4,7 +4,7 @@
 **Fag:** LOG650 Logistikk og KI | **Institusjon:** Høgskolen i Molde  
 **Prosjektleder:** Lotte Picard | **Kunde:** Statens Kartverk, Region og Samfunnskontakt  
 **Periode:** 2026-01-12 → 2026-06-01  
-**Sist oppdatert:** 2026-04-23
+**Sist oppdatert:** 2026-04-25
 
 > Denne fila er auto-generert fra `012 fase 2 - plan/prosjektplan.json`. Kjør `python "004 data/scripts/generer_status.py"` for å oppdatere.
 
@@ -13,8 +13,8 @@
 ## Overordnet status
 
 - **Nåværende fase:** Fase 3 – Gjennomføring
-- **Neste milepæl:** Godkjent hovedutkast – 2026-04-29 (6 dager)
-- **Dager igjen til innlevering:** 39
+- **Neste milepæl:** Levert hovedutkast til review – 2026-04-29 (4 dager)
+- **Dager igjen til innlevering:** 37
 - **Kritisk linje:** Planleggingsleveranse → Datainnsamling → Analyse/modelldel → Diskusjon → Peer review → Sluttføring av rapport
 
 ### Faseoversikt
@@ -23,7 +23,7 @@
 |------|---------|--------|-----------|
 | 1. Initiering | 12.01 – 09.02.26 | ✅ Ferdig | 100% |
 | 2. Planlegging | 02.03 – 20.03.26 | ✅ Ferdig | 100% |
-| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 90% |
+| 3. Gjennomføring | 16.03 – 27.04.26 | 🔄 Pågående | 95% |
 | 4. Avslutning | 27.04 – 31.05.26 | ⏳ Ikke startet | 0% |
 
 ---
@@ -34,7 +34,7 @@
 |---------|------|--------|
 | Godkjent proposal | 2026-02-16 | ✅ Ferdig |
 | Godkjent prosjektplan og Gantt | 2026-03-16 | ✅ Ferdig |
-| **Godkjent hovedutkast** | **2026-04-29** | ⏳ Neste |
+| **Levert hovedutkast til review** | **2026-04-29** | ⏳ Neste |
 | Innlevert rapport | 2026-06-01 | ⏳ Ikke startet |
 
 ---
@@ -48,8 +48,8 @@
 | 17 | Casebeskrivelse og datainnsamling | 26.03 – 03.04 | ✅ Ferdig | 100% | Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert |
 | 18 | Data/metode og modellering | 06.04 – 14.04 | ✅ Ferdig | 100% | Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 6 varianter (S0-S5) × 3 scenarioer = 18 MIP-kjøringer. Post-260-fiks (2026-04-23): 6/18 Optimal, 12/18 Not Solved pga økt solverkompleksitet ved lavere kapasitet. Makespan fortsatt identisk på tvers av alle varianter (NVDB dominerer). Monte Carlo på MIP-plan gir nå identiske percentiler med heuristikk-MC for Basis_85 (6,46/10,01/13,28); tidligere observert gap var artefakt av 260/230-overbruket. Rapport-seksjon 6.0 Modellering skrevet. |
 | 19 | Analyse og resultater | 15.04 – 21.04 | ✅ Ferdig | 100% | Rapport-seksjon 5.0 Metode og data, 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21). Post-260-fiks (2026-04-23): alle modeller og MC rekjørt etter review-funn 2.1; makespan uendret (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år), omfordelinger økt (97/76/54 fra 36/38/39), MC P95 Basis_85 11,98→13,28 år. Sensitivitet: makespan identisk på tvers av 6 varianter, kartkontor 10-13 mnd i alle. Review-funn fra modellering- og tidbruk-review innarbeidet i 5.1, 5.2, 6.1, 6.2.5 (FIFO-post-processing) og 11.0 (Graham 1969, APA 7). |
-| 20 | Diskusjon | 22.04 – 24.04 | 🔄 Pågående | 80% | Rapport-seksjon 9.0 Diskusjon utkast ferdig med alle seks underavsnitt (9.1 hovedbudskap, 9.2 tidbruk-formelens identifiserbarhet, 9.3 hva modellen ikke fanger, 9.4 usikkerhetsanalysens antagelser, 9.5 modellens begrensninger for sensoren, 9.6 praktiske implikasjoner). Ni review-funn fra modellering- og tidbruk-review innarbeidet. Gjenstår: helhetsgjennomlesing av 5.0+9.0 for flyt og sammenheng. |
-| 21 | Peer review | 27.04 – 28.04 | ⏳ Ikke startet | 0% |  |
+| 20 | Diskusjon | 22.04 – 24.04 | ✅ Ferdig | 100% | Rapport-seksjon 9.0 Diskusjon komplett med alle seks underavsnitt (9.1 hovedbudskap, 9.2 tidbruk-formelens identifiserbarhet, 9.3 hva modellen ikke fanger, 9.4 usikkerhetsanalysens antagelser, 9.5 modellens begrensninger for sensoren, 9.6 praktiske implikasjoner). Ni review-funn fra modellering- og tidbruk-review innarbeidet. Helhetsgjennomlesing av 5.0+9.0 fullført (commit bfc745b). |
+| 21 | Peer review fra medstudenter | 30.04 – 05.05 | ⏳ Ikke startet | 0% | Medstudenter leser hovedutkastet levert kvelden 2026-04-29. Tilbakemeldinger bearbeides i fase 4. |
 
 ## Oppgaver – Fase 4 (Avslutning)
 
@@ -151,4 +151,4 @@
 
 | Dato | Endring |
 |------|---------|
-| 2026-04-23 | STATUS.md regenerert fra prosjektplan.json |
+| 2026-04-25 | STATUS.md regenerert fra prosjektplan.json |

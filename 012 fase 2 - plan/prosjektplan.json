@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-23T14:00"
+    "sist_oppdatert": "2026-04-25T01:00"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -144,7 +144,7 @@
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
       "status": "Pågående",
-      "fremdrift_prosent": 90,
+      "fremdrift_prosent": 95,
       "oppgaver": [
         {
           "id": 15,
@@ -206,24 +206,25 @@
           "sluttdato": "2026-04-24",
           "varighet_dager": 3,
           "predecessors": [19],
-          "status": "Pågående",
-          "fremdrift_prosent": 80,
-          "kommentar": "Rapport-seksjon 9.0 Diskusjon utkast ferdig med alle seks underavsnitt (9.1 hovedbudskap, 9.2 tidbruk-formelens identifiserbarhet, 9.3 hva modellen ikke fanger, 9.4 usikkerhetsanalysens antagelser, 9.5 modellens begrensninger for sensoren, 9.6 praktiske implikasjoner). Ni review-funn fra modellering- og tidbruk-review innarbeidet. Gjenstår: helhetsgjennomlesing av 5.0+9.0 for flyt og sammenheng."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Rapport-seksjon 9.0 Diskusjon komplett med alle seks underavsnitt (9.1 hovedbudskap, 9.2 tidbruk-formelens identifiserbarhet, 9.3 hva modellen ikke fanger, 9.4 usikkerhetsanalysens antagelser, 9.5 modellens begrensninger for sensoren, 9.6 praktiske implikasjoner). Ni review-funn fra modellering- og tidbruk-review innarbeidet. Helhetsgjennomlesing av 5.0+9.0 fullført (commit bfc745b)."
         },
         {
           "id": 21,
-          "navn": "Peer review",
-          "startdato": "2026-04-27",
-          "sluttdato": "2026-04-28",
-          "varighet_dager": 2,
+          "navn": "Peer review fra medstudenter",
+          "startdato": "2026-04-30",
+          "sluttdato": "2026-05-05",
+          "varighet_dager": 4,
           "predecessors": [20],
           "status": "Ikke startet",
-          "fremdrift_prosent": 0
+          "fremdrift_prosent": 0,
+          "kommentar": "Medstudenter leser hovedutkastet levert kvelden 2026-04-29. Tilbakemeldinger bearbeides i fase 4."
         }
       ],
       "milepael": {
         "id": 22,
-        "navn": "Godkjent hovedutkast",
+        "navn": "Levert hovedutkast til review",
         "dato": "2026-04-29",
         "status": "Ikke startet"
       }
@@ -289,7 +290,7 @@
   "milepaeler": [
     {"navn": "Godkjent proposal", "dato": "2026-02-16", "status": "Ferdig"},
     {"navn": "Godkjent prosjektplan og Gantt", "dato": "2026-03-16", "status": "Ferdig"},
-    {"navn": "Godkjent hovedutkast", "dato": "2026-04-29", "status": "Ikke startet"},
+    {"navn": "Levert hovedutkast til review", "dato": "2026-04-29", "status": "Ikke startet"},
     {"navn": "Innlevert rapport", "dato": "2026-06-01", "status": "Ikke startet"}
   ],
   "kritisk_linje": [
