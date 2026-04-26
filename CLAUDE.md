@@ -122,6 +122,12 @@ Produsert av `004 data/scripts/vask_og_strukturer.py`:
 - **data.csv "Ferdig"** = kartkontoret er ferdig (IKKE overført til NVDB ennå)
 - **Ber_Tidbruk_Min-formel:** `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510`. Koeffisientene er hentet fra fanen `Tidbruk` i StatistikkTVS og bygger på 58 kartbladmålinger. Empirisk spredning i MIN/KM: 0,10–3,44, std 0,55 (~60 % av snitt). Formel verifisert numerisk (maks avvik 0,5 min på alle 357 kommuner).
 
+### Kjente datakilde-inkonsistenser (fanget av sanity_check_data.py 2026-04-25)
+
+- **Nærøysund (5060):** Status=Ferdig men Gjenstaaende_Lenker=Antall_Lenker=7867. Heuristikkens `gjenvaerende_timer = 0 if ferdig_kk else timer` overstyrer dette korrekt; ingen modell-effekt.
+- **9 Påbegynt-kommuner med Fremdrift_Prosent=0** (Hå, Nittedal, Modum, Porsgrunn, Notodden, Lillesand, Hitra, Ibestad, Lebesby): rapportert som Påbegynt men Gjenstaaende_Lenker=Antall_Lenker. Modellen behandler dem konservativt som full arbeidsmengde — ingen effekt på resultater.
+- **LACIVL03 (Aurland 4641, Årdal 4643):** Rådata Bergen-fane sier «juni 2025 - mars 2006», sannsynlig typo for «mars 2026». Modellen leser Start>Slutt og tolker som ingen lås. **Antas korrekt** fordi prosjektet ville være utløpt før STARTDATO (2026-05-01) uansett. Aurland har gyldig LACHVL39-lås. `vask_og_strukturer.py` har nå advarsel som flagger Start>Slutt slik at fremtidige slike feil oppdages.
+
 ### Kapasitet-override (manuell justering)
 
 Oslo-kontorets opprinnelige oppgitte verdier ble vurdert som urealistisk lave. Etter avtale 2026-04-17 er Oslo justert i `vask_og_strukturer.py` via `KAPASITET_OVERRIDE`:
@@ -158,7 +164,7 @@ Kartkontor-kapasitet er **245 effektive arbeidsdager/år** av 260 mandag-fredag-
 
 **NVDB-konvensjon uendret:** NVDB-throughput konverteres fortsatt med 260/12 = 21,67 dg/mnd i MIP. Samferdselsavdelingen opererer selv med 240 dg/år i sitt eget regnestykke; det dokumenterte 240/260-gapet (samferdsel 7,22 år vs modell 6,72 år for Middels_90) er beholdt som drøftelsespoeng i 5.1.2.
 
-**Effekt av 245-fiksen:** makespan uendret i alle 3 NVDB-scenarioer (NVDB dominerer flaskehalsen). Kartkontor-siste-ferdig forskyves ~30 dager (heuristikk: 2027-08 → 2027-09-16, 16 → 16,5 mnd). MC-percentiler for total varighet praktisk talt uendret pga NVDB-dominans. Kartkontor-MC P50 økte fra 503 → 510 dager (~6 %). MIP- og MC-tall er gjenkjørt 2026-04-24.
+**Effekt av 245-fiksen:** makespan uendret i alle 3 NVDB-scenarioer (NVDB dominerer flaskehalsen). Faktisk MC-utslag på kartkontor-tid +1,4 % (P50 503 → 510 dager). Matematisk minimumsgrense Min_Kartkontor_Mnd +5,9 % (6,8 → 7,2 mnd), men låseperioder absorberer mye av kapasitetskuttet, så reelt simuleringsutslag er mindre. Heuristikk siste-ferdig forskjøvet 3 dager (2027-09-13 → 2027-09-16). MC-percentiler for total varighet praktisk talt uendret pga NVDB-dominans. MIP- og MC-tall er gjenkjørt 2026-04-24.
 
 ### LÅST: Hovedmetode er hybrid heuristikk + MIP
 
@@ -183,9 +189,9 @@ Implementert 2026-04-18 i `monte_carlo.py`, kalibrert 2026-04-20. Tre stokastisk
 500 iterasjoner per scenario. Resultater (varighet i år, P5/P50/P95, post-260-fiks 2026-04-23):
 - Basis_85: 6,46 / 10,01 / 13,28
 - Middels_90: 3,25 / 6,67 / 9,91
-- Samferdsel_96: 1,36 / 2,36 / 5,88
+- Samferdsel_96: 1,38 / 2,36 / 5,88
 
-**Nøkkelfunn (revidert):** scenarioene overlapper nå realistisk — P95 Samferdsel_96 (5,88 år) er over P5 Middels_90 (3,25 år). Den tidligere "ingen overlapp"-konklusjonen (AUTOMASJON_STD=0,01) var et designvalg, ikke et empirisk funn. Automasjonsgrad er fortsatt dominerende usikkerhetskilde. Kartkontor-varighet stabilt ~503 dager (P5-P95: 488-523) etter 260-fiksen. P95 Basis_85 økte fra 11,98 til 13,28 år — halen er mer følsom for kapasitet uten 260/230-overbruket.
+**Nøkkelfunn (revidert):** scenarioene overlapper nå realistisk — P95 Samferdsel_96 (5,88 år) er over P5 Middels_90 (3,25 år). Den tidligere "ingen overlapp"-konklusjonen (AUTOMASJON_STD=0,01) var et designvalg, ikke et empirisk funn. Automasjonsgrad er fortsatt dominerende usikkerhetskilde. Kartkontor-varighet stabilt ~510 dager (P5-P95: 495-532) etter 245-fiksen. P95 Basis_85 økte fra 11,98 til 13,28 år ifm. 260-fiksen — halen er mer følsom for kapasitet uten 260/230-overbruket.
 
 ### LÅST: NVDB-scenarioanalyse på automasjonsgrad
 
@@ -238,19 +244,21 @@ Horisonter (etter kalibrering 2026-04-20, Samferdsel_96 utvidet 2026-04-23 etter
 
 | Scenario | Heuristikk | MIP | Diff | Omfordelinger | Status | Solver-tid |
 |----------|-----------|-----|------|---------------|--------|------------|
-| Basis_85 | 10,08 år | 10,17 år | −0,9 % | 29 / 295 | Not Solved | 1 945 s |
-| Middels_90 | 6,72 år | 6,75 år | −0,4 % | 36 / 295 | Optimal | 675 s |
-| Samferdsel_96 | 2,69 år | 2,75 år | −2,2 % | 71 / 295 | Optimal | 391 s |
+| Basis_85 | 10,08 år | 10,17 år | −0,9 % | 27 / 295 | Not Solved | 2 293 s |
+| Middels_90 | 6,72 år | 6,75 år | −0,4 % | 36 / 295 | Optimal | 989 s |
+| Samferdsel_96 | 2,69 år | 2,75 år | −2,2 % | 71 / 295 | Optimal | 609 s |
 
 **Hovedfunn**: MIP bekrefter at heuristikkens hjemmekontor-assignment er nær optimal for makespan. <2,2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er ikke nødvendige for makespan — NVDB er konsistent flaskehals og kartkontor-delen er ferdig innen 10-11 måneder (MIP) eller ~16,5 måneder (heuristikk) i alle scenarioer.
 
-**Post-245-fiks:** makespan uendret i alle 3 scenarioer (NVDB dominerer). Min_Kartkontor_Mnd matematisk grense: 6,8 → 7,2 mnd (~6 % økning fra 245/260-faktor). Kartkontor-ferdig-måned i MIP uendret (10/10/11 mnd, median 4 mnd). Omfordelingsmønsteret endret: Basis 97→29, Middels 76→36, Samferdsel 54→71 — dette er ikke et systematisk skift men reflekterer at vektet objektiv har flere nær-optimale assignmenter, og CBC kan finne ulike incumbenter. Basis_85 er nå Not Solved ved 1800s timeout (var Optimal pre-245); løsningen er IP-feasible men ikke bevist optimal.
+**Post-245-fiks:** makespan uendret i alle 3 scenarioer (NVDB dominerer). Min_Kartkontor_Mnd matematisk grense: 6,8 → 7,2 mnd (~6 % økning fra 245/260-faktor). Kartkontor-ferdig-måned i MIP uendret (10/10/11 mnd, median 4 mnd). Omfordelingsmønsteret endret: Basis 97→27, Middels 76→36, Samferdsel 54→71 — dette er ikke et systematisk skift men reflekterer at vektet objektiv har flere nær-optimale assignmenter, og CBC kan finne ulike incumbenter. Basis_85 er nå Not Solved ved 1800s timeout (var Optimal pre-245); løsningen er IP-feasible men ikke bevist optimal — 2 kommuner (3305 Ringerike, 5610 Kárášjohka-Karasjok) endte med fraksjonelle y-verdier (ingen y > 0,5) og er telt som ikke-omfordelt (faller tilbake til hjemmekontor).
 
 ### Solver-valg: CBC (gratis, innebygd i PuLP)
 
-HiGHS (nyere, raskere) ble testet men pulp-integrasjonen var ikke stabil via `highspy`. CBC løser alle 3 scenarioer optimalt eller nær-optimalt innen 7 minutter.
+HiGHS (nyere, raskere) ble testet men pulp-integrasjonen var ikke stabil via `highspy`. CBC løser Middels_90 og Samferdsel_96 optimalt innen 10-16 min med MIP_GAP=0,001; Basis_85 ender som Not Solved ved 30-min timeout.
 
 CBC-særegenhet: enkelte kjøringer stopper tidlig med status "Optimal" før B&B er fullført. Vektet-modus med inertia-tie-breaker omgår dette.
+
+**MIP_GAP**: relativ gap-toleranse er strammet fra 0,05 (5 %) til 0,001 (0,1 %) per 2026-04-26 etter sanity_check_mip.py-funn. Strammere gap garanterer at z_it-rapportering matcher faktisk ferdig-måned i alle praktiske tilfeller. Restanomali: Sykkylven (1528) i Samferdsel_96 har Ferdigdato_Kartkontor_Mnd=1 (juni, låst) selv om alt arbeid skjer i mnd 0 (mai) — gjelder kun denne ene kommunen og er en kosmetisk rapporterings-effekt, ikke faktisk skedulering-feil.
 
 ### Bolk B: Kapasitets-sensitivitetsanalyse (mip_kapasitet_sensitivitet.py)
 
@@ -262,25 +270,27 @@ CBC-særegenhet: enkelte kjøringer stopper tidlig med status "Optimal" før B&B
 - S4_Alle_minus15: alle kontor -15 % (sparekrav)
 - S5_Alle_minus50: alle kontor -50 % (ekstrem, for å vise kartkontor-bundet regime)
 
-**Hovedfunn (2026-04-23, post-260-fiks):** makespan er **identisk på tvers av alle 6 kapasitetsvarianter** per NVDB-scenario (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år). NVDB er dominerende flaskehals i hele det testede kapasitetsområdet. Kartkontor-ferdigmåned holder seg på 10-13 mnd i alle varianter (også S4 Middels_90 som tidligere ga 73 mnd før 260-fiksen — forskjellen skyldtes at tidligere -15 %-kutt ble delvis "spist opp" av 260/230-overbruket; nå er det et reelt -15 %-kutt, men NVDB-slack holder kartkontor-tiden lav).
+**Hovedfunn (post-245-fiks 2026-04-24, post-rerun 2026-04-26 med MIP_GAP=0,001):** makespan er **identisk på tvers av alle 6 kapasitetsvarianter** per NVDB-scenario (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år). NVDB er dominerende flaskehals i hele det testede kapasitetsområdet. Kartkontor-ferdigmåned holder seg på 10-11 mnd i S0-S4 og 14 mnd i S5_Alle_minus50 (matematisk minimum 14,4 mnd).
 
-**Solver-status etter fiks:** bare 6 av 18 kjøringer løser Optimal (S0 alle tre + S2/S3 Middels_90 og Samferdsel_96). 12/18 er Not Solved ved timeout 30 min — lavere kapasitet gjør problemet vanskeligere for CBC. Makespan-tallene er robuste (big-M-gated via Q_t); omfordelings- og kartkontor-ferdigtall for Not Solved-kjøringene bør refereres med forbehold. Upaalitelig-flagget settes ikke lenger (kartkontor-maks er tett på matematisk minimum i alle varianter), men status Not Solved skal nevnes eksplisitt i rapporten.
+**Solver-status:** 9 av 18 kjøringer løser Optimal (S0 Middels/Samferdsel; S1 Middels; S2 alle tre; S3 Middels/Samferdsel; S4 Basis_85). 9/18 er Not Solved ved timeout 30 min — lavere kapasitet og strammere MIP_GAP=0,001 gjør problemet vanskeligere for CBC, men makespan-tallene er robuste (big-M-gated via Q_t). Omfordelings- og kartkontor-ferdigtall for Not Solved-kjøringene er IP-feasible incumbenter, men ikke bevist optimale.
 
-**S5_Alle_minus50:** rapporterer Kartkontor_Siste_Mnd=13 mot matematisk minimum 13,6 mnd — plausibel IP-feasible løsning, men status Not Solved. Bør dokumenteres som "nær-optimal ved timeout", ikke som gyldig bevist løsning.
+**Phantom-omfordelings-fix (2026-04-26):** lagre_tidsplan og n_reassigned i mip_modell.py og mip_kapasitet_sensitivitet.py er fikset til å falle tilbake til Hjemmekontor for kommuner uten klar y-tildeling (Not Solved-fraksjonelle). Dette korrigerte phantom-omfordelinger på 2-8 i 8 av 18 sensitivitet-varianter. Effekt på rapporterte tall: S0 Basis 29→27, S1 Basis 31→28, S1 Samferdsel 31→28, S4 Middels 33→31, S4 Samferdsel 33→31, S5 Basis 20→17, S5 Middels 20→15, S5 Samferdsel 20→12. Makespan uendret i alle.
+
+**S5_Alle_minus50:** rapporterer Kartkontor_Siste_Mnd=14 mot matematisk minimum 14,4 mnd — plausibel IP-feasible løsning, men status Not Solved. Bør dokumenteres som "nær-optimal ved timeout", ikke som gyldig bevist løsning. Etter rerun med phantom-fix: Kommuner_Omfordelt 17/15/12 i Basis/Middels/Samferdsel (nedjustert fra 20 i alle).
 
 ### Bolk D: Monte Carlo på MIP-plan (monte_carlo_mip.py)
 
 Bruker eksisterende `monte_carlo.py`-motor med MIP-assignment fra `tidsplan_mip_vektet_<scenario>.csv` som fast tildeling. 500 iterasjoner × 3 scenarioer med samme 3 stokastiske kilder som heuristikk-MC.
 
-**Funn (2026-04-23, post-260-fiks):** for Basis_85 gir MIP-basert MC og heuristikk-MC nå **identiske** percentiler (6,46 / 10,01 / 13,28) — tidligere gap (P95 13,28 MIP vs 11,98 heur) var et artefakt av 260/230-overbruket. For Middels_90 er alle tre percentiler identiske (3,25 / 6,67 / 9,91). For Samferdsel_96 er P5 marginalt bedre i MIP (1,06 vs 1,36) mens P50/P95 er like. Etter fiksen er det derfor ikke lenger grunnlag for "deterministisk optimum ≠ robust optimum"-funnet på makespan-nivå. MIP-planen gir fortsatt markant kortere kartkontor-tid i MC (P50: 430 dager vs 503 for Basis_85), men denne forskjellen er skjult av NVDB-flaskehalsen i total varighet.
+**Funn (2026-04-23, post-260-fiks; tall oppdatert post-245-fiks 2026-04-24):** for Basis_85 gir MIP-basert MC og heuristikk-MC **identiske** percentiler (6,46 / 10,01 / 13,28) — tidligere gap (P95 13,28 MIP vs 11,98 heur) var et artefakt av 260/230-overbruket. For Middels_90 er alle tre percentiler identiske (3,25 / 6,67 / 9,91). For Samferdsel_96 er P5 marginalt bedre i MIP (1,10 vs 1,38) mens P50/P95 er like. Etter fiksen er det derfor ikke lenger grunnlag for "deterministisk optimum ≠ robust optimum"-funnet på makespan-nivå. MIP-planen gir fortsatt markant kortere kartkontor-tid i MC (P50: 452 dager vs 510 for Basis_85), men denne forskjellen er skjult av NVDB-flaskehalsen i total varighet.
 
 ### Bolk E: Tidbruk-skaleringssensitivitet (heuristikk_tidbruk_sensitivitet.py + monte_carlo_tidbruk_sensitivitet.py)
 
 Modell-evalueringsjobb #1 (2026-04-23). Skaler `Ber_Tidbruk_Min` med faktor 1,5 og 2,0 for å teste om hovedbudskapet "NVDB er flaskehalsen" overlever at tidbruk-formelen underestimerer (jf. validering_tidbruk_formel.md V2/V3: 8/10 kontor har median formel-estimat under sitt eget bånd; ferdige kommuner ~halvparten så tunge per stk som de gjenstående). 6 heuristikk-kjøringer + 6 MC-kjøringer (500 iter hver, 3000 iter totalt).
 
-**Hovedfunn:** NVDB-makespan **uendret** for Basis_85 og Middels_90 i alle tre kjøringer (heuristikk: 10,08/6,72/2,69 år. MC P50: 10,01/6,67 år for Basis_85 og Middels_90 også ved skala 2,0). Kartkontor-fasen vokser proporsjonalt med skala (MC P50: 16,5 → 19,9 → 26,5 mnd), men forblir mindre enn NVDB-tiden i alle scenarioer med flaskehals > 6 år.
+**Hovedfunn:** NVDB-makespan **uendret** for Basis_85 og Middels_90 i alle tre kjøringer (heuristikk: 10,08/6,72/2,69 år. MC P50: 10,01/6,67 år for Basis_85 og Middels_90 også ved skala 2,0). Kartkontor-fasen vokser proporsjonalt med skala (MC P50: 16,8 → 21,1 → 28,2 mnd), men forblir mindre enn NVDB-tiden i alle scenarioer med flaskehals > 6 år.
 
-**Eneste merkbare effekt:** Samferdsel_96 (raskest NVDB) får P5 presset opp fra 1,36 → 1,59 → 2,03 år ved skala 2 fordi kartkontor-tiden begynner å bestemme ferdigdatoen i de raskeste iterasjonene. P50 og P95 forblir uendret.
+**Eneste merkbare effekt:** Samferdsel_96 (raskest NVDB) får P5 presset opp fra 1,38 → 1,65 → 2,15 år ved skala 2 fordi kartkontor-tiden begynner å bestemme ferdigdatoen i de raskeste iterasjonene. P50 og P95 forblir uendret.
 
 **Konklusjon:** Hovedbudskapet "NVDB-flaskehalsen dominerer" overlever en dobling av tidbruk-formelen for de to mest realistiske scenarioene. MIP er ikke kjørt med skalert tidbruk; uniform skalering bevarer relativ rangering, så omfordelingsstrategien antas kvalitativt uendret.
 
@@ -294,8 +304,8 @@ Modell-evalueringsjobb #2 (2026-04-23). Kjør Monte Carlo med std ∈ {0,01; 0,0
 |-----|------------------------|---------------------------|------------------------------|
 | 0,01 | 8,75–11,39 | 5,45–7,87 | 1,51–3,75 |
 | 0,02 | 7,60–12,29 | 4,31–8,85 | 1,37–4,81 |
-| 0,03 | 6,46–13,28 | 3,20–9,93 | 1,36–5,86 |
-| 0,05 | 4,22–15,38 | 1,38–12,03 | 1,36–8,06 |
+| 0,03 | 6,46–13,28 | 3,20–9,93 | 1,38–5,86 |
+| 0,05 | 4,22–15,38 | 1,41–12,03 | 1,37–8,06 |
 
 **Scenario-overlapping (P5-P95-bånd):**
 - std = 0,01: ingen overlapp (Middels_90 P95 = 7,87 < Basis_85 P5 = 8,75; Samferdsel_96 P95 = 3,75 < Middels_90 P5 = 5,45)
@@ -340,15 +350,32 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-24, fase 
 - **Rapportarbeid:** seksjon-for-seksjon-dialog; Claude skriver utkast, bruker reviderer.
 - **Litteratur:** 5 kjerne-referanser lagt inn i 2.0 Litteratur og 11.0 Bibliografi. Full litteraturgjennomgang og 3.0 Teori utsettes til fase 4. Bibliografi må verifiseres mot HiM-bibliotek/Oria (se TODO).
 
+### Oppsummering av økt 2026-04-25/26 (uavhengig review + phantom-fix)
+
+- **Reviewer-rapport av 245-fiksen** identifiserte 7 punkter; alle er rettet (rapport 1.4-konsistens, 1,36→1,38, 8.3 Optimal-status, +6%/30 dager-overestimat, S5 13/13,6→14/14,4, MIP-MC tellingsfeil).
+- **Sanity-check-skript** lagt til i `004 data/scripts/`:
+  - `sanity_check_data.py` — datavask-konsistens (Status vs Gjenstaaende, Geovekst, fylke-mapping)
+  - `sanity_check_mip.py` — MIP-bibetingelser sjekkes mot tidsplan-CSV
+- **Funn av latent bug** i `lagre_tidsplan` og `n_reassigned`: kommuner uten klar y-tildeling (fraksjonelle ved Not Solved) ble feilaktig telt som omfordelt. Fikset i mip_modell.py og mip_kapasitet_sensitivitet.py.
+- **MIP_GAP strammet** fra 0,05 til 0,001 etter Sykkylven-anomali-funn.
+- **Rerun**:
+  - mip_kapasitet_sensitivitet.py (~17 t bakgrunn) — phantom-fix korrigerte 8 av 18 sensitivitet-varianter (eksakt 2-8 reduksjon hver, alle Not Solved). Makespan uendret i alle.
+  - mip_modell.py for alle 3 scenarioer (~65 min) — Basis_85 Not Solved ved 38 min, Middels Optimal ved 16 min, Samferdsel Optimal ved 10 min. Makespan/omfordelinger uendret.
+  - monte_carlo_mip.py — uendret tall (basis-tidsplan endret seg ikke vesentlig).
+- **Datavask-typo flagget**: LACIVL03 (Aurland 4641, Årdal 4643) har "juni 2025 - mars 2006" — sannsynligvis "mars 2026". Modellen er korrekt for begge fordi låsen ville være utløpt før STARTDATO uansett. `vask_og_strukturer.py` har nå advarsel for Start>Slutt.
+- **Rapport-figur konsistens**: 7 manglende figurer (7-13) lagt til på passende plasser i rapport.md. Alle 18 PNG-er nå referert.
+- **Bibliografi**: Graham (1969) "multiprocessing"-typo rettet til "multiprocessor".
+- **Rapport-tall korrigert**: 1,36→1,38 Samferdsel P5; 30%→54% Pareto; 0,91→0,9035 MIN/KM-snitt; "1,8-4,4×"→"2,0-4,3×" varians-faktorer; m.m.
+
 ### Oppsummering av økt 2026-04-24 (245-fiks)
 
 - Oppdragsgiver avklarte at faktiske produktive arbeidsdager er ca 245/år (ikke 260 som modellen brukte). Sommervikarer kompenserer noe for sommerferie, men ikke fullt ut. NVDB beholder samferdselsavd's egen 240-dagers konvensjon (uendret).
-- **Kapasitetsfaktor 245/260 ≈ 0,9423** lagt inn i heuristikk.py og mip_modell.py. Daglig/månedlig kartkontor-kapasitet skaleres ned med ~5,8 %. Konsekvens: kartkontor-tid forlenges ~6 %.
+- **Kapasitetsfaktor 245/260 ≈ 0,9423** lagt inn i heuristikk.py og mip_modell.py. Daglig/månedlig kartkontor-kapasitet skaleres ned med ~5,8 %. Faktisk simuleringsutslag på kartkontor-tid er mindre enn nominell kapasitetsreduksjon fordi låseperioder absorberer mye av kuttet.
 - **Makespan uendret** i alle 3 NVDB-scenarioer (NVDB dominerer): heuristikk 10,08 / 6,72 / 2,69 år, MIP 10,17 / 6,75 / 2,75 år (identiske med pre-245).
 - **MC P5/P50/P95 totalvarighet praktisk talt identiske** med pre-245 (NVDB dominerer): Basis 6,46/10,01/13,28; Middels 3,25/6,67/9,91; Samferdsel 1,38/2,36/5,88 år.
-- **Kartkontor-MC P50 økte:** 503 → 510 dager (~6 %). Heuristikk siste-ferdig 2027-08 → 2027-09-16 (~30 dager senere).
+- **Kartkontor-MC P50 økte:** 503 → 510 dager (+1,4 %). Matematisk minimumsgrense Min_Kartkontor_Mnd 6,8 → 7,2 mnd (+5,9 %). Heuristikk siste-ferdig 2027-09-13 → 2027-09-16 (~3 dager senere).
 - **MIP solver-kompleksitet økte:** Basis_85 nå Not Solved ved 1800s timeout (var Optimal pre-245 ved 711s). Middels og Samferdsel fortsatt Optimal.
-- **MIP-omfordelinger endret:** Basis 97→29, Middels 76→36, Samferdsel 54→71. Ikke et systematisk skift; vektet objektiv har flere nær-optimale incumbenter ved lavere kapasitet.
+- **MIP-omfordelinger endret:** Basis 97→27, Middels 76→36, Samferdsel 54→71. Ikke et systematisk skift; vektet objektiv har flere nær-optimale incumbenter ved lavere kapasitet. Basis_85 har 2 kommuner med fraksjonelle y-verdier ved Not Solved-timeout (3305 Ringerike, 5610 Kárášjohka-Karasjok); disse telles som ikke-omfordelt (faller tilbake til hjemmekontor) for konsistens med Monte Carlo-tolkningen.
 - 53 CSV arkivert i `arkiv_pre_245_fiks/` for diff-sammenligning.
 
 ### Oppsummering av økt 2026-04-23

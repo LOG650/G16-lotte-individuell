@@ -46,8 +46,7 @@ SEED = 42
 GRUNNPAKKE_MIN_PER_KM2 = 0.651042
 
 # NVDB-takt usikkerhet. Sentrert paa samferdselsavdelingens punktestimat 300
-# lenker/dag, med +/- 25 som maaleusikkerhet (dekker ogsaa CLAUDE.md-intervallet
-# 300-400 i oevre hale, men gir symmetri rundt kundens tall).
+# lenker/dag (kalibrert 2026-04-20), med +/- 25 som maaleusikkerhet.
 MANUELL_TAKT_LOW = 275
 MANUELL_TAKT_HIGH = 325
 # AUTOMASJON_STD 0.03 gir realistisk +/- 3 prosentpoeng maaleusikkerhet paa

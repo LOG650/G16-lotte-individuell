@@ -55,7 +55,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 1827,Dønna,Bodø,Bodø,False,4.67,1732.0,5,19
 1828,Nesna,Bodø,Bodø,False,5.08,1141.0,4,16
 1832,Hemnes,Bodø,Bodø,False,28.6,4516.0,1,8
-1833,Rana,Bodø,,True,72.92,10959.0,1,7
+1833,Rana,Bodø,Bodø,False,72.92,10959.0,1,7
 1834,Lurøy,Bodø,Bodø,False,5.77,1485.0,5,19
 1835,Træna,Bodø,Bodø,False,0.33,88.0,7,29
 1836,Rødøy,Bodø,Bodø,False,10.95,1257.0,2,11
@@ -285,7 +285,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 5605,Sør-Varanger,Tromsø,Tromsø,False,61.47,7082.0,3,13
 5607,Vadsø,Tromsø,Tromsø,False,28.47,5170.0,2,11
 5610,Kárášjohka - Karasjok,Tromsø,Skien,True,96.35,8565.0,1,8
-5612,Guovdageaidnu - Kautokeino,Tromsø,,True,179.3,19267.0,1,6
+5612,Guovdageaidnu - Kautokeino,Tromsø,Tromsø,False,179.3,19267.0,1,6
 5614,Loppa,Tromsø,Tromsø,False,11.63,1446.0,3,13
 5616,Hasvik,Tromsø,Tromsø,False,9.4,1313.0,3,13
 5618,Måsøy,Tromsø,Tromsø,False,18.62,1802.0,3,13

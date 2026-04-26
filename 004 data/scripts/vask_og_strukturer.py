@@ -386,6 +386,26 @@ def bygg_master():
         'Laaseperiode_Tekst'
     ].apply(lambda x: pd.Series(parse_laaseperiode(x)))
 
+    # Valider: Start <= Slutt. En periode med Start > Slutt blir tolket som
+    # "ingen lås" av heuristikk (er_laast returnerer False) og MIP (tom range),
+    # som kan skjule en aktiv lås hvis det skyldes en typo i rådata.
+    # Eks: LACIVL03 (4641 Aurland, 4643 Årdal) har "juni 2025 - mars 2006" i
+    # rådata, sannsynligvis typo for "mars 2026". Den utløpte tolkningen er
+    # plausibel her, men skal flagges eksplisitt for fremtidige tilfeller.
+    feil_periode = alle_geovekst[
+        alle_geovekst['Laaseperiode_Start'].notna()
+        & alle_geovekst['Laaseperiode_Slutt'].notna()
+        & (alle_geovekst['Laaseperiode_Start'] > alle_geovekst['Laaseperiode_Slutt'])
+    ]
+    if not feil_periode.empty:
+        print(f"\n  ADVARSEL: {len(feil_periode)} geovekst-rader har "
+              f"Laaseperiode_Start > Laaseperiode_Slutt. Disse blir tolket "
+              f"som 'ingen lås' av heuristikk og MIP. Sjekk rådata for typo.")
+        for _, r in feil_periode.iterrows():
+            print(f"    {r['Prosjektnr']} kommune {r['KomNr']}: "
+                  f"'{r['Laaseperiode_Tekst']}' -> "
+                  f"{r['Laaseperiode_Start'].date()} til {r['Laaseperiode_Slutt'].date()}")
+
     # Aggreger Geovekst per kommune for master
     if not alle_geovekst.empty:
         gv_agg = alle_geovekst.groupby('KomNr').agg(

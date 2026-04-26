@@ -97,7 +97,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 3232,Nittedal,Oslo,Oslo,False,11.33,5357.0,5,21
 3301,Drammen,Oslo,Oslo,False,19.53,11937.0,1,7
 3303,Kongsberg,Oslo,Oslo,False,40.87,18936.0,0,1
-3305,Ringerike,Oslo,,True,68.08,27311.0,5,18
+3305,Ringerike,Oslo,Oslo,False,68.08,27311.0,5,18
 3312,Lier,Oslo,Oslo,False,15.43,6724.0,4,17
 3314,Øvre Eiker,Oslo,Oslo,False,18.4,6486.0,2,12
 3316,Modum,Oslo,Oslo,False,25.4,10613.0,4,16
@@ -285,12 +285,12 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 5605,Sør-Varanger,Tromsø,Tromsø,False,61.47,7082.0,3,14
 5607,Vadsø,Tromsø,Tromsø,False,28.47,5170.0,2,12
 5610,Kárášjohka - Karasjok,Tromsø,Molde,True,96.35,8565.0,1,8
-5612,Guovdageaidnu - Kautokeino,Tromsø,,True,179.3,19267.0,0,0
+5612,Guovdageaidnu - Kautokeino,Tromsø,Tromsø,False,179.3,19267.0,0,0
 5614,Loppa,Tromsø,Tromsø,False,11.63,1446.0,3,15
 5616,Hasvik,Tromsø,Tromsø,False,9.4,1313.0,3,15
 5618,Måsøy,Tromsø,Tromsø,False,18.62,1802.0,3,14
 5620,Nordkapp,Tromsø,Tromsø,False,16.35,1716.0,2,12
-5622,Porsanger - Porsáŋgu - Porsanki,Tromsø,,True,87.38,9568.0,2,11
+5622,Porsanger - Porsáŋgu - Porsanki,Tromsø,Tromsø,False,87.38,9568.0,2,11
 5624,Lebesby,Tromsø,Tromsø,False,44.53,3191.0,0,6
 5628,Deatnu - Tana,Tromsø,Tromsø,False,72.72,9359.0,1,8
 5636,Unjárga - Nesseby,Tromsø,Tromsø,False,30.3,3635.0,1,9

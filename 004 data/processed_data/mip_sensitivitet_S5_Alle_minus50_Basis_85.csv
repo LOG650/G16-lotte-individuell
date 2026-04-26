@@ -109,7 +109,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 3330,Hol,Oslo,Oslo,False,44.75,14988.0,8,63
 3332,Sigdal,Oslo,Oslo,False,37.65,17054.0,5,43
 3336,Rollag,Oslo,Oslo,False,11.38,7744.0,12,95
-3338,Nore og Uvdal,Oslo,,True,66.03,13281.0,4,37
+3338,Nore og Uvdal,Oslo,Oslo,False,66.03,13281.0,4,37
 3401,Kongsvinger,Hamar,Hamar,False,1.9,10212.0,14,117
 3403,Hamar,Hamar,Hamar,False,0.55,3151.0,14,120
 3405,Lillehammer,Hamar,Hamar,False,23.5,10606.0,14,116
@@ -122,7 +122,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 3421,Trysil,Hamar,Hamar,False,3.98,16189.0,14,113
 3422,Åmot,Hamar,Hamar,False,36.57,9088.0,7,57
 3423,Stor-Elvdal,Hamar,Hamar,False,3.13,13617.0,14,114
-3424,Rendalen,Hamar,,True,81.93,11980.0,4,37
+3424,Rendalen,Hamar,Hamar,False,81.93,11980.0,4,37
 3425,Engerdal,Hamar,Hamar,False,2.28,6538.0,14,119
 3426,Tolga,Hamar,Hamar,False,1.91,8559.0,14,118
 3427,Tynset,Hamar,Skien,True,54.08,10498.0,5,46
@@ -285,7 +285,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 5605,Sør-Varanger,Tromsø,Tromsø,False,61.47,7082.0,6,52
 5607,Vadsø,Tromsø,Tromsø,False,28.47,5170.0,8,67
 5610,Kárášjohka - Karasjok,Tromsø,Molde,True,96.35,8565.0,3,33
-5612,Guovdageaidnu - Kautokeino,Tromsø,,True,179.3,19267.0,1,19
+5612,Guovdageaidnu - Kautokeino,Tromsø,Tromsø,False,179.3,19267.0,1,19
 5614,Loppa,Tromsø,Tromsø,False,11.63,1446.0,12,99
 5616,Hasvik,Tromsø,Tromsø,False,9.4,1313.0,13,108
 5618,Måsøy,Tromsø,Tromsø,False,18.62,1802.0,12,99

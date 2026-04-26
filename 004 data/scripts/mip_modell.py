@@ -53,7 +53,12 @@ KAPASITET_FAKTOR = EFFEKTIVE_ARBEIDSDAGER_PER_AAR / ARBEIDSDAGER_PER_KALENDERAAR
 ARBEIDSDAGER_PER_MND = ARBEIDSDAGER_PER_KALENDERAAR / 12  # ≈ 21.67 (NVDB-konvertering)
 STARTDATO = date(2026, 5, 1)
 SOLVER_TIDSGRENSE_SEK = 1800  # 30 min per scenario
-MIP_GAP = 0.05  # akseptkriterie 5 %
+MIP_GAP = 0.001  # 0.1 % akseptkriterie. Stramere enn standard 5 % for aa
+                 # forhindre at z_it-rapportering blir suboptimal (sett til 1
+                 # i en senere maaned enn arbeidet faktisk er ferdig). Med 5 %
+                 # gap kan W2-leddet i objektivet ikke presse z_it ned naar
+                 # forskjellen er liten relativt til total objektivverdi
+                 # (sjekket 2026-04-25, se sanity_check_mip.py).
 
 # Horisonter per scenario (maaneder), ca 15 % buffer over heuristikk
 T_MAX = {
@@ -214,7 +219,7 @@ def bygg_modell(scenario, kommuner_df, kontorer_df, geovekst_df):
                 f'C3_kap_{j}_{t}',
             )
 
-    # C4': Arbeid kun paa tildelt kontor (aggregert over tid - strammere LP enn
+    # C4: Arbeid kun paa tildelt kontor (aggregert over tid - strammere LP enn
     # per-maaned-versjonen men mye faerre rader: I*J i stedet for I*J*T)
     for i in I:
         for j in J:
@@ -561,17 +566,21 @@ def ekstraher_loesning(prob, data):
 def lagre_tidsplan(data, losning, mode='lex'):
     """Skriv tidsplan_mip_<mode>_<scenario>.csv med per-kommune ferdigdatoer."""
     rader = []
-    # Aktive kommuner (med MIP-assignment)
+    # Aktive kommuner (med MIP-assignment).
+    # Ved Not Solved-timeout kan enkelte kommuner ha fraksjonelle y-verdier
+    # (ingen y > 0,5); disse faller tilbake til hjemmekontor og telles ikke
+    # som omfordelt, konsistent med Monte Carlo-tolkningen.
     for a in data['aktive']:
         kn = a['KomNr']
         kk_mnd = losning['ferdig_kk'].get(kn)
         nv_mnd = losning['ferdig_nvdb'].get(kn)
+        tildelt = losning['assignment'].get(kn) or a['Hjemmekontor']
         rader.append({
             'KomNr': kn,
             'Kommune': a['Kommune'],
             'Hjemmekontor': a['Hjemmekontor'],
-            'Kartkontor_MIP': losning['assignment'].get(kn, ''),
-            'Omfordelt': losning['assignment'].get(kn) != a['Hjemmekontor'],
+            'Kartkontor_MIP': tildelt,
+            'Omfordelt': tildelt != a['Hjemmekontor'],
             'Timer': round(a['Timer'], 2),
             'Lenker': a['Lenker'],
             'Ferdigdato_Kartkontor_Mnd': kk_mnd,
@@ -686,9 +695,12 @@ def main():
         print(f'  Status: {status_str}')
         print(f'  Makespan (mnd): {losning["makespan_mnd"]}')
         print(f'  Makespan (aar): {losning["makespan_mnd"] / 12:.2f}')
+        # Kommuner uten y > 0,5 (Not Solved-fraksjonelle) faller tilbake til
+        # hjemmekontor og telles ikke som omfordelt. Konsistent med
+        # lagre_tidsplan og monte_carlo_mip-tolkningen.
         n_reassigned = sum(
             1 for a in data['aktive']
-            if losning['assignment'].get(a['KomNr']) != a['Hjemmekontor']
+            if (losning['assignment'].get(a['KomNr']) or a['Hjemmekontor']) != a['Hjemmekontor']
         )
         kk_maks_mnd = max(
             (v for v in losning['ferdig_kk'].values() if v is not None),

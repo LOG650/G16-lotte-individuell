@@ -44,7 +44,7 @@ ARBEIDSDAGER_PER_AAR = 260
 EFFEKTIVE_ARBEIDSDAGER_PER_AAR = 245
 KAPASITET_FAKTOR = EFFEKTIVE_ARBEIDSDAGER_PER_AAR / ARBEIDSDAGER_PER_AAR  # 0.9423
 STARTDATO = date(2026, 5, 1)
-MAX_AAR = 30  # sikkerhetscutoff. Basis_85 P95 = 11,98 aar etter kalibrering 2026-04-20; stor margin slik at alternative scenarioer (lavere automasjon, lavere kapasitet) ikke risikerer aa bli klippet uten varsel
+MAX_AAR = 30  # sikkerhetscutoff. Basis_85 P95 = 13,28 aar etter 245-fiks 2026-04-24; stor margin slik at alternative scenarioer (lavere automasjon, lavere kapasitet) ikke risikerer aa bli klippet uten varsel
 
 
 # --- Datainnlasting -------------------------------------------------------

@@ -1,4 +1,4 @@
 Scenario,Mode,Status,Upaalitelig,Min_Kartkontor_Mnd,Makespan_Mnd,Makespan_Aar,Kartkontor_Maks_Mnd,Kartkontor_Median_Mnd,Kommuner_Omfordelt,Aktive_Kommuner,Solver_Tid_Sek,Variabler,Bibindelser
-Basis_85,vektet,Not Solved,False,7.2,122,10.17,10,4.0,29,295,1945.4,470518,91061
-Middels_90,vektet,Optimal,False,7.2,81,6.75,10,4.0,36,295,674.9,314662,62069
-Samferdsel_96,vektet,Optimal,False,7.2,33,2.75,11,4.0,71,295,390.7,178288,36701
+Basis_85,vektet,Not Solved,False,7.2,122,10.17,10,4.0,27,295,2293.2,470518,91061
+Middels_90,vektet,Optimal,False,7.2,81,6.75,10,4.0,36,295,989.4,314662,62069
+Samferdsel_96,vektet,Optimal,False,7.2,33,2.75,11,4.0,71,295,609.3,178288,36701

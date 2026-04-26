@@ -40,7 +40,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 1579,Hustadvika,Molde,Molde,False,21.07,7743.0,9,42
 1580,Haram,Molde,Molde,False,9.7,4153.0,9,44
 1804,Bodø,Bodø,Bodø,False,34.38,11982.0,14,77
-1806,Narvik,Bodø,,True,55.82,12335.0,4,22
+1806,Narvik,Bodø,Bodø,False,55.82,12335.0,4,22
 1811,Bindal,Bodø,Bodø,False,18.83,2467.0,8,39
 1812,Sømna,Bodø,Bodø,False,5.93,1993.0,11,57
 1813,Brønnøy,Bodø,Bodø,False,21.05,5124.0,9,43
@@ -51,11 +51,11 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 1822,Leirfjord,Bodø,Bodø,False,9.38,2506.0,5,28
 1824,Vefsn,Bodø,Bodø,False,37.77,8559.0,2,16
 1825,Grane,Bodø,Bodø,False,30.45,4468.0,6,31
-1826,Aarborte - Hattfjelldal,Bodø,,True,39.02,4610.0,5,28
+1826,Aarborte - Hattfjelldal,Bodø,Bodø,False,39.02,4610.0,5,28
 1827,Dønna,Bodø,Bodø,False,4.67,1732.0,5,28
 1828,Nesna,Bodø,Bodø,False,5.08,1141.0,4,25
 1832,Hemnes,Bodø,Bodø,False,28.6,4516.0,1,14
-1833,Rana,Bodø,,True,72.92,10959.0,1,12
+1833,Rana,Bodø,Bodø,False,72.92,10959.0,1,12
 1834,Lurøy,Bodø,Bodø,False,5.77,1485.0,5,28
 1835,Træna,Bodø,Bodø,False,0.33,88.0,13,72
 1836,Rødøy,Bodø,Bodø,False,10.95,1257.0,5,28
@@ -144,7 +144,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 3443,Vestre Toten,Hamar,Hamar,False,10.07,3356.0,12,62
 3446,Gran,Hamar,Hamar,False,24.92,8906.0,0,4
 3447,Søndre Land,Hamar,Hamar,False,26.15,7653.0,1,13
-3448,Nordre Land,Hamar,,True,44.1,12435.0,9,40
+3448,Nordre Land,Hamar,Hamar,False,44.1,12435.0,9,40
 3449,Sør-Aurdal,Hamar,Molde,True,44.13,13249.0,5,26
 3450,Etnedal,Hamar,Hamar,False,18.8,6276.0,9,43
 3451,Nord-Aurdal,Hamar,Hamar,False,38.72,13002.0,10,46
@@ -280,7 +280,7 @@ KomNr,Kommune,Hjemmekontor,Kartkontor_MIP,Omfordelt,Timer,Lenker,Ferdigdato_Kart
 5542,Skjervøy,Tromsø,Tromsø,False,1.1,2218.0,14,80
 5544,Nordreisa - Ráisa - Raisi,Tromsø,Tromsø,False,53.15,4821.0,0,7
 5546,Kvænangen,Tromsø,Tromsø,False,32.62,4328.0,6,31
-5601,Alta,Tromsø,,True,72.96,17457.0,2,15
+5601,Alta,Tromsø,Tromsø,False,72.96,17457.0,2,15
 5603,Hammerfest - Hámmerfeasta,Tromsø,Tromsø,False,44.7,6601.0,8,38
 5605,Sør-Varanger,Tromsø,Tromsø,False,61.47,7082.0,5,27
 5607,Vadsø,Tromsø,Tromsø,False,28.47,5170.0,3,21
