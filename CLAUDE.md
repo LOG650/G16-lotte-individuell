@@ -262,9 +262,9 @@ Horisonter (etter kalibrering 2026-04-20, Samferdsel_96 utvidet 2026-04-23 etter
 | Middels_90 | 6,72 år | 6,75 år | −0,4 % | 36 / 295 | Optimal | 989 s |
 | Samferdsel_96 | 2,69 år | 2,75 år | −2,2 % | 71 / 295 | Optimal | 609 s |
 
-**Hovedfunn**: MIP bekrefter at heuristikkens hjemmekontor-assignment er nær optimal for makespan. <2,2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er ikke nødvendige for makespan — NVDB er konsistent flaskehals og kartkontor-delen er ferdig innen 10-11 måneder (MIP) eller ~16,5 måneder (heuristikk) i alle scenarioer.
+**Hovedfunn**: MIP bekrefter at heuristikkens ansvarskontor-tildeling er nær optimal for makespan. <2,2 % forskjell skyldes månedlig vs. daglig tidsoppløsning. Omfordelingene er ikke nødvendige for makespan — NVDB er konsistent flaskehals og kartkontor-delen er ferdig innen 10-11 måneder (MIP) eller ~16,5 måneder (heuristikk) i alle scenarioer.
 
-**Post-245-fiks:** makespan uendret i alle 3 scenarioer (NVDB dominerer). Min_Kartkontor_Mnd matematisk grense: 6,8 → 7,2 mnd (~6 % økning fra 245/260-faktor). Kartkontor-ferdig-måned i MIP uendret (10/10/11 mnd, median 4 mnd). Omfordelingsmønsteret endret: Basis 97→27, Middels 76→36, Samferdsel 54→71 — dette er ikke et systematisk skift men reflekterer at vektet objektiv har flere nær-optimale assignmenter, og CBC kan finne ulike incumbenter. Basis_85 er nå Not Solved ved 1800s timeout (var Optimal pre-245); løsningen er IP-feasible men ikke bevist optimal — 2 kommuner (3305 Ringerike, 5610 Kárášjohka-Karasjok) endte med fraksjonelle y-verdier (ingen y > 0,5) og er telt som ikke-omfordelt (faller tilbake til hjemmekontor).
+**Post-245-fiks:** makespan uendret i alle 3 scenarioer (NVDB dominerer). Min_Kartkontor_Mnd matematisk grense: 6,8 → 7,2 mnd (~6 % økning fra 245/260-faktor). Kartkontor-ferdig-måned i MIP uendret (10/10/11 mnd, median 4 mnd). Omfordelingsmønsteret endret: Basis 97→27, Middels 76→36, Samferdsel 54→71 — dette er ikke et systematisk skift men reflekterer at vektet objektiv har flere nær-optimale assignmenter, og CBC kan finne ulike incumbenter. Basis_85 er nå Not Solved ved 1800s timeout (var Optimal pre-245); løsningen er IP-feasible men ikke bevist optimal — 2 kommuner (3305 Ringerike, 5610 Kárášjohka-Karasjok) endte med fraksjonelle y-verdier (ingen y > 0,5) og er telt som ikke-omfordelt (faller tilbake til ansvarlig kartkontor).
 
 ### Solver-valg: CBC (gratis, innebygd i PuLP)
 
@@ -288,7 +288,7 @@ CBC-særegenhet: enkelte kjøringer stopper tidlig med status "Optimal" før B&B
 
 **Solver-status:** 9 av 18 kjøringer løser Optimal (S0 Middels/Samferdsel; S1 Middels; S2 alle tre; S3 Middels/Samferdsel; S4 Basis_85). 9/18 er Not Solved ved timeout 30 min — lavere kapasitet og strammere MIP_GAP=0,001 gjør problemet vanskeligere for CBC, men makespan-tallene er robuste (big-M-gated via Q_t). Omfordelings- og kartkontor-ferdigtall for Not Solved-kjøringene er IP-feasible incumbenter, men ikke bevist optimale.
 
-**Phantom-omfordelings-fix (2026-04-26):** lagre_tidsplan og n_reassigned i mip_modell.py og mip_kapasitet_sensitivitet.py er fikset til å falle tilbake til Hjemmekontor for kommuner uten klar y-tildeling (Not Solved-fraksjonelle). Dette korrigerte phantom-omfordelinger på 2-8 i 8 av 18 sensitivitet-varianter. Effekt på rapporterte tall: S0 Basis 29→27, S1 Basis 31→28, S1 Samferdsel 31→28, S4 Middels 33→31, S4 Samferdsel 33→31, S5 Basis 20→17, S5 Middels 20→15, S5 Samferdsel 20→12. Makespan uendret i alle.
+**Phantom-omfordelings-fix (2026-04-26):** lagre_tidsplan og n_reassigned i mip_modell.py og mip_kapasitet_sensitivitet.py er fikset til å falle tilbake til ansvarlig kartkontor for kommuner uten klar y-tildeling (Not Solved-fraksjonelle). Dette korrigerte phantom-omfordelinger på 2-8 i 8 av 18 sensitivitet-varianter. Effekt på rapporterte tall: S0 Basis 29→27, S1 Basis 31→28, S1 Samferdsel 31→28, S4 Middels 33→31, S4 Samferdsel 33→31, S5 Basis 20→17, S5 Middels 20→15, S5 Samferdsel 20→12. Makespan uendret i alle.
 
 **S5_Alle_minus50:** rapporterer Kartkontor_Siste_Mnd=14 mot matematisk minimum 14,4 mnd — plausibel IP-feasible løsning, men status Not Solved. Bør dokumenteres som "nær-optimal ved timeout", ikke som gyldig bevist løsning. Etter rerun med phantom-fix: Kommuner_Omfordelt 17/15/12 i Basis/Middels/Samferdsel (nedjustert fra 20 i alle).
 
@@ -353,6 +353,10 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-24, fase 
 18. ⏳ Peer review (27-28. apr)
 19. ⏳ Fase 4: seksjonene 1 (ferdigstille), 3, 10 (ferdigstille) + kvalitetssikring
 
+### TODO etter peer review-fristen 29.04
+
+- **Døp om CSV-kolonnen `Hjemmekontor` til `Ansvarlig_Kartkontor`** i alle MIP-scripts (`mip_modell.py`, `mip_kapasitet_sensitivitet.py`, `monte_carlo_mip.py`, `analyser_rekkefolge.py`, `figurer_mip.py`). Krever rerun av MIP-modell (~16-65 min) + kapasitets-sensitivitet (~17 t bakgrunn) + monte_carlo_mip. Utsatt fra 2026-04-26 pga. peer review-frist; rapport.md, figur 16 og kommentarer er allerede oppdatert. Aktive CSV-er har fortsatt `Hjemmekontor` som kolonnenavn — internt, ikke synlig i sluttproduktet.
+
 ### Viktige milepæler
 
 - **29.04.2026** - Godkjent hovedutkast (11 dager unna per 2026-04-18)
@@ -389,7 +393,7 @@ Se `STATUS.md` for detaljert fremdrift. Nåværende fokus (per 2026-04-24, fase 
 - **MC P5/P50/P95 totalvarighet praktisk talt identiske** med pre-245 (NVDB dominerer): Basis 6,46/10,01/13,28; Middels 3,25/6,67/9,91; Samferdsel 1,38/2,36/5,88 år.
 - **Kartkontor-MC P50 økte:** 503 → 510 dager (+1,4 %). Matematisk minimumsgrense Min_Kartkontor_Mnd 6,8 → 7,2 mnd (+5,9 %). Heuristikk siste-ferdig 2027-09-13 → 2027-09-16 (~3 dager senere).
 - **MIP solver-kompleksitet økte:** Basis_85 nå Not Solved ved 1800s timeout (var Optimal pre-245 ved 711s). Middels og Samferdsel fortsatt Optimal.
-- **MIP-omfordelinger endret:** Basis 97→27, Middels 76→36, Samferdsel 54→71. Ikke et systematisk skift; vektet objektiv har flere nær-optimale incumbenter ved lavere kapasitet. Basis_85 har 2 kommuner med fraksjonelle y-verdier ved Not Solved-timeout (3305 Ringerike, 5610 Kárášjohka-Karasjok); disse telles som ikke-omfordelt (faller tilbake til hjemmekontor) for konsistens med Monte Carlo-tolkningen.
+- **MIP-omfordelinger endret:** Basis 97→27, Middels 76→36, Samferdsel 54→71. Ikke et systematisk skift; vektet objektiv har flere nær-optimale incumbenter ved lavere kapasitet. Basis_85 har 2 kommuner med fraksjonelle y-verdier ved Not Solved-timeout (3305 Ringerike, 5610 Kárášjohka-Karasjok); disse telles som ikke-omfordelt (faller tilbake til ansvarlig kartkontor) for konsistens med Monte Carlo-tolkningen.
 - 53 CSV arkivert i `arkiv_pre_245_fiks/` for diff-sammenligning.
 
 ### Oppsummering av økt 2026-04-23
@@ -494,7 +498,7 @@ Regenereres med: `python "004 data/scripts/figurer_usikkerhet.py"`
 |----|-----|---------|
 | 14 | `14_heuristikk_vs_mip.png` | Søyle: total varighet heuristikk vs MIP per scenario |
 | 15 | `15_kartkontor_ferdig.png` | Histogram: fordeling av kartkontor-ferdigmåned, heur vs MIP, 3 paneler |
-| 16 | `16_omfordeling_matrise.png` | Heatmap: hjemmekontor → MIP-kontor (Middels_90) |
+| 16 | `16_omfordeling_matrise.png` | Heatmap: ansvarlig kartkontor → MIP-kontor (Middels_90) |
 | 17 | *reservert for fan chart MIP (droppet — MC er identisk med heuristikk-MC)* |
 | 18 | `18_kapasitet_sensitivitet.png` | Søyle: makespan per kapasitetsvariant × scenario |
 | 19 | `19_omfordeling_varianter.png` | Søyle: antall omfordelinger per variant × scenario |

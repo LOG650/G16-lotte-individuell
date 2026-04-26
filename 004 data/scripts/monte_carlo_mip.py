@@ -2,7 +2,7 @@
 Monte Carlo usikkerhetsanalyse med MIP-assignment som fast tildeling.
 
 Leser tidsplan_mip_vektet_<scenario>.csv (MIP's optimale tildeling per kommune),
-overstyrer hjemmekontor-tildelingen i master_kommuner slik at heuristikkens
+overstyrer ansvarlig-kartkontor-tildelingen i master_kommuner slik at heuristikkens
 simulator bruker MIP-tildelingen, og kjorer deretter eksisterende Monte Carlo-
 motor med samme 500 iterasjoner og 3 stokastiske kilder.
 

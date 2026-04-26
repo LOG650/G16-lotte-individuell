@@ -191,7 +191,7 @@ Kartkontor (kvalitetsheving) ──► Samferdselsavdelingen (NVDB-overføring v
 
 ## 4.3 De 10 fylkeskartkontorene
 
-Kartverket har 10 fylkeskartkontor som hver i dag har ansvar for sine fylker, og hver kommune kvalitetsheves av sitt "hjemme-kontor". Denne geografiske tildelingen er prosjektets utgangspunkt, men ikke en fastlåst begrensning: ett av hovedspørsmålene i analysen er om total varighet kan reduseres ved å omfordele kommuner mellom kontor, slik at kontor med god kapasitet avlaster kontor med høy arbeidsbelastning.
+Kartverket har 10 fylkeskartkontor som hver i dag har ansvar for sine fylker, og hver kommune kvalitetsheves av sitt ansvarlige kartkontor. Denne geografiske tildelingen er prosjektets utgangspunkt, men ikke en fastlåst begrensning: ett av hovedspørsmålene i analysen er om total varighet kan reduseres ved å omfordele kommuner mellom kontor, slik at kontor med god kapasitet avlaster kontor med høy arbeidsbelastning.
 
 ![Figur 1: Fylkeskartkontor og antall kommuner per kontor](figurer/01_kart_kontorer.png)
 
@@ -267,7 +267,7 @@ MIP-modellen har en vektet lex-opt-målfunksjon med tre nivåer:
 
 $$\min\; W_1 \cdot \text{makespan} + W_2 \cdot \text{kartkontor-ferdigtid} + \text{inertia}$$
 
-der $W_1 \gg W_2 \cdot \max(\text{kartkontor-ferdigtid}) + \max(\text{inertia})$ og $W_2 \gg \max(\text{inertia})$. Prioritet 1 er total varighet (NVDB-fasen), prioritet 2 er komprimering av kartkontor-fasen, prioritet 3 er å beholde hjemmekontor-tildeling ved like løsninger. Dette gir en enkeltpass-løsning som kombinerer effektivitet med matematisk korrekthet. Metoden er raskere og mer stabil enn sekvensiell lex-opt, og gir identiske makespan-resultater. Inertia-termen er essensiell for å hindre MIP i å omfordele kommuner "gratis" som ikke bidrar til målfunksjonen.
+der $W_1 \gg W_2 \cdot \max(\text{kartkontor-ferdigtid}) + \max(\text{inertia})$ og $W_2 \gg \max(\text{inertia})$. Prioritet 1 er total varighet (NVDB-fasen), prioritet 2 er komprimering av kartkontor-fasen, prioritet 3 er å beholde ansvarskontor-tildeling ved like løsninger. Dette gir en enkeltpass-løsning som kombinerer effektivitet med matematisk korrekthet. Metoden er raskere og mer stabil enn sekvensiell lex-opt, og gir identiske makespan-resultater. Inertia-termen er essensiell for å hindre MIP i å omfordele kommuner "gratis" som ikke bidrar til målfunksjonen.
 
 ### 5.1.4 NVDB-throughput-formel og dens struktur
 
@@ -397,7 +397,7 @@ $$t_i = \frac{\tau_i}{60} \cdot \frac{\ell^{\text{rest}}_i}{\ell_i}$$
 
 der $\tau_i$ er beregnet tidsbruk i minutter (fra formel 5.2.3), $\ell^{\text{rest}}_i$ er gjenstående lenker og $\ell_i$ er totale lenker. Kommuner med status "Ferdig" (62 stk.) plasseres direkte i NVDB-kø fra STARTDATO.
 
-**Steg 2: Prioriteringskø per kontor.** Kommuner tildeles hjemmekontor basert på fylkestilhørighet (baseline — omfordeling utforskes i MIP). Innenfor hvert kontor sorteres kommuner etter:
+**Steg 2: Prioriteringskø per kontor.** Kommuner tildeles ansvarlig kartkontor basert på fylkestilhørighet (baseline — omfordeling utforskes i MIP). Innenfor hvert kontor sorteres kommuner etter:
 
 1. Låst på STARTDATO → plasseres sist
 2. Ikke-låste → størst først (flest gjenværende timer)
@@ -410,7 +410,7 @@ Regel 2 er en Longest Processing Time-heuristikk (Graham, 1969), som for paralle
 - Hvert kontor arbeider på første ikke-låste kommune i køen med daglig kapasitet $\kappa_j = K_j \cdot 37{,}5 \cdot (245/260) / 260$ timer (der $K_j$ er oppgitt kapasitet i ukesverk, 260 er antall mandag-fredag-dager per år, og 245/260-faktoren reflekterer at kontorene har ca. 245 effektive arbeidsdager pga ferieuttak — se 5.1.2). Når en kommune når 0 gjenværende timer, flyttes den til NVDB-køen.
 - Hvis dagen er etter NVDB-startdato, drenerer NVDB-køen med scenariets kapasitet (1 000 / 1 500 / 3 750 lenker/dag for hhv. Basis_85 / Middels_90 / Samferdsel_96 etter kalibrering mot samferdselsavdelingens tall, jf. 5.1.4).
 
-**Bevisste forenklinger.** Heuristikken modellerer ikke ferier/pauser, individuell effektivitet eller oppstartskostnad ved kommuneskifte. Hjemmekontor-tildelingen er status quo (baseline) — omfordeling er en kjernebeslutning som undersøkes i MIP. Prioritetskøen fastsettes én gang ved simuleringsstart og revurderes ikke når låseperioder utløper; dette er en bevisst myopisk forenkling som MIP-modellen ikke deler, fordi MIP ser over hele horisonten. NVDB-køen bygges i rekkefølgen kommunene blir ferdige på kartkontoret (FCFS) — store kommuner tar lengst tid og havner dermed implisitt bakerst i NVDB-overføringen. Samferdselsavdelingen kan teoretisk prioritere annerledes, men reell NVDB-rekkefølge er utenfor prosjektets omfang.
+**Bevisste forenklinger.** Heuristikken modellerer ikke ferier/pauser, individuell effektivitet eller oppstartskostnad ved kommuneskifte. Ansvarskontor-tildelingen er status quo (baseline) — omfordeling er en kjernebeslutning som undersøkes i MIP. Prioritetskøen fastsettes én gang ved simuleringsstart og revurderes ikke når låseperioder utløper; dette er en bevisst myopisk forenkling som MIP-modellen ikke deler, fordi MIP ser over hele horisonten. NVDB-køen bygges i rekkefølgen kommunene blir ferdige på kartkontoret (FCFS) — store kommuner tar lengst tid og havner dermed implisitt bakerst i NVDB-overføringen. Samferdselsavdelingen kan teoretisk prioritere annerledes, men reell NVDB-rekkefølge er utenfor prosjektets omfang.
 
 ## 6.2 MIP-formulering
 
@@ -494,12 +494,12 @@ Vi ønsker primært å minimere makespan $M = \sum_t Q_t$ (antall måneder før 
 
 For å finne en **realistisk** optimal plan brukes en leksikografisk målfunksjon som én-pass vektet sum:
 
-$$\min \; W_1 \cdot M + W_2 \cdot \sum_{i \in I} \sum_{t \in T} \tau_i (1 - z_{it}) + \sum_{i \in I} (1 - y_{i, \text{hjem}(i)})$$
+$$\min \; W_1 \cdot M + W_2 \cdot \sum_{i \in I} \sum_{t \in T} \tau_i (1 - z_{it}) + \sum_{i \in I} (1 - y_{i, \text{ans}(i)})$$
 
 der:
 - Første ledd (primær): makespan
 - Andre ledd (sekundær): sum av $\tau_i \times$ (antall måneder ikke ferdig) — straffer sen kartkontor-ferdigstilling
-- Tredje ledd (tertiær inertia): straffer omfordeling fra hjemmekontor — tie-breaker mot degenererte løsninger
+- Tredje ledd (tertiær inertia): straffer omfordeling fra ansvarlig kartkontor — tie-breaker mot degenererte løsninger
 
 Vektene $W_1 \approx 10^{10}$, $W_2 \approx 10^3$ sikrer at primær > sekundær > tertiær. Denne strukturen gir én solver-runde og unngår numeriske feil fra separate lex-opt-runder.
 
@@ -525,7 +525,7 @@ Heuristikken (`heuristikk.py`) og Monte Carlo-motoren (`monte_carlo.py`) er impl
 
 ## 7.1 MIP vs. heuristikk — makespan
 
-Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen over de tre NVDB-scenarioene. MIP-modellen bruker vektet målfunksjon med tre lex-nivåer: makespan, kartkontor-ferdigtid og inertia (bevar hjemmekontor ved like løsninger). Middels_90 og Samferdsel_96 løser *Optimal* innen henholdsvis 16 og 10 minutter; Basis_85 ender som *Not Solved* ved 30-minutters tidsgrense (faktisk kjøretid drøyt 38 minutter siden CBC fullfører gjeldende B&B-node etter timeout), men returnerer en gyldig IP-feasible løsning hvor makespan er big-M-koblet til Q-variablene og dermed robust (jf. 7.4). Forskjellen i status mellom scenarioene reflekterer at lavere NVDB-throughput gir lengre horisont (T = 144 vs 81 vs 33 måneder) og dermed flere variabler.
+Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen over de tre NVDB-scenarioene. MIP-modellen bruker vektet målfunksjon med tre lex-nivåer: makespan, kartkontor-ferdigtid og inertia (bevar ansvarskontor-tildelingen ved like løsninger). Middels_90 og Samferdsel_96 løser *Optimal* innen henholdsvis 16 og 10 minutter; Basis_85 ender som *Not Solved* ved 30-minutters tidsgrense (faktisk kjøretid drøyt 38 minutter siden CBC fullfører gjeldende B&B-node etter timeout), men returnerer en gyldig IP-feasible løsning hvor makespan er big-M-koblet til Q-variablene og dermed robust (jf. 7.4). Forskjellen i status mellom scenarioene reflekterer at lavere NVDB-throughput gir lengre horisont (T = 144 vs 81 vs 33 måneder) og dermed flere variabler.
 
 *Tabell 7.1 Makespan per metode og NVDB-scenario*
 
@@ -535,7 +535,7 @@ Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen 
 | Middels_90 | 6,72 | 6,75 | +0,03 (+0,4 %) | Optimal |
 | Samferdsel_96 | 2,69 | 2,75 | +0,06 (+2,2 %) | Optimal |
 
-Alle differansene er under 2,5 % og skyldes MIP-modellens månedlige tidsoppløsning (hver måned avrundes opp ved kollisjon med NVDB-drenering). I praksis gir de to metodene *tilnærmet identisk makespan*. Dette er et positivt funn: **MIP bekrefter at heuristikkens hjemmekontor-tildeling er nær-optimal for makespan**, snarere enn å gi en reell forbedring. MIP-modellens bidrag er altså todelt — den leverer en uavhengig verifikasjon av heuristikken, og den leverer en komprimert kartkontor-ferdigprofil via lex-opt-prioritet (se 7.2). Figur 14 visualiserer resultatene.
+Alle differansene er under 2,5 % og skyldes MIP-modellens månedlige tidsoppløsning (hver måned avrundes opp ved kollisjon med NVDB-drenering). I praksis gir de to metodene *tilnærmet identisk makespan*. Dette er et positivt funn: **MIP bekrefter at heuristikkens ansvarskontor-tildeling er nær-optimal for makespan**, snarere enn å gi en reell forbedring. MIP-modellens bidrag er altså todelt — den leverer en uavhengig verifikasjon av heuristikken, og den leverer en komprimert kartkontor-ferdigprofil via lex-opt-prioritet (se 7.2). Figur 14 visualiserer resultatene.
 
 ![Figur 14: Total varighet heuristikk vs MIP per NVDB-scenario](figurer/14_heuristikk_vs_mip.png)
 
@@ -567,11 +567,11 @@ Figur 10 viser kartkontorenes kumulative fremdrift over tid for baseline-heurist
 
 ## 7.3 Omfordeling mellom kontor
 
-MIP-modellen har full frihet til å reassigne kommuner mellom kartkontor, men inertia-tie-breakeren favoriserer hjemmekontor-tildeling i tilfeller hvor flere løsninger gir samme makespan. Resultatet (figur 16) viser at 27–71 kommuner flyttes avhengig av scenario, men disse er hovedsakelig tie-breakere for kartkontor-ferdigtid: ingen kommuner *må* omfordeles for å oppnå optimal makespan. Antallet varierer mellom 27 (Basis_85) og 71 (Samferdsel_96) på tvers av scenarioene; mønsteret reflekterer i hovedsak at vektet objektiv har flere likeverdige incumbenter, og CBC kan velge ulike kombinasjoner per scenario. Diagonalen dominerer i matrisen — kommuner blir i hovedsak værende på hjemmekontor — noe som bekrefter at status quo-tildelingen er nær-optimal. Det er verdt å merke at modellen regner omfordeling som "gratis" — den reelle organisatoriske kostnaden av at en kommune flyttes fra sitt geografiske fylkeskartkontor til et annet (arbeidskjennskap, kommunikasjon, kartverksprosesser) er ikke modellert og drøftes i 9.0.
+MIP-modellen har full frihet til å reassigne kommuner mellom kartkontor, men inertia-tie-breakeren favoriserer ansvarskontor-tildelingen i tilfeller hvor flere løsninger gir samme makespan. Resultatet (figur 16) viser at 27–71 kommuner flyttes avhengig av scenario, men disse er hovedsakelig tie-breakere for kartkontor-ferdigtid: ingen kommuner *må* omfordeles for å oppnå optimal makespan. Antallet varierer mellom 27 (Basis_85) og 71 (Samferdsel_96) på tvers av scenarioene; mønsteret reflekterer i hovedsak at vektet objektiv har flere likeverdige incumbenter, og CBC kan velge ulike kombinasjoner per scenario. Diagonalen dominerer i matrisen — kommuner blir i hovedsak værende på ansvarlig kartkontor — noe som bekrefter at status quo-tildelingen er nær-optimal. Det er verdt å merke at modellen regner omfordeling som "gratis" — den reelle organisatoriske kostnaden av at en kommune flyttes fra sitt geografiske fylkeskartkontor til et annet (arbeidskjennskap, kommunikasjon, kartverksprosesser) er ikke modellert og drøftes i 9.0.
 
-![Figur 16: Omfordeling hjemmekontor til MIP-kontor for Middels_90](figurer/16_omfordeling_matrise.png)
+![Figur 16: Omfordeling fra ansvarlig kartkontor til MIP-kontor for Middels_90](figurer/16_omfordeling_matrise.png)
 
-*Figur 16 Omfordeling hjemmekontor til MIP-kontor for Middels_90*
+*Figur 16 Omfordeling fra ansvarlig kartkontor til MIP-kontor for Middels_90*
 
 ## 7.4 Kapasitets-sensitivitet
 
@@ -601,7 +601,7 @@ Antallet omfordelte kommuner varierer mellom variantene (figur 19), noe som refl
 
 ## 7.5 Usikkerhetsanalyse
 
-Monte Carlo-simuleringen (500 iterasjoner per scenario × tre stokastiske kilder) kjøres både med heuristikkens hjemmekontor-tildeling og med MIP-ens optimerte tildeling som fast plan. Totalvarighet-båndene er overlappende og nær identiske (tabell 7.2). For Basis_85 og Middels_90 gir de to planene *identiske* percentiler (P5 / P50 / P95). For Samferdsel_96 er P5 marginalt bedre på MIP-planen (1,10 år vs 1,38), mens P50 og P95 er like. Dette viser at de to tildelingsregimene er omtrent likeverdige når det gjelder robusthet mot modellens stokastiske kilder, siden NVDB-overføringen dominerer varigheten i alle iterasjoner. Kartkontor-fasen blir derimot merkbart raskere på MIP-planen (P50 kartkontor-varighet 445–452 dager mot heuristikkens 510 dager) — en konsekvens av MIPens mer aktive omfordeling. Denne forskjellen er skjult i total varighet fordi NVDB-slakken absorberer den, men er reell fra et organisatorisk synspunkt.
+Monte Carlo-simuleringen (500 iterasjoner per scenario × tre stokastiske kilder) kjøres både med heuristikkens ansvarskontor-tildeling og med MIP-ens optimerte tildeling som fast plan. Totalvarighet-båndene er overlappende og nær identiske (tabell 7.2). For Basis_85 og Middels_90 gir de to planene *identiske* percentiler (P5 / P50 / P95). For Samferdsel_96 er P5 marginalt bedre på MIP-planen (1,10 år vs 1,38), mens P50 og P95 er like. Dette viser at de to tildelingsregimene er omtrent likeverdige når det gjelder robusthet mot modellens stokastiske kilder, siden NVDB-overføringen dominerer varigheten i alle iterasjoner. Kartkontor-fasen blir derimot merkbart raskere på MIP-planen (P50 kartkontor-varighet 445–452 dager mot heuristikkens 510 dager) — en konsekvens av MIPens mer aktive omfordeling. Denne forskjellen er skjult i total varighet fordi NVDB-slakken absorberer den, men er reell fra et organisatorisk synspunkt.
 
 *Tabell 7.2 Usikkerhetsbånd totalvarighet (P5 / P50 / P95, år) – MIP-plan og heuristikk-plan*
 
@@ -645,7 +645,7 @@ Den hybride løsningsmetoden (regelbasert heuristikk + MIP-verifikasjon + Monte 
    - Middels_90: 3,25 / 6,67 / 9,91 år
    - Samferdsel_96: 1,38 / 2,36 / 5,88 år
 
-3. **Omfordeling mellom kartkontor:** gir *ingen* forbedring i total makespan i noen av de tre NVDB-scenarioene. MIP-modellen bekrefter at heuristikkens hjemmekontor-tildeling er nær-optimal (innenfor 2,2 % av MIP-ens løsning, forskjellen skyldes tidsoppløsning, ikke assignment). **MIP-modellens bidrag er å verifisere heuristikken og komprimere kartkontor-ferdigprofilen**, ikke å redusere totalvarighet.
+3. **Omfordeling mellom kartkontor:** gir *ingen* forbedring i total makespan i noen av de tre NVDB-scenarioene. MIP-modellen bekrefter at heuristikkens ansvarskontor-tildeling er nær-optimal (innenfor 2,2 % av MIP-ens løsning, forskjellen skyldes tidsoppløsning, ikke assignment). **MIP-modellens bidrag er å verifisere heuristikken og komprimere kartkontor-ferdigprofilen**, ikke å redusere totalvarighet.
 
 4. **Kartkontor-ferdigstilling:** alt kartkontor-arbeid fullføres innen 10–17 måneder i alle scenarioer (MIP 10–11 mnd, heuristikk opp til 16,5). Kartkontorene er ikke flaskehalsen.
 
@@ -728,7 +728,7 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at 
 
 ## 9.5 Modellens begrensninger for sensoren
 
-**MIP som "forbedring" — nyansert.** MIP er marginalt verre enn heuristikken på makespan (+0,4–2,2 %) pga. månedlig vs. daglig tidsoppløsning. Den riktige tolkningen er at MIP leverer to andre verdier: (i) *uavhengig verifikasjon* av at heuristikkens hjemmekontor-tildeling er nær-optimal — et sterkt validitetssignal når to ulike metoder konvergerer, og (ii) *komprimert kartkontor-ferdigprofil* — MIP-planen gir kartkontor-fasen ferdig ~2 måneder før heuristikken (P50 Monte Carlo: 445–452 dager vs 510). Ingen av disse reduserer totalvarigheten, men begge har organisatorisk verdi.
+**MIP som "forbedring" — nyansert.** MIP er marginalt verre enn heuristikken på makespan (+0,4–2,2 %) pga. månedlig vs. daglig tidsoppløsning. Den riktige tolkningen er at MIP leverer to andre verdier: (i) *uavhengig verifikasjon* av at heuristikkens ansvarskontor-tildeling er nær-optimal — et sterkt validitetssignal når to ulike metoder konvergerer, og (ii) *komprimert kartkontor-ferdigprofil* — MIP-planen gir kartkontor-fasen ferdig ~2 måneder før heuristikken (P50 Monte Carlo: 445–452 dager vs 510). Ingen av disse reduserer totalvarigheten, men begge har organisatorisk verdi.
 
 **Kapasitets-sensitivitetens lave kontrast.** Den deterministiske kapasitets-sensitiviteten (S0–S5) viser identisk makespan på tvers av alle seks varianter. Kartkontor-ferdigtiden er også stabil (10–11 måneder i S0–S4, 14 måneder i S5 med halvert kapasitet), fordi Geovekst-låseperiodene tvinger kontorene til ufrivillig slakk på 152 kommuner i deler av 2026. Denne slakken absorberer kapasitetskuttet og holder kartkontor-fasen kort. For Kartverket betyr dette at dagens plan er *mer* robust mot kapasitetsreduksjon enn man umiddelbart skulle tro ut fra ukesverk-tallene alene.
 

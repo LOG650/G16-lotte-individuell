@@ -77,8 +77,9 @@ def juster_kapasitet(kontorer_df, endring):
 
 def lagre_tidsplan(data, losning, filnavn):
     # Ved Not Solved-timeout kan enkelte kommuner ha fraksjonelle y-verdier
-    # (ingen y > 0,5); disse faller tilbake til hjemmekontor og telles ikke
-    # som omfordelt, konsistent med Monte Carlo-tolkningen.
+    # (ingen y > 0,5); disse faller tilbake til ansvarlig kartkontor og telles
+    # ikke som omfordelt, konsistent med Monte Carlo-tolkningen.
+    # NB: CSV-kolonnen heter fortsatt 'Hjemmekontor' (utsatt rerun, se CLAUDE.md).
     rader = []
     for a in data['aktive']:
         kn = a['KomNr']
@@ -152,7 +153,7 @@ def main():
 
             los = ekstraher_loesning(prob, data)
             # Kommuner uten y > 0,5 (Not Solved-fraksjonelle) faller tilbake
-            # til hjemmekontor og telles ikke som omfordelt.
+            # til ansvarlig kartkontor og telles ikke som omfordelt.
             n_reassigned = sum(
                 1 for a in data['aktive']
                 if (los['assignment'].get(a['KomNr']) or a['Hjemmekontor']) != a['Hjemmekontor']

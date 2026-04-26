@@ -4,7 +4,7 @@ Spor: hvor robust er kommune-rekkefolgen?
 - Heuristikk vs MIP
 - Pa tvers av 3 NVDB-scenarioer
 - Per kontor: hvilke kommuner gar alltid forst/sist?
-- Effekt av storrelse, lasing, hjemmekontor-tilhorighet?
+- Effekt av storrelse, lasing, ansvarlig-kartkontor-tilhorighet?
 """
 
 import sys

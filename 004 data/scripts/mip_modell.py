@@ -361,7 +361,7 @@ def solve_vektet(prob, data, tidsgrense=SOLVER_TIDSGRENSE_SEK, gap=MIP_GAP, msg=
     Prioritering:
       1. makespan (W1 dominerer)
       2. kartkontor-ferdigtid tidlig (W2 dominerer inertia)
-      3. inertia: behold hjemmekontor ved like objektiv
+      3. inertia: behold ansvarlig kartkontor ved like objektiv
 
     w2_scale multipliserer W2. Verdi < 1 svekker kartkontor-ferdigtid-prioritet
     og gir mer vekt til inertia. Brukes til aa undersoke om faerre omfordelinger
@@ -568,8 +568,9 @@ def lagre_tidsplan(data, losning, mode='lex'):
     rader = []
     # Aktive kommuner (med MIP-assignment).
     # Ved Not Solved-timeout kan enkelte kommuner ha fraksjonelle y-verdier
-    # (ingen y > 0,5); disse faller tilbake til hjemmekontor og telles ikke
-    # som omfordelt, konsistent med Monte Carlo-tolkningen.
+    # (ingen y > 0,5); disse faller tilbake til ansvarlig kartkontor og telles
+    # ikke som omfordelt, konsistent med Monte Carlo-tolkningen.
+    # NB: CSV-kolonnen heter fortsatt 'Hjemmekontor' (utsatt rerun, se CLAUDE.md).
     for a in data['aktive']:
         kn = a['KomNr']
         kk_mnd = losning['ferdig_kk'].get(kn)
@@ -696,7 +697,7 @@ def main():
         print(f'  Makespan (mnd): {losning["makespan_mnd"]}')
         print(f'  Makespan (aar): {losning["makespan_mnd"] / 12:.2f}')
         # Kommuner uten y > 0,5 (Not Solved-fraksjonelle) faller tilbake til
-        # hjemmekontor og telles ikke som omfordelt. Konsistent med
+        # ansvarlig kartkontor og telles ikke som omfordelt. Konsistent med
         # lagre_tidsplan og monte_carlo_mip-tolkningen.
         n_reassigned = sum(
             1 for a in data['aktive']

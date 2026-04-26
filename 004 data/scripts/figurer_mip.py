@@ -4,7 +4,7 @@ Figurer for MIP-modellering (Bolk E).
 Produserer figurer 14-19 i 005 report/figurer/.
   14 heuristikk_vs_mip.png      - makespan sammenligning per scenario
   15 kartkontor_ferdig.png      - fordeling av kartkontor-ferdigtid, heur vs MIP
-  16 omfordeling_matrise.png    - heatmap hjemmekontor -> MIP-kontor
+  16 omfordeling_matrise.png    - heatmap ansvarlig kartkontor -> MIP-kontor
   17 fanchart_mip.png           - kumulativ NVDB med MC-baand for MIP-plan
   18 kapasitet_sensitivitet.png - makespan per kapasitetsvariant (Bolk B)
   19 omfordeling_varianter.png  - antall omfordelte per variant
@@ -127,8 +127,8 @@ def fig16_omfordeling_matrise(scenario='Middels_90'):
     ax.set_yticks(range(len(ordre)))
     ax.set_yticklabels(ordre)
     ax.set_xlabel('MIP-kontor')
-    ax.set_ylabel('Hjemmekontor')
-    ax.set_title(f'Omfordeling hjemmekontor → MIP-kontor ({scenario})')
+    ax.set_ylabel('Ansvarlig kartkontor')
+    ax.set_title(f'Omfordeling fra ansvarlig kartkontor → MIP-kontor ({scenario})')
     for i in range(len(ordre)):
         for j in range(len(ordre)):
             v = matrise.values[i, j]
