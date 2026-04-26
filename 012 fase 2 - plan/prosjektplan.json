@@ -154,7 +154,7 @@
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
       "status": "Pågående",
-      "fremdrift_prosent": 97,
+      "fremdrift_prosent": 85,
       "oppgaver": [
         {
           "id": 15,
@@ -164,7 +164,8 @@
           "varighet_dager": 3,
           "predecessors": [],
           "status": "Pågående",
-          "fremdrift_prosent": 50
+          "fremdrift_prosent": 50,
+          "kommentar": "Innledning 1.0 har utkast (problemstilling, delproblemer, avgrensninger, antagelser). Sammendrag og Abstract er fortsatt tomme — skal skrives før hovedutkast 2026-04-29."
         },
         {
           "id": 16,
@@ -176,7 +177,8 @@
             15
           ],
           "status": "Pågående",
-          "fremdrift_prosent": 30
+          "fremdrift_prosent": 30,
+          "kommentar": "Litteraturkapittel 2.0 ferdig med 6 referanser i APA 7 (Pinedo, Hartmann/Briskorn, Puchinger/Raidl, Vose, Efron/Tibshirani, Graham). Teori-kapittel 3.0 gjenstår — utkast skal skrives før hovedutkast 2026-04-29."
         },
         {
           "id": 17,
