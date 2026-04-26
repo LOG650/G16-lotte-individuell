@@ -760,7 +760,7 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at 
 
 **Kapasitets-sensitivitetens lave kontrast.** Den deterministiske kapasitets-sensitiviteten (S0–S5) viser identisk makespan på tvers av alle seks varianter. Kartkontor-ferdigtiden er også stabil (10–11 måneder i S0–S4, 14 måneder i S5 med halvert kapasitet), fordi Geovekst-låseperiodene tvinger kontorene til ufrivillig slakk på 152 kommuner i deler av 2026. Denne slakken absorberer kapasitetskuttet og holder kartkontor-fasen kort. For Kartverket betyr dette at dagens plan er *mer* robust mot kapasitetsreduksjon enn man umiddelbart skulle tro ut fra ukesverk-tallene alene.
 
-**CBC-solver på grensen for hardeste varianter.** Av de 18 kapasitets-kjøringene løser 9 *Optimal* innen 30-minuttersgrensen (Middels_90/Samferdsel_96 for S0, S1 og S3, alle tre for S2, og Basis_85 for S4); de resterende 9 ender som *Not Solved*. Makespan-tallene er robuste (big-M-gated til NVDB-drenering og styres av Q-variablene), men omfordelings- og kartkontor-ferdigtall for Not Solved-variantene er IP-feasible incumbenter uten bevist optimalitet. S5_Alle_minus50 rapporterer kartkontor-ferdigmåned 14 mot matematisk minimum 14,4 — plausibelt, men bør leses som nær-optimalt ved timeout, ikke bevist løsning.
+**CBC-solver på grensen for hardeste varianter.** Av de 18 kapasitets-kjøringene løser 9 *Optimal* innen 30-minuttersgrensen (Middels_90/Samferdsel_96 for S0 og S3, Middels_90 for S1, alle tre for S2, og Basis_85 for S4); de resterende 9 ender som *Not Solved*. Makespan-tallene er robuste (big-M-gated til NVDB-drenering og styres av Q-variablene), men omfordelings- og kartkontor-ferdigtall for Not Solved-variantene er IP-feasible incumbenter uten bevist optimalitet. S5_Alle_minus50 rapporterer kartkontor-ferdigmåned 14 mot matematisk minimum 14,4 — plausibelt, men bør leses som nær-optimalt ved timeout, ikke bevist løsning.
 
 **Validering mot ferdige kommuner.** Kartverket registrerer ikke faktisk tidsbruk per kommune ved TVS-kvalitetsheving, og tidbruk-formelen er derfor ikke validert mot ground truth (jf. 9.2). Et oppfølgingstiltak ville være å registrere tidsbruk for de gjenstående 295 kommunene slik at modellen kan kalibreres underveis.
 
@@ -768,11 +768,12 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at 
 
 **Oppfølgings-anbefalinger til Kartverket:**
 
-1. **Invester i FME-automasjon.** Å øke automasjonsgraden fra 85 % til 90 % reduserer varigheten fra 10 til 6,7 år (33 % raskere). Videre til 96 % halverer igjen.
-2. **Øk NVDB-bemanningen utover 0,5 årsverk.** Dette er det enkleste grep for å redusere varigheten proporsjonalt. 1,0 årsverk halverer tiden.
-3. **Behold geografisk kartkontor-tildeling.** MIP viser at omfordeling ikke er nødvendig. Spar organisatorisk kostnad ved å ikke flytte kommuner mellom kontor.
-4. **Forbered for kapasitetsvariasjon.** Figur 19 viser MIP-modellens anbefalte omfordelinger dersom et kontor mister kapasitet. Dette kan brukes som beredskapsplan.
-5. **Registrer faktisk tidsbruk per kommune.** Modellen er i dag kalibrert på 58 kartbladmålinger — ikke på kommunenivå — og cherry-picking-funnet i 9.2 viser at de 62 ferdige kommunene ikke er representative for resten. Kontinuerlig tidsregistrering for de 295 gjenstående vil gi grunnlag for underveis-kalibrering og tidligst mulig deteksjon av om formelen underestimerer reell belastning.
+1. **Invester i FME-automasjon.** Å øke automasjonsgraden fra 85 % til 90 % reduserer varigheten fra 10 til 6,7 år (33 % raskere). Videre til 96 % mer enn halverer igjen (6,7 → 2,7 år).
+2. **Grundigere kvalitetsheving ved kartkontorene reduserer manuell NVDB-belastning.** Hvert ikke-gjenfinnbart objekt, topologi-feil eller attributtfeil som ryddes opp før klarmelding, blir et objekt færre i samferdselsavdelingens manuelle kø. Kartkontorenes innsats påvirker dermed ikke bare deres egen fase, men også den nedstrøms flaskehalsen. Det er en parallell vei til høyere effektiv automasjonsgrad: å gi FME renere input snarere enn å forbedre selve algoritmen.
+3. **Øk NVDB-bemanningen utover 0,5 årsverk.** Dette er det enkleste grep for å redusere varigheten proporsjonalt. 1,0 årsverk halverer tiden.
+4. **Behold geografisk kartkontor-tildeling.** MIP viser at omfordeling ikke er nødvendig. Spar organisatorisk kostnad ved å ikke flytte kommuner mellom kontor.
+5. **Forbered for kapasitetsvariasjon.** Figur 19 viser MIP-modellens anbefalte omfordelinger dersom et kontor mister kapasitet. Dette kan brukes som beredskapsplan.
+6. **Registrer faktisk tidsbruk per kommune.** Modellen er i dag kalibrert på 58 kartbladmålinger — ikke på kommunenivå — og cherry-picking-funnet i 9.2 viser at de 62 ferdige kommunene ikke er representative for resten. Kontinuerlig tidsregistrering for de 295 gjenstående vil gi grunnlag for underveis-kalibrering og tidligst mulig deteksjon av om formelen underestimerer reell belastning.
 
 **Modellen som beslutningsstøtte.** Den hybride tilnærmingen gir Kartverket tre ulike lesninger av problemet: heuristikken som tolkbar basisprognose, MIP-modellen som matematisk verifikasjon og beredskapsverktøy, og Monte Carlo som risikokvantifisering. Modelleringsrammen er gjenkjennbar i andre Kartverk-prosjekter med lignende struktur (ressursallokering + tidsvinduer + sekvensielle avhengigheter).
 
