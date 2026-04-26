@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-25T01:00"
+    "sist_oppdatert": "2026-04-26T09:30"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -85,7 +85,9 @@
           "startdato": "2026-03-04",
           "sluttdato": "2026-03-04",
           "varighet_dager": 1,
-          "predecessors": [6],
+          "predecessors": [
+            6
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100
         },
@@ -95,7 +97,9 @@
           "startdato": "2026-03-05",
           "sluttdato": "2026-03-05",
           "varighet_dager": 1,
-          "predecessors": [7],
+          "predecessors": [
+            7
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100
         },
@@ -105,7 +109,9 @@
           "startdato": "2026-03-06",
           "sluttdato": "2026-03-09",
           "varighet_dager": 2,
-          "predecessors": [8],
+          "predecessors": [
+            8
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100
         },
@@ -115,7 +121,9 @@
           "startdato": "2026-03-10",
           "sluttdato": "2026-03-16",
           "varighet_dager": 5,
-          "predecessors": [9],
+          "predecessors": [
+            9
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100
         },
@@ -125,7 +133,9 @@
           "startdato": "2026-03-17",
           "sluttdato": "2026-03-19",
           "varighet_dager": 3,
-          "predecessors": [10],
+          "predecessors": [
+            10
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100
         }
@@ -144,7 +154,7 @@
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
       "status": "Pågående",
-      "fremdrift_prosent": 95,
+      "fremdrift_prosent": 97,
       "oppgaver": [
         {
           "id": 15,
@@ -162,7 +172,9 @@
           "startdato": "2026-03-19",
           "sluttdato": "2026-03-25",
           "varighet_dager": 5,
-          "predecessors": [15],
+          "predecessors": [
+            15
+          ],
           "status": "Pågående",
           "fremdrift_prosent": 30
         },
@@ -172,7 +184,9 @@
           "startdato": "2026-03-26",
           "sluttdato": "2026-04-03",
           "varighet_dager": 7,
-          "predecessors": [16],
+          "predecessors": [
+            16
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100,
           "kommentar": "Datagrunnlaget komplett: master_kommuner.csv, kapasitet_kontorer.csv, geovekst_prosjekter.csv og nvdb_overfoering.csv produsert"
@@ -183,7 +197,9 @@
           "startdato": "2026-04-06",
           "sluttdato": "2026-04-14",
           "varighet_dager": 7,
-          "predecessors": [17],
+          "predecessors": [
+            17
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100,
           "kommentar": "Heuristikk, Monte Carlo og MIP-modell komplett. MIP i PuLP/CBC med vektet målfunksjon (makespan + kartkontor-ferdig + inertia). Alle 3 NVDB-scenarioer løst optimalt. Kapasitet-sensitivitet for 6 varianter (S0-S5) × 3 scenarioer = 18 MIP-kjøringer. Post-260-fiks (2026-04-23): 6/18 Optimal, 12/18 Not Solved pga økt solverkompleksitet ved lavere kapasitet. Makespan fortsatt identisk på tvers av alle varianter (NVDB dominerer). Monte Carlo på MIP-plan gir nå identiske percentiler med heuristikk-MC for Basis_85 (6,46/10,01/13,28); tidligere observert gap var artefakt av 260/230-overbruket. Rapport-seksjon 6.0 Modellering skrevet."
@@ -194,10 +210,12 @@
           "startdato": "2026-04-15",
           "sluttdato": "2026-04-21",
           "varighet_dager": 5,
-          "predecessors": [18],
+          "predecessors": [
+            18
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100,
-          "kommentar": "Rapport-seksjon 5.0 Metode og data, 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21). Post-260-fiks (2026-04-23): alle modeller og MC rekjørt etter review-funn 2.1; makespan uendret (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år), omfordelinger økt (97/76/54 fra 36/38/39), MC P95 Basis_85 11,98→13,28 år. Sensitivitet: makespan identisk på tvers av 6 varianter, kartkontor 10-13 mnd i alle. Review-funn fra modellering- og tidbruk-review innarbeidet i 5.1, 5.2, 6.1, 6.2.5 (FIFO-post-processing) og 11.0 (Graham 1969, APA 7)."
+          "kommentar": "Rapport-seksjon 5.0 Metode og data, 6.0 Modellering, 7.0 Analyse og 8.0 Resultat utkastet ferdig. 5 MIP-figurer (14-16, 18-19) produsert. Kalibrering mot samferdselsavdelingens tall (2026-04-20/21). Post-260-fiks (2026-04-23): alle modeller og MC rekjørt etter review-funn 2.1; makespan uendret (Basis_85 10,17 / Middels_90 6,75 / Samferdsel_96 2,75 år), omfordelinger økt (97/76/54 fra 36/38/39), MC P95 Basis_85 11,98→13,28 år. Sensitivitet: makespan identisk på tvers av 6 varianter, kartkontor 10-13 mnd i alle. Review-funn fra modellering- og tidbruk-review innarbeidet i 5.1, 5.2, 6.1, 6.2.5 (FIFO-post-processing) og 11.0 (Graham 1969, APA 7). Etter uavhengig review 2026-04-25/26: 7 review-punkter rettet (1,36→1,38, Pareto 30%→54%, Kapasitet_Ukesverk-definisjon, S5 13→14, m.fl.). Phantom-omfordelingsfix i mip_modell.py og mip_kapasitet_sensitivitet.py — kommuner uten klar y-tildeling ved Not Solved-timeout falt feilaktig som omfordelt; 8 av 18 sensitivitet-varianter korrigert. MIP_GAP strammet 0,05→0,001, full rerun gjennomført. 7 manglende figurer (7-13) lagt til i 7.1-7.5 med ledsagende prosa. Bibliografi-typo Graham «multiprocessing»→«multiprocessor» rettet. Bibetingelse (12) Q-monotoni nummerert eksplisitt i 6.2.3."
         },
         {
           "id": 20,
@@ -205,10 +223,25 @@
           "startdato": "2026-04-22",
           "sluttdato": "2026-04-24",
           "varighet_dager": 3,
-          "predecessors": [19],
+          "predecessors": [
+            19
+          ],
           "status": "Ferdig",
           "fremdrift_prosent": 100,
           "kommentar": "Rapport-seksjon 9.0 Diskusjon komplett med alle seks underavsnitt (9.1 hovedbudskap, 9.2 tidbruk-formelens identifiserbarhet, 9.3 hva modellen ikke fanger, 9.4 usikkerhetsanalysens antagelser, 9.5 modellens begrensninger for sensoren, 9.6 praktiske implikasjoner). Ni review-funn fra modellering- og tidbruk-review innarbeidet. Helhetsgjennomlesing av 5.0+9.0 fullført (commit bfc745b)."
+        },
+        {
+          "id": 22,
+          "navn": "Kvalitetssikring etter uavhengig review",
+          "startdato": "2026-04-25",
+          "sluttdato": "2026-04-26",
+          "varighet_dager": 2,
+          "predecessors": [
+            20
+          ],
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Sanity-check-skript (sanity_check_data.py, sanity_check_mip.py) lagt til som varig infrastruktur. Datavask-typo i LACIVL03 (Bergen-rådata «mars 2006» trolig «mars 2026») flagget — modellen er korrekt fordi låsen ville være utløpt uansett. vask_og_strukturer.py har nå advarsel for Laaseperiode_Start>Slutt. Heuristikk og MC-skript verifisert: ingen latente bugs, full reproducerbarhet (bytewise identisk output ved gjenkjøring). MIP-bibetingelser sjekket mot tidsplan-CSV (1 kosmetisk anomali — Sykkylven Ferdigdato_Kartkontor_Mnd=1 i Samferdsel_96 — dokumentert)."
         },
         {
           "id": 21,
@@ -216,7 +249,9 @@
           "startdato": "2026-04-30",
           "sluttdato": "2026-05-05",
           "varighet_dager": 4,
-          "predecessors": [20],
+          "predecessors": [
+            20
+          ],
           "status": "Ikke startet",
           "fremdrift_prosent": 0,
           "kommentar": "Medstudenter leser hovedutkastet levert kvelden 2026-04-29. Tilbakemeldinger bearbeides i fase 4."
@@ -254,7 +289,9 @@
           "startdato": "2026-05-06",
           "sluttdato": "2026-05-14",
           "varighet_dager": 7,
-          "predecessors": [25],
+          "predecessors": [
+            25
+          ],
           "status": "Ikke startet",
           "fremdrift_prosent": 0
         },
@@ -264,7 +301,9 @@
           "startdato": "2026-05-15",
           "sluttdato": "2026-05-28",
           "varighet_dager": 10,
-          "predecessors": [26],
+          "predecessors": [
+            26
+          ],
           "status": "Ikke startet",
           "fremdrift_prosent": 0
         },
@@ -274,7 +313,9 @@
           "startdato": "2026-05-29",
           "sluttdato": "2026-05-29",
           "varighet_dager": 1,
-          "predecessors": [27],
+          "predecessors": [
+            27
+          ],
           "status": "Ikke startet",
           "fremdrift_prosent": 0
         }
@@ -288,10 +329,26 @@
     }
   ],
   "milepaeler": [
-    {"navn": "Godkjent proposal", "dato": "2026-02-16", "status": "Ferdig"},
-    {"navn": "Godkjent prosjektplan og Gantt", "dato": "2026-03-16", "status": "Ferdig"},
-    {"navn": "Levert hovedutkast til review", "dato": "2026-04-29", "status": "Ikke startet"},
-    {"navn": "Innlevert rapport", "dato": "2026-06-01", "status": "Ikke startet"}
+    {
+      "navn": "Godkjent proposal",
+      "dato": "2026-02-16",
+      "status": "Ferdig"
+    },
+    {
+      "navn": "Godkjent prosjektplan og Gantt",
+      "dato": "2026-03-16",
+      "status": "Ferdig"
+    },
+    {
+      "navn": "Levert hovedutkast til review",
+      "dato": "2026-04-29",
+      "status": "Ikke startet"
+    },
+    {
+      "navn": "Innlevert rapport",
+      "dato": "2026-06-01",
+      "status": "Ikke startet"
+    }
   ],
   "kritisk_linje": [
     "Planleggingsleveranse",
@@ -436,27 +493,115 @@
     ]
   },
   "leveranser": [
-    {"fil": "011 fase 1 - proposal/proposal.md", "fase": 1, "status": "Ferdig"},
-    {"fil": "012 fase 2 - plan/prosjektstyringsplan_utfylt.md", "fase": 2, "status": "Ferdig"},
-    {"fil": "012 fase 2 - plan/Gannt.pdf", "fase": 2, "status": "Ferdig"},
-    {"fil": "012 fase 2 - plan/prosjektplan.json", "fase": 2, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/master_kommuner.csv", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/kapasitet_kontorer.csv", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/geovekst_prosjekter.csv", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/nvdb_overfoering.csv", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/tidbruk_kalibrering.csv", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/tidbruk_konstanter.csv", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/tidsplan_<scenario>.csv (3 filer)", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/oppsummering_scenarioer.csv", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/processed_data/monte_carlo_*.csv (4 filer)", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/scripts/vask_og_strukturer.py", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/scripts/heuristikk.py", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/scripts/monte_carlo.py", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/scripts/figurer.py", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/scripts/figurer_resultater.py", "fase": 3, "status": "Ferdig"},
-    {"fil": "004 data/scripts/figurer_usikkerhet.py", "fase": 3, "status": "Ferdig"},
-    {"fil": "005 report/figurer/ (13 PNG-figurer)", "fase": 3, "status": "Ferdig"},
-    {"fil": "005 report/rapport.md", "fase": 3, "status": "Pågående"},
-    {"fil": "MIP-modell (PuLP)", "fase": 3, "status": "Avventer samferdselsavdelingens svar"}
+    {
+      "fil": "011 fase 1 - proposal/proposal.md",
+      "fase": 1,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "012 fase 2 - plan/prosjektstyringsplan_utfylt.md",
+      "fase": 2,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "012 fase 2 - plan/Gannt.pdf",
+      "fase": 2,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "012 fase 2 - plan/prosjektplan.json",
+      "fase": 2,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/master_kommuner.csv",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/kapasitet_kontorer.csv",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/geovekst_prosjekter.csv",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/nvdb_overfoering.csv",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/tidbruk_kalibrering.csv",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/tidbruk_konstanter.csv",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/tidsplan_<scenario>.csv (3 filer)",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/oppsummering_scenarioer.csv",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/processed_data/monte_carlo_*.csv (4 filer)",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/scripts/vask_og_strukturer.py",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/scripts/heuristikk.py",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/scripts/monte_carlo.py",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/scripts/figurer.py",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/scripts/figurer_resultater.py",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "004 data/scripts/figurer_usikkerhet.py",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "005 report/figurer/ (13 PNG-figurer)",
+      "fase": 3,
+      "status": "Ferdig"
+    },
+    {
+      "fil": "005 report/rapport.md",
+      "fase": 3,
+      "status": "Pågående"
+    },
+    {
+      "fil": "MIP-modell (PuLP)",
+      "fase": 3,
+      "status": "Avventer samferdselsavdelingens svar"
+    }
   ]
 }

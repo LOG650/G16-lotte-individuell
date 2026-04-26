@@ -58,23 +58,37 @@ G16-lotte-individuell/
 │   │   ├── tidsplan_<scenario>_skala<X>.csv            (jobb #1, 6 filer)
 │   │   ├── monte_carlo_automasjon_summary.csv          (jobb #2, 2026-04-23)
 │   │   ├── monte_carlo_automasjon_varigheter.csv       (jobb #2, 2026-04-23)
+│   │   ├── tidsplan_mip_vektet_<scenario>.csv          (MIP-output, Bolk A)
+│   │   ├── oppsummering_mip_vektet.csv                 (MIP per-scenario sammendrag)
+│   │   ├── sammenligning_heuristikk_mip_vektet.csv     (heuristikk vs MIP)
+│   │   ├── mip_sensitivitet_<variant>_<scenario>.csv   (Bolk B, 18 filer)
+│   │   ├── oppsummering_sensitivitet.csv               (Bolk B sammendrag)
+│   │   ├── monte_carlo_mip_*.csv                       (Bolk D, summary/varigheter/per_kommune/ko_percentiles)
 │   │   ├── arkiv_pre_kalibrering/         (utdaterte MIP-CSV fra pre-kalibrering 2026-04-19)
-│   │   └── arkiv_pre_230_fiks/            (42 resultat-CSV fra før 260-fiks 2026-04-23)
+│   │   ├── arkiv_pre_230_fiks/            (42 resultat-CSV fra før 260-fiks 2026-04-23)
+│   │   └── arkiv_pre_245_fiks/            (53 resultat-CSV fra før 245-fiks 2026-04-24)
 │   ├── scripts/
 │   │   ├── vask_og_strukturer.py    ← Hovedscript for datavask
 │   │   ├── heuristikk.py            ← Regelbasert baseline-simulering
 │   │   ├── monte_carlo.py           ← Usikkerhetsanalyse (500 iter × 3 scenarioer)
+│   │   ├── mip_modell.py            ← MILP-modell (PuLP/CBC) for Bolk A
+│   │   ├── mip_kapasitet_sensitivitet.py ← Kapasitets-sensitivitet (Bolk B)
+│   │   ├── monte_carlo_mip.py       ← Monte Carlo på MIP-tildeling (Bolk D)
 │   │   ├── heuristikk_tidbruk_sensitivitet.py  ← Tidbruk-skalering (jobb #1)
 │   │   ├── monte_carlo_tidbruk_sensitivitet.py ← Tidbruk-skalering MC (jobb #1)
 │   │   ├── monte_carlo_automasjon_sensitivitet.py ← AUTOMASJON_STD-sensitivitet (jobb #2)
 │   │   ├── figurer.py               ← Genererer deskriptive figurer (1-6)
 │   │   ├── figurer_resultater.py    ← Resultatfigurer fra heuristikk (7-10)
+│   │   ├── figurer_usikkerhet.py    ← Usikkerhetsfigurer fra MC (11-13)
+│   │   ├── figurer_mip.py           ← MIP-figurer (14-19, 17 reservert)
+│   │   ├── sanity_check_data.py     ← Datavask-integritetsjekk (lagt til 2026-04-25)
+│   │   ├── sanity_check_mip.py      ← MIP-bibetingelse-sjekk mot tidsplan (lagt til 2026-04-25)
 │   │   ├── generer_status.py        ← Genererer STATUS.md fra prosjektplan.json
 │   │   └── generer_master_data.py   ← Eldre script (referanse)
 │   └── generer_excel_med_faner.py   ← Datainnsamlingsmal
 ├── 005 report/
-│   ├── rapport.md                   ← Rapport (seksjon 4 og 5.2 utkast ferdig)
-│   └── figurer/                     ← PNG-figurer (1-10)
+│   ├── rapport.md                   ← Rapport (1.0-9.0 utkast ferdig; 1.4-9.6 polert; 10.0/12.0/sammendrag/abstract gjenstår)
+│   └── figurer/                     ← PNG-figurer (1-19, 17 droppet)
 ├── 011 fase 1 - proposal/
 │   └── proposal.md                  ← Godkjent proposal
 ├── 012 fase 2 - plan/
