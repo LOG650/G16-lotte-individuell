@@ -165,7 +165,33 @@ Efron og Tibshirani (1993) presenterer bootstrap-metoden som en statistisk tekni
 
 # 3.0 Teori
 
+Kapittel 2 listet sentrale verk som danner det metodiske grunnlaget for analysen. Dette kapittelet utdyper de teoretiske konseptene fra disse verkene og knytter dem til problemstillingen, slik at modellvalgene i kapittel 5 og 6 hviler på et eksplisitt teoretisk fundament.
 
+## 3.1 Scheduling-rammeverk og kompleksitet
+
+Klassisk scheduling på parallelle maskiner formuleres etter Pinedos (2016) tre-felts-notasjon $\alpha \,|\, \beta \,|\, \gamma$, der $\alpha$ angir maskinmiljøet, $\beta$ angir bibetingelser, og $\gamma$ angir målfunksjonen. Klassen $P_m \,\|\, C_{\max}$ — minimer makespan på $m$ identiske parallelle maskiner uten bibetingelser — er **NP-hard** allerede for $m \geq 2$. NP-hardheten innebærer at eksakte løsninger generelt vokser eksponentielt med problemstørrelsen, og motiverer bruken av heuristikker for store instanser samt eksakt MIP-løsning som benchmark.
+
+Graham (1969) viste at en enkel prioritetsregel — Longest Processing Time (LPT) — gir en løsning innenfor faktoren $\tfrac{4}{3} - \tfrac{1}{3m}$ av optimum for $P_m \,\|\, C_{\max}$. For $m = 10$ kartkontor gir dette en verste-tilfelle-garanti på $4/3 - 1/30 \approx 1{,}30$, det vil si en heuristisk løsning som høyst kan være 30 % dårligere enn optimum. Garantien forutsetter identiske maskiner og ingen bibetingelser, og svekkes formelt ved heterogen kapasitet og tidsvinduer. Den fungerer likevel som en nyttig referanseramme: hvis empirisk avvik mellom LPT og en eksakt løsning er vesentlig mindre enn 30 %, er det rimelig å anta at heuristikken er nær optimum også i den utvidete settingen.
+
+Hartmann og Briskorn (2010) plasserer det generaliserte problemet i Resource-Constrained Project Scheduling Problem-familien (RCPSP), der aktiviteter konsumerer ressurser med begrenset kapasitet og kan være underlagt presedensrelasjoner og tidsvinduer. Klassen omfatter scheduling med tilgjengelighetsdatoer ($r_j$), leveringsfrister ($d_j$) og forbudte intervaller — alle direkte relevante for TVS-prosjektet. Geovekst-låseperiodene fungerer som forbudte intervaller hvor en aktivitet (kvalitetsheving av en kommune) ikke kan utføres, og NVDB-overføringen er en *nedstrøms ressurs* med fast kapasitet som kobler ferdigstillelsen av hver kommune til prosjektets totale varighet. Den hybride heuristikk-MIP-løsningen i denne oppgaven plasserer seg dermed i RCPSP-familien med tidsvinduer og to-stegs-flyt.
+
+## 3.2 Hybride løsningsmetoder
+
+Heuristikker gir gode løsninger raskt, men uten optimalitetsgaranti, og uten en uavhengig referanse er det vanskelig å vurdere kvaliteten. Hybride metoder adresserer dette ved å kombinere heuristikkens hastighet med eksakt-løserens kvalitetsgaranti.
+
+Puchinger og Raidl (2005) klassifiserer kombinasjoner av metaheuristikker og eksakte algoritmer i to hovedtyper: *kollaborative* (heuristikk og eksakt-løser kjøres sekvensielt eller parallelt og utveksler informasjon), og *integrative* (én metode er innebygd i den andre, for eksempel heuristikk som varm-start for branch-and-bound). Denne oppgaven anvender en sekvensiell kollaborativ tilnærming: heuristikken gir en baseline som tjener både som rask tilnærming og som referanse for MIP-modellen, mens MIP-modellen — løst med CBC via PuLP — validerer at heuristikkens løsning ligger nær matematisk optimum.
+
+Designet gir to verdier som ingen av metodene alene leverer. Heuristikken alene gir ingen kvalitetssikring, og MIP-modellen alene har skaleringsbegrensninger ved store horisonter (Basis_85 ender Not Solved ved 30-minutters tidsgrense). Når begge metodene gir nær identisk makespan på et helt ulikt løsningsgrunnlag, er dette et sterkt validitetssignal: konvergens mellom uavhengige metoder reduserer risikoen for at et resultat er en artefakt av en bestemt modellantagelse.
+
+## 3.3 Usikkerhetsanalyse: Monte Carlo og bootstrap
+
+Deterministiske modellresultater bygger på antagelser om input-parametere. Når noen av disse er beheftet med usikkerhet — som tidsbruk per kilometer TVS-lenke, manuell NVDB-takt og FME-automasjonsgrad — kan ikke modellutfallet leses som et eksakt punktestimat. Vose (2008) beskriver hvordan Monte Carlo-simulering propagerer slik usikkerhet gjennom en deterministisk modell ved å trekke mange tilfeldige verdier fra antatte sannsynlighetsfordelinger, kjøre modellen for hver trekning, og bruke den empiriske fordelingen av resultater til å beskrive usikkerheten i utfallet.
+
+Antall iterasjoner $N$ velges slik at percentilene konvergerer. Ved 500 iterasjoner ligger Monte Carlo-feilen på P5-, P50- og P95-percentiler vanligvis innen et par prosent av sann verdi for fordelinger av den størrelsen som er aktuelle her, og ytterligere iterasjoner gir avtakende presisjonsgevinst per kjøretidskostnad. Dette er rasjonalet bak prosjektets 500-iterasjons-design.
+
+For sampling fra empiriske data brukes ofte **bootstrap**, presentert av Efron og Tibshirani (1993). Bootstrap er en ikke-parametrisk teknikk som tilnærmer en usikker parameters fordeling ved å resample med tilbakelegging fra et empirisk datasett. Metoden er gyldig når dataene anses som representative for populasjonen og observasjonene er statistisk uavhengige. Det parametriske alternativet — å anta en bestemt fordelingsform (normal, lognormal, etc.) — er upraktisk når den underliggende fordelingen er ukjent eller åpenbart ikke-normal. I denne oppgaven bootstrappes MIN/KM (tidsbruk per kilometer TVS-lenke) fra 58 historiske kartbladmålinger nettopp av denne grunn: den empiriske fordelingen er sterkt skjev (range 0,10–3,44, std 0,55, snitt 0,9035) og det finnes ikke grunnlag for å anta en bestemt parametrisk form.
+
+Begge teknikkene har klare antagelser. Monte Carlo forutsetter at de stokastiske kildene er korrekt spesifisert; bootstrap forutsetter at sample er representativt for populasjonen. Disse antagelsene og deres begrensninger drøftes nærmere i 9.4.
 
 ---
 
