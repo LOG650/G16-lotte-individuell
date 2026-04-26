@@ -1,0 +1,358 @@
+KomNr,Kommune,Kartkontor,Antall_Lenker,Gjenstaaende_Lenker,Er_Laast,Status,Alltid_Q1Q2,Alltid_Q3Q4,Rang_Median_Heur,Rekkefolge_Klasse
+3240,Eidsvoll,Oslo,5707.0,0.0,False,Ferdig,True,False,1.0,trivielt_tidlig_allerede_ferdig
+3112,Råde,Oslo,2288.0,0.0,False,Ferdig,True,False,2.0,trivielt_tidlig_allerede_ferdig
+5037,Levanger,Trondheim,12304.0,0.0,False,Ferdig,True,False,3.0,trivielt_tidlig_allerede_ferdig
+5036,Frosta,Trondheim,2623.0,0.0,False,Ferdig,True,False,4.0,trivielt_tidlig_allerede_ferdig
+3101,Halden,Oslo,11913.0,0.0,False,Ferdig,True,False,5.0,trivielt_tidlig_allerede_ferdig
+5060,Nærøysund,Trondheim,7867.0,7867.0,False,Ferdig,True,False,6.0,trivielt_tidlig_allerede_ferdig
+5031,Malvik,Trondheim,3146.0,0.0,False,Ferdig,True,False,7.0,trivielt_tidlig_allerede_ferdig
+1868,Øksnes,Bodø,2602.0,0.0,False,Ferdig,True,False,8.0,trivielt_tidlig_allerede_ferdig
+5022,Rennebu,Trondheim,9074.0,0.0,False,Ferdig,True,False,9.0,trivielt_tidlig_allerede_ferdig
+5510,Kvæfjord,Tromsø,5849.0,0.0,False,Ferdig,True,False,10.0,trivielt_tidlig_allerede_ferdig
+5538,Storfjord - Omasvuotna - Omasvuono,Tromsø,3674.0,0.0,False,Ferdig,True,False,11.0,trivielt_tidlig_allerede_ferdig
+5634,Vardø,Tromsø,1053.0,0.0,False,Ferdig,True,False,12.0,trivielt_tidlig_allerede_ferdig
+5020,Osen,Trondheim,2487.0,0.0,False,Ferdig,True,False,13.0,trivielt_tidlig_allerede_ferdig
+5014,Frøya,Trondheim,6058.0,0.0,False,Ferdig,True,False,14.0,trivielt_tidlig_allerede_ferdig
+5007,Namsos - Nåavmesjenjaelmie,Trondheim,9057.0,0.0,False,Ferdig,True,False,15.0,trivielt_tidlig_allerede_ferdig
+5006,Steinkjer,Trondheim,15485.0,0.0,False,Ferdig,True,False,16.0,trivielt_tidlig_allerede_ferdig
+5540,Gáivuotna - Kåfjord - Kaivuono,Tromsø,2539.0,0.0,True,Ferdig,True,False,17.0,trivielt_tidlig_allerede_ferdig
+4629,Modalen,Bergen,1428.0,0.0,True,Ferdig,True,False,18.0,trivielt_tidlig_allerede_ferdig
+4020,Midt-Telemark,Skien,9207.0,0.0,False,Ferdig,True,False,19.0,trivielt_tidlig_allerede_ferdig
+5626,Gamvik,Tromsø,945.0,0.0,False,Ferdig,True,False,20.0,trivielt_tidlig_allerede_ferdig
+5057,Ørland,Trondheim,3888.0,0.0,False,Ferdig,True,False,21.0,trivielt_tidlig_allerede_ferdig
+4625,Austevoll,Bergen,2012.0,0.0,True,Ferdig,True,False,22.0,trivielt_tidlig_allerede_ferdig
+3418,Åsnes,Hamar,5531.0,0.0,False,Ferdig,True,False,23.0,trivielt_tidlig_allerede_ferdig
+3122,Marker,Oslo,2269.0,0.0,False,Ferdig,True,False,24.0,trivielt_tidlig_allerede_ferdig
+3318,Krødsherad,Oslo,7775.0,0.0,False,Ferdig,True,False,25.0,trivielt_tidlig_allerede_ferdig
+3242,Hurdal,Oslo,4543.0,0.0,False,Ferdig,True,False,26.0,trivielt_tidlig_allerede_ferdig
+3238,Nannestad,Oslo,4444.0,0.0,False,Ferdig,True,False,27.0,trivielt_tidlig_allerede_ferdig
+3236,Jevnaker,Oslo,3494.0,0.0,False,Ferdig,True,False,28.0,trivielt_tidlig_allerede_ferdig
+3234,Lunner,Oslo,5579.0,0.0,False,Ferdig,True,False,29.0,trivielt_tidlig_allerede_ferdig
+5052,Leka,Trondheim,743.0,0.0,False,Ferdig,True,False,30.0,trivielt_tidlig_allerede_ferdig
+3230,Gjerdrum,Oslo,1443.0,0.0,False,Ferdig,True,False,31.0,trivielt_tidlig_allerede_ferdig
+3334,Flesberg,Oslo,10021.0,0.0,False,Ferdig,True,False,32.0,trivielt_tidlig_allerede_ferdig
+3224,Rælingen,Oslo,3352.0,0.0,False,Ferdig,True,False,33.0,trivielt_tidlig_allerede_ferdig
+3220,Enebakk,Oslo,4093.0,0.0,False,Ferdig,True,False,34.0,trivielt_tidlig_allerede_ferdig
+3218,Ås,Oslo,3084.0,0.0,False,Ferdig,True,False,35.0,trivielt_tidlig_allerede_ferdig
+3216,Vestby,Oslo,4345.0,0.0,False,Ferdig,True,False,36.0,trivielt_tidlig_allerede_ferdig
+3214,Frogn,Oslo,4201.0,0.0,False,Ferdig,True,False,37.0,trivielt_tidlig_allerede_ferdig
+3212,Nesodden,Oslo,2953.0,0.0,False,Ferdig,True,False,38.0,trivielt_tidlig_allerede_ferdig
+3414,Nord-Odal,Hamar,3411.0,0.0,False,Ferdig,True,False,39.0,trivielt_tidlig_allerede_ferdig
+3207,Nordre Follo,Oslo,6990.0,0.0,False,Ferdig,True,False,40.0,trivielt_tidlig_allerede_ferdig
+3415,Sør-Odal,Hamar,5776.0,0.0,False,Ferdig,True,False,41.0,trivielt_tidlig_allerede_ferdig
+3416,Eidskog,Hamar,5440.0,0.0,False,Ferdig,True,False,42.0,trivielt_tidlig_allerede_ferdig
+3124,Aremark,Oslo,1483.0,0.0,False,Ferdig,True,False,43.0,trivielt_tidlig_allerede_ferdig
+3417,Grue,Hamar,4204.0,0.0,False,Ferdig,True,False,44.0,trivielt_tidlig_allerede_ferdig
+1577,Volda,Molde,7345.0,0.0,True,Ferdig,True,False,45.0,trivielt_tidlig_allerede_ferdig
+4633,Fedje,Bergen,778.0,0.0,False,Ferdig,True,False,46.0,trivielt_tidlig_allerede_ferdig
+1516,Ulstein,Molde,2064.0,0.0,True,Ferdig,True,False,47.0,trivielt_tidlig_allerede_ferdig
+4616,Tysnes,Bergen,7572.0,0.0,True,Ferdig,True,False,48.0,trivielt_tidlig_allerede_ferdig
+4615,Fitjar,Bergen,4648.0,0.0,True,Ferdig,True,False,49.0,trivielt_tidlig_allerede_ferdig
+4226,Hægebostad,Kristiansand,5244.0,0.0,False,Ferdig,True,False,50.0,trivielt_tidlig_allerede_ferdig
+5632,Båtsfjord,Tromsø,1337.0,0.0,False,Ferdig,True,False,51.0,trivielt_tidlig_allerede_ferdig
+1511,Vanylven,Molde,3853.0,0.0,True,Ferdig,True,False,52.0,trivielt_tidlig_allerede_ferdig
+1514,Sande,Molde,1741.0,0.0,True,Ferdig,True,False,53.0,trivielt_tidlig_allerede_ferdig
+1515,Herøy,Molde,3933.0,0.0,True,Ferdig,True,False,54.0,trivielt_tidlig_allerede_ferdig
+1573,Smøla,Molde,1964.0,0.0,True,Ferdig,True,False,55.0,trivielt_tidlig_allerede_ferdig
+1517,Hareid,Molde,1697.0,0.0,True,Ferdig,True,False,56.0,trivielt_tidlig_allerede_ferdig
+1520,Ørsta,Molde,7613.0,0.0,True,Ferdig,True,False,57.0,trivielt_tidlig_allerede_ferdig
+1531,Sula,Molde,2706.0,0.0,False,Ferdig,True,False,58.0,trivielt_tidlig_allerede_ferdig
+1532,Giske,Molde,1996.0,0.0,True,Ferdig,True,False,59.0,trivielt_tidlig_allerede_ferdig
+5630,Berlevåg,Tromsø,1390.0,0.0,False,Ferdig,True,False,60.0,trivielt_tidlig_allerede_ferdig
+1539,Rauma,Molde,7546.0,0.0,True,Ferdig,True,False,61.0,trivielt_tidlig_allerede_ferdig
+3310,Hole,Oslo,3102.0,0.0,False,Ferdig,True,False,62.0,trivielt_tidlig_allerede_ferdig
+4217,Åmli,Kristiansand,8190.0,8190.0,False,Ikke påbegynt,True,False,63.0,ekte_robust_tidlig
+1563,Sunndal,Molde,7848.0,7848.0,True,Ikke påbegynt,True,False,64.0,ekte_robust_tidlig
+5021,Oppdal,Trondheim,37049.0,37049.0,False,Ikke påbegynt,False,False,65.0,fleksibel_mellomgruppe
+1134,Suldal,Stavanger,9362.0,9362.0,False,Ikke påbegynt,True,False,66.0,ekte_robust_tidlig
+4026,Tinn,Skien,13385.0,13385.0,False,Ikke påbegynt,False,False,67.0,fleksibel_mellomgruppe
+4618,Ullensvang,Bergen,18650.0,18650.0,False,Ikke påbegynt,False,False,68.0,fleksibel_mellomgruppe
+4227,Kvinesdal,Kristiansand,10186.0,10186.0,False,Ikke påbegynt,True,False,69.0,ekte_robust_tidlig
+3305,Ringerike,Oslo,27311.0,27311.0,False,Ikke påbegynt,False,False,70.0,fleksibel_mellomgruppe
+4005,Notodden,Skien,8977.0,8977.0,False,Påbegynt,True,False,71.0,ekte_robust_tidlig
+3439,Ringebu,Hamar,18435.0,18435.0,False,Ikke påbegynt,True,False,72.0,ekte_robust_tidlig
+1133,Hjelmeland,Stavanger,7360.0,7360.0,False,Ikke påbegynt,False,False,73.0,fleksibel_mellomgruppe
+1806,Narvik,Bodø,12335.0,12335.0,False,Ikke påbegynt,False,False,74.0,fleksibel_mellomgruppe
+5059,Orkland,Trondheim,21540.0,21540.0,True,Ikke påbegynt,True,False,75.0,ekte_robust_tidlig
+1566,Surnadal,Molde,7330.0,7330.0,True,Ikke påbegynt,True,False,76.0,ekte_robust_tidlig
+4022,Seljord,Skien,9972.0,9972.0,False,Ikke påbegynt,True,False,77.0,ekte_robust_tidlig
+4220,Bygland,Kristiansand,7574.0,7574.0,False,Ikke påbegynt,False,False,78.0,fleksibel_mellomgruppe
+1122,Gjesdal,Stavanger,5779.0,5779.0,False,Ikke påbegynt,True,False,79.0,ekte_robust_tidlig
+4647,Sunnfjord,Bergen,22959.0,22959.0,True,Ikke påbegynt,True,False,80.0,ekte_robust_tidlig
+4024,Hjartdal,Skien,8171.0,8171.0,False,Ikke påbegynt,False,False,81.0,fleksibel_mellomgruppe
+5025,Rosse - Røros,Trondheim,11912.0,11912.0,False,Ikke påbegynt,True,False,82.0,ekte_robust_tidlig
+1103,Stavanger,Stavanger,13831.0,13831.0,False,Ikke påbegynt,False,False,83.0,fleksibel_mellomgruppe
+1579,Hustadvika,Molde,7743.0,7743.0,True,Ikke påbegynt,True,False,84.0,ekte_robust_tidlig
+4216,Birkenes,Kristiansand,10577.0,10577.0,False,Ikke påbegynt,False,False,85.0,fleksibel_mellomgruppe
+1119,Hå,Stavanger,6268.0,6268.0,False,Påbegynt,False,False,86.0,fleksibel_mellomgruppe
+3441,Gausdal,Hamar,12287.0,12287.0,False,Ikke påbegynt,True,False,87.0,ekte_robust_tidlig
+4030,Nissedal,Skien,6540.0,6540.0,False,Ikke påbegynt,False,False,88.0,fleksibel_mellomgruppe
+1840,Saltdal,Bodø,5167.0,5167.0,True,Ikke påbegynt,True,False,89.0,ekte_robust_tidlig
+5041,Snåase - Snåsa,Trondheim,5861.0,5861.0,False,Ikke påbegynt,True,False,90.0,ekte_robust_tidlig
+1576,Aure,Molde,4577.0,4577.0,True,Ikke påbegynt,False,False,91.0,fleksibel_mellomgruppe
+3338,Nore og Uvdal,Oslo,13281.0,13281.0,False,Ikke påbegynt,True,False,92.0,ekte_robust_tidlig
+1130,Strand,Stavanger,6598.0,6598.0,False,Ikke påbegynt,False,False,93.0,fleksibel_mellomgruppe
+4212,Vegårshei,Kristiansand,8548.0,8548.0,False,Ikke påbegynt,True,False,94.0,ekte_robust_tidlig
+4028,Kviteseid,Skien,5611.0,5611.0,False,Ikke påbegynt,False,False,95.0,fleksibel_mellomgruppe
+4010,Siljan,Skien,2674.0,2674.0,False,Ikke påbegynt,False,False,96.0,fleksibel_mellomgruppe
+4621,Voss,Bergen,23191.0,23191.0,False,Ikke påbegynt,False,False,97.0,fleksibel_mellomgruppe
+1560,Tingvoll,Molde,5373.0,5373.0,True,Ikke påbegynt,False,False,98.0,fleksibel_mellomgruppe
+1121,Time,Stavanger,5798.0,5798.0,False,Ikke påbegynt,False,False,99.0,fleksibel_mellomgruppe
+4213,Tvedestrand,Kristiansand,8806.0,8806.0,False,Ikke påbegynt,False,False,100.0,fleksibel_mellomgruppe
+5042,Lierne,Trondheim,2972.0,2972.0,False,Ikke påbegynt,True,False,101.0,ekte_robust_tidlig
+5612,Guovdageaidnu - Kautokeino,Tromsø,19267.0,19267.0,False,Ikke påbegynt,False,False,102.0,fleksibel_mellomgruppe
+1557,Gjemnes,Molde,3596.0,3596.0,True,Ikke påbegynt,False,False,103.0,fleksibel_mellomgruppe
+1135,Sauda,Stavanger,4201.0,4201.0,False,Ikke påbegynt,False,False,104.0,fleksibel_mellomgruppe
+4206,Farsund,Kristiansand,8160.0,8160.0,False,Ikke påbegynt,False,False,105.0,fleksibel_mellomgruppe
+1554,Averøy,Molde,3601.0,3601.0,True,Ikke påbegynt,False,False,106.0,fleksibel_mellomgruppe
+1101,Eigersund,Stavanger,6942.0,69.0,False,Påbegynt,False,False,107.0,fleksibel_mellomgruppe
+1120,Klepp,Stavanger,3414.0,3414.0,False,Ikke påbegynt,False,False,108.0,fleksibel_mellomgruppe
+1111,Sokndal,Stavanger,2134.0,21.0,False,Påbegynt,False,False,109.0,fleksibel_mellomgruppe
+1114,Bjerkreim,Stavanger,7158.0,72.0,False,Påbegynt,False,False,110.0,fleksibel_mellomgruppe
+1112,Lund,Stavanger,2758.0,28.0,False,Påbegynt,False,False,111.0,fleksibel_mellomgruppe
+4644,Luster,Bergen,6200.0,4650.0,True,Påbegynt,True,False,112.0,ekte_robust_tidlig
+1505,Kristiansund,Molde,2048.0,2048.0,True,Ikke påbegynt,False,False,113.0,fleksibel_mellomgruppe
+4202,Grimstad,Kristiansand,6512.0,6512.0,False,Ikke påbegynt,False,False,114.0,fleksibel_mellomgruppe
+5035,Stjørdal,Trondheim,13808.0,13808.0,False,Ikke påbegynt,False,False,115.0,fleksibel_mellomgruppe
+3449,Sør-Aurdal,Hamar,13249.0,13249.0,False,Ikke påbegynt,False,False,116.0,fleksibel_mellomgruppe
+1547,Aukra,Molde,900.0,450.0,True,Påbegynt,True,False,117.0,ekte_robust_tidlig
+3328,Ål,Oslo,16194.0,16194.0,False,Ikke påbegynt,False,False,118.0,fleksibel_mellomgruppe
+1826,Aarborte - Hattfjelldal,Bodø,4610.0,4610.0,False,Ikke påbegynt,False,False,119.0,fleksibel_mellomgruppe
+4201,Risør,Kristiansand,7458.0,7458.0,False,Ikke påbegynt,False,False,120.0,fleksibel_mellomgruppe
+5054,Indre Fosen,Trondheim,9918.0,9918.0,False,Ikke påbegynt,True,False,121.0,ekte_robust_tidlig
+4218,Iveland,Kristiansand,3446.0,689.0,False,Påbegynt,False,False,122.0,fleksibel_mellomgruppe
+4215,Lillesand,Kristiansand,6111.0,6111.0,False,Påbegynt,False,False,123.0,fleksibel_mellomgruppe
+4211,Gjerstad,Kristiansand,5328.0,266.0,False,Påbegynt,False,False,124.0,fleksibel_mellomgruppe
+4640,Sogndal,Bergen,9640.0,9640.0,True,Ikke påbegynt,True,False,125.0,ekte_robust_tidlig
+4214,Froland,Kristiansand,6254.0,313.0,False,Påbegynt,False,False,126.0,fleksibel_mellomgruppe
+5033,Tydal,Trondheim,9999.0,9999.0,False,Ikke påbegynt,False,False,127.0,fleksibel_mellomgruppe
+3454,Vang,Hamar,8187.0,8187.0,False,Ikke påbegynt,True,False,128.0,ekte_robust_tidlig
+3330,Hol,Oslo,14988.0,11990.0,False,Påbegynt,True,False,129.0,ekte_robust_tidlig
+4619,Eidfjord,Bergen,5017.0,5017.0,True,Ikke påbegynt,False,False,130.0,fleksibel_mellomgruppe
+4228,Sirdal,Kristiansand,8126.0,8126.0,True,Ikke påbegynt,True,False,131.0,ekte_robust_tidlig
+5034,Meråker,Trondheim,7116.0,7116.0,False,Ikke påbegynt,False,False,132.0,fleksibel_mellomgruppe
+1824,Vefsn,Bodø,8559.0,8559.0,True,Ikke påbegynt,False,False,133.0,fleksibel_mellomgruppe
+5610,Kárášjohka - Karasjok,Tromsø,8565.0,8565.0,False,Ikke påbegynt,False,False,134.0,fleksibel_mellomgruppe
+4651,Stryn,Bergen,7377.0,7377.0,True,Ikke påbegynt,True,False,135.0,ekte_robust_tidlig
+5058,Åfjord,Trondheim,8387.0,8387.0,False,Ikke påbegynt,True,False,136.0,ekte_robust_tidlig
+3440,Øyer,Hamar,10070.0,10070.0,False,Ikke påbegynt,True,False,137.0,ekte_robust_tidlig
+4221,Valle,Kristiansand,7136.0,7136.0,True,Ikke påbegynt,False,False,138.0,fleksibel_mellomgruppe
+5001,Trondheim - Tråante,Trondheim,20525.0,20525.0,False,Ikke påbegynt,False,False,139.0,fleksibel_mellomgruppe
+3303,Kongsberg,Oslo,18936.0,18936.0,False,Ikke påbegynt,True,False,140.0,ekte_robust_tidlig
+4207,Flekkefjord,Kristiansand,10002.0,10002.0,True,Ikke påbegynt,False,False,141.0,fleksibel_mellomgruppe
+1804,Bodø,Bodø,11982.0,11982.0,True,Ikke påbegynt,True,False,142.0,ekte_robust_tidlig
+5055,Heim,Trondheim,10013.0,10013.0,False,Ikke påbegynt,False,False,143.0,fleksibel_mellomgruppe
+3453,Øystre Slidre,Hamar,7995.0,7995.0,False,Ikke påbegynt,True,False,144.0,ekte_robust_tidlig
+4617,Kvinnherad,Bergen,8939.0,8939.0,False,Ikke påbegynt,False,False,145.0,fleksibel_mellomgruppe
+5038,Verdal,Trondheim,9686.0,7264.0,False,Påbegynt,False,False,146.0,fleksibel_mellomgruppe
+3332,Sigdal,Oslo,17054.0,17054.0,False,Ikke påbegynt,False,False,147.0,fleksibel_mellomgruppe
+4622,Kvam,Bergen,11908.0,11908.0,False,Ikke påbegynt,False,False,148.0,fleksibel_mellomgruppe
+5622,Porsanger - Porsáŋgu - Porsanki,Tromsø,9568.0,9568.0,True,Ikke påbegynt,False,False,149.0,fleksibel_mellomgruppe
+5026,Holtålen,Trondheim,6292.0,6292.0,False,Ikke påbegynt,True,False,150.0,ekte_robust_tidlig
+1875,Hábmer - Hamarøy,Bodø,5093.0,5093.0,False,Ikke påbegynt,True,False,151.0,ekte_robust_tidlig
+3446,Gran,Hamar,8906.0,8906.0,False,Ikke påbegynt,True,False,152.0,ekte_robust_tidlig
+4611,Etne,Bergen,10118.0,10118.0,False,Ikke påbegynt,False,False,153.0,fleksibel_mellomgruppe
+5032,Selbu,Trondheim,6104.0,6104.0,False,Ikke påbegynt,False,False,154.0,fleksibel_mellomgruppe
+3226,Aurskog-Høland,Oslo,10975.0,10975.0,False,Ikke påbegynt,True,False,155.0,ekte_robust_tidlig
+4624,Bjørnafjorden,Bergen,10297.0,10297.0,False,Ikke påbegynt,False,False,156.0,fleksibel_mellomgruppe
+5045,Grong,Trondheim,4904.0,4904.0,False,Ikke påbegynt,False,False,157.0,fleksibel_mellomgruppe
+3401,Kongsvinger,Hamar,10212.0,511.0,False,Påbegynt,True,False,158.0,ekte_robust_tidlig
+3452,Vestre Slidre,Hamar,11716.0,11716.0,False,Ikke påbegynt,True,False,159.0,ekte_robust_tidlig
+3413,Stange,Hamar,7796.0,390.0,False,Påbegynt,True,False,160.0,ekte_robust_tidlig
+4643,Årdal,Bergen,2758.0,2758.0,True,Ikke påbegynt,False,False,161.0,fleksibel_mellomgruppe
+5044,Namsskogan,Trondheim,2245.0,2245.0,False,Ikke påbegynt,False,False,162.0,fleksibel_mellomgruppe
+1825,Grane,Bodø,4468.0,4468.0,False,Ikke påbegynt,True,False,163.0,ekte_robust_tidlig
+4626,Øygarden,Bergen,11226.0,11226.0,False,Ikke påbegynt,False,False,164.0,fleksibel_mellomgruppe
+3322,Nesbyen,Oslo,11185.0,11185.0,False,Ikke påbegynt,True,False,165.0,ekte_robust_tidlig
+5601,Alta,Tromsø,17457.0,16759.0,False,Påbegynt,True,False,166.0,ekte_robust_tidlig
+5056,Hitra,Trondheim,8759.0,8759.0,False,Påbegynt,False,False,167.0,fleksibel_mellomgruppe
+4620,Ulvik,Bergen,2743.0,2743.0,False,Ikke påbegynt,False,False,168.0,fleksibel_mellomgruppe
+5053,Inderøy,Trondheim,7306.0,7306.0,False,Ikke påbegynt,False,False,169.0,fleksibel_mellomgruppe
+4646,Fjaler,Bergen,3672.0,3672.0,False,Ikke påbegynt,False,False,170.0,fleksibel_mellomgruppe
+5043,Raarvihke - Røyrvik,Trondheim,772.0,772.0,False,Ikke påbegynt,False,False,171.0,fleksibel_mellomgruppe
+4645,Askvoll,Bergen,4575.0,4575.0,False,Ikke påbegynt,False,False,172.0,fleksibel_mellomgruppe
+1845,Sørfold,Bodø,3450.0,3450.0,True,Ikke påbegynt,False,False,173.0,fleksibel_mellomgruppe
+5047,Overhalla,Trondheim,3968.0,3968.0,False,Ikke påbegynt,False,False,174.0,fleksibel_mellomgruppe
+4637,Hyllestad,Bergen,3011.0,3011.0,False,Ikke påbegynt,False,False,175.0,fleksibel_mellomgruppe
+3118,Indre Østfold,Oslo,15270.0,15270.0,False,Ikke påbegynt,False,False,176.0,fleksibel_mellomgruppe
+5061,Rindal,Trondheim,4368.0,4368.0,False,Ikke påbegynt,False,False,177.0,fleksibel_mellomgruppe
+4623,Samnanger,Bergen,2675.0,2675.0,False,Ikke påbegynt,False,False,178.0,fleksibel_mellomgruppe
+4636,Solund,Bergen,1189.0,1189.0,False,Ikke påbegynt,False,True,179.0,robust_sen
+4627,Askøy,Bergen,5218.0,5218.0,False,Ikke påbegynt,False,True,180.0,robust_sen
+5046,Høylandet,Trondheim,2199.0,2199.0,False,Ikke påbegynt,False,False,181.0,fleksibel_mellomgruppe
+5049,Flatanger,Trondheim,1418.0,1390.0,False,Påbegynt,False,False,182.0,fleksibel_mellomgruppe
+4632,Austrheim,Bergen,3305.0,3305.0,False,Ikke påbegynt,False,True,183.0,robust_sen
+1841,Fauske - Fuossko,Bodø,5814.0,5814.0,True,Ikke påbegynt,False,False,184.0,fleksibel_mellomgruppe
+5628,Deatnu - Tana,Tromsø,9359.0,9359.0,False,Ikke påbegynt,False,False,185.0,fleksibel_mellomgruppe
+0301,Oslo,Oslo,35397.0,35397.0,False,Ikke påbegynt,False,False,186.0,fleksibel_mellomgruppe
+3424,Rendalen,Hamar,11980.0,11980.0,True,Ikke påbegynt,False,True,187.0,robust_sen
+1871,Andøy,Bodø,7827.0,7827.0,False,Ikke påbegynt,False,False,188.0,fleksibel_mellomgruppe
+3324,Gol,Oslo,9600.0,9600.0,False,Ikke påbegynt,False,False,189.0,fleksibel_mellomgruppe
+4222,Bykle,Kristiansand,4958.0,4958.0,True,Ikke påbegynt,False,True,190.0,robust_sen
+1108,Sandnes,Stavanger,17326.0,17326.0,True,Ikke påbegynt,False,True,191.0,robust_sen
+3228,Nes,Oslo,7813.0,7813.0,False,Ikke påbegynt,False,False,192.0,fleksibel_mellomgruppe
+5605,Sør-Varanger,Tromsø,7082.0,7082.0,False,Ikke påbegynt,False,False,193.0,fleksibel_mellomgruppe
+1839,Beiarn,Bodø,3086.0,3086.0,True,Ikke påbegynt,False,False,194.0,fleksibel_mellomgruppe
+1160,Vindafjord,Stavanger,8327.0,8327.0,True,Ikke påbegynt,False,True,195.0,robust_sen
+3316,Modum,Oslo,10613.0,10613.0,False,Påbegynt,False,False,196.0,fleksibel_mellomgruppe
+3427,Tynset,Hamar,10498.0,10498.0,True,Ikke påbegynt,False,True,197.0,robust_sen
+1813,Brønnøy,Bodø,5124.0,5124.0,False,Ikke påbegynt,False,False,198.0,fleksibel_mellomgruppe
+4205,Lindesnes,Kristiansand,30608.0,30608.0,True,Ikke påbegynt,False,True,199.0,robust_sen
+1146,Tysvær,Stavanger,7926.0,7926.0,True,Ikke påbegynt,False,True,200.0,robust_sen
+5544,Nordreisa - Ráisa - Raisi,Tromsø,4821.0,4821.0,False,Ikke påbegynt,False,False,201.0,fleksibel_mellomgruppe
+3326,Hemsedal,Oslo,8110.0,8110.0,False,Ikke påbegynt,False,False,202.0,fleksibel_mellomgruppe
+1149,Karmøy,Stavanger,6834.0,6834.0,True,Ikke påbegynt,False,True,203.0,robust_sen
+1124,Sola,Stavanger,2924.0,2924.0,True,Ikke påbegynt,False,True,204.0,robust_sen
+1848,Steigen,Bodø,4379.0,4379.0,False,Ikke påbegynt,False,False,205.0,fleksibel_mellomgruppe
+1106,Haugesund,Stavanger,1601.0,1601.0,True,Ikke påbegynt,False,True,206.0,robust_sen
+1151,Utsira,Stavanger,66.0,66.0,True,Ikke påbegynt,False,True,207.0,robust_sen
+1145,Bokn,Stavanger,948.0,948.0,True,Ikke påbegynt,False,True,208.0,robust_sen
+1127,Randaberg,Stavanger,1161.0,1161.0,True,Ikke påbegynt,False,True,209.0,robust_sen
+1144,Kvitsøy,Stavanger,207.0,207.0,True,Ikke påbegynt,False,True,210.0,robust_sen
+3320,Flå,Oslo,6856.0,6856.0,False,Ikke påbegynt,False,False,211.0,fleksibel_mellomgruppe
+4204,Kristiansand,Kristiansand,27939.0,27939.0,True,Ikke påbegynt,False,True,212.0,robust_sen
+3432,Lesja,Hamar,6501.0,6501.0,True,Ikke påbegynt,False,True,213.0,robust_sen
+1811,Bindal,Bodø,2467.0,2467.0,False,Ikke påbegynt,False,False,214.0,fleksibel_mellomgruppe
+5530,Senja,Tromsø,17646.0,17646.0,False,Ikke påbegynt,False,False,215.0,fleksibel_mellomgruppe
+3205,Lillestrøm,Oslo,10677.0,10677.0,False,Ikke påbegynt,False,True,216.0,robust_sen
+4225,Lyngdal,Kristiansand,13449.0,13449.0,True,Ikke påbegynt,False,True,217.0,robust_sen
+1870,Sortland - Suortá,Bodø,4121.0,4121.0,False,Ikke påbegynt,False,False,218.0,fleksibel_mellomgruppe
+3301,Drammen,Oslo,11937.0,11937.0,False,Ikke påbegynt,False,True,219.0,robust_sen
+4203,Arendal,Kristiansand,18178.0,18178.0,True,Ikke påbegynt,False,True,220.0,robust_sen
+1866,Hadsel,Bodø,4661.0,4661.0,False,Ikke påbegynt,False,False,221.0,fleksibel_mellomgruppe
+5603,Hammerfest - Hámmerfeasta,Tromsø,6601.0,6601.0,False,Ikke påbegynt,False,False,222.0,fleksibel_mellomgruppe
+3105,Sarpsborg,Oslo,13048.0,13048.0,False,Ikke påbegynt,False,False,223.0,fleksibel_mellomgruppe
+3428,Alvdal,Hamar,10557.0,10557.0,True,Ikke påbegynt,False,True,224.0,robust_sen
+4219,Evje og Hornnes,Kristiansand,7758.0,7758.0,True,Ikke påbegynt,False,True,225.0,robust_sen
+3314,Øvre Eiker,Oslo,6486.0,6486.0,False,Ikke påbegynt,False,True,226.0,robust_sen
+1860,Vestvågøy,Bodø,4988.0,4988.0,False,Ikke påbegynt,False,False,227.0,fleksibel_mellomgruppe
+1578,Fjord,Molde,5931.0,5931.0,True,Ikke påbegynt,False,False,228.0,fleksibel_mellomgruppe
+5624,Lebesby,Tromsø,3191.0,3191.0,False,Påbegynt,False,False,229.0,fleksibel_mellomgruppe
+4223,Vennesla,Kristiansand,10530.0,1053.0,True,Påbegynt,False,True,230.0,robust_sen
+4224,Åseral,Kristiansand,5558.0,5558.0,True,Ikke påbegynt,False,True,231.0,robust_sen
+1865,Vågan,Bodø,4309.0,4309.0,False,Ikke påbegynt,False,True,232.0,robust_sen
+3107,Fredrikstad,Oslo,14235.0,14235.0,False,Ikke påbegynt,False,True,233.0,robust_sen
+1851,Lødingen,Bodø,2014.0,2014.0,False,Ikke påbegynt,False,False,234.0,fleksibel_mellomgruppe
+1525,Stranda,Molde,3918.0,3918.0,True,Ikke påbegynt,False,False,235.0,fleksibel_mellomgruppe
+3436,Nord-Fron,Hamar,12207.0,12207.0,True,Ikke påbegynt,False,True,236.0,robust_sen
+3312,Lier,Oslo,6724.0,6724.0,False,Ikke påbegynt,False,True,237.0,robust_sen
+1816,Vevelstad,Bodø,1471.0,1471.0,False,Ikke påbegynt,False,False,238.0,fleksibel_mellomgruppe
+3209,Ullensaker,Oslo,5340.0,5340.0,False,Ikke påbegynt,False,False,239.0,fleksibel_mellomgruppe
+5546,Kvænangen,Tromsø,4328.0,4328.0,False,Ikke påbegynt,False,False,240.0,fleksibel_mellomgruppe
+1508,Ålesund,Molde,8749.0,8749.0,True,Ikke påbegynt,False,False,241.0,fleksibel_mellomgruppe
+1853,Evenes - Evenášši,Bodø,2823.0,2823.0,False,Ikke påbegynt,False,True,242.0,robust_sen
+3114,Våler,Oslo,8900.0,8900.0,False,Ikke påbegynt,False,True,243.0,robust_sen
+1580,Haram,Molde,4153.0,4153.0,True,Ikke påbegynt,False,False,244.0,fleksibel_mellomgruppe
+1820,Alstahaug,Bodø,3019.0,3019.0,False,Ikke påbegynt,False,True,245.0,robust_sen
+3336,Rollag,Oslo,7744.0,5034.0,False,Påbegynt,False,False,246.0,fleksibel_mellomgruppe
+1528,Sykkylven,Molde,2501.0,2501.0,True,Ikke påbegynt,False,False,247.0,fleksibel_mellomgruppe
+1812,Sømna,Bodø,1993.0,1993.0,False,Ikke påbegynt,False,True,248.0,robust_sen
+5636,Unjárga - Nesseby,Tromsø,3635.0,3635.0,False,Ikke påbegynt,False,False,249.0,fleksibel_mellomgruppe
+1867,Bø,Bodø,1613.0,1210.0,False,Påbegynt,False,True,250.0,robust_sen
+1859,Flakstad,Bodø,2889.0,2889.0,False,Ikke påbegynt,False,True,251.0,robust_sen
+1815,Vega,Bodø,1249.0,1249.0,False,Ikke påbegynt,False,True,252.0,robust_sen
+1874,Moskenes,Bodø,949.0,949.0,False,Ikke påbegynt,False,True,253.0,robust_sen
+1857,Værøy,Bodø,187.0,187.0,False,Ikke påbegynt,False,True,254.0,robust_sen
+1506,Molde,Molde,9849.0,4924.0,True,Påbegynt,False,False,255.0,fleksibel_mellomgruppe
+1818,Herøy,Bodø,3933.0,3933.0,False,Ikke påbegynt,False,True,256.0,robust_sen
+5607,Vadsø,Tromsø,5170.0,5170.0,False,Ikke påbegynt,False,False,257.0,fleksibel_mellomgruppe
+1835,Træna,Bodø,88.0,88.0,False,Ikke påbegynt,False,True,258.0,robust_sen
+1856,Røst,Bodø,455.0,455.0,False,Ikke påbegynt,False,True,259.0,robust_sen
+3203,Asker,Oslo,16870.0,16870.0,True,Ikke påbegynt,False,False,260.0,fleksibel_mellomgruppe
+5027,Midtre Gauldal,Trondheim,13652.0,13652.0,True,Ikke påbegynt,False,False,261.0,fleksibel_mellomgruppe
+1535,Vestnes,Molde,5719.0,2860.0,True,Påbegynt,False,False,262.0,fleksibel_mellomgruppe
+3232,Nittedal,Oslo,5357.0,5357.0,False,Påbegynt,False,True,263.0,robust_sen
+3447,Søndre Land,Hamar,7653.0,7653.0,True,Ikke påbegynt,False,False,264.0,fleksibel_mellomgruppe
+3103,Moss,Oslo,6581.0,6581.0,False,Ikke påbegynt,False,True,265.0,robust_sen
+5028,Melhus,Trondheim,7720.0,7720.0,True,Ikke påbegynt,False,False,266.0,fleksibel_mellomgruppe
+5534,Karlsøy,Tromsø,5355.0,5355.0,False,Ikke påbegynt,False,False,267.0,fleksibel_mellomgruppe
+3110,Hvaler,Oslo,4834.0,4834.0,False,Ikke påbegynt,False,True,268.0,robust_sen
+3222,Lørenskog,Oslo,2091.0,2091.0,False,Ikke påbegynt,False,True,269.0,robust_sen
+5029,Skaun,Trondheim,4079.0,4079.0,True,Ikke påbegynt,False,False,270.0,fleksibel_mellomgruppe
+4036,Vinje,Skien,12380.0,12380.0,True,Ikke påbegynt,False,True,271.0,robust_sen
+3201,Bærum,Oslo,10234.0,2047.0,True,Påbegynt,False,False,272.0,fleksibel_mellomgruppe
+3120,Rakkestad,Oslo,3807.0,190.0,False,Påbegynt,False,True,273.0,robust_sen
+3116,Skiptvet,Oslo,1677.0,335.0,False,Påbegynt,False,True,274.0,robust_sen
+3442,Østre Toten,Hamar,4326.0,4326.0,True,Ikke påbegynt,False,False,275.0,fleksibel_mellomgruppe
+5512,Dielddanuorri - Tjeldsund,Tromsø,8058.0,8058.0,False,Ikke påbegynt,False,False,276.0,fleksibel_mellomgruppe
+3443,Vestre Toten,Hamar,3356.0,3356.0,True,Ikke påbegynt,False,False,277.0,fleksibel_mellomgruppe
+3909,Larvik,Skien,20251.0,20251.0,True,Ikke påbegynt,False,True,278.0,robust_sen
+5618,Måsøy,Tromsø,1802.0,1802.0,False,Ikke påbegynt,False,True,279.0,robust_sen
+5614,Loppa,Tromsø,1446.0,1446.0,False,Ikke påbegynt,False,False,280.0,fleksibel_mellomgruppe
+5526,Sørreisa,Tromsø,3369.0,3369.0,False,Ikke påbegynt,False,True,281.0,robust_sen
+4016,Drangedal,Skien,9597.0,9597.0,True,Ikke påbegynt,False,True,282.0,robust_sen
+5616,Hasvik,Tromsø,1313.0,1313.0,False,Ikke påbegynt,False,False,283.0,fleksibel_mellomgruppe
+5514,Ibestad,Tromsø,3259.0,3259.0,False,Påbegynt,False,True,284.0,robust_sen
+5524,Målselv,Tromsø,14811.0,1481.0,False,Påbegynt,False,True,285.0,robust_sen
+3448,Nordre Land,Hamar,12435.0,12435.0,True,Ikke påbegynt,False,True,286.0,robust_sen
+4003,Skien,Skien,11644.0,11644.0,True,Ikke påbegynt,False,True,287.0,robust_sen
+5528,Dyrøy,Tromsø,1965.0,196.0,False,Påbegynt,False,True,288.0,robust_sen
+5532,Balsfjord,Tromsø,13047.0,1305.0,False,Påbegynt,False,True,289.0,robust_sen
+3431,Dovre,Hamar,8098.0,8098.0,True,Ikke påbegynt,False,True,290.0,robust_sen
+4034,Tokke,Skien,6401.0,6401.0,True,Ikke påbegynt,False,True,291.0,robust_sen
+5520,Bardu,Tromsø,6502.0,6502.0,True,Ikke påbegynt,False,False,292.0,fleksibel_mellomgruppe
+4032,Fyresdal,Skien,5047.0,5047.0,True,Ikke påbegynt,False,True,293.0,robust_sen
+3437,Sel,Hamar,14777.0,14777.0,True,Ikke påbegynt,False,True,294.0,robust_sen
+3907,Sandefjord,Skien,13753.0,13753.0,True,Ikke påbegynt,False,True,295.0,robust_sen
+5503,Harstad - Hárstták,Tromsø,16861.0,16861.0,True,Ikke påbegynt,False,False,296.0,fleksibel_mellomgruppe
+5522,Salangen,Tromsø,2841.0,2841.0,True,Ikke påbegynt,False,True,297.0,robust_sen
+4631,Alver,Bergen,27783.0,27783.0,True,Ikke påbegynt,False,True,298.0,robust_sen
+5516,Gratangen,Tromsø,2092.0,2092.0,True,Ikke påbegynt,False,True,299.0,robust_sen
+3903,Holmestrand,Skien,8664.0,8664.0,True,Ikke påbegynt,False,True,300.0,robust_sen
+4628,Vaksdal,Bergen,4528.0,4528.0,True,Ikke påbegynt,False,True,301.0,robust_sen
+5518,Loabák - Lavangen,Tromsø,1546.0,1546.0,True,Ikke påbegynt,False,True,302.0,robust_sen
+3905,Tønsberg,Skien,10065.0,10065.0,True,Ikke påbegynt,False,True,303.0,robust_sen
+4630,Osterøy,Bergen,8960.0,8960.0,True,Ikke påbegynt,False,True,304.0,robust_sen
+3435,Vågå,Hamar,10194.0,10194.0,True,Ikke påbegynt,False,True,305.0,robust_sen
+4018,Nome,Skien,4661.0,4661.0,True,Ikke påbegynt,False,True,306.0,robust_sen
+4634,Masfjorden,Bergen,4590.0,4590.0,True,Ikke påbegynt,False,True,307.0,robust_sen
+4014,Kragerø,Skien,8153.0,8153.0,True,Ikke påbegynt,False,True,308.0,robust_sen
+4635,Gulen,Bergen,4082.0,4082.0,True,Ikke påbegynt,False,True,309.0,robust_sen
+4001,Porsgrunn,Skien,7351.0,7351.0,True,Påbegynt,False,True,310.0,robust_sen
+4012,Bamble,Skien,5868.0,5868.0,True,Ikke påbegynt,False,True,311.0,robust_sen
+3911,Færder,Skien,5132.0,5132.0,True,Ikke påbegynt,False,True,312.0,robust_sen
+3901,Horten,Skien,2273.0,2273.0,True,Ikke påbegynt,False,True,313.0,robust_sen
+3434,Lom,Hamar,6259.0,6259.0,True,Ikke påbegynt,False,True,314.0,robust_sen
+4601,Bergen,Bergen,30466.0,30466.0,True,Ikke påbegynt,False,False,315.0,fleksibel_mellomgruppe
+4641,Aurland,Bergen,4599.0,4599.0,True,Ikke påbegynt,False,False,316.0,fleksibel_mellomgruppe
+4649,Stad,Bergen,12853.0,12853.0,True,Ikke påbegynt,False,False,317.0,fleksibel_mellomgruppe
+3451,Nord-Aurdal,Hamar,13002.0,13002.0,True,Ikke påbegynt,False,True,318.0,robust_sen
+4650,Gloppen,Bergen,7841.0,7841.0,True,Ikke påbegynt,False,False,319.0,fleksibel_mellomgruppe
+4642,Lærdal,Bergen,3598.0,3598.0,True,Ikke påbegynt,False,False,320.0,fleksibel_mellomgruppe
+3433,Skjåk,Hamar,5069.0,5069.0,True,Ikke påbegynt,False,True,321.0,robust_sen
+4602,Kinn,Bergen,9385.0,9385.0,True,Ikke påbegynt,False,False,322.0,fleksibel_mellomgruppe
+4639,Vik,Bergen,4624.0,4624.0,True,Ikke påbegynt,False,False,323.0,fleksibel_mellomgruppe
+4648,Bremanger,Bergen,4648.0,4648.0,True,Ikke påbegynt,False,False,324.0,fleksibel_mellomgruppe
+3438,Sør-Fron,Hamar,7916.0,7916.0,True,Ikke påbegynt,False,True,325.0,robust_sen
+4638,Høyanger,Bergen,3476.0,3476.0,True,Ikke påbegynt,False,False,326.0,fleksibel_mellomgruppe
+4612,Sveio,Bergen,8328.0,8328.0,True,Ikke påbegynt,False,False,327.0,fleksibel_mellomgruppe
+4614,Stord,Bergen,5301.0,5301.0,True,Ikke påbegynt,False,False,328.0,fleksibel_mellomgruppe
+4613,Bømlo,Bergen,6759.0,2028.0,True,Påbegynt,False,False,329.0,fleksibel_mellomgruppe
+3407,Gjøvik,Hamar,7897.0,7897.0,True,Ikke påbegynt,False,True,330.0,robust_sen
+5536,Lyngen,Tromsø,4562.0,4562.0,True,Ikke påbegynt,False,False,331.0,fleksibel_mellomgruppe
+3405,Lillehammer,Hamar,10606.0,10606.0,True,Ikke påbegynt,False,True,332.0,robust_sen
+5542,Skjervøy,Tromsø,2218.0,222.0,True,Påbegynt,False,True,333.0,robust_sen
+5620,Nordkapp,Tromsø,1716.0,1716.0,True,Ikke påbegynt,False,True,334.0,robust_sen
+3450,Etnedal,Hamar,6276.0,6276.0,True,Ikke påbegynt,False,True,335.0,robust_sen
+3423,Stor-Elvdal,Hamar,13617.0,681.0,True,Påbegynt,False,True,336.0,robust_sen
+3429,Folldal,Hamar,8494.0,425.0,True,Påbegynt,False,True,337.0,robust_sen
+3425,Engerdal,Hamar,6538.0,327.0,True,Påbegynt,False,True,338.0,robust_sen
+3430,Os,Hamar,5106.0,255.0,True,Påbegynt,False,True,339.0,robust_sen
+3426,Tolga,Hamar,8559.0,428.0,True,Påbegynt,False,True,340.0,robust_sen
+5501,Tromsø,Tromsø,27947.0,27947.0,True,Ikke påbegynt,False,False,341.0,fleksibel_mellomgruppe
+3422,Åmot,Hamar,9088.0,9088.0,True,Ikke påbegynt,False,True,342.0,robust_sen
+3421,Trysil,Hamar,16189.0,809.0,True,Påbegynt,False,True,343.0,robust_sen
+3411,Ringsaker,Hamar,12701.0,635.0,True,Påbegynt,False,True,344.0,robust_sen
+3420,Elverum,Hamar,11666.0,583.0,True,Påbegynt,False,True,345.0,robust_sen
+3403,Hamar,Hamar,3151.0,158.0,True,Påbegynt,False,True,346.0,robust_sen
+1838,Gildeskål,Bodø,2461.0,2461.0,True,Ikke påbegynt,False,False,347.0,fleksibel_mellomgruppe
+3412,Løten,Hamar,2884.0,144.0,True,Påbegynt,False,True,348.0,robust_sen
+3419,Våler,Hamar,8900.0,445.0,True,Påbegynt,False,True,349.0,robust_sen
+1836,Rødøy,Bodø,1257.0,1257.0,True,Ikke påbegynt,False,False,350.0,fleksibel_mellomgruppe
+1822,Leirfjord,Bodø,2506.0,2506.0,True,Ikke påbegynt,False,True,351.0,robust_sen
+1828,Nesna,Bodø,1141.0,1141.0,True,Ikke påbegynt,False,True,352.0,robust_sen
+1827,Dønna,Bodø,1732.0,1732.0,True,Ikke påbegynt,False,True,353.0,robust_sen
+1833,Rana,Bodø,10959.0,10959.0,True,Ikke påbegynt,False,False,354.0,fleksibel_mellomgruppe
+1832,Hemnes,Bodø,4516.0,4516.0,True,Ikke påbegynt,False,False,355.0,fleksibel_mellomgruppe
+1837,Meløy,Bodø,4215.0,4215.0,True,Ikke påbegynt,False,False,356.0,fleksibel_mellomgruppe
+1834,Lurøy,Bodø,1485.0,1485.0,True,Ikke påbegynt,False,True,357.0,robust_sen
