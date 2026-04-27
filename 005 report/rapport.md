@@ -40,7 +40,13 @@ Er oppgaven båndlagt (konfidensiell)? ja/nei
 
 ## Sammendrag
 
+Statens kartverk skal kvalitetsheve og overføre datasettet FKB-TraktorvegSti til Nasjonal vegdatabank (NVDB). Arbeidet involverer 357 kommuner fordelt på 10 fylkeskartkontor med varierende kapasitet og 152 Geovekst-låste kommuner som blokkerer arbeidet i deler av perioden. Per april 2026 er 62 kommuner ferdig kvalitetshevet, mens NVDB-overføringen ennå ikke har begynt. Denne oppgaven utvikler et planleggingsgrunnlag for hvordan de 295 gjenstående kommunene bør fordeles og sekvenseres for kortest mulig total prosjektvarighet.
 
+Analysen kombinerer en regelbasert heuristikk for tolkbar baseline-simulering, en MIP-modell i PuLP/CBC for matematisk optimering, og 500-iterasjons Monte Carlo-simulering for usikkerhetskvantifisering. Tre NVDB-scenarioer undersøkes, differensiert på FME-automasjonsgrad: 85 %, 90 % og 96 %. Modellen er kalibrert mot samferdselsavdelingens oppgitte parametere.
+
+Hovedfunnet er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ligger på 6,7-10 år ved realistisk automasjon (90 % og 85 %) og 2,7 år i optimistisk scenario (96 %), mens kartkontorene har kapasitet til å bli ferdige innen 10-17 måneder uavhengig av scenario. Monte Carlo viser betydelig usikkerhet rundt hvert punktestimat — for 90 %-scenarioet spenner P5-P95-båndet 3,3-9,9 år. Resultatet er robust mot rimelige kapasitetsforstyrrelser ved kartkontorene, og MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal innenfor 2,2 % av matematisk minimum.
+
+Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca 2 år. Gapet mellom prognose og ambisjon krever at flere grep kombineres: økt FME-automasjon, grundigere kvalitetsheving ved kartkontorene som reduserer manuell NVDB-belastning, og økt manuell NVDB-bemanning utover dagens 0,5 årsverk. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
 
 ---
 
@@ -285,7 +291,7 @@ Simuleringen kjører 260 mandag-fredag-dager per år. Kartkontorene har imidlert
 
 Konvensjonen ble låst i to trinn etter intern review og avklaring med oppdragsgiver. Først (2026-04-22) ble et skjult kapasitets-overbruk på 13 % korrigert: en tidligere versjon simulerte 260 dager/år men dividerte på 230 ved daglig kapasitet (260/230 = 1,130). Deretter (2026-04-24) ble 260-tallet erstattet med 245 etter avklaring fra oppdragsgiver om at faktiske produktive dager er ca. 245. Samlet effekt: makespan uendret i alle tre NVDB-scenarioer (NVDB dominerer flaskehalsen). Kartkontor-fasen forlenges marginalt: heuristikkens deterministiske siste-ferdigdato forskyves ~3 dager (fra 2027-09-13 til 2027-09-16), og medianvarigheten i Monte Carlo går fra 503 til 510 dager (+1,4 %). Den matematiske minimumsgrensen Min_Kartkontor_Mnd øker tilsvarende kapasitetskuttet (6,8 → 7,2 mnd, +5,9 %), men låseperiodene fra Geovekst-prosjektene absorberer mye av kuttet i de faktiske simuleringene.
 
-NVDB-overføringen beholder modellens 260-dagers kalenderkonvensjon ($\mu = \text{throughput per dag} \cdot 260/12$ lenker per måned i MIP). Samferdselsavdelingen opererer selv med 240 arbeidsdager/år i sin egen regnestykke, og det dokumenterte 240/260-gapet (modell 6,72 år vs samferdsels 7,22 år for 90 %-scenarioet; ren skalering gir 7,22 × 240/260 ≈ 6,67, og modellens 6,72 ligger 0,05 år over dette pga. pre-ferdige kommuner og oppstart) er beholdt som drøftelsespoeng. Modellens relative resultater — sammenligning mellom scenarioer, sensitivitet på kapasitet, usikkerhetsbånd — er upåvirket av denne kalenderkonvensjonen; kun absolutt NVDB-varighet skifter proporsjonalt og er kjent.
+NVDB-overføringen beholder modellens 260-dagers kalenderkonvensjon ($\mu = \text{throughput per dag} \cdot 260/12$ lenker per måned i MIP). Samferdselsavdelingen opererer selv med 240 arbeidsdager/år. Kjøres modellen med deres 240-dagers konvensjon i stedet for prosjektets 260-dagers, gir det 7,22 år for 90 %-scenarioet mot modellens 6,72 år ved 260 dager (ren skalering 7,22 × 240/260 ≈ 6,67, og modellens 6,72 ligger 0,05 år over dette pga. pre-ferdige kommuner og oppstart). Dette dokumenterte 240/260-gapet er beholdt som drøftelsespoeng. Modellens relative resultater — sammenligning mellom scenarioer, sensitivitet på kapasitet, usikkerhetsbånd — er upåvirket av denne kalenderkonvensjonen; kun absolutt NVDB-varighet skifter proporsjonalt og er kjent.
 
 ### 5.1.3 MIP-modellens målfunksjon
 
@@ -303,7 +309,7 @@ $$\mu = \frac{\text{årsverk} \cdot \text{manuell takt}}{1 - \text{automasjonsgr
 
 Formelen hviler på antagelsen at FME-prosessen er uendelig rask og at den manuelle etterbehandlingen er eneste flaskehals. Formelens struktur gir stor følsomhet nær automasjonsgrad = 1 (f.eks. 1 000 vs. 15 000 lenker/dag ved 85 % vs. 99 %). Dette betyr at konklusjonen "automasjonsgrad er dominerende usikkerhetskilde" delvis følger *analytisk* fra formelen, ikke bare empirisk. Følgevirkningen er behandlet i 9.0 Diskusjon.
 
-Manuell takt er satt til **300 lenker/person/dag** etter kalibrering mot samferdselsavdelingens eksplisitte regnestykke (2026-04-20). Monte Carlo-modellen sampler rundt 300 med ±25 (Uniform 275–325) som representerer måleusikkerhet. Stillingsbemanning er 0,5 årsverk (2 personer × 25 % stillingsandel) og holdes konstant på tvers av scenarioer.
+Manuell takt er satt til **300 lenker/person/dag** etter kalibrering mot samferdselsavdelingens oppgitte parametere (2026-04-20). Monte Carlo-modellen sampler rundt 300 med ±25 (Uniform 275–325) som representerer måleusikkerhet. Stillingsbemanning er 0,5 årsverk (2 personer × 25 % stillingsandel) og holdes konstant på tvers av scenarioer.
 
 ### 5.1.5 Scenariodesign
 
@@ -312,7 +318,7 @@ Tre NVDB-scenarioer undersøkes, differensiert på FME-automasjonsgrad som er de
 | FME-automasjon | NVDB-kapasitet (lenker/dag) | Rasjonale |
 |:---:|:---:|---|
 | 85 % | 1 000 | Konservativ midtverdi fra samferdselsavdelingens oppgitte intervall 80–90 % |
-| 90 % | 1 500 | Samferdselsavdelingens eksplisitte regnestykke (kalibreringspunkt) |
+| 90 % | 1 500 | Samferdselsavdelingens oppgitte parametere (kalibreringspunkt) |
 | 96 % | 3 750 | Optimistisk øvre grense, bakoverregnet for å treffe et 2-års-mål |
 
 Samferdselsavdelingen opererer selv kun med 80–90 %. 96 %-scenarioet er dermed ikke deres tall, men en hypotetisk målsetning for å kvantifisere hva FME-automasjon på "toppkvalitet" ville kreve. Dette gir Kartverket et argument for FME-investering: å nå fra 85 % til 96 % automasjonsgrad halverer total prosjektvarighet.
@@ -406,7 +412,7 @@ Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enk
 
 - Kapasitet oppgitt i ukesverk for 2026 antas å gjelde også for etterfølgende år i modellen.
 - Individuell effektivitet per saksbehandler er ikke modellert; kapasiteten behandles som en aggregert ressurs per kontor.
-- Samferdselsavdelingens eksplisitte regnestykke (300 lenker/dag/person manuelt, 0,5 årsverk, 240 arbeidsdager/år, 90 % automasjon) gir en estimert varighet på 7,22 år. Kalibreringen mot disse tallene (2026-04-20) fastsetter manuell takt til 300 lenker/dag og gir 90 %-scenarioet som referansepunkt. Avvik mellom 80 % og 96 % automasjon håndteres via scenarioanalyse; måleusikkerhet innad i hvert scenario via Monte Carlo.
+- Samferdselsavdelingens oppgitte parametere (300 lenker/dag/person manuelt, 0,5 årsverk, 240 arbeidsdager/år, 90 % automasjon) gir ved direkte beregning en varighet på 7,22 år. Kalibreringen mot disse parametrene (2026-04-20) fastsetter manuell takt til 300 lenker/dag og gir 90 %-scenarioet som referansepunkt. Avvik mellom 80 % og 96 % automasjon håndteres via scenarioanalyse; måleusikkerhet innad i hvert scenario via Monte Carlo.
 - Kommune-til-kontor-tildelingen er en beslutningsvariabel i optimeringsmodellen. Kolonnen `Kartkontor` i `master_kommuner.csv` angir dagens geografiske tildeling og brukes som baseline som den optimerte omfordelingen sammenlignes mot.
 
 ---
@@ -663,7 +669,7 @@ Den hybride løsningsmetoden (regelbasert heuristikk + MIP-verifikasjon + Monte 
 
 1. **Total prosjektvarighet (deterministisk estimat, heuristikk / MIP):**
    - 85 %-scenarioet: **10,08 / 10,17 år**
-   - 90 %-scenarioet: **6,72 / 6,75 år** — samsvarer med samferdselsavdelingens eksplisitte regnestykke på 7,22 år (gapet er 240-vs-260-dagers kalenderkonvensjon, jf. 5.1.2)
+   - 90 %-scenarioet: **6,72 / 6,75 år** — kvantitativt konsistent med direkte beregning av samferdselsavdelingens parametere (7,22 år ved 240 dager/år; gapet er 240-vs-260-dagers kalenderkonvensjon, jf. 5.1.2)
    - 96 %-scenarioet: **2,69 / 2,75 år** — optimistisk øvre grense bakoverregnet mot et 2-års-mål
 
 2. **Usikkerhetsbånd (P5 / P50 / P95 fra 500 Monte Carlo-iterasjoner):**
@@ -673,7 +679,7 @@ Den hybride løsningsmetoden (regelbasert heuristikk + MIP-verifikasjon + Monte 
 
 3. **Omfordeling mellom kartkontor:** gir *ingen* forbedring i total makespan i noen av de tre NVDB-scenarioene. MIP-modellen bekrefter at heuristikkens ansvarskontor-tildeling er nær-optimal (innenfor 2,2 % av MIP-ens løsning, forskjellen skyldes tidsoppløsning, ikke assignment). **MIP-modellens bidrag er å verifisere heuristikken og komprimere kartkontor-ferdigprofilen**, ikke å redusere totalvarighet.
 
-4. **Kartkontor-ferdigstilling:** alt kartkontor-arbeid fullføres innen 10–17 måneder i alle scenarioer (MIP 10–11 mnd, heuristikk opp til 16,5). Kartkontorene er ikke flaskehalsen.
+4. **Kartkontor-ferdigstilling:** kartkontorene har kapasitet til å fullføre alt arbeid innen 10–17 måneder i alle scenarioer (MIP 10–11 mnd, heuristikk opp til 16,5). Kartkontorene er ikke flaskehalsen.
 
 5. **NVDB-overføring er flaskehalsen:** makespan bestemmes nesten utelukkende av NVDB-kapasiteten. Ved 85 % automasjon krever den 10+ år alene, ved 96 % under 3 år. Variansen på tvers av scenarioer (faktor 3,7× mellom punktestimatene) er sammenlignbar med variansen innad i hvert scenario (faktor 2,0–4,3× fra P5 til P95).
 
@@ -697,7 +703,7 @@ Fra et beredskapssynspunkt gir dette Kartverket trygghet i planleggingen. Dersom
 
 Modellen leverer et klart og robust hovedbudskap: **NVDB-overføringen er flaskehalsen, ikke kartkontor-fasen**. Dette holder uansett hvilket av de tre scenarioene som realiseres, og uansett rimelige kapasitetsforstyrrelser på kartkontorene. Total prosjektvarighet bestemmes av hvor effektiv FME-automasjonen blir og hvor mye manuell kapasitet samferdselsavdelingen kan sette av til prosjektet. Kartverkets ressurser bør derfor primært settes inn på FME-utvikling og på å øke den manuelle bemanningen utover 0,5 årsverk, ikke på å balansere eller utvide fylkeskartkontorene.
 
-Kalibreringen mot samferdselsavdelingens eksplisitte regnestykke (300 lenker/dag, 240 arbeidsdager/år, 90 % automasjon → 7,22 år) viser at modellens punktestimat for 90 %-scenarioet (6,72 år med prosjektets 260-dagers konvensjon) er kvantitativt konsistent med samferdselsavdelingens tall. Gapet på 0,5 år skyldes hovedsakelig den ulike kalenderkonvensjonen (ren skalering 7,22 × 240/260 ≈ 6,67), og resterende 0,05 år til modelldetaljer som pre-ferdige kommuner og oppstart — ikke modell-feil. Modellen er altså *validert mot et eksternt benchmark*.
+Kalibreringen mot samferdselsavdelingens oppgitte parametere (300 lenker/dag, 240 arbeidsdager/år, 90 % automasjon, 0,5 årsverk; → 7,22 år ved direkte beregning) viser at modellens punktestimat for 90 %-scenarioet (6,72 år med prosjektets 260-dagers konvensjon) er kvantitativt konsistent med dette tallgrunnlaget. Gapet på 0,5 år skyldes hovedsakelig den ulike kalenderkonvensjonen (ren skalering 7,22 × 240/260 ≈ 6,67), og resterende 0,05 år til modelldetaljer som pre-ferdige kommuner og oppstart — ikke modell-feil. Modellen er altså *kvantitativt konsistent med samferdselsavdelingens tallgrunnlag*.
 
 ## 9.2 Tidbruk-formelens identifiserbarhet
 
@@ -781,9 +787,9 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at 
 
 # 10.0 Konklusjon
 
-Hovedfunnet i analysen er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ligger på 6,7-10 år ved realistisk automasjon (90 %- og 85 %-automasjon) og 2,7 år i optimistisk scenario (96 %-automasjon), mens kartkontorene blir ferdige innen 10-17 måneder uavhengig av scenario. Monte Carlo-analysen viser betydelig usikkerhet rundt hvert punktestimat — for 90 %-scenarioet spenner P5-P95-båndet 3,3-9,9 år — hovedsakelig fordi små endringer i automasjonsgrad gir store utslag på NVDB-overføringskapasiteten når automasjonen er høy. Resultatet er robust mot kapasitetsforstyrrelser ved kartkontorene (identisk makespan i alle seks varianter S0-S5), mot dobling av tidbruk-formelen, og mot ulike antagelser om automasjonsgradens spredning.
+Hovedfunnet i analysen er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ligger på 6,7-10 år ved realistisk automasjon (90 %- og 85 %-automasjon) og 2,7 år i optimistisk scenario (96 %-automasjon), mens kartkontorene har kapasitet til å bli ferdige innen 10-17 måneder uavhengig av scenario. Monte Carlo-analysen viser betydelig usikkerhet rundt hvert punktestimat — for 90 %-scenarioet spenner P5-P95-båndet 3,3-9,9 år — hovedsakelig fordi små endringer i automasjonsgrad gir store utslag på NVDB-overføringskapasiteten når automasjonen er høy. Resultatet er robust mot kapasitetsforstyrrelser ved kartkontorene (identisk makespan i alle seks varianter S0-S5), mot dobling av tidbruk-formelen, og mot ulike antagelser om automasjonsgradens spredning.
 
-Modellens 90 %-punktestimat på 6,7 år samsvarer med samferdselsavdelingens egen prognose på 7,22 år (gapet skyldes ulik kalenderkonvensjon), og analysen er dermed validert mot et eksternt benchmark. Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca 2 år. Gapet mellom prognose og ambisjon — 5+ år — er den sentrale beslutningsutfordringen, og motiverer de praktiske grepene som følger.
+Modellens 90 %-punktestimat på 6,7 år ligger nær det 7,22-årstallet som direkte beregning av samferdselsavdelingens oppgitte parametere gir (gapet skyldes ulik kalenderkonvensjon), og analysen er dermed kvantitativt konsistent med deres tallgrunnlag. Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca 2 år. Gapet mellom prognose og ambisjon — 5+ år — er den sentrale beslutningsutfordringen, og motiverer de praktiske grepene som følger.
 
 Tre grep peker seg ut. Investeringer i FME-automasjon gir størst effekt — å løfte automasjonsgraden fra 85 til 90 % reduserer varigheten med en tredjedel, og videre til 96 % mer enn halverer den igjen. Grundigere kvalitetsheving ved kartkontorene gir samme retning av effekt: hvert ikke-gjenfinnbart objekt eller topologi-feil som ryddes opp før klarmelding, blir et objekt færre i samferdselsavdelingens manuelle kø. Økt manuell NVDB-bemanning utover 0,5 årsverk gir proporsjonal reduksjon. Modellen viser at ingen enkeltgrep alene kan lukke ambisjonsgapet — alle tre må kombineres dersom 2-års-målet skal være innen rekkevidde. Omfordeling av kommuner mellom kartkontor er derimot ikke nødvendig: MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal innenfor 2,2 % av matematisk minimum.
 
