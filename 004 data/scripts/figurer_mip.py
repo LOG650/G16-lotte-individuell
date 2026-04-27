@@ -38,6 +38,16 @@ FARGER = {
     'mip': '#D97706',
 }
 
+SCENARIO_NAVN = {
+    'Basis_85': '85 % automasjon',
+    'Middels_90': '90 % automasjon',
+    'Samferdsel_96': '96 % automasjon',
+}
+
+
+def vis(scenario):
+    return SCENARIO_NAVN.get(scenario, scenario)
+
 
 def aar_format(mnd):
     return f'{mnd / 12:.1f}'
@@ -62,7 +72,7 @@ def fig14_makespan_sammenligning():
         ax.text(i - w / 2, h + 0.1, f'{h:.2f}', ha='center', fontsize=9)
         ax.text(i + w / 2, m + 0.1, f'{m:.2f}', ha='center', fontsize=9)
     ax.set_xticks(x)
-    ax.set_xticklabels(scenarioer)
+    ax.set_xticklabels([vis(s) for s in scenarioer])
     ax.set_ylabel('Total varighet (aar)')
     ax.set_title('Prosjektvarighet: heuristikk vs. MIP')
     ax.legend()
@@ -80,7 +90,7 @@ def fig15_kartkontor_ferdig():
     for ax, scenario in zip(axes, ['Basis_85', 'Middels_90', 'Samferdsel_96']):
         mip_fil = os.path.join(DATA_DIR, f'tidsplan_mip_{MIP_MODE}_{scenario}.csv')
         if not os.path.exists(mip_fil):
-            ax.set_title(f'{scenario} (mangler)')
+            ax.set_title(f'{vis(scenario)} (mangler)')
             continue
         mip = pd.read_csv(mip_fil)
         heur_fil = os.path.join(DATA_DIR, f'tidsplan_{scenario}.csv')
@@ -93,7 +103,7 @@ def fig15_kartkontor_ferdig():
                 label='Heuristikk', color=FARGER['heuristikk'])
         ax.hist(mip_vals, bins=bins, alpha=0.55,
                 label='MIP', color=FARGER['mip'])
-        ax.set_title(scenario)
+        ax.set_title(vis(scenario))
         ax.set_xlabel('Kartkontor-ferdigmaaned')
         ax.legend()
         ax.grid(alpha=0.3)
@@ -128,7 +138,7 @@ def fig16_omfordeling_matrise(scenario='Middels_90'):
     ax.set_yticklabels(ordre)
     ax.set_xlabel('MIP-kontor')
     ax.set_ylabel('Ansvarlig kartkontor')
-    ax.set_title(f'Omfordeling fra ansvarlig kartkontor → MIP-kontor ({scenario})')
+    ax.set_title(f'Omfordeling fra ansvarlig kartkontor → MIP-kontor ({vis(scenario)})')
     for i in range(len(ordre)):
         for j in range(len(ordre)):
             v = matrise.values[i, j]
@@ -167,7 +177,7 @@ def fig18_kapasitet_sensitivitet():
         ax.set_xticks(range(len(sub)))
         ax.set_xticklabels(sub['Variant'], rotation=40, ha='right')
         ax.set_ylabel('Makespan (aar)')
-        ax.set_title(s)
+        ax.set_title(vis(s))
         ax.grid(axis='y', alpha=0.3)
     fig.suptitle('Kapasitets-sensitivitet: makespan per variant og NVDB-scenario')
     fn = os.path.join(FIG_DIR, '18_kapasitet_sensitivitet.png')
@@ -194,7 +204,7 @@ def fig19_omfordeling_varianter():
         sub = df[df['NVDB_Scenario'] == s].set_index('Variant').reindex(varianter)
         ax.bar(x + (i - (len(scenarioer) - 1) / 2) * w,
                sub['Kommuner_Omfordelt'], w,
-               label=s, color=FARGER.get(s, None))
+               label=vis(s), color=FARGER.get(s, None))
     ax.set_xticks(x)
     ax.set_xticklabels(varianter, rotation=35, ha='right')
     ax.set_ylabel('Antall omfordelte kommuner')

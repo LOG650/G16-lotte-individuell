@@ -30,9 +30,9 @@ plt.rcParams['font.size'] = 10
 
 SCENARIOER = ['Basis_85', 'Middels_90', 'Samferdsel_96']
 SCENARIO_NAVN = {
-    'Basis_85': 'Basis (85 % auto)',
-    'Middels_90': 'Middels (90 % auto)',
-    'Samferdsel_96': 'Samferdsel (96 % auto)',
+    'Basis_85': '85 % automasjon',
+    'Middels_90': '90 % automasjon',
+    'Samferdsel_96': '96 % automasjon',
 }
 SCENARIO_FARGER = {
     'Basis_85': '#c44e52',
