@@ -781,7 +781,15 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at 
 
 # 10.0 Konklusjon
 
+Hovedfunnet i analysen er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ligger på 6,7-10 år ved realistisk automasjon (90 %- og 85 %-automasjon) og 2,7 år i optimistisk scenario (96 %-automasjon), mens kartkontorene blir ferdige innen 10-17 måneder uavhengig av scenario. Monte Carlo-analysen viser betydelig usikkerhet rundt hvert punktestimat — for 90 %-scenarioet spenner P5-P95-båndet 3,3-9,9 år — hovedsakelig fordi små endringer i automasjonsgrad gir store utslag på NVDB-overføringskapasiteten når automasjonen er høy. Resultatet er robust mot kapasitetsforstyrrelser ved kartkontorene (identisk makespan i alle seks varianter S0-S5), mot dobling av tidbruk-formelen, og mot ulike antagelser om automasjonsgradens spredning.
 
+Modellens 90 %-punktestimat på 6,7 år samsvarer med samferdselsavdelingens egen prognose på 7,22 år (gapet skyldes ulik kalenderkonvensjon), og analysen er dermed validert mot et eksternt benchmark. Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca 2 år. Gapet mellom prognose og ambisjon — 5+ år — er den sentrale beslutningsutfordringen, og motiverer de praktiske grepene som følger.
+
+Tre grep peker seg ut. Investeringer i FME-automasjon gir størst effekt — å løfte automasjonsgraden fra 85 til 90 % reduserer varigheten med en tredjedel, og videre til 96 % mer enn halverer den igjen. Grundigere kvalitetsheving ved kartkontorene gir samme retning av effekt: hvert ikke-gjenfinnbart objekt eller topologi-feil som ryddes opp før klarmelding, blir et objekt færre i samferdselsavdelingens manuelle kø. Økt manuell NVDB-bemanning utover 0,5 årsverk gir proporsjonal reduksjon. Modellen viser at ingen enkeltgrep alene kan lukke ambisjonsgapet — alle tre må kombineres dersom 2-års-målet skal være innen rekkevidde. Omfordeling av kommuner mellom kartkontor er derimot ikke nødvendig: MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal innenfor 2,2 % av matematisk minimum.
+
+Modellens viktigste begrensning ligger i tidbruk-formelen, der koeffisientene 0,9035 min/km og 0,6510 min/km² ikke er regresjonsestimerte og kan underestimere reell tidsbruk med faktor opptil 2 (jf. 9.2). Sensitivitetsanalysen viser at hovedbudskapet om NVDB-flaskehalsen overlever en slik skalering for de to mest realistiske scenarioene, men 96 %-scenarioet får P5 presset opp fra 1,38 til 2,15 år ved skala 2.
+
+Det viktigste oppfølgingstiltaket er kontinuerlig tidsregistrering for de 295 gjenstående kommunene, slik at modellen kan kalibreres underveis. De 62 ferdige kommunene er gjennomsnittlig halvparten så tunge per stk som de 295 som gjenstår, og er derfor ikke representative for resten av arbeidsmengden. Modellrammen — heuristikk for tolkbar baseline, MIP for verifikasjon og beredskap, Monte Carlo for risikokvantifisering — er overførbar til andre Kartverk-prosjekter med tilsvarende struktur: ressursallokering på tvers av regionale kontor, tidsvinduer fra eksterne avhengigheter, og en sekvensiell nedstrøms-prosess.
 
 ---
 
