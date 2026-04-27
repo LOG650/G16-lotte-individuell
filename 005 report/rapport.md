@@ -52,7 +52,13 @@ Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være fe
 
 ## Abstract
 
+The Norwegian Mapping Authority is to enhance the quality of the FKB-TraktorvegSti dataset and transfer it to the National Road Database (NVDB). The task involves 357 municipalities distributed across 10 county mapping offices with varying capacity, and 152 municipalities locked by Geovekst projects that block work during parts of the project period. As of April 2026, 62 municipalities have been quality-enhanced, while the NVDB transfer has not yet begun. This thesis develops a planning framework for how the 295 remaining municipalities should be allocated and sequenced to minimise total project duration.
 
+The analysis combines a rule-based heuristic providing an interpretable baseline simulation, a MIP model in PuLP/CBC for mathematical optimisation, and 500-iteration Monte Carlo simulation for uncertainty quantification. Three NVDB scenarios are examined, differentiated by FME automation level: 85 %, 90 %, and 96 %. The model is calibrated against the parameters provided by the Transport Unit (*samferdselsavdelingen*).
+
+The main finding is that the NVDB transfer constitutes the project bottleneck, not the mapping office phase. Total duration ranges from 6.7 to 10 years at realistic automation levels (90 % and 85 %) and 2.7 years in the optimistic scenario (96 %), while the mapping offices have sufficient capacity to complete their work within 10-17 months regardless of scenario. The Monte Carlo analysis shows considerable uncertainty around each point estimate — for the 90 % scenario, the P5–P95 band spans 3.3 to 9.9 years. The result is robust to reasonable capacity disturbances at the mapping offices, and the MIP model verifies that the geographic responsibility allocation is near-optimal, within 2.2 % of the mathematical minimum.
+
+The Transport Unit has stated an ambition that the work should be completed in approximately 2 years. Closing the gap between forecast and ambition requires combining several measures: increased FME automation, more thorough quality enhancement at the mapping offices to reduce manual NVDB workload, and increased manual NVDB staffing beyond the current 0.5 full-time equivalents. Reallocating municipalities between mapping offices is not necessary to reduce total duration.
 
 ---
 
