@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-26T09:30"
+    "sist_oppdatert": "2026-04-28"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -154,7 +154,7 @@
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
       "status": "Pågående",
-      "fremdrift_prosent": 85,
+      "fremdrift_prosent": 95,
       "oppgaver": [
         {
           "id": 15,
@@ -163,9 +163,9 @@
           "sluttdato": "2026-03-18",
           "varighet_dager": 3,
           "predecessors": [],
-          "status": "Pågående",
-          "fremdrift_prosent": 50,
-          "kommentar": "Innledning 1.0 har utkast (problemstilling, delproblemer, avgrensninger, antagelser). Sammendrag og Abstract er fortsatt tomme — skal skrives før hovedutkast 2026-04-29."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Innledning 1.0 (problemstilling, delproblemer, avgrensninger, antagelser), Sammendrag og Abstract (engelsk, ~290 ord) skrevet og polert. Endelig polering av introduksjon skjer i fase 4 (oppgave 26)."
         },
         {
           "id": 16,
@@ -176,9 +176,9 @@
           "predecessors": [
             15
           ],
-          "status": "Pågående",
-          "fremdrift_prosent": 30,
-          "kommentar": "Litteraturkapittel 2.0 ferdig med 6 referanser i APA 7 (Pinedo, Hartmann/Briskorn, Puchinger/Raidl, Vose, Efron/Tibshirani, Graham). Teori-kapittel 3.0 gjenstår — utkast skal skrives før hovedutkast 2026-04-29."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Litteraturkapittel 2.0 ferdig med 6 referanser i APA 7 (Pinedo, Hartmann/Briskorn, Puchinger/Raidl, Vose, Efron/Tibshirani, Graham). Teori-kapittel 3.0 skrevet og inneholder underseksjoner om scheduling-rammeverk, ressursallokering, MILP, heuristikk og Monte Carlo."
         },
         {
           "id": 17,
