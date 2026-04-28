@@ -348,20 +348,20 @@ Grunnpakke-tillegget (0,6510 min/km²) holdes konstant i Monte Carlo. Areal-koef
 
 Rådataene er hentet fra fire hovedkilder:
 
-| Fil | Kilde | Innhold |
-|-----|-------|---------|
-| `data.csv` | Samferdselsavdelingens PowerBI-rapport | Fremdriftsstatus per kommune (Ferdig / Påbegynt / Ikke påbegynt) |
-| `Antall objekter per kommune.csv` | Kartverket | Arbeidsmengde i antall lenker per kommune (355 kommuner) |
-| `20250903StatistikkTraktorvegSti.xlsx` | Kartverket grunndata | Kommunemapping, kilometer kurve, beregnet tidsbruk og dagsverk (359 kommuner) |
-| `Datainnsamling_TraktorvegSti.xlsx` | 10 fylkeskartkontor | Kapasitet (ukesverk), min/maks tidsbruk per kommune, og Geovekst-prosjekter med låseperioder |
+| Datasett | Kilde | Innhold |
+|----------|-------|---------|
+| Fremdriftsstatus per kommune | Samferdselsavdelingens PowerBI-rapport | Status per kommune (Ferdig / Påbegynt / Ikke påbegynt) |
+| Arbeidsmengde per kommune | Samferdselsavdelingens PowerBI-rapport | Antall lenker per kommune |
+| Grunndata for kvalitetsheving | Et fylkeskartkontor | Kommunemapping, kurvelengde i km, beregnet tidsbruk og dagsverk |
+| Datainnsamling fra fylkeskartkontorene | 10 fylkeskartkontor | Kapasitet (ukesverk), min/maks tidsbruk per kommune og Geovekst-prosjekter med låseperioder |
 
-Datainnsamlingen fra kartkontorene ble samlet inn våren 2026 via et felles Excel-skjema med ett ark per kontor. Kristiansand-arket var tomt; disse dataene ble hentet fra separate CSV-filer (`Agder_prosjekter.csv`, `Rogaland_prosjekter.csv`) som supplement.
+Datainnsamlingen fra kartkontorene ble gjennomført våren 2026 via et felles Excel-skjema med ett ark per kontor. Materialet er ufullstendig på flere punkter. Agder og Rogaland leverte ingen data; Geovekst-prosjekter for disse to kontorene ble innhentet av forfatter selv og ligger i to supplerende CSV-filer, mens kapasitet, tidbruk og låseperioder utenfor Geovekst er estimerte. Oslo og Bodø leverte Geovekst-prosjekter, men kapasitet og tidbruk er estimerte; Oslos opprinnelige tall ble vurdert som urealistisk lave i dialog med oppdragsgiver og er erstattet (se 5.2.2). Konsekvenser av disse estimerte input-tallene er drøftet i 9.3.
 
 ### 5.2.2 Datarensing
 
 Rådataene hadde flere kvalitetsproblemer som måtte håndteres:
 
-- **Feil fylkesinformasjon:** Feltet `fylkesnr` i `20250903StatistikkTraktorvegSti.xlsx` var forskjøvet og inkonsistent. Fylkestilhørighet utledes derfor fra de to første sifrene i kommunenummeret.
+- **Feil fylkesinformasjon:** Feltet for fylkesnummer i grunndatasettet var forskjøvet og inkonsistent. Fylkestilhørighet utledes derfor fra de to første sifrene i kommunenummeret.
 - **Ulike formater på låseperioder:** Tekstverdiene varierte fra datorange (f.eks. "august 2026 – mars 2027") til antall måneder ("7"). Alle standardiseres til start- og sluttdato, og ukjente formater tildeles perioden mai–desember 2026 som konservativt estimat.
 - **Arbeidsmengde i ulike enheter:** Arbeidsmengde angis som antall lenker (ikke kilometer), ettersom produksjonstakten oppgis i lenker per person per dag.
 - **Manuelle justeringer av kapasitetsdata:** Oslo-kontorets opprinnelige oppgitte kapasitet (20 ukesverk, 20–60 timer per kommune) ble vurdert som urealistisk lav sammenlignet med kontorets størrelse og øvrige kontorers nivå. Etter dialog ble verdiene justert til 30 ukesverk og 30–90 timer per kommune.
@@ -376,7 +376,7 @@ $$
 \text{Ber\_Tidbruk\_Min} = \text{Km\_Kurve} \times 0{,}9035 + \text{ArealLand\_Km}^2 \times 0{,}6510
 $$
 
-Koeffisientene kommer fra fanen `Tidbruk` i `20250903StatistikkTraktorvegSti.xlsx` og dokumenterer hvordan Kartverket estimerer ressursbehov for kvalitetsheving av TVS-data:
+Koeffisientene kommer fra Tidbruk-fanen i grunndatasettet og dokumenterer hvordan Kartverket estimerer ressursbehov for kvalitetsheving av TVS-data:
 
 - **0,9035 min/km lenke:** empirisk gjennomsnitt av målt tidsbruk per kilometer TVS-lenke, utledet fra registreringer av faktisk tidsbruk på 58 kartblader.
 - **0,6510 min/km² landareal:** standardtillegg for kommunens landareal ("grunnpakke"), som fanger opp arbeid som ikke skalerer direkte med lenkelengde (nettverkskontroll, topologisk kontroll, arkivarbeid m.m.).
@@ -385,14 +385,14 @@ Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker 
 
 ### 5.2.4 Behandlede datasett
 
-| Fil | Rader | Innhold |
-|-----|-------|---------|
-| `master_kommuner.csv` | 357 | Én rad per kommune: kommunenr, kartkontor, status, antall lenker, gjenstående lenker, beregnet tidsbruk, Geovekst-status |
-| `kapasitet_kontorer.csv` | 10 | Én rad per kartkontor: årlig kapasitet (ukesverk), min/maks tidsbruk per kommune, aggregerte nøkkeltall |
-| `geovekst_prosjekter.csv` | 173 | Én rad per kommune-prosjekt-par: prosjektkode, kommune, kartkontor, status, låseperiode (start/slutt) |
-| `nvdb_overfoering.csv` | 3 | Tre scenarioer for NVDB-overføring med varierende automasjonsgrad (85 %, 90 %, 96 %) |
-| `tidbruk_kalibrering.csv` | 58 | Én rad per kartblad med faktisk målt tidsbruk (MIN, LENGTH, MIN/KM, MIN/KM²) |
-| `tidbruk_konstanter.csv` | 2 | Koeffisientene 0,9035 min/km og 0,6510 min/km² som brukes i formelen for Ber_Tidbruk_Min |
+| Datasett | Rader | Innhold |
+|----------|-------|---------|
+| Master-datasett | 357 | Én rad per kommune: kommunenr, kartkontor, status, antall lenker, gjenstående lenker, beregnet tidsbruk, Geovekst-status |
+| Kapasitet per kontor | 10 | Én rad per kartkontor: årlig kapasitet (ukesverk), min/maks tidsbruk per kommune, aggregerte nøkkeltall |
+| Geovekst-prosjekter | 173 | Én rad per kommune-prosjekt-par: prosjektkode, kommune, kartkontor, status, låseperiode (start/slutt) |
+| NVDB-scenarioer | 3 | Tre scenarioer for NVDB-overføring med varierende automasjonsgrad (85 %, 90 %, 96 %) |
+| Tidbruk-kalibrering | 58 | Én rad per kartblad med faktisk målt tidsbruk (MIN, LENGTH, MIN/KM, MIN/KM²) |
+| Tidbruk-konstanter | 2 | Koeffisientene 0,9035 min/km og 0,6510 min/km² som brukes i formelen for Ber_Tidbruk_Min |
 
 ### 5.2.5 Nøkkeltall og deskriptiv statistikk
 
@@ -419,7 +419,7 @@ Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enk
 - Kapasitet oppgitt i ukesverk for 2026 antas å gjelde også for etterfølgende år i modellen.
 - Individuell effektivitet per saksbehandler er ikke modellert; kapasiteten behandles som en aggregert ressurs per kontor.
 - Samferdselsavdelingens oppgitte parametere (300 lenker/dag/person manuelt, 0,5 årsverk, 240 arbeidsdager/år, 90 % automasjon) gir ved direkte beregning en varighet på 7,22 år. Kalibreringen mot disse parametrene (2026-04-20) fastsetter manuell takt til 300 lenker/dag og gir 90 %-scenarioet som referansepunkt. Avvik mellom 80 % og 96 % automasjon håndteres via scenarioanalyse; måleusikkerhet innad i hvert scenario via Monte Carlo.
-- Kommune-til-kontor-tildelingen er en beslutningsvariabel i optimeringsmodellen. Kolonnen `Kartkontor` i `master_kommuner.csv` angir dagens geografiske tildeling og brukes som baseline som den optimerte omfordelingen sammenlignes mot.
+- Kommune-til-kontor-tildelingen er en beslutningsvariabel i optimeringsmodellen. Ansvarlig kartkontor i master-datasettet angir dagens geografiske tildeling og brukes som baseline som den optimerte omfordelingen sammenlignes mot.
 
 ---
 
@@ -713,7 +713,7 @@ Kalibreringen mot samferdselsavdelingens oppgitte parametere (300 lenker/dag, 24
 
 ## 9.2 Tidbruk-formelens identifiserbarhet
 
-Alle timer-estimater bygger på formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510`, med koeffisienter hentet fra Tidbruk-fanen i `StatistikkTraktorvegSti.xlsx`. En uavhengig validering avdekket tre forbehold.
+Alle timer-estimater bygger på formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510`, med koeffisienter hentet fra Tidbruk-fanen i grunndatasettet. En uavhengig validering avdekket tre forbehold.
 
 **Koeffisientene er ikke OLS-estimert.** De 58 kalibrerings-kartbladene har identisk areal (7,68 km²), slik at areal-leddet ikke kan identifiseres separat fra lengde-leddet. Koeffisienten 0,9035 er gjennomsnittlig MIN/KM, ikke en regresjonskoeffisient; 0,6510 har uklart empirisk opphav. OLS på samme data gir β_lengde = 0,84 og β_areal = 0,09 (ikke signifikant).
 
@@ -742,6 +742,8 @@ MIP-modellen er ikke kjørt med skalert tidbruk. Siden uniform skalering bevarer
 **Konstant NVDB-kapasitet.** Modellen behandler samferdselsavdelingens kapasitet som et fast tall gjennom hele horisonten, uten ferier, sykefravær, opplæring eller opprampning. I virkeligheten vil kapasiteten variere med ~15 % sesongmessig (sommerferie) og potensielt mer ved personalendringer. Dette betyr at modellens punktestimater må tolkes som "gjennomsnitt over arbeidsdager som ligner nominelle", ikke som absolutte prognoser. Monte Carlo-analysen fanger ikke denne temporale variabiliteten.
 
 **Individuell effektivitet.** Både kartkontor- og NVDB-kapasitet aggregeres per kontor eller avdeling. Reelle produktivitetsforskjeller mellom saksbehandlere på ±30 % er ikke modellert. I et relativt homogent prosjekt med tydelige arbeidsprosesser vil dette jevne seg ut over 295 kommuner, men i spissperioder kan det gi lokal ujevnhet i framdrift.
+
+**Estimerte input-tall for fire kontor.** Agder, Rogaland, Oslo og Bodø har estimerte verdier for kapasitet og tidbruk per kommune; Agder og Rogaland har i tillegg estimerte låseperioder utenfor de Geovekst-prosjektene som er hentet fra separate kilder (jf. 5.2.1). De strukturelle hovedfunnene — NVDB-flaskehals og makespan-robusthet mot kapasitetsforstyrrelser — er lite følsomme for kapasitet på enkeltkontor, jf. kapasitets-sensitivitetsanalysen i 7.4 der seks ulike kapasitetsvarianter ga identisk makespan. Tallene for kartkontor-fasens varighet på de fire estimerte kontorene må likevel leses som indikative.
 
 ## 9.4 Usikkerhetsanalysens antagelser
 
