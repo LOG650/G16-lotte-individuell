@@ -46,7 +46,7 @@ Analysen kombinerer en regelbasert heuristikk for tolkbar referansesimulering, e
 
 Hovedfunnet er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ligger på 6,7-10 år ved realistisk automasjon (90 % og 85 %) og 2,7 år i optimistisk scenario (96 %), mens kartkontorene har kapasitet til å fullføre alt arbeid innen 10-17 måneder uavhengig av scenario. Monte Carlo viser betydelig usikkerhet rundt hvert punktestimat — for 90 %-scenarioet spenner P5-P95-båndet 3,3-9,9 år. Resultatet er robust mot rimelige kapasitetsforstyrrelser ved kartkontorene, og MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal innenfor 2,2 % av matematisk minimum.
 
-Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca 2 år. Gapet mellom prognose og ambisjon krever at flere grep kombineres: økt FME-automasjon, grundigere kvalitetsheving ved kartkontorene som reduserer manuell NVDB-belastning, og økt manuell NVDB-bemanning utover dagens 0,5 årsverk. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
+Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca. 2 år. Gapet mellom prognose og ambisjon krever at flere grep kombineres: økt FME-automasjon, grundigere kvalitetsheving ved kartkontorene som reduserer manuell NVDB-belastning, og økt manuell NVDB-bemanning utover dagens 0,5 årsverk. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
 
 ---
 
@@ -72,13 +72,34 @@ The Transport Unit has stated an ambition that the work should be completed in a
 - [2.0 Litteratur](#20-litteratur)
 - [3.0 Teori](#30-teori)
 - [4.0 Casebeskrivelse](#40-casebeskrivelse)
+  - [4.1 FKB-TraktorvegSti og kvalitetsheving](#41-fkb-traktorvegsti-og-kvalitetsheving)
+  - [4.2 Produksjonskjeden](#42-produksjonskjeden)
+  - [4.3 De 10 fylkeskartkontorene](#43-de-10-fylkeskartkontorene)
+  - [4.4 Fremdrift per april 2026](#44-fremdrift-per-april-2026)
+  - [4.5 Geovekst-låsing](#45-geovekst-låsing)
+  - [4.6 Hvorfor dette er et planleggingsproblem](#46-hvorfor-dette-er-et-planleggingsproblem)
 - [5.0 Metode og data](#50-metode-og-data)
   - [5.1 Metode](#51-metode)
   - [5.2 Data](#52-data)
 - [6.0 Modellering](#60-modellering)
+  - [6.1 Heuristikk](#61-heuristikk)
+  - [6.2 MIP-formulering](#62-mip-formulering)
+  - [6.3 Sensitivitetsanalyse](#63-sensitivitetsanalyse)
+  - [6.4 Implementeringsdetaljer](#64-implementeringsdetaljer)
 - [7.0 Analyse](#70-analyse)
+  - [7.1 MIP vs. heuristikk — makespan](#71-mip-vs-heuristikk--makespan)
+  - [7.2 Kartkontor-ferdigstilling](#72-kartkontor-ferdigstilling)
+  - [7.3 Omfordeling mellom kontor](#73-omfordeling-mellom-kontor)
+  - [7.4 Kapasitets-sensitivitet](#74-kapasitets-sensitivitet)
+  - [7.5 Usikkerhetsanalyse](#75-usikkerhetsanalyse)
 - [8.0 Resultat](#80-resultat)
 - [9.0 Diskusjon](#90-diskusjon)
+  - [9.1 Hovedbudskapet til Kartverket](#91-hovedbudskapet-til-kartverket)
+  - [9.2 Tidbruk-formelens identifiserbarhet](#92-tidbruk-formelens-identifiserbarhet)
+  - [9.3 Hva modellen ikke fanger](#93-hva-modellen-ikke-fanger)
+  - [9.4 Usikkerhetsanalysens antagelser](#94-usikkerhetsanalysens-antagelser)
+  - [9.5 Modellens metodologiske begrensninger](#95-modellens-metodologiske-begrensninger)
+  - [9.6 Praktiske implikasjoner](#96-praktiske-implikasjoner)
 - [10.0 Konklusjon](#100-konklusjon)
 - [11.0 Bibliografi](#110-bibliografi)
 - [12.0 Vedlegg](#120-vedlegg)
@@ -179,7 +200,7 @@ Heuristikker gir gode løsninger raskt, men uten optimalitetsgaranti, og uten en
 
 Puchinger og Raidl (2005) klassifiserer kombinasjoner av metaheuristikker og eksakte algoritmer i to hovedtyper: *kollaborative* (heuristikk og eksakt-løser kjøres sekvensielt eller parallelt og utveksler informasjon), og *integrative* (én metode er innebygd i den andre, for eksempel heuristikk som varm-start for branch-and-bound). Denne oppgaven anvender en sekvensiell kollaborativ tilnærming: heuristikken gir en referanse som tjener både som rask tilnærming og som målestokk for MIP-modellen, mens MIP-modellen — løst med CBC via PuLP — validerer at heuristikkens løsning ligger nær matematisk optimum.
 
-Designet gir to verdier som ingen av metodene alene leverer. Heuristikken alene gir ingen kvalitetssikring, og MIP-modellen alene har skaleringsbegrensninger ved store horisonter (85 %-scenarioet ender Not Solved ved 30-minutters tidsgrense). Når begge metodene gir nær identisk makespan på et helt ulikt løsningsgrunnlag, er dette et sterkt validitetssignal: konvergens mellom uavhengige metoder reduserer risikoen for at et resultat er en artefakt av en bestemt modellantagelse.
+Designet gir to verdier som ingen av metodene alene leverer. Heuristikken alene gir ingen kvalitetssikring, og MIP-modellen alene har skaleringsbegrensninger ved store horisonter (85 %-scenarioet ender *Not Solved* ved 30-minutters tidsgrense). Når begge metodene gir nær identisk makespan på et helt ulikt løsningsgrunnlag, er dette et sterkt validitetssignal: konvergens mellom uavhengige metoder reduserer risikoen for at et resultat er en artefakt av en bestemt modellantagelse.
 
 ## 3.3 Usikkerhetsanalyse: Monte Carlo og bootstrap
 
@@ -194,6 +215,8 @@ Begge teknikkene har klare antagelser. Monte Carlo forutsetter at de stokastiske
 ---
 
 # 4.0 Casebeskrivelse
+
+Mens kapittel 2 og 3 etablerte det metodiske og teoretiske rammeverket, beskriver dette kapittelet selve casen — datasettet, produksjonskjeden og den organisatoriske strukturen som skal planlegges.
 
 ## 4.1 FKB-TraktorvegSti og kvalitetsheving
 
@@ -263,6 +286,8 @@ Figur 6 (venstre) viser et histogram over antall lenker per kommune, med markert
 
 # 5.0 Metode og data
 
+Kapittel 4 viste at TVS-prosjektet er et planleggingsproblem med heterogene ressurser, eksterne tidsvinduer og en nedstrøms flaskehals. Dette kapittelet beskriver hvordan problemet er angrepet metodisk, og hvilket datagrunnlag analysen hviler på.
+
 ## 5.1 Metode
 
 Problemet er et kombinert *ressursallokeringsproblem* (tilordne 295 aktive kommuner til 10 kartkontor) og *produksjonsplanleggingsproblem* (bestemme rekkefølge og timing over en flerårsperiode), med eksterne tidsvinduer fra Geovekst-kartleggingsprosjekter. Løsningsmetoden er bevisst tredelt for å balansere tre behov: implementerbar referanse, matematisk garantert optimalitet, og kvantifisert usikkerhet.
@@ -311,6 +336,8 @@ Manuell takt er satt til **300 lenker/person/dag** etter kalibrering mot samferd
 
 Tre NVDB-scenarioer undersøkes, differensiert på FME-automasjonsgrad som er den viktigste usikre variabelen:
 
+*Tabell 5.1 NVDB-scenarioer differensiert på FME-automasjonsgrad*
+
 | FME-automasjon | NVDB-kapasitet (lenker/dag) | Rasjonale                                                                    |
 | :------------: | :-------------------------: | ---------------------------------------------------------------------------- |
 |      85 %      |            1 000            | Konservativ midtverdi fra samferdselsavdelingens oppgitte intervall 80–90 % |
@@ -334,6 +361,8 @@ Grunnpakke-tillegget (0,6510 min/km²) holdes konstant i Monte Carlo. Areal-koef
 ### 5.2.1 Datakilder
 
 Rådataene er hentet fra fire hovedkilder:
+
+*Tabell 5.2 Rådatakilder for analysen*
 
 | Datasett                               | Kilde                                  | Innhold                                                                                      |
 | -------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -371,6 +400,8 @@ Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker 
 
 ### 5.2.4 Behandlede datasett
 
+*Tabell 5.3 Behandlede datasett produsert av datavasken*
+
 | Datasett             | Rader | Innhold                                                                                                                    |
 | -------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------- |
 | Master-datasett      | 357   | Én rad per kommune: kommunenr, kartkontor, status, antall lenker, gjenstående lenker, beregnet tidsbruk, Geovekst-status |
@@ -381,6 +412,8 @@ Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker 
 | Tidbruk-konstanter   | 2     | Koeffisientene 0,9035 min/km og 0,6510 min/km² som brukes i formelen for Ber_Tidbruk_Min                                  |
 
 ### 5.2.5 Nøkkeltall og deskriptiv statistikk
+
+*Tabell 5.4 Nøkkeltall for datasettet*
 
 | Størrelse                        | Verdi                       |
 | --------------------------------- | --------------------------- |
@@ -410,6 +443,8 @@ Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enk
 ---
 
 # 6.0 Modellering
+
+Mens kapittel 5 beskrev metodisk strategi og datagrunnlag, gir dette kapittelet den formelle modell-spesifikasjonen — heuristikkens algoritme og MIP-modellens matematiske formulering.
 
 ## 6.1 Heuristikk
 
@@ -540,7 +575,7 @@ Sammen sikrer (11) og (12) at $Q_t = 1$ så lenge NVDB ikke er ferdig, og at $Q_
 
 ### 6.2.4 Målfunksjon og lex-opt
 
-Vi ønsker primært å minimere makespan $M = \sum_t Q_t$ (antall måneder før NVDB er ferdig). Men makespan-minimering alene ga en degenerert "just-in-time"-løsning der kartkontor-arbeid ble spredt over hele NVDB-perioden — matematisk optimal, men upraktisk.
+Modellen minimerer primært makespan $M = \sum_t Q_t$ (antall måneder før NVDB er ferdig). Men makespan-minimering alene ga en degenerert "just-in-time"-løsning der kartkontor-arbeid ble spredt over hele NVDB-perioden — matematisk optimal, men upraktisk.
 
 For å finne en **realistisk** optimal plan brukes en leksikografisk målfunksjon som én-pass vektet sum:
 
@@ -575,6 +610,8 @@ Heuristikken (`heuristikk.py`) og Monte Carlo-motoren (`monte_carlo.py`) er impl
 ---
 
 # 7.0 Analyse
+
+Kapittel 6 etablerte modellene; dette kapittelet kjører dem på det reelle datagrunnlaget og presenterer hva resultatene viser.
 
 ## 7.1 MIP vs. heuristikk — makespan
 
@@ -684,6 +721,8 @@ Den dominerende usikkerhetskilden er automasjonsgraden i FME-overføringen (jf. 
 
 # 8.0 Resultat
 
+Kapittel 7 gikk gjennom analysen i detalj. Dette kapittelet samler hovedfunnene i en oversiktlig form.
+
 ## 8.1 Hovedresultater
 
 Den hybride løsningsmetoden (regelbasert heuristikk + MIP-verifikasjon + Monte Carlo) gir følgende hovedresultater, etter kalibrering mot samferdselsavdelingens egne tall (manuell takt 300 lenker/dag):
@@ -702,21 +741,11 @@ Den hybride løsningsmetoden (regelbasert heuristikk + MIP-verifikasjon + Monte 
 4. **Kartkontor-ferdigstilling:** kartkontorene har kapasitet til å fullføre alt arbeid innen 10–17 måneder i alle scenarioer (MIP 10–11 mnd, heuristikk opp til 16,5). Kartkontorene er ikke flaskehalsen.
 5. **NVDB-overføring er flaskehalsen:** makespan bestemmes nesten utelukkende av NVDB-kapasiteten. Ved 85 % automasjon krever den 10+ år alene, ved 96 % under 3 år. Variansen på tvers av scenarioer (faktor 3,7× mellom punktestimatene) er sammenlignbar med variansen innad i hvert scenario (faktor 2,0–4,3× fra P5 til P95).
 
-## 8.2 Scenario-sammenligning
-
-Figur 14 viser makespan for heuristikk og MIP side om side. De tre NVDB-scenarioene gir delvis overlappende P5–P95-intervaller når realistisk måleusikkerhet på automasjonsgraden tas med (±3 prosentpoeng): P95 for 96 %-scenarioet (5,88 år) ligger over P5 for 90 % (3,25 år). Overlappet reflekterer at FME-automasjonen er et kontinuum snarere enn en diskret beslutning — men *valg av målsetting for automasjonsgraden* forblir den dominante strategiske beslutningen, ettersom punktestimatene skiller seg med faktor 3,7×.
-
-## 8.3 Robusthet mot kapasitetsforstyrrelser
-
-Figur 18 viser at makespan er uendret for alle seks kapasitetsvarianter (S0–S5) i alle tre NVDB-scenarioer. 9 av 18 kjøringer løser *Optimal* (S0 for 90 % og 96 %, S1_Trondheim50 for 90 %, alle tre scenarioer for S2_Alle_pluss20, S3_Omfordeling for 90 % og 96 %, samt S4_Alle_minus15 for 85 %); de øvrige timer ut ved 30-minuttersgrensen med CBC-solver, men makespan-tallene er robuste fordi de er big-M-gated til NVDB-drenering (jf. 7.4).
-
-Kartkontor-ferdigmåneden er også stabil på 10–11 måneder i S0–S4. Først ved halvering av all kapasitet (S5_Alle_minus50) forskyves den til 14 måneder. Årsaken er låseperiodene fra Geovekst-prosjektene, som tvinger kontorene til å stå tomhendte på 152 kommuner i deler av 2026. Denne ufrivillige slakken absorberer mye av kapasitetskuttet, slik at kartkontor-fasen holder seg kort og NVDB-flaskehalsen fortsatt dominerer. Det kapasitetsbundne regimet ligger dermed *lenger unna* enn man umiddelbart skulle tro ut fra nominelle kapasitetstall alene — et funn som i seg selv er et argument for robustheten av dagens plan.
-
-Fra et beredskapssynspunkt gir dette Kartverket trygghet i planleggingen. Dersom et kontor får redusert kapasitet under produksjonen, viser figur 19 hvilke omfordelinger MIP-modellen anbefaler for å balansere belastningen (selv om total varighet ikke endres i det testede kapasitetsområdet).
-
 ---
 
 # 9.0 Diskusjon
+
+Resultatene fra kapittel 7 og 8 reiser flere spørsmål som krever drøftelse — om modellens gyldighet, dens begrensninger, og hva tallene faktisk betyr i praksis.
 
 ## 9.1 Hovedbudskapet til Kartverket
 
@@ -735,6 +764,8 @@ Alle timer-estimater bygger på formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 +
 **Cherry-picking av ferdige kommuner.** De 62 ferdige kommunene har median estimat 667 minutter; de 295 gjenstående 1 336 minutter. Gjenstående arbeid er systematisk dobbelt så tungt per kommune som det allerede gjorte.
 
 Samlet kan formelen underestimere reell tidsbruk med faktor opptil ~2. For å teste om hovedkonklusjonen (NVDB-flaskehalsen) overlever en slik skalering er heuristikken og Monte Carlo kjørt for alle tre NVDB-scenarioer med skaleringsfaktor 1,5 og 2,0 på `Ber_Tidbruk_Min` (`heuristikk_tidbruk_sensitivitet.py`, `monte_carlo_tidbruk_sensitivitet.py`).
+
+*Tabell 9.1 Kartkontor- og NVDB-varighet ved skalering av tidbruk-formelen*
 
 | Skala          | Kartkontor P50 (mnd) | 85 % P50/P95 (år) | 90 % P50/P95 (år) | 96 % P50/P95 (år) |
 | -------------- | -------------------- | ------------------ | ------------------ | ------------------ |
@@ -768,6 +799,8 @@ MIP-modellen er ikke kjørt med skalert tidbruk. Siden uniform skalering bevarer
 
 **Sensitivitet for automasjonsgrad-standardavviket.** Standardavviket på 0,03 brukt i Monte Carlo er et designvalg, ikke en empirisk størrelse. For å kvantifisere designvalget er Monte Carlo rekjørt med std ∈ {0,01; 0,02; 0,03; 0,05} for alle tre scenarioer (`monte_carlo_automasjon_sensitivitet.py`).
 
+*Tabell 9.2 P5/P50/P95-bånd for total varighet ved varierende standardavvik på automasjonsgrad*
+
 | Std  | 85 % P5/P50/P95 (år) | 90 % P5/P50/P95 (år) | 96 % P5/P50/P95 (år) |
 | ---- | --------------------- | --------------------- | --------------------- |
 | 0,01 | 8,75 / 10,09 / 11,39  | 5,45 / 6,72 / 7,87    | 1,51 / 2,66 / 3,75    |
@@ -781,7 +814,7 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at 
 
 **Deterministisk rammeverk utenfor de tre stokastiske kildene.** Monte Carlo varierer kun MIN/KM, manuell NVDB-takt og automasjonsgrad. Geovekst-låseperioder, kartkontor-kapasitet og fremdriftsstatus (62 ferdig, 48 påbegynt) holdes konstante i alle 500 iterasjoner. I virkeligheten kan Geovekst-prosjekter forsinkes eller fremskyndes, og kapasiteten kan variere fra år til år med personalomsetning og konkurrerende oppgaver. Usikkerhetsintervallene P5–P95 reflekterer derfor stokastikk i tre av flere mulige dimensjoner, og reell usikkerhet i absolutt varighet er bredere enn tallene antyder. Kapasitets-sensitivitetsanalysen i 7.4 dekker deler av dette gapet ved å kjøre deterministiske varianter (S0–S5), men en kombinert stokastisk-deterministisk analyse er utenfor prosjektets omfang.
 
-## 9.5 Modellens begrensninger for sensoren
+## 9.5 Modellens metodologiske begrensninger
 
 **MIP som "forbedring" — nyansert.** MIP er marginalt verre enn heuristikken på makespan (+0,4–2,2 %) pga. månedlig vs. daglig tidsoppløsning. Den riktige tolkningen er at MIP leverer to andre verdier: (i) *uavhengig verifikasjon* av at heuristikkens ansvarskontor-tildeling er nær-optimal — et sterkt validitetssignal når to ulike metoder konvergerer, og (ii) *komprimert kartkontor-ferdigprofil* — MIP-planen gir kartkontor-fasen ferdig 2–3 måneder før heuristikken (P50 Monte Carlo: 409–452 dager vs 510). Ingen av disse reduserer totalvarigheten, men begge har organisatorisk verdi.
 
@@ -810,7 +843,7 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier — det betyr at 
 
 Hovedfunnet i analysen er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ligger på 6,7-10 år ved realistisk automasjon (90 %- og 85 %-automasjon) og 2,7 år i optimistisk scenario (96 %-automasjon), mens kartkontorene har kapasitet til å fullføre alt arbeid innen 10-17 måneder uavhengig av scenario. Monte Carlo-analysen viser betydelig usikkerhet rundt hvert punktestimat — for 90 %-scenarioet spenner P5-P95-båndet 3,3-9,9 år — hovedsakelig fordi små endringer i automasjonsgrad gir store utslag på NVDB-overføringskapasiteten når automasjonen er høy. Resultatet er robust mot kapasitetsforstyrrelser ved kartkontorene (identisk makespan i alle seks varianter S0-S5), mot dobling av tidbruk-formelen, og mot ulike antagelser om automasjonsgradens spredning.
 
-Modellens 90 %-punktestimat på 6,7 år ligger nær det 7,22-årstallet som direkte beregning av samferdselsavdelingens oppgitte parametere gir (gapet skyldes ulik kalenderkonvensjon), og analysen er dermed kvantitativt konsistent med deres tallgrunnlag. Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca 2 år. Gapet mellom prognose og ambisjon — 5+ år — er den sentrale beslutningsutfordringen, og motiverer de praktiske grepene som følger.
+Modellens 90 %-punktestimat på 6,7 år ligger nær det 7,22-årstallet som direkte beregning av samferdselsavdelingens oppgitte parametere gir (gapet skyldes ulik kalenderkonvensjon), og analysen er dermed kvantitativt konsistent med deres tallgrunnlag. Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca. 2 år. Gapet mellom prognose og ambisjon — 5+ år — er den sentrale beslutningsutfordringen, og motiverer de praktiske grepene som følger.
 
 Tre grep peker seg ut. Investeringer i FME-automasjon gir størst effekt — å løfte automasjonsgraden fra 85 til 90 % reduserer varigheten med en tredjedel, og videre til 96 % mer enn halverer den igjen. Grundigere kvalitetsheving ved kartkontorene gir samme retning av effekt: hvert ikke-gjenfinnbart objekt eller topologi-feil som ryddes opp før klarmelding, blir et objekt færre i samferdselsavdelingens manuelle kø. Økt manuell NVDB-bemanning utover 0,5 årsverk gir proporsjonal reduksjon. Modellen viser at ingen enkeltgrep alene kan lukke ambisjonsgapet — alle tre må kombineres dersom 2-års-målet skal være innen rekkevidde. Omfordeling av kommuner mellom kartkontor er derimot ikke nødvendig: MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal innenfor 2,2 % av matematisk minimum.
 
