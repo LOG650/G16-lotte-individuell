@@ -380,6 +380,7 @@ Rådataene hadde flere kvalitetsproblemer som måtte håndteres:
 - **Feil fylkesinformasjon:** Feltet for fylkesnummer i grunndatasettet var forskjøvet og inkonsistent. Fylkestilhørighet utledes derfor fra de to første sifrene i kommunenummeret.
 - **Ulike formater på låseperioder:** Tekstverdiene varierte fra datorange (f.eks. "august 2026 – mars 2027") til antall måneder ("7"). Alle standardiseres til start- og sluttdato, og ukjente formater tildeles perioden mai–desember 2026 som konservativt estimat.
 - **Arbeidsmengde i ulike enheter:** Arbeidsmengde angis som antall lenker (ikke kilometer), ettersom produksjonstakten oppgis i lenker per person per dag.
+- **Oslo-kontorets kapasitetstall justert:** De opprinnelige tallene fra Oslo (kapasitet 20 ukesverk, tidsbruk 20–60 timer per kommune) ble vurdert som urealistisk lave i dialog med oppdragsgiver. Etter avtale er disse oppjustert til 30 ukesverk og 30–90 timer per kommune i `vask_og_strukturer.py` (`KAPASITET_OVERRIDE`).
 
 Datarensingen er implementert i `004 data/scripts/vask_og_strukturer.py` og produserer seks behandlede datasett.
 
@@ -427,7 +428,7 @@ Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker 
 
 Fordelingen av antall lenker per kommune er sterkt høyreskjev (figur 6): medianen er langt lavere enn gjennomsnittet, og noen få store kommuner (f.eks. Oslo, Bergen, Trondheim) inneholder en uforholdsmessig stor andel av totalen. Dette har betydning for modelleringen, ettersom små og store kommuner bør behandles ulikt i prioriteringen.
 
-Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor. I figur 4 representerer hver horisontal søyle ett kontors samlede gjenstående arbeid, og hvert segment er én kommune sortert fra størst til minst. Enkelte kontor (som Oslo, Hamar og Bergen) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Molde og Bodø) har en jevnere fordeling av små og mellomstore kommuner.
+Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor. I figur 4 representerer hver horisontal søyle ett kontors samlede gjenstående arbeid, og hvert segment er én kommune sortert fra størst til minst. Enkelte kontor (som Bergen, Trondheim og Tromsø) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Hamar og Oslo) har en jevnere fordeling av små og mellomstore kommuner.
 
 ![Figur 4: Lastfordeling per kontor, hver kommune som segment](figurer/04_lastfordeling.png)
 
@@ -759,7 +760,7 @@ Alle timer-estimater bygger på formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 +
 
 **Koeffisientene er ikke OLS-estimert.** De 58 kalibrerings-kartbladene har identisk areal (7,68 km²), slik at areal-leddet ikke kan identifiseres separat fra lengde-leddet. Koeffisienten 0,9035 er gjennomsnittlig MIN/KM, ikke en regresjonskoeffisient; 0,6510 har uklart empirisk opphav. OLS på samme data gir β_lengde = 0,84 og β_areal = 0,09 (ikke signifikant).
 
-**Systematisk underestimering mot kontorenes bånd.** Formelen gir kommune-estimater under kontorenes oppgitte nedre grense i 8 av 10 kontor. Mest ekstremt er Molde (0 av 27 kommuner treffer båndet 40–100 timer; median formel-estimat 12 timer).
+**Systematisk underestimering mot kontorenes oppgitte tidsbruk.** I datainnsamlingsskjemaet anga hvert kontor en typisk minimum og maksimum tidsbruk per kommune (jf. 5.2.1, kolonnene `Min_Tidsbruk_Timer` og `Max_Tidsbruk_Timer` i `kapasitet_kontorer.csv`). Formelen gir kommune-estimater som faller under kontorets oppgitte minimum i 8 av 10 kontor. Mest ekstremt er Molde, der ingen av de 27 kommunene rekker opp i kontorets oppgitte minimum på 40 timer per kommune (median formel-estimat: 12 timer; spennet er 2–39 timer).
 
 **Cherry-picking av ferdige kommuner.** De 62 ferdige kommunene har median estimat 667 minutter; de 295 gjenstående 1 336 minutter. Gjenstående arbeid er systematisk dobbelt så tungt per kommune som det allerede gjorte.
 
