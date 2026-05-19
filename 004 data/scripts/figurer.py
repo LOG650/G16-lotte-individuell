@@ -185,8 +185,8 @@ def fig3_status_per_kontor(kommuner):
     plt.close()
 
 
-def fig4_lastfordeling(kommuner):
-    print('4. Lastfordeling: hver kommune som segment per kontor...')
+def fig5_lastfordeling(kommuner):
+    print('5. Lastfordeling: hver kommune som segment per kontor...')
     df = kommuner.copy()
     df = df[df['Gjenstaaende_Lenker'] > 0]
 
@@ -227,12 +227,12 @@ def fig4_lastfordeling(kommuner):
     ax.xaxis.set_major_formatter(
         plt.FuncFormatter(lambda x, _: f'{int(x):,}'.replace(',', ' ')))
     plt.tight_layout()
-    plt.savefig(os.path.join(OUT_DIR, '04_lastfordeling.png'))
+    plt.savefig(os.path.join(OUT_DIR, '05_lastfordeling.png'))
     plt.close()
 
 
-def fig5_geovekst_heatmap(geovekst):
-    print('5. Geovekst-låsing per måned og kontor (heat map)...')
+def fig4_geovekst_heatmap(geovekst):
+    print('4. Geovekst-låsing per måned og kontor (heat map)...')
     df = geovekst.copy()
     df['Laaseperiode_Start'] = pd.to_datetime(df['Laaseperiode_Start'])
     df['Laaseperiode_Slutt'] = pd.to_datetime(df['Laaseperiode_Slutt'])
@@ -280,7 +280,7 @@ def fig5_geovekst_heatmap(geovekst):
                  'per måned og kartkontor',
                  fontsize=12, pad=10)
     plt.tight_layout()
-    plt.savefig(os.path.join(OUT_DIR, '05_geovekst_heatmap.png'))
+    plt.savefig(os.path.join(OUT_DIR, '04_geovekst_heatmap.png'))
     plt.close()
 
 
@@ -371,8 +371,8 @@ def main():
     fig1_kart(kommuner)
     fig2_kapasitet_vs_arbeid(kontorer)
     fig3_status_per_kontor(kommuner)
-    fig4_lastfordeling(kommuner)
-    fig5_geovekst_heatmap(geovekst)
+    fig4_geovekst_heatmap(geovekst)
+    fig5_lastfordeling(kommuner)
     fig6_lenker_histogram(kommuner)
 
     print_noekkeltall(kommuner, kontorer, geovekst)

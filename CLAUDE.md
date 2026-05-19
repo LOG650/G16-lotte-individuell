@@ -465,8 +465,8 @@ For rask kontekst-gjenoppretting:
 | 1 | `01_kart_kontorer.png` | Norgeskart med fylker fargelagt etter kontor |
 | 2 | `02_kapasitet_vs_arbeid.png` | Søyle: kapasitet vs arbeidsmengde + estimert varighet per kontor |
 | 3 | `03_status_per_kontor.png` | Stacked bar: fremdriftsstatus per kontor |
-| 4 | `04_lastfordeling.png` | Horisontal søyle per kontor, segmenter = kommuner etter størrelseskategori |
-| 5 | `05_geovekst_heatmap.png` | Heatmap: antall låste kommuner per måned og kontor |
+| 4 | `04_geovekst_heatmap.png` | Heatmap: antall låste kommuner per måned og kontor |
+| 5 | `05_lastfordeling.png` | Horisontal søyle per kontor, segmenter = kommuner etter størrelseskategori |
 | 6 | `06_lenker_histogram.png` | Histogram + Pareto-kurve for arbeidskonsentrasjon |
 
 Regenereres med: `python "004 data/scripts/figurer.py"`

@@ -108,7 +108,7 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 # 1.0 Innledning
 
-Statens Kartverk forvalter Felles Kartdatabase (FKB), et nasjonalt geodatagrunnlag som blant annet inkluderer datasettet FKB-TraktorvegSti. Datasettet inneholder traktorveger, stier og stitrapp i hele Norge med senterlinjegeometri og er blant de mest detaljerte dataene Norge har over denne typen småveger og stier. For at traktorveger og stier skal inngå sammen med øvrige veger i et komplett samferdselsnettverk for kjørende, gående og syklende, må FKB-TraktorvegSti kvalitetsheves og deretter overføres til Nasjonal vegdatabank (NVDB), som forvaltes av Statens vegvesen.
+Statens Kartverk forvalter Felles Kartdatabase (FKB), et nasjonalt geodatagrunnlag som blant annet inkluderer datasettet FKB-TraktorvegSti (heretter TVS). Datasettet inneholder traktorveger, stier og stitrapp i hele Norge med senterlinjegeometri og er blant de mest detaljerte dataene Norge har over denne typen småveger og stier. For at traktorveger og stier skal inngå sammen med øvrige veger i et komplett samferdselsnettverk for kjørende, gående og syklende, må TVS kvalitetsheves og deretter overføres til Nasjonal vegdatabank (NVDB), som forvaltes av Statens vegvesen.
 
 Kartverkets ti fylkeskartkontor utfører kvalitetshevingen kommunevis: hvert kontor har ansvar for kommunene i sitt fylke, og hver kommune behandles som en udelelig enhet med kontroll av topologi, stedfesting, fjerning av ikke-gjenfinnbare objekter og tilpasning av attributter til NVDB-formatet. Kapasiteten varierer fra 22 til 52 ukesverk per år mellom kontorene, og arbeidsmengden per kommune varierer med en faktor på over 350 mellom de minste og største kommunene. Etter kvalitetsheving klarmeldes dataene til samferdselsavdelingen i Kartverket, som benytter en FME-automatisert prosess der 80–90 % av lenkene legges inn maskinelt og resterende 10–20 % må håndteres manuelt av en dedikert bemanning på 0,5 årsverk.
 
@@ -151,7 +151,7 @@ Modellen bygger på følgende sentrale antagelser, som er nærmere dokumentert i
 
 - **Kommunevis bearbeiding.** Hver kommune behandles som en udelelig enhet og må ferdigstilles før den klarmeldes til NVDB-overføring. Dette samsvarer med Kartverkets faktiske arbeidsmodell.
 - **Konstant årlig kapasitet.** Kapasiteten i ukesverk for hvert kartkontor representerer nominell brutto kapasitet for TraktorvegSti-prosjektet i 2026 og antas tilsvarende for senere år. Ett ukesverk er 37,5 timer. Sykefravær og konkurrerende oppgaver antas allerede trukket fra i kontorenes oppgitte tall, mens ferieuttak håndteres separat (se neste punkt).
-- **245 effektive arbeidsdager per år (kartkontor).** Personalet tar ferie spredt utover året, og sommervikarer kompenserer ikke fullt ut. Simuleringen kjører 260 mandag-fredag-dager, men daglig og månedlig kapasitet skaleres med faktoren 245/260 ≈ 0,9423 for å reflektere de ca. 245 faktiske produktive dagene. NVDB-overføringen beholder sin egen kalenderkonvensjon (se 5.1.2).
+- **245 produktive dager per år (kartkontor).** Personalet tar ferie spredt utover året, og sommervikarer kompenserer ikke fullt ut. Simuleringen omfatter 260 kalenderdager (mandag–fredag) per år, men daglig og månedlig kapasitet skaleres med faktoren 245/260 ≈ 0,9423 for å reflektere at kartkontorene gjennomsnittlig leverer som om de hadde ca. 245 produktive dager. NVDB-overføringen beholder sin egen kalenderkonvensjon (se 5.1.2).
 - **Tidsbruk-formel som punktestimat.** Beregnet tidsbruk per kommune følger formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510` med koeffisienter avledet fra 58 historiske kartbladmålinger. Empirisk spredning i tidsbruk per km (std 0,55 min/km) inngår som stokastisk kilde i Monte Carlo-analysen.
 - **NVDB-overføring som ren flaskehals nedstrøms kartkontor-arbeidet.** FME-prosessen antas uendelig rask, slik at manuell etterbehandling alene bestemmer NVDB-kapasiteten. Bemanning på 0,5 årsverk og manuell takt på 300 lenker per person per dag holdes konstant, mens FME-automasjonsgrad varieres scenariomessig (85 %, 90 %, 96 %).
 - **Konstant Geovekst-låseperiode.** Låste kommuner blir tilgjengelige umiddelbart etter låseperiodens slutt og forblir tilgjengelige i resten av planhorisonten.
@@ -167,6 +167,8 @@ Problemstillingen i denne oppgaven kombinerer flere etablerte fagområder: ressu
 Pinedo (2016) er et standardverk innen scheduling-teori og dekker både klassiske formuleringer – parallelle maskiner, release- og due-datoer – og utvidelser som tidsvinduer og ressursbegrensninger. Verket gir det teoretiske rammeverket for å formulere TraktorvegSti-problemet som et ressursallokerings- og sekvenseringsproblem der de 10 kartkontorene tilsvarer parallelle ressurser med varierende kapasitet.
 
 Hartmann og Briskorn (2010) gir en oversiktsartikkel over det ressursbegrensede prosjektplanleggingsproblemet (Resource-Constrained Project Scheduling Problem, RCPSP) og dets utvidelser. Artikkelen etablerer en klassifikasjon som er direkte overførbar til Kartverkets problemstilling: kommuner som aktiviteter, kartkontor som ressurser, Geovekst-låsninger som tidsvinduer, og NVDB-overføringen som en nedstrøms kapasitetsbegrensning.
+
+Graham (1969) etablerer den klassiske ytelsesgarantien for prioritetsregel-heuristikker på parallelle maskiner. For Longest Processing Time-regelen (LPT) — sortér jobbene etter avtakende prosesseringstid og tildel hver til den maskinen som blir tidligst ledig — er den verste-tilfelle-grensen $\frac{4}{3} - \frac{1}{3m}$ av optimal makespan. Resultatet gir et tallfestet referansepunkt for å vurdere kvaliteten av den regelbaserte heuristikken som benyttes i denne oppgaven, og motiverer hvorfor en hybrid heuristikk-MIP-tilnærming er meningsfull selv når heuristikken kan vises å være nær-optimal i praksis (jf. 3.1).
 
 ## 2.2 Hybride løsningsmetoder
 
@@ -220,7 +222,7 @@ Mens kapittel 2 og 3 etablerte det metodiske og teoretiske rammeverket, beskrive
 
 ## 4.1 FKB-TraktorvegSti og kvalitetsheving
 
-FKB-TraktorvegSti (TVS) er et nasjonalt datasett som inneholder traktorveger og stier i hele Norge. Datasettet forvaltes av Statens Kartverk og er en del av Felles Kartdatabase (FKB). Etter kvalitetsheving skal datasettet implementeres i NVDB (Nasjonal vegdatabank), slik at traktorveger og stier inngår sammen med øvrige veger i et nasjonalt vegnettverk for kjørende, gående og syklende.
+FKB-TraktorvegSti er et nasjonalt datasett som inneholder traktorveger og stier i hele Norge. Datasettet forvaltes av Statens Kartverk og er en del av Felles Kartdatabase (FKB). Etter kvalitetsheving skal datasettet implementeres i NVDB (Nasjonal vegdatabank), slik at traktorveger og stier inngår sammen med øvrige veger i et nasjonalt vegnettverk for kjørende, gående og syklende.
 
 Kvalitetshevingen innebærer manuell redigering av hver enkelt kommune: kontroll av topologi, stedfesting, fjerning av ikke-gjenfinnbare objekter og tilpasning av attributter slik at dataene møter NVDB-kravene. Arbeidet utføres av fylkeskartkontorene.
 
@@ -260,11 +262,11 @@ Av 357 kommuner er 62 ferdig kvalitetshevet, 48 påbegynt og 247 ikke startet. I
 
 ## 4.5 Geovekst-låsing
 
-Parallelt med TVS-prosjektet pågår ordinære Geovekst-kartleggingsprosjekter i flere kommuner. Under kartleggingsperiodene er kommunene låst for TVS-kvalitetsheving fordi dataene er under endring. I april 2026 er 152 kommuner berørt av slike låsninger, og låseperiodene strekker seg fra mars 2026 til mars 2027. Heatmap-cellen i figur 5 angir antall unike kommuner under hvert kontor som er i aktiv låseperiode den aktuelle måneden. De fleste låsningene er konsentrert om sommer og høst 2026, med enkelte prosjekter som fortsetter inn i 2027. Planleggingen må hensynta at låste kommuner ikke kan behandles før låseperioden er over.
+Parallelt med TVS-prosjektet pågår ordinære Geovekst-kartleggingsprosjekter i flere kommuner. Under kartleggingsperiodene er kommunene låst for TVS-kvalitetsheving fordi dataene er under endring. I april 2026 er 152 kommuner berørt av slike låsninger, og låseperiodene strekker seg fra mars 2026 til mars 2027. Heatmap-cellen i figur 4 angir antall unike kommuner under hvert kontor som er i aktiv låseperiode den aktuelle måneden. De fleste låsningene er konsentrert om sommer og høst 2026, med enkelte prosjekter som fortsetter inn i 2027. Planleggingen må hensynta at låste kommuner ikke kan behandles før låseperioden er over.
 
-![Figur 5: Antall kommuner låst av Geovekst per måned og kontor](figurer/05_geovekst_heatmap.png)
+![Figur 4: Antall kommuner låst av Geovekst per måned og kontor](figurer/04_geovekst_heatmap.png)
 
-*Figur 5 Antall kommuner låst av Geovekst-prosjekter per måned og kartkontor*
+*Figur 4 Antall kommuner låst av Geovekst-prosjekter per måned og kartkontor*
 
 ## 4.6 Hvorfor dette er et planleggingsproblem
 
@@ -304,7 +306,7 @@ Valget av ML-basert metode (regresjon på ferdigtid per kommune) ble tidlig vurd
 
 ### 5.1.2 Kalenderkonvensjon og kapasitet
 
-Simuleringen kjører 260 mandag-fredag-dager per år. Kartkontorene har imidlertid bare ca. 245 effektive arbeidsdager/år: personalet tar ferie spredt utover året, og selv om sommervikarer bidrar med noe produksjon i sommerukene, kompenserer de ikke fullt ut. Kartkontor-kapasitet skaleres derfor med faktoren 245/260 ≈ 0,9423. Heuristikken bruker daglig kapasitet $\kappa_j = K_j \cdot 37{,}5 \cdot (245/260) / 260$ timer, og MIP månedlig kapasitet $K_j \cdot 37{,}5 \cdot (245/260) / 12$. `Kapasitet_Ukesverk` tolkes som nominell årlig kapasitet (uten ferieuttak), og 245-faktoren bringer total levert arbeid per år til $K_j \cdot 37{,}5 \cdot (245/260)$ timer.
+Simuleringen omfatter 260 kalenderdager (mandag–fredag) per år. Kartkontorene leverer imidlertid bare ca. 245 produktive dager/år: personalet tar ferie spredt utover året, og selv om sommervikarer bidrar med noe produksjon i sommerukene, kompenserer de ikke fullt ut. Kartkontor-kapasitet skaleres derfor med faktoren 245/260 ≈ 0,9423. Heuristikken bruker daglig kapasitet $\kappa_j = K_j \cdot 37{,}5 \cdot (245/260) / 260$ timer, og MIP månedlig kapasitet $K_j \cdot 37{,}5 \cdot (245/260) / 12$. `Kapasitet_Ukesverk` tolkes som nominell årlig kapasitet (uten ferieuttak), og 245-faktoren bringer total levert arbeid per år til $K_j \cdot 37{,}5 \cdot (245/260)$ timer.
 
 Tallet 245 er forankret i opplysninger fra oppdragsgiver om at faktiske produktive dager ligger rundt dette nivået. Effekten på resultatene er liten: makespan er uendret i alle tre NVDB-scenarioer (NVDB dominerer flaskehalsen), mens kartkontor-fasen forlenges marginalt (medianvarigheten i Monte Carlo går fra 503 til 510 dager, +1,4 %). Den matematiske minimumsgrensen for kartkontor-fasen øker tilsvarende kapasitetskuttet (~6 %), men Geovekst-låseperiodene absorberer mye av kuttet i de faktiske simuleringene.
 
@@ -328,7 +330,7 @@ $$
 \mu = \frac{\text{årsverk} \cdot \text{manuell takt}}{1 - \text{automasjonsgrad}}
 $$
 
-Formelen hviler på antagelsen at FME-prosessen er uendelig rask og at den manuelle etterbehandlingen er eneste flaskehals. Formelens struktur gir stor følsomhet nær automasjonsgrad = 1 (f.eks. 1 000 vs. 15 000 lenker/dag ved 85 % vs. 99 %). Dette betyr at konklusjonen "automasjonsgrad er dominerende usikkerhetskilde" delvis følger *analytisk* fra formelen, ikke bare empirisk. Følgevirkningen er behandlet i 9.0 Diskusjon.
+Formelen hviler på antagelsen at FME-prosessen er uendelig rask og at den manuelle etterbehandlingen er eneste flaskehals. Formelens struktur gir stor følsomhet nær automasjonsgrad = 1 (f.eks. 1 000 vs. 15 000 lenker/dag ved 85 % vs. 99 %). Dette betyr at konklusjonen "automasjonsgrad er dominerende usikkerhetskilde" delvis følger *analytisk* fra formelen, ikke bare empirisk. Følgevirkningen er behandlet i 9.4.
 
 Manuell takt er satt til **300 lenker/person/dag** etter kalibrering mot samferdselsavdelingens oppgitte parametere (2026-04-20). Monte Carlo-modellen sampler rundt 300 med ±25 (Uniform 275–325) som representerer måleusikkerhet. Stillingsbemanning er 0,5 årsverk (2 personer × 25 % stillingsandel) og holdes konstant på tvers av scenarioer.
 
@@ -350,7 +352,7 @@ Samferdselsavdelingen opererer selv kun med 80–90 %. 96 %-scenarioet er dermed
 
 Tre stokastiske kilder samples per iterasjon:
 
-1. **MIN/KM per kommune** — bootstrap med tilbakelegging fra empirisk fordeling av 58 kartbladmålinger (MIN/KM = 0,10–3,44, gjennomsnitt 0,9035, std 0,55). Sampling er uavhengig mellom kommuner; reell geografisk korrelasjon (topografi, terreng) er ikke modellert, noe som overestimerer per-kontor-variansen og underestimerer aggregert nivå (dette er en bevisst forenkling, drøftet i 9.0).
+1. **MIN/KM per kommune** — bootstrap med tilbakelegging fra empirisk fordeling av 58 kartbladmålinger (MIN/KM = 0,10–3,44, gjennomsnitt 0,9035, std 0,55). Sampling er uavhengig mellom kommuner; reell geografisk korrelasjon (topografi, terreng) er ikke modellert, noe som overestimerer per-kontor-variansen og underestimerer aggregert nivå (dette er en bevisst forenkling, drøftet i 9.4).
 2. **Manuell takt** — Uniform(275, 325), sentrert på samferdselsavdelingens punktestimat 300. Representerer måleusikkerhet, ikke reell spredning i erfaringsdata.
 3. **Automasjonsgrad** — Normal(scenariopunkt, std = 0,03), klippet til [0,5; 0,99]. Standardavviket 0,03 (3 prosentpoeng) reflekterer realistisk måleusikkerhet på FME-automasjon ved ulike kommunegeografier. Den tidligere verdien std = 0,01 ga scenarioer som ikke overlappet hverandre, og dette var et *designvalg*, ikke et empirisk funn.
 
@@ -428,11 +430,11 @@ Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker 
 
 Fordelingen av antall lenker per kommune er sterkt høyreskjev (figur 6): medianen er langt lavere enn gjennomsnittet, og noen få store kommuner (f.eks. Oslo, Bergen, Trondheim) inneholder en uforholdsmessig stor andel av totalen. Dette har betydning for modelleringen, ettersom små og store kommuner bør behandles ulikt i prioriteringen.
 
-Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor. I figur 4 representerer hver horisontal søyle ett kontors samlede gjenstående arbeid, og hvert segment er én kommune sortert fra størst til minst. Enkelte kontor (som Bergen, Trondheim og Tromsø) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Hamar og Oslo) har en jevnere fordeling av små og mellomstore kommuner.
+Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor. I figur 5 representerer hver horisontal søyle ett kontors samlede gjenstående arbeid, og hvert segment er én kommune sortert fra størst til minst. Enkelte kontor (som Bergen, Trondheim og Tromsø) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Hamar og Oslo) har en jevnere fordeling av små og mellomstore kommuner.
 
-![Figur 4: Lastfordeling per kontor, hver kommune som segment](figurer/04_lastfordeling.png)
+![Figur 5: Lastfordeling per kontor, hver kommune som segment](figurer/05_lastfordeling.png)
 
-*Figur 4 Lastfordeling per kartkontor, hvert segment er én kommune*
+*Figur 5 Lastfordeling per kartkontor, hvert segment er én kommune*
 
 ### 5.2.6 Antagelser og begrensninger
 
@@ -449,7 +451,7 @@ Mens kapittel 5 beskrev metodisk strategi og datagrunnlag, gir dette kapittelet 
 
 ## 6.1 Heuristikk
 
-Den regelbaserte heuristikken tjener som referanse og som validert simuleringsmotor for Monte Carlo-analyse og MIP-evaluering. Den simulerer dag-for-dag (mandag-fredag, 260 kalenderdager per år, hvorav 245 er produktive — se 5.1.2) over STARTDATO 1. mai 2026.
+Den regelbaserte heuristikken tjener som referanse og som validert simuleringsmotor for Monte Carlo-analyse og MIP-evaluering. Den simulerer dag-for-dag (260 kalenderdager mandag–fredag per år, hvorav 245 er produktive — se 5.1.2) over STARTDATO 1. mai 2026.
 
 **Steg 1: Initiell tilstand.** For hver kommune *i* beregnes gjenværende timebehov som
 
@@ -469,7 +471,7 @@ Regel 2 er en Longest Processing Time-heuristikk (Graham, 1969), som for paralle
 
 **Steg 3: Dag-for-dag-simulering.** For hver arbeidsdag:
 
-- Hvert kontor arbeider på første ikke-låste kommune i køen med daglig kapasitet $\kappa_j = K_j \cdot 37{,}5 \cdot (245/260) / 260$ timer (der $K_j$ er oppgitt kapasitet i ukesverk, 260 er antall mandag-fredag-dager per år, og 245/260-faktoren reflekterer at kontorene har ca. 245 effektive arbeidsdager pga ferieuttak — se 5.1.2). Når en kommune når 0 gjenværende timer, flyttes den til NVDB-køen.
+- Hvert kontor arbeider på første ikke-låste kommune i køen med daglig kapasitet $\kappa_j = K_j \cdot 37{,}5 \cdot (245/260) / 260$ timer (der $K_j$ er oppgitt kapasitet i ukesverk, 260 er antall kalenderdager mandag–fredag per år, og 245/260-faktoren reflekterer at kontorene gjennomsnittlig leverer som om de hadde ca. 245 produktive dager pga. ferieuttak — se 5.1.2). Når en kommune når 0 gjenværende timer, flyttes den til NVDB-køen.
 - Hvis dagen er etter NVDB-startdato, drenerer NVDB-køen med scenariets kapasitet (1 000 / 1 500 / 3 750 lenker/dag for hhv. 85 %, 90 % og 96 %-scenarioet etter kalibrering mot samferdselsavdelingens tall, jf. 5.1.4).
 
 **Bevisste forenklinger.** Heuristikken modellerer ikke ferier/pauser, individuell effektivitet eller oppstartskostnad ved kommuneskifte. Ansvarskontor-tildelingen er status quo (referanse) — omfordeling er en kjernebeslutning som undersøkes i MIP. Prioritetskøen fastsettes én gang ved simuleringsstart og revurderes ikke når låseperioder utløper; dette er en bevisst myopisk forenkling som MIP-modellen ikke deler, fordi MIP ser over hele horisonten. NVDB-køen bygges i rekkefølgen kommunene blir ferdige på kartkontoret (FCFS) — store kommuner tar lengst tid og havner dermed implisitt bakerst i NVDB-overføringen. Samferdselsavdelingen kan teoretisk prioritere annerledes, men reell NVDB-rekkefølge er utenfor prosjektets omfang.
@@ -485,7 +487,7 @@ Den matematiske optimeringsmodellen er formulert som et blandet heltallsproblem 
 - $T$ = tidshorisont i måneder (144 for 85 %-scenarioet, 96 for 90 %, 54 for 96 % — valgt med buffer over forventet makespan)
 - $\tau_i$ = timebehov på kartkontor for kommune *i*
 - $\ell_i$ = antall lenker som skal overføres til NVDB
-- $\kappa_j$ = månedlig kartkontor-kapasitet for kontor *j*: $K_j \cdot 37{,}5 \cdot (245/260) / 12$ timer/måned (tilsvarer heuristikkens daglige kapasitet × 260/12; 245/260-faktoren reflekterer effektive arbeidsdager, se 5.1.2)
+- $\kappa_j$ = månedlig kartkontor-kapasitet for kontor *j*: $K_j \cdot 37{,}5 \cdot (245/260) / 12$ timer/måned (tilsvarer heuristikkens daglige kapasitet × 260/12; 245/260-faktoren reflekterer produktive dager, se 5.1.2)
 - $L_{it} \in \{0,1\}$ = 1 hvis kommune *i* kan behandles i måned *t* (0 hvis Geovekst-låst)
 - $\mu$ = månedlig NVDB-kapasitet (lenker)
 - $L^{pre}$ = lenker fra 62 pre-ferdige kommuner (tilgjengelig i NVDB-kø fra $t=0$)
@@ -658,7 +660,7 @@ Figur 10 viser kartkontorenes kumulative fremdrift over tid for referanseheurist
 
 ## 7.3 Omfordeling mellom kontor
 
-MIP-modellen har full frihet til å reassigne kommuner mellom kartkontor, men inertia-tie-breakeren favoriserer ansvarskontor-tildelingen i tilfeller hvor flere løsninger gir samme makespan. Resultatet (figur 16) viser at 27–71 kommuner flyttes avhengig av scenario, men disse er hovedsakelig tie-breakere for kartkontor-ferdigtid: ingen kommuner *må* omfordeles for å oppnå optimal makespan. Antallet varierer mellom 27 (85 %-scenarioet) og 71 (96 %) på tvers av scenarioene; mønsteret reflekterer i hovedsak at vektet objektiv har flere likeverdige incumbenter, og CBC kan velge ulike kombinasjoner per scenario. Diagonalen dominerer i matrisen — kommuner blir i hovedsak værende på ansvarlig kartkontor — noe som bekrefter at status quo-tildelingen er nær-optimal. Det er verdt å merke at modellen regner omfordeling som "gratis" — den reelle organisatoriske kostnaden av at en kommune flyttes fra sitt geografiske fylkeskartkontor til et annet (arbeidskjennskap, kommunikasjon, kartverksprosesser) er ikke modellert og drøftes i 9.0.
+MIP-modellen har full frihet til å reassigne kommuner mellom kartkontor, men inertia-tie-breakeren favoriserer ansvarskontor-tildelingen i tilfeller hvor flere løsninger gir samme makespan. Resultatet (figur 16) viser at 27–71 kommuner flyttes avhengig av scenario, men disse er hovedsakelig tie-breakere for kartkontor-ferdigtid: ingen kommuner *må* omfordeles for å oppnå optimal makespan. Antallet varierer mellom 27 (85 %-scenarioet) og 71 (96 %) på tvers av scenarioene; mønsteret reflekterer i hovedsak at vektet objektiv har flere likeverdige incumbenter, og CBC kan velge ulike kombinasjoner per scenario. Diagonalen dominerer i matrisen — kommuner blir i hovedsak værende på ansvarlig kartkontor — noe som bekrefter at status quo-tildelingen er nær-optimal. Det er verdt å merke at modellen regner omfordeling som "gratis" — den reelle organisatoriske kostnaden av at en kommune flyttes fra sitt geografiske fylkeskartkontor til et annet (arbeidskjennskap, kommunikasjon, kartverksprosesser) er ikke modellert og drøftes i 9.3.
 
 ![Figur 16: Omfordeling fra ansvarlig kartkontor til MIP-kontor for 90 %-scenarioet](figurer/16_omfordeling_matrise.png)
 
