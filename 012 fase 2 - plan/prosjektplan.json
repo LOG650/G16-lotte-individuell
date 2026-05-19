@@ -7,8 +7,8 @@
     "kunde": "Statens Kartverk, Region og Samfunnskontakt",
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
-    "status": "Pågående - fase 3 (gjennomføring)",
-    "sist_oppdatert": "2026-04-28"
+    "status": "Pågående - fase 4 (avslutning)",
+    "sist_oppdatert": "2026-05-19"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -153,8 +153,8 @@
       "startdato": "2026-03-16",
       "sluttdato": "2026-04-27",
       "varighet_dager": 31,
-      "status": "Pågående",
-      "fremdrift_prosent": 95,
+      "status": "Ferdig",
+      "fremdrift_prosent": 100,
       "oppgaver": [
         {
           "id": 15,
@@ -254,16 +254,16 @@
           "predecessors": [
             20
           ],
-          "status": "Ikke startet",
-          "fremdrift_prosent": 0,
-          "kommentar": "Medstudenter leser hovedutkastet levert kvelden 2026-04-29. Tilbakemeldinger bearbeides i fase 4."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Review gjennomført. Hovedutkast levert til avtalt dato 2026-04-29. Mottatt peer review fra G14 (Kjetil) datert 2026-05-06, ligger i 013 fase 3 - review/Peer_review_mottatt/. Forbedringsforslagene innarbeides under kvalitetssikring (oppgave 27)."
         }
       ],
       "milepael": {
         "id": 22,
         "navn": "Levert hovedutkast til review",
         "dato": "2026-04-29",
-        "status": "Ikke startet"
+        "status": "Ferdig"
       }
     },
     {
@@ -272,8 +272,8 @@
       "startdato": "2026-04-27",
       "sluttdato": "2026-05-31",
       "varighet_dager": 26,
-      "status": "Ikke startet",
-      "fremdrift_prosent": 0,
+      "status": "Pågående",
+      "fremdrift_prosent": 40,
       "oppgaver": [
         {
           "id": 25,
@@ -282,8 +282,9 @@
           "sluttdato": "2026-05-05",
           "varighet_dager": 7,
           "predecessors": [],
-          "status": "Ikke startet",
-          "fremdrift_prosent": 0
+          "status": "Pågående",
+          "fremdrift_prosent": 70,
+          "kommentar": "Kap. 10.0 Konklusjon utkastet skrevet (commit a50d1d6, ~445 ord). Polering og finpuss gjenstår etter kapittel-for-kapittel-gjennomgang denne uken."
         },
         {
           "id": 26,
@@ -294,8 +295,9 @@
           "predecessors": [
             25
           ],
-          "status": "Ikke startet",
-          "fremdrift_prosent": 0
+          "status": "Pågående",
+          "fremdrift_prosent": 70,
+          "kommentar": "Kap. 1.0 Innledning skrevet og finpusset (commit 7924d47). Endelig polering gjenstår etter kapittel-for-kapittel-gjennomgang denne uken."
         },
         {
           "id": 27,
@@ -306,8 +308,9 @@
           "predecessors": [
             26
           ],
-          "status": "Ikke startet",
-          "fremdrift_prosent": 0
+          "status": "Pågående",
+          "fremdrift_prosent": 15,
+          "kommentar": "Kapittel-for-kapittel-gjennomgang og innarbeiding av peer review-funn fra G14 (mottatt 2026-05-06) pågår. Mål: leveringsklart begynnelsen av uke 21 (25-26.05)."
         },
         {
           "id": 28,
