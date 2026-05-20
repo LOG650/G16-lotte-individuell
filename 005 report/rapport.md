@@ -361,6 +361,20 @@ Tre stokastiske kilder samples per iterasjon:
 
 Grunnpakke-tillegget (0,6510 min/km²) holdes konstant i Monte Carlo. Areal-koeffisienten er ikke identifiserbar fra kalibreringsdataene — alle 58 kartblader har identisk areal (7,68 km²) — og har dermed ingen empirisk spredning å bootstrape fra. Konsekvensen er at usikkerhetsintervallene i Monte Carlo representerer måleusikkerhet i MIN/KM, manuell NVDB-takt og automasjonsgrad, men ikke usikkerhet knyttet til grunnpakke-leddet. Dette drøftes som forbehold i 8.2. Kartkontor-kapasitet og Geovekst-låseperioder holdes også konstante i Monte Carlo-kjøringen.
 
+### 5.1.7 Validitet og reliabilitet
+
+Modellens troverdighet vurderes langs tre dimensjoner: *intern validitet* (om modellen måler det den foregir å måle), *ekstern validitet* (om resultatene lar seg generalisere), og *reliabilitet* (om analysen er reproduserbar).
+
+**Intern validitet** er adressert gjennom tre virkemidler. *Triangulering* — heuristikken og MIP-modellen er to algoritmisk uavhengige tilnærminger til samme problem, og samsvar mellom dem styrker tilliten til at de fanger problemet riktig. Heuristikkens makespan ligger innenfor 2,2 % av MIP-modellens i alle tre scenarioer (kap. 7.1). *Kalibrering mot oppgitte parametere* — modellens 90 %-punktestimat på 6,72 år konvergerer mot samferdselsavdelingens direkte regnestykke på samme inputparametere (7,22 år), der gapet utelukkende skyldes ulik kalenderkonvensjon (240 vs. 260 dager, jf. 5.1.2 og 8.1). *Sensitivitetsanalyser* langs tre uavhengige akser — kapasitet (S0-S5, kap. 7.4), tidbruk-skalering (×1,5 og ×2,0, kap. 8.2) og AUTOMASJON_STD (fire nivåer, kap. 8.4) — bekrefter at hovedfunnet om NVDB-flaskehalsen er robust på tvers av store endringer i inputantagelser.
+
+**Ekstern validitet** er forsiktig. Modelleringsrammen — heuristikk for tolkbar referanse, MIP for verifikasjon, Monte Carlo for risikokvantifisering — er overførbar til andre planleggingsproblemer med tilsvarende strukturelle kjennetegn: regionale ressurser med varierende kapasitet, eksterne tidsvinduer som låser deler av arbeidsmengden, og en dominerende nedstrøms flaskehals. Hovedfunnene fra dette caset (NVDB-flaskehalsen og at deterministisk optimum er praktisk robust) er knyttet til denne strukturen og generaliserer ikke uten videre til problemer uten dominerende nedstrøms-fase. Tidbruk-formelens kalibreringsgrunnlag har i tillegg en kjent skjevhet (jf. 8.2): de 62 ferdige kommunene som brukes i sanity-sjekken er ikke representative for de 295 gjenstående, noe som begrenser overførbarheten av absolutte kommuneestimater.
+
+**Reliabilitet** sikres ved at hele analysepipelinen er deterministisk og reproduserbar. Rådata, behandlede CSV-er og kjørbare Python-skript er samlet i prosjektmappen. Stokastiske kjøringer (Monte Carlo) reproduseres med faste tilfeldig-tall-frø i `monte_carlo.py`. Eksterne avhengigheter — Python 3.13, PuLP 3.3, CBC 2.10.3, pandas, numpy, geopandas — er dokumentert i 6.4, slik at en uavhengig leser kan rekjøre modellen. Datavasken er instrumentert med to sanity-sjekk-skript (`sanity_check_data.py` og `sanity_check_mip.py`) som flagger kjente inkonsistenser i rådata og avvik mellom MIP-modellens output og bibetingelsene.
+
+### 5.1.8 Etiske vurderinger
+
+Studien behandler ingen personopplysninger. Alle data er aggregert per kommune (lenker, kurvelengde, status) eller per kartkontor (kapasitet, tidbruk-intervaller). Personvernforordningen (GDPR) er dermed ikke relevant, og prosjektet er ikke meldepliktig til Sikt eller REK (jf. egenerklæringen i frontmatter). Kartverket har som oppdragsgiver gitt samtykke til at reelle produksjons- og kapasitetstall fra samferdselsavdelingen og de 10 fylkeskartkontorene brukes som datagrunnlag i en åpen studentrapport.
+
 ## 5.2 Data
 
 ### 5.2.1 Datakilder
