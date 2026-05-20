@@ -150,14 +150,17 @@ Følgende er bevisst avgrenset bort fra prosjektet:
 
 ## 1.4 Antagelser
 
-Modellen bygger på følgende sentrale antagelser, som er nærmere dokumentert i kapittel 5 og 6:
+Modellen bygger på to grunnleggende rammeantakelser om problemets struktur:
 
 - **Kommunevis bearbeiding.** Hver kommune behandles som en udelelig enhet og må ferdigstilles før den klarmeldes til NVDB-overføring. Dette samsvarer med Kartverkets faktiske arbeidsmodell.
-- **Konstant årlig kapasitet.** Kapasiteten i ukesverk for hvert kartkontor representerer nominell brutto kapasitet for TraktorvegSti-prosjektet i 2026 og antas tilsvarende for senere år. Ett ukesverk er 37,5 timer. Sykefravær og konkurrerende oppgaver antas allerede trukket fra i kontorenes oppgitte tall, mens ferieuttak håndteres separat (se neste punkt).
-- **245 produktive dager per år (kartkontor).** Personalet tar ferie spredt utover året, og sommervikarer kompenserer ikke fullt ut. Simuleringen omfatter 260 kalenderdager (mandag–fredag) per år, men daglig og månedlig kapasitet skaleres med faktoren 245/260 ≈ 0,9423 for å reflektere at kartkontorene gjennomsnittlig leverer som om de hadde ca. 245 produktive dager. NVDB-overføringen beholder sin egen kalenderkonvensjon (se 5.1.2).
-- **Tidsbruk-formel som punktestimat.** Beregnet tidsbruk per kommune følger formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510` med koeffisienter avledet fra 58 historiske kartbladmålinger. Empirisk spredning i tidsbruk per km (std 0,55 min/km) inngår som stokastisk kilde i Monte Carlo-analysen.
-- **NVDB-overføring som ren flaskehals nedstrøms kartkontor-arbeidet.** FME-prosessen antas uendelig rask, slik at manuell etterbehandling alene bestemmer NVDB-kapasiteten. Bemanning på 0,5 årsverk og manuell takt på 300 lenker per person per dag holdes konstant, mens FME-automasjonsgrad varieres scenariomessig (85 %, 90 %, 96 %). 85 og 90 % er samferdselsavdelingens egne anslag; 96 % er en hypotetisk øvre grense, ikke en prognose (se 5.1.5).
 - **Konstant Geovekst-låseperiode.** Låste kommuner blir tilgjengelige umiddelbart etter låseperiodens slutt og forblir tilgjengelige i resten av planhorisonten.
+
+I tillegg gjelder følgende modell-spesifikke antagelser (utdypet i kapittel 5):
+
+- **Konstant årlig kapasitet** i ukesverk for hvert kontor (37,5 t/uke). Sykefravær og konkurrerende oppgaver antas allerede trukket fra i kontorenes oppgitte tall; ferieuttak håndteres via 245/260-faktoren (jf. 5.1.2). Antas tilsvarende for senere år.
+- **245 produktive dager/år** ved kartkontorene (260 kalenderdager × 245/260 ≈ 0,9423 for å fange ferieuttak); NVDB beholder egen kalenderkonvensjon (jf. 5.1.2).
+- **Tidsbruk-formel** `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510` med empirisk spredning som inngår i Monte Carlo (jf. 5.2.3).
+- **NVDB som ren flaskehals nedstrøms** — FME uendelig rask, bemanning 0,5 årsverk, manuell takt 300 lenker/dag/person, automasjon varieres scenariomessig (85 %, 90 %, 96 %; 96 % er hypotetisk, ikke prognose, jf. 5.1.4 og 5.1.5).
 
 ---
 
