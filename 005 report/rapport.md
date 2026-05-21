@@ -166,7 +166,7 @@ I tillegg gjelder følgende modell-spesifikke antagelser (utdypet i kapittel 5):
 
 # 2.0 Litteratur
 
-Problemstillingen i denne oppgaven kombinerer flere etablerte fagområder: ressursallokering og scheduling med tidsvinduer, hybride løsningsmetoder som kombinerer heuristikk og eksakt optimering, samt usikkerhetsanalyse basert på Monte Carlo-simulering og bootstrap. Dette kapittelet presenterer sentrale referanser som danner det metodiske grunnlaget for analysen.
+Problemstillingen i denne oppgaven kombinerer flere etablerte fagområder: ressursallokering og scheduling med tidsvinduer, hybride løsningsmetoder som kombinerer heuristikk og eksakt optimering, samt usikkerhetsanalyse basert på Monte Carlo-simulering og bootstrap. Dette kapittelet katalogiserer kildegrunnlaget for metoden — hvilke verk som er brukt og hva hver bidrar med. Den teoretiske utledningen og koblingen til problemstillingen følger i kapittel 3.
 
 ## 2.1 Scheduling og ressursallokering med tidsvinduer
 
@@ -174,7 +174,7 @@ Pinedo (2016) er et standardverk innen scheduling-teori og dekker både klassisk
 
 Hartmann og Briskorn (2010) gir en oversiktsartikkel over det ressursbegrensede prosjektplanleggingsproblemet (Resource-Constrained Project Scheduling Problem, RCPSP) og dets utvidelser. Artikkelen etablerer en klassifikasjon som er direkte overførbar til Kartverkets problemstilling: kommuner som aktiviteter, kartkontor som ressurser, Geovekst-låsninger som tidsvinduer, og NVDB-overføringen som en nedstrøms kapasitetsbegrensning.
 
-Graham (1969) etablerer den klassiske ytelsesgarantien for prioritetsregel-heuristikker på parallelle maskiner. For Longest Processing Time-regelen (LPT) — sortér jobbene etter avtakende prosesseringstid og tildel hver til den maskinen som blir tidligst ledig — er den verste-tilfelle-grensen $\frac{4}{3} - \frac{1}{3m}$ av optimal makespan. Resultatet gir et tallfestet referansepunkt for å vurdere kvaliteten av den regelbaserte heuristikken som benyttes i denne oppgaven, og motiverer hvorfor en hybrid heuristikk-MIP-tilnærming er meningsfull selv når heuristikken kan vises å være nær-optimal i praksis (jf. 3.1).
+Graham (1969) etablerer den klassiske ytelsesgarantien for prioritetsregel-heuristikker på parallelle maskiner og introduserer Longest Processing Time-regelen (LPT) med en verste-tilfelle-grense uttrykt som funksjon av antall maskiner. Verket gir det tallfestede referansepunktet som brukes i 3.1 til å vurdere den regelbaserte heuristikken i denne oppgaven.
 
 ## 2.2 Hybride løsningsmetoder
 
@@ -192,7 +192,7 @@ Efron og Tibshirani (1993) presenterer bootstrap-metoden som en statistisk tekni
 
 # 3.0 Teori
 
-Kapittel 2 listet sentrale verk som danner det metodiske grunnlaget for analysen. Dette kapittelet utdyper de teoretiske konseptene fra disse verkene og knytter dem til problemstillingen, slik at modellvalgene i kapittel 5 og 6 hviler på et eksplisitt teoretisk fundament.
+Mens kapittel 2 katalogiserte kildegrunnlaget for metoden, utdyper dette kapittelet teorigrunnlaget og kobler det til problemstillingen — hvilke begreper, garantier og antagelser fra litteraturen som ligger til grunn for modellvalgene i kapittel 5 og 6.
 
 ## 3.1 Scheduling-rammeverk og kompleksitet
 
