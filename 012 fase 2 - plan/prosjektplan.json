@@ -8,7 +8,7 @@
     "startdato": "2026-01-12",
     "sluttdato": "2026-06-01",
     "status": "Pågående - fase 4 (avslutning)",
-    "sist_oppdatert": "2026-05-19"
+    "sist_oppdatert": "2026-05-23"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -273,7 +273,7 @@
       "sluttdato": "2026-05-31",
       "varighet_dager": 26,
       "status": "Pågående",
-      "fremdrift_prosent": 40,
+      "fremdrift_prosent": 80,
       "oppgaver": [
         {
           "id": 25,
@@ -282,9 +282,9 @@
           "sluttdato": "2026-05-05",
           "varighet_dager": 7,
           "predecessors": [],
-          "status": "Pågående",
-          "fremdrift_prosent": 70,
-          "kommentar": "Kap. 10.0 Konklusjon utkastet skrevet (commit a50d1d6, ~445 ord). Polering og finpuss gjenstår etter kapittel-for-kapittel-gjennomgang denne uken."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Kap. 9.0 Konklusjon (renummerert fra 10.0 etter B1-sammenslåing av kap 7+8) ferdig. Polert via peer review-batches 4 (C1, akademisk bidrag), 9 (prosa-gjentagelser/tankestreker) og 10 (tall-konsistens en-dash)."
         },
         {
           "id": 26,
@@ -295,9 +295,9 @@
           "predecessors": [
             25
           ],
-          "status": "Pågående",
-          "fremdrift_prosent": 70,
-          "kommentar": "Kap. 1.0 Innledning skrevet og finpusset (commit 7924d47). Endelig polering gjenstår etter kapittel-for-kapittel-gjennomgang denne uken."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Kap. 1.0 Innledning ferdig. Polert via batches A1-A5 (mekaniske fikser), B3 (1.4 antagelser-rydding, beholdt rammeantakelser fulle og forkortet modell-antagelser), C1 (akademisk bidrag-avsnitt lagt til) og 9 (prosa)."
         },
         {
           "id": 27,
@@ -309,8 +309,8 @@
             26
           ],
           "status": "Pågående",
-          "fremdrift_prosent": 15,
-          "kommentar": "Kapittel-for-kapittel-gjennomgang og innarbeiding av peer review-funn fra G14 (mottatt 2026-05-06) pågår. Mål: leveringsklart begynnelsen av uke 21 (25-26.05)."
+          "fremdrift_prosent": 95,
+          "kommentar": "Peer review-funn fra G14 (mottatt 2026-05-06) innarbeidet i 10 batcher: A1-A5 (mekaniske fikser, commit 52fa309), B1 (slå sammen kap 7+8, commit 2c26d89), C5 (96 %-hypotetisk-merking, 432f7c9), C6 (samlet Not Solved-drøfting, a3b4e7c), C1 (akademisk bidrag, cd28fb2), C3+C4 (validitet/reliabilitet + etikk, 3c914df), B3 (1.4 antagelser, e8eb884), B2 (rollefordeling kap 2 vs 3, 4a1c389), 9 (prosa-gjentagelser + tankestrek-cleanup, 8dd77eb) og 10 (sluttsjekk: kryssreferanser, figur-referanser, tall-konsistens en-dash, APA 7-verifikasjon). Batch 8 (C2 utvide litteraturgjennomgangen) kansellert 2026-05-23 etter faglærer-godkjenning av dagens 6 klassiske kilder. Gjenstår: PDF-generering og endelig korrekturlesing før innlevering."
         },
         {
           "id": 28,
