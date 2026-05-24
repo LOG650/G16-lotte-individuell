@@ -352,7 +352,7 @@ Tre NVDB-scenarioer undersøkes, differensiert på FME-automasjonsgrad som er de
 |      90 %      |            1 500            | Samferdselsavdelingens oppgitte parametere (kalibreringspunkt)               |
 |      96 %      |            3 750            | Optimistisk øvre grense, bakoverregnet for å treffe et 2-års-mål         |
 
-Samferdselsavdelingen opererer selv kun med 80–90 %. 96 %-scenarioet er dermed ikke deres tall, men en hypotetisk målsetning for å kvantifisere hva FME-automasjon på "toppkvalitet" ville kreve. Dette gir Kartverket et argument for FME-investering: å nå fra 85 % til 96 % automasjonsgrad halverer total prosjektvarighet.
+Samferdselsavdelingen opererer selv kun med 80–90 %. 96 %-scenarioet er dermed ikke deres tall, men en hypotetisk målsetning bakoverregnet fra et 2-års-mål: gitt fast manuell kapasitet (0,5 årsverk × 300 lenker/dag) er ~96 % det laveste automasjonsnivået som via NVDB-formelen i 5.1.4 holder de gjenstående ~2,1 mill. lenkene innenfor 2 år. Modellens punktestimat på ~2,7 år (kap. 7.1, jf. tabell 7.1) ligger over 2 fordi 96 % er rundet ned fra ~96,3 % og fordi modellens 260-dagers konvensjon avviker fra samferdselsavdelingens 240 (jf. 5.1.2). Dette gir Kartverket et argument for FME-investering: å nå fra 85 % til 96 % automasjonsgrad halverer total prosjektvarighet.
 
 ### 5.1.6 Monte Carlo-modellen
 
