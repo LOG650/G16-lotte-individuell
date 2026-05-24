@@ -2,7 +2,7 @@
 
 **Forfatter:** Lotte Picard
 
-**Studiepoeng:**
+**Studiepoeng: 15**
 
 **Veileder:**
 
@@ -32,9 +32,9 @@ Har oppgaven vært til behandling hos REK? Nei
 
 Forfatter(ne) har opphavsrett til oppgaven. Det betyr blant annet enerett til å gjøre verket tilgjengelig for allmennheten (Åndsverkloven. §2). Alle oppgaver som fyller kriteriene vil bli registrert og publisert i Brage HiM med forfatter(ne)s godkjennelse.
 
-Jeg gir herved Høgskolen i Molde en vederlagsfri rett til å gjøre oppgaven tilgjengelig for elektronisk publisering: ja/nei
+Jeg gir herved Høgskolen i Molde en vederlagsfri rett til å gjøre oppgaven tilgjengelig for elektronisk publisering: nei
 
-Er oppgaven båndlagt (konfidensiell)? ja/nei
+Er oppgaven båndlagt (konfidensiell)? nei
 
 ---
 
@@ -746,7 +746,7 @@ Analysen gir tre sentrale funn på tvers av delproblemene.
 
 **NVDB-overføringen er flaskehalsen, ikke kartkontor-fasen.** Total varighet bestemmes nesten utelukkende av automasjonsgrad og manuell NVDB-kapasitet (jf. 7.1, 7.4). Kartkontorene fullfører innen 10–17 måneder i alle scenarioer, mens NVDB-fasen alene krever 2,7–10,2 år ved deterministisk punktestimat. Modellens 90 %-estimat på 6,72 år er kvantitativt konsistent med direkte beregning av samferdselsavdelingens parametere (7,22 år ved 240 dager/år; gapet er 240-vs-260-dagers kalenderkonvensjon, jf. 5.1.2).
 
-**MIP-modellen verifiserer heuristikken; den forbedrer den ikke.** Differansen i makespan er under 2,2 % i alle scenarioer (jf. tabell 7.1), og de 27–71 omfordelingene er tie-breakers, ikke nødvendige for makespan (jf. 7.3). MIPs reelle gevinst er en mer komprimert kartkontor-ferdigprofil (Monte Carlo P50 ned fra 510 til 409–452 dager, jf. 7.2 og 7.5), en organisatorisk verdi som ikke endrer totalvarigheten.
+**MIP-modellen verifiserer heuristikkens makespan og viser at kartkontor-fasen kunne vært kortere.** Differansen i makespan er under 2,2 % i alle scenarioer (jf. tabell 7.1), og de 27–71 omfordelingene er tie-breakers, ikke nødvendige for makespan (jf. 7.3). MIPs reelle gevinst er en mer komprimert kartkontor-ferdigprofil (Monte Carlo P50 ned fra 510 til 409–452 dager, jf. 7.2 og 7.5), en organisatorisk verdi som ikke endrer totalvarigheten.
 
 **Resultatet er robust mot rimelige forstyrrelser.** Identisk makespan på tvers av seks kapasitetsvarianter (jf. 7.4) og overlappende Monte Carlo-bånd på tvers av automasjonsgrad-scenarioene (jf. 7.5) viser at konklusjonen ikke avhenger av finkalibrering av kartkontor-kapasitet. Variansen *innad* i hvert scenario (faktor 2,0–4,3× fra P5 til P95) er sammenlignbar med variansen *mellom* scenarioene (faktor 3,7× mellom 85 / 90 / 96 %-punktestimater), noe som plasserer automasjonsgrad som en strategisk variabel, ikke en enkeltverdi.
 
@@ -776,11 +776,11 @@ Samlet kan formelen underestimere reell tidsbruk med faktor opptil ~2. For å te
 
 *Tabell 8.1 Kartkontor- og NVDB-varighet ved skalering av tidbruk-formelen*
 
-| Skala          | Kartkontor P50 (mnd) | 85 % P50/P95 (år) | 90 % P50/P95 (år) | 96 % P50/P95 (år) |
-| -------------- | -------------------- | ------------------ | ------------------ | ------------------ |
+| Skala           | Kartkontor P50 (mnd) | 85 % P50/P95 (år) | 90 % P50/P95 (år) | 96 % P50/P95 (år) |
+| --------------- | -------------------- | ------------------ | ------------------ | ------------------ |
 | 1,0 (referanse) | 16,8                 | 10,01 / 13,28      | 6,67 / 9,91        | 2,36 / 5,88        |
-| 1,5            | 21,1                 | 10,01 / 13,28      | 6,67 / 9,93        | 2,68 / 5,86        |
-| 2,0            | 28,2                 | 10,01 / 13,28      | 6,67 / 9,93        | 2,75 / 5,86        |
+| 1,5             | 21,1                 | 10,01 / 13,28      | 6,67 / 9,93        | 2,68 / 5,86        |
+| 2,0             | 28,2                 | 10,01 / 13,28      | 6,67 / 9,93        | 2,75 / 5,86        |
 
 Kartkontor-fasen vokser proporsjonalt med skala (Monte Carlo P50: 16,8 → 21,1 → 28,2 måneder), men **total varighet (NVDB-makespan) er praktisk talt uendret** for 85 %- og 90 %-scenarioet i alle tre kjøringer. Bare for 96 %-scenarioet, der NVDB er minst flaskehals, presses P5 opp fra 1,38 til 2,15 år ved skala 2, fordi kartkontor-tiden begynner å bestemme ferdigdatoen i de raskeste iterasjonene. Hovedbudskapet "NVDB er flaskehalsen" overlever altså en dobling av tidbruk-formelen for de to mest realistiske scenarioene, mens det svekkes marginalt i det optimistiske 96 %-scenarioet.
 
