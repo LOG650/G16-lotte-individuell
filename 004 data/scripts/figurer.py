@@ -83,6 +83,16 @@ def fig1_kart(kommuner):
     fylker = gpd.read_file(os.path.join(RAW_DIR, 'kartverket_fylker.geojson'))
     fylker['fylkesnummer'] = fylker['fylkesnummer'].astype(int)
     fylker['Kartkontor'] = fylker['fylkesnummer'].map(FYLKE_TIL_KONTOR)
+    fylker = fylker.to_crs(25833)  # ETRS89 / UTM 33N — Kartverkets standard
+
+    kontor_punkter = gpd.GeoDataFrame(
+        {'Kartkontor': list(KONTOR_COORDS.keys())},
+        geometry=gpd.points_from_xy(
+            [lon for lat, lon in KONTOR_COORDS.values()],
+            [lat for lat, lon in KONTOR_COORDS.values()],
+        ),
+        crs='EPSG:4326',
+    ).to_crs(25833)
 
     fig, ax = plt.subplots(figsize=(9, 11))
     for kontor in KONTOR_REKKEFOLGE:
@@ -92,21 +102,21 @@ def fig1_kart(kommuner):
         sub.plot(ax=ax, color=KONTOR_FARGER[kontor], edgecolor='white',
                  linewidth=0.6, alpha=0.72)
 
-    for kontor, (lat, lon) in KONTOR_COORDS.items():
+    for _, row in kontor_punkter.iterrows():
+        kontor = row['Kartkontor']
         n = antall.get(kontor, 0)
-        ax.scatter(lon, lat, s=80, c='black', edgecolors='white',
+        x, y = row.geometry.x, row.geometry.y
+        ax.scatter(x, y, s=80, c='black', edgecolors='white',
                    linewidth=1.2, zorder=4)
         ax.annotate(f'{kontor} ({n})',
-                    xy=(lon, lat), xytext=(8, 8),
+                    xy=(x, y), xytext=(8, 8),
                     textcoords='offset points',
                     fontsize=9.5, fontweight='bold',
                     bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
                               edgecolor='gray', alpha=0.9),
                     zorder=5)
 
-    ax.set_xlim(3.5, 32)
-    ax.set_ylim(57.5, 71.5)
-    ax.set_aspect(1.8)
+    ax.set_aspect('equal')
     ax.set_title('Fylkeskartkontor og fylker de har ansvar for\n'
                  '(tall i parentes: antall kommuner under kontoret)',
                  fontsize=12, pad=14)
