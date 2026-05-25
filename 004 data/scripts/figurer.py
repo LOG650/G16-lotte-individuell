@@ -129,6 +129,122 @@ def fig1_kart(kommuner):
     plt.close()
 
 
+def fig_produksjonskjede():
+    """Produksjonskjede-diagram for kapittel 1 (innledning).
+
+    Vertikal flyt med visuell flaskehals: 10 parallelle kartkontor-bokser
+    konvergerer til en smalere NVDB-overføringsboks.
+    """
+    print('Kap 1: Produksjonskjede...')
+    from matplotlib.patches import FancyBboxPatch
+
+    fig, ax = plt.subplots(figsize=(8.5, 8.5))
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 10)
+    ax.axis('off')
+
+    # 1. Kildeboks: FKB-TraktorvegSti
+    src = FancyBboxPatch((2, 9.0), 6, 0.85,
+                         boxstyle='round,pad=0.05',
+                         facecolor='#e8e8e8', edgecolor='#444', linewidth=1.2)
+    ax.add_patch(src)
+    ax.text(5, 9.6, 'FKB-TraktorvegSti datasett', ha='center', va='center',
+            fontsize=11.5, fontweight='bold')
+    ax.text(5, 9.22, '357 kommuner  ·  2,1 mill. gjenstående lenker',
+            ha='center', va='center', fontsize=9.5, color='#444')
+
+    ax.annotate('', xy=(5, 8.35), xytext=(5, 8.95),
+                arrowprops=dict(arrowstyle='->', lw=1.4, color='#333'))
+
+    # 2. Steg 1: Kvalitetsheving — 10 kartkontor parallelt
+    ax.text(5, 8.1, 'Steg 1: Kvalitetsheving ved fylkeskartkontorene',
+            ha='center', va='center', fontsize=11, fontweight='bold')
+
+    n_kontor = len(KONTOR_REKKEFOLGE)
+    row_x_start = 0.3
+    row_x_end = 9.7
+    box_w = (row_x_end - row_x_start) / n_kontor - 0.04
+    gap = 0.04
+    y_kontor = 7.0
+    box_h = 0.65
+
+    for i, kontor in enumerate(KONTOR_REKKEFOLGE):
+        x = row_x_start + i * (box_w + gap)
+        b = FancyBboxPatch((x, y_kontor), box_w, box_h,
+                           boxstyle='round,pad=0.02',
+                           facecolor=KONTOR_FARGER[kontor],
+                           edgecolor='white', linewidth=0.6,
+                           alpha=0.85)
+        ax.add_patch(b)
+        ax.text(x + box_w / 2, y_kontor + box_h / 2, kontor,
+                ha='center', va='center', fontsize=7.0,
+                fontweight='bold', color='white')
+
+    ax.text(5, 6.65, '10 kartkontor  ·  samlet 327 ukesverk/år (12 262 timer)',
+            ha='center', va='center', fontsize=9.5, color='#555',
+            fontstyle='italic',
+            bbox=dict(facecolor='white', edgecolor='none', pad=3),
+            zorder=5)
+
+    # 3. Konvergerende piler fra kontor-bokser direkte ned til NVDB-toppen
+    for i in range(n_kontor):
+        x_start = row_x_start + i * (box_w + gap) + box_w / 2
+        ax.annotate('',
+                    xy=(5, 4.85),
+                    xytext=(x_start, y_kontor - 0.02),
+                    arrowprops=dict(arrowstyle='->', lw=0.6,
+                                    color='#888', alpha=0.55))
+
+    # Klarmelding-tekst sentralt over pilene, med hvit buffer (ingen ramme)
+    ax.text(5, 5.4, 'Klarmelding', ha='center', va='center',
+            fontsize=9.5, color='#555', fontstyle='italic',
+            bbox=dict(facecolor='white', edgecolor='none', pad=3),
+            zorder=5)
+
+    # 4. Steg 2: NVDB-overføring (visuelt smalere = flaskehals)
+    nvdb_x = 3.0
+    nvdb_w = 4.0
+    nvdb_y = 3.0
+    nvdb_h = 1.8
+    nvdb_box = FancyBboxPatch((nvdb_x, nvdb_y), nvdb_w, nvdb_h,
+                              boxstyle='round,pad=0.05',
+                              facecolor='#d6a89a',
+                              edgecolor='#7a3a2a', linewidth=1.6)
+    ax.add_patch(nvdb_box)
+    ax.text(5, nvdb_y + nvdb_h - 0.32,
+            'Steg 2: NVDB-overføring',
+            ha='center', va='center', fontsize=11, fontweight='bold',
+            color='#3a1a10')
+    ax.text(5, nvdb_y + nvdb_h - 0.7,
+            'Samferdselsavdelingen  ·  0,5 årsverk',
+            ha='center', va='center', fontsize=9.5, color='#3a1a10')
+    ax.text(5, nvdb_y + nvdb_h - 1.08,
+            'FME-automasjon 80–90 %  +  manuell 10–20 %',
+            ha='center', va='center', fontsize=9.5, color='#3a1a10')
+    ax.text(5, nvdb_y + 0.3,
+            '300 lenker / dag / person manuelt',
+            ha='center', va='center', fontsize=9, color='#5a3a2a',
+            fontstyle='italic')
+
+    ax.annotate('', xy=(5, 2.2), xytext=(5, 2.95),
+                arrowprops=dict(arrowstyle='->', lw=1.4, color='#333'))
+
+    # 5. Destinasjonsboks: NVDB
+    dst = FancyBboxPatch((2.5, 1.05), 5, 1.05,
+                         boxstyle='round,pad=0.05',
+                         facecolor='#cfe2f3', edgecolor='#003366', linewidth=1.5)
+    ax.add_patch(dst)
+    ax.text(5, 1.8, 'NVDB', ha='center', va='center',
+            fontsize=13, fontweight='bold', color='#003366')
+    ax.text(5, 1.35, 'Nasjonal Vegdatabank (Statens vegvesen)',
+            ha='center', va='center', fontsize=9.5, color='#003366')
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUT_DIR, '1_1_produksjonskjede.png'),
+                dpi=160, bbox_inches='tight')
+    plt.close()
+
+
 def fig2_kapasitet_vs_arbeid(kontorer):
     print('2. Kapasitet vs arbeidsmengde per kontor...')
     df = kontorer.set_index('Kartkontor').reindex(KONTOR_REKKEFOLGE)
