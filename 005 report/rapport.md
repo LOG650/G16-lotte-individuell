@@ -860,6 +860,8 @@ Studien tilfører to observasjoner til den anvendte RCPSP-litteraturen. **Den f�
 
 # 9.0 Konklusjon
 
+Kapittel 8 drøftet modellens gyldighet, begrensninger og hva tallene betyr i praksis. Dette avsluttende kapittelet samler hovedfunnene og de praktiske implikasjonene for Kartverket.
+
 Hovedfunnet i analysen er at NVDB-overføringen, ikke kartkontor-fasen, bestemmer total prosjektvarighet. Ved realistisk automasjon (90 % og 85 %) tar prosjektet 6,7–10 år; ved optimistisk automasjon (96 %) drøyt 2,7 år. Kartkontorene har derimot kapasitet til å fullføre arbeidet på under halvannet år (MIP-modellens optimum 10–11 måneder, heuristikkens Monte Carlo P50 ~17 måneder) i alle tre NVDB-scenarioer. Monte Carlo-analysen viser betydelig usikkerhet rundt hvert punktestimat (for 90 %-scenarioet spenner P5–P95-båndet 3,3–9,9 år), hovedsakelig fordi små endringer i automasjonsgrad gir store utslag på NVDB-overføringskapasiteten når automasjonen er høy. Resultatet er robust mot kapasitetsforstyrrelser ved kartkontorene (identisk makespan i alle seks varianter S0–S5), mot dobling av tidbruk-formelen, og mot ulike antagelser om automasjonsgradens spredning.
 
 Modellens 90 %-punktestimat (6,72 år, deterministisk heuristikk) er kvantitativt konsistent med samferdselsavdelingens 7,22-års-beregning (kalenderkonvensjons-gap, jf. 8.1). Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca. 2 år. Gapet mellom prognose og ambisjon (5+ år) er den sentrale beslutningsutfordringen, og motiverer de praktiske grepene som følger.
