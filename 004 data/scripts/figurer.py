@@ -65,7 +65,7 @@ KONTOR_FARGER = {
     'Molde': '#e3855c',
     'Trondheim': '#937860',
     'Bodø': '#da8bc3',
-    'Tromsø': '#8c8c8c',
+    'Tromsø': '#7a8c9c',
 }
 
 
@@ -83,7 +83,7 @@ def fig1_kart(kommuner):
     fylker = gpd.read_file(os.path.join(RAW_DIR, 'kartverket_fylker.geojson'))
     fylker['fylkesnummer'] = fylker['fylkesnummer'].astype(int)
     fylker['Kartkontor'] = fylker['fylkesnummer'].map(FYLKE_TIL_KONTOR)
-    fylker = fylker.to_crs(25833)  # ETRS89 / UTM 33N — Kartverkets standard
+    fylker = fylker.to_crs(25835)  # ETRS89 / UTM 35N — sentralmeridian 27°E, balanserer Finnmark
 
     kontor_punkter = gpd.GeoDataFrame(
         {'Kartkontor': list(KONTOR_COORDS.keys())},
@@ -92,7 +92,7 @@ def fig1_kart(kommuner):
             [lat for lat, lon in KONTOR_COORDS.values()],
         ),
         crs='EPSG:4326',
-    ).to_crs(25833)
+    ).to_crs(25835)
 
     fig, ax = plt.subplots(figsize=(9, 11))
     for kontor in KONTOR_REKKEFOLGE:
@@ -100,32 +100,31 @@ def fig1_kart(kommuner):
         if sub.empty:
             continue
         sub.plot(ax=ax, color=KONTOR_FARGER[kontor], edgecolor='white',
-                 linewidth=0.6, alpha=0.72)
+                 linewidth=0.6, alpha=0.82)
 
+    import matplotlib.patheffects as path_effects
+    halo = [path_effects.Stroke(linewidth=3.5, foreground='white', alpha=0.95),
+            path_effects.Normal()]
     for _, row in kontor_punkter.iterrows():
         kontor = row['Kartkontor']
         n = antall.get(kontor, 0)
         x, y = row.geometry.x, row.geometry.y
-        ax.scatter(x, y, s=80, c='black', edgecolors='white',
-                   linewidth=1.2, zorder=4)
-        ax.annotate(f'{kontor} ({n})',
-                    xy=(x, y), xytext=(8, 8),
-                    textcoords='offset points',
-                    fontsize=9.5, fontweight='bold',
-                    bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
-                              edgecolor='gray', alpha=0.9),
-                    zorder=5)
+        ax.scatter(x, y, s=22, c='#1a1a1a', linewidths=0, zorder=4)
+        txt = ax.annotate(f'{kontor} ({n})',
+                          xy=(x, y), xytext=(7, 7),
+                          textcoords='offset points',
+                          fontsize=10, color='#1a1a1a',
+                          zorder=5)
+        txt.set_path_effects(halo)
 
     ax.set_aspect('equal')
-    ax.set_title('Fylkeskartkontor og fylker de har ansvar for\n'
-                 '(tall i parentes: antall kommuner under kontoret)',
-                 fontsize=12, pad=14)
     ax.set_xticks([])
     ax.set_yticks([])
     for spine in ax.spines.values():
         spine.set_visible(False)
     plt.tight_layout()
-    plt.savefig(os.path.join(OUT_DIR, '01_kart_kontorer.png'))
+    plt.savefig(os.path.join(OUT_DIR, '01_kart_kontorer.png'),
+                dpi=150, bbox_inches='tight')
     plt.close()
 
 

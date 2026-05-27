@@ -49,7 +49,7 @@ KONTOR_FARGER = {
     'Oslo': '#4c72b0', 'Hamar': '#55a868', 'Skien': '#c44e52',
     'Kristiansand': '#8172b2', 'Stavanger': '#ccb974',
     'Bergen': '#64b5cd', 'Molde': '#e3855c', 'Trondheim': '#937860',
-    'Bodø': '#da8bc3', 'Tromsø': '#8c8c8c',
+    'Bodø': '#da8bc3', 'Tromsø': '#7a8c9c',
 }
 
 
