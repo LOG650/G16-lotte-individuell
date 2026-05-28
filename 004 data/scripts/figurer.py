@@ -362,12 +362,18 @@ def fig4_geovekst_heatmap(geovekst):
     df['Laaseperiode_Start'] = pd.to_datetime(df['Laaseperiode_Start'])
     df['Laaseperiode_Slutt'] = pd.to_datetime(df['Laaseperiode_Slutt'])
     df = df.dropna(subset=['Laaseperiode_Start', 'Laaseperiode_Slutt'])
+    # Utelat ugyldige perioder (Slutt < Start, jf. LACIVL03-datatypo) slik at
+    # de ikke drar tidsaksen kunstig bakover
+    df = df[df['Laaseperiode_Slutt'] >= df['Laaseperiode_Start']]
 
     # Dedupliser: én kommune kan være i flere prosjekter, tell unike KomNr
     df = df.drop_duplicates(subset=['KomNr', 'Laaseperiode_Start',
                                      'Laaseperiode_Slutt'])
 
     start_min = df['Laaseperiode_Start'].min().replace(day=1)
+    # Klipp visningen til prosjektåret; ett enkelt prosjekt (1 kommune) i
+    # okt-des 2025 er ikke beslutningsrelevant og gir bare tomme kolonner
+    start_min = max(start_min, pd.Timestamp('2026-01-01'))
     slutt_max = df['Laaseperiode_Slutt'].max()
     maaneder = pd.date_range(start_min, slutt_max, freq='MS')
 
