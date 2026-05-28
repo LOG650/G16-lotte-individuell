@@ -1,5 +1,7 @@
 # Efron & Tibshirani (1993) — An Introduction to the Bootstrap
 
+> **AI-generert — ikke en kilde og ikke etterprøvd.** Dette notatet er laget av Claude (KI) som intern orientering. Innholdet er ikke hentet fra eller kontrollert mot originalkilden, og skal ikke siteres eller brukes som dokumentasjon på at kilden er lest. Kontroller alltid påstander mot primærkilden — se [../kilde_lenker/kilde_lenker.md](../kilde_lenker/kilde_lenker.md).
+
 ## APA 7-referanse
 
 Efron, B., & Tibshirani, R. J. (1993). *An introduction to the bootstrap*. Chapman & Hall/CRC.

@@ -1,5 +1,7 @@
 # Bibliografi-sammendrag
 
+> **AI-generert — ikke en kilde og ikke etterprøvd.** Alle filene i denne mappa er laget av Claude (KI) som intern orientering. Innholdet er ikke hentet fra eller kontrollert mot originalkildene, og skal ikke siteres eller brukes som dokumentasjon på at kildene er lest. Kontroller alltid påstander mot primærkilden — se [../kilde_lenker/kilde_lenker.md](../kilde_lenker/kilde_lenker.md).
+
 Sammendrag og verifisering av de seks kildene i kapittel 11.0 Bibliografi i rapporten. Generert 2026-04-25.
 
 ## Filer

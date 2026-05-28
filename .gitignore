@@ -3,3 +3,6 @@
 # Python
 __pycache__/
 *.pyc
+
+# Opphavsrettsbeskyttede kildekopier — kun lokalt, ikke til GitHub
+003 references/kilde_lenker/*.pdf

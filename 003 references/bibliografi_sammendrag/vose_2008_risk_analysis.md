@@ -1,5 +1,7 @@
 # Vose (2008) — Risk Analysis: A Quantitative Guide (3. utg.)
 
+> **AI-generert — ikke en kilde og ikke etterprøvd.** Dette notatet er laget av Claude (KI) som intern orientering. Innholdet er ikke hentet fra eller kontrollert mot originalkilden, og skal ikke siteres eller brukes som dokumentasjon på at kilden er lest. Kontroller alltid påstander mot primærkilden — se [../kilde_lenker/kilde_lenker.md](../kilde_lenker/kilde_lenker.md).
+
 ## APA 7-referanse
 
 Vose, D. (2008). *Risk analysis: A quantitative guide* (3. utg.). John Wiley & Sons.
