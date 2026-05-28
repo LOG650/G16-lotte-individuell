@@ -44,9 +44,22 @@ SCENARIO_NAVN = {
     'Samferdsel_96': '96 % automasjon',
 }
 
+VARIANT_NAVN = {
+    'S0_Baseline': 'Referanse',
+    'S1_Trondheim50': 'Trondheim -50 %',
+    'S2_Alle_pluss20': 'Alle +20 %',
+    'S3_Omfordeling': 'Omfordeling',
+    'S4_Alle_minus15': 'Alle -15 %',
+    'S5_Alle_minus50': 'Alle -50 %',
+}
+
 
 def vis(scenario):
     return SCENARIO_NAVN.get(scenario, scenario)
+
+
+def vis_variant(variant):
+    return VARIANT_NAVN.get(variant, variant)
 
 
 def aar_format(mnd):
@@ -175,7 +188,7 @@ def fig18_kapasitet_sensitivitet():
             ax.text(i, r['Makespan_Aar'] + 0.05,
                     f'{r["Makespan_Aar"]:.2f}', ha='center', fontsize=8)
         ax.set_xticks(range(len(sub)))
-        ax.set_xticklabels(sub['Variant'], rotation=40, ha='right')
+        ax.set_xticklabels([vis_variant(v) for v in sub['Variant']], rotation=40, ha='right')
         ax.set_ylabel('Makespan (aar)')
         ax.set_title(vis(s))
         ax.grid(axis='y', alpha=0.3)
@@ -206,7 +219,7 @@ def fig19_omfordeling_varianter():
                sub['Kommuner_Omfordelt'], w,
                label=vis(s), color=FARGER.get(s, None))
     ax.set_xticks(x)
-    ax.set_xticklabels(varianter, rotation=35, ha='right')
+    ax.set_xticklabels([vis_variant(v) for v in varianter], rotation=35, ha='right')
     ax.set_ylabel('Antall omfordelte kommuner')
     ax.set_title('Omfordeling mellom kontor under kapasitetsvariasjoner')
     ax.legend()
