@@ -32,7 +32,8 @@ Har oppgaven vært til behandling hos REK? Nei
 
 Forfatter(ne) har opphavsrett til oppgaven. Det betyr blant annet enerett til å gjøre verket tilgjengelig for allmennheten (Åndsverkloven. §2). Alle oppgaver som fyller kriteriene vil bli registrert og publisert i Brage HiM med forfatter(ne)s godkjennelse.
 
-Jeg gir herved Høgskolen i Molde en vederlagsfri rett til å gjøre oppgaven tilgjengelig for elektronisk publisering: 
+Jeg gir herved Høgskolen i Molde en vederlagsfri rett til å gjøre oppgaven tilgjengelig for elektronisk publisering: nei
+
 
 Er oppgaven båndlagt (konfidensiell)? nei
 
@@ -40,13 +41,13 @@ Er oppgaven båndlagt (konfidensiell)? nei
 
 ## Sammendrag
 
-Statens kartverk skal kvalitetsheve og overføre datasettet FKB-TraktorvegSti til Nasjonal vegdatabank (NVDB). Arbeidet involverer 357 kommuner fordelt på 10 fylkeskartkontor med varierende kapasitet og 152 Geovekst-låste kommuner som blokkerer arbeidet i deler av perioden. Per april 2026 er 62 kommuner ferdig kvalitetshevet, mens NVDB-overføringen ennå ikke har begynt. Denne oppgaven utvikler et planleggingsgrunnlag for hvordan de 295 gjenstående kommunene bør fordeles og sekvenseres for kortest mulig total prosjektvarighet.
+Statens kartverk skal kvalitetsheve og overføre datasettet FKB-TraktorvegSti til Nasjonal vegdatabank (NVDB). Arbeidet involverer 357 kommuner fordelt på 10 fylkeskartkontor med varierende kapasitet, og 152 kommuner er i perioder av 2026 låst grunnet Geovekst-prosjekter (kartleggingsprosjekter). Dette blokkerer arbeidet i deler av perioden. Per april 2026 er 62 kommuner ferdig kvalitetshevet, mens NVDB-overføringen ennå ikke har begynt. Denne oppgaven utvikler et planleggingsgrunnlag for hvordan de 295 gjenstående kommunene bør fordeles og sekvenseres for kortest mulig total prosjektvarighet.
 
 Analysen kombinerer en regelbasert heuristikk for tolkbar referansesimulering, en MIP-modell i PuLP/CBC for matematisk optimering, og 500-iterasjons Monte Carlo-simulering for usikkerhetskvantifisering. Tre NVDB-scenarioer undersøkes, differensiert på FME-automasjonsgrad: 85 %, 90 % og 96 %. 85 og 90 % er samferdselsavdelingens egne arbeidsanslag, mens 96 % er en hypotetisk øvre grense bakoverregnet mot et 2-årsmål, ikke en prognose. Modellen er kalibrert mot samferdselsavdelingens oppgitte parametere.
 
-Hovedfunnet er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ligger på 6,7–10 år ved realistisk automasjon (90 % og 85 %) og 2,7 år i optimistisk scenario (96 %), mens kartkontorene har kapasitet til å fullføre alt arbeid innen 10–17 måneder uavhengig av scenario. Monte Carlo viser betydelig usikkerhet rundt hvert punktestimat; for 90 %-scenarioet spenner P5–P95-båndet 3,3–9,9 år. Resultatet er robust mot rimelige kapasitetsforstyrrelser ved kartkontorene, og MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal innenfor 2,2 % av matematisk minimum.
+Hovedfunnet er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ved oppgitt ressursbruk hos samferdselsavdelingen ligger på 6,7–10 år ved realistisk automasjon (90 % og 85 %) og 2,7 år i optimistisk scenario (96 %), mens kartkontorene har kapasitet til å fullføre alt arbeid innen 10–17 måneder uavhengig av scenario. Monte Carlo viser betydelig usikkerhet rundt hvert punktestimat; for 90 %-scenarioet spenner P5–P95-båndet 3,3–9,9 år. Resultatet er robust mot rimelige kapasitetsforstyrrelser ved kartkontorene, og MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal innenfor 2,2 % av matematisk minimum.
 
-Samferdselsavdelingens uttalte ambisjon om ferdigstilling på ca. 2 år krever at flere grep kombineres: økt FME-automasjon, grundigere kvalitetsheving ved kartkontorene som reduserer manuell NVDB-belastning, og økt manuell NVDB-bemanning utover dagens 0,5 årsverk. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
+Samferdselsavdelingens uttalte ambisjon om ferdigstilling på ca. 2 år krever at flere grep kombineres: økt FME-automasjon, om mulig enda grundigere kvalitetsheving ved kartkontorene for å redusere manuell NVDB-belastning, og økt manuell NVDB-bemanning utover dagens 0,5 årsverk. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
 
 ---
 
@@ -153,7 +154,7 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 Statens Kartverk forvalter Felles Kartdatabase (FKB), et nasjonalt geodatagrunnlag som blant annet inkluderer datasettet FKB-TraktorvegSti (heretter TVS). Datasettet inneholder traktorveger, stier og stitrapper i hele Norge med senterlinjegeometri og er blant de mest detaljerte dataene Norge har over denne typen småveger og stier. For at traktorveger og stier skal inngå sammen med øvrige veger i et komplett samferdselsnettverk for kjørende, gående og syklende, må TVS kvalitetsheves og deretter overføres til Nasjonal vegdatabank (NVDB), som forvaltes av Statens vegvesen.
 
-Kartverkets ti fylkeskartkontor utfører kvalitetshevingen kommunevis: hvert kontor har ansvar for kommunene i sitt fylke, og hver kommune behandles som en udelelig enhet med kontroll av topologi, stedfesting, fjerning av ikke-gjenfinnbare objekter og tilpasning av attributter til NVDB-formatet. Kapasiteten varierer fra 22 til 52 ukesverk per år mellom kontorene, og arbeidsmengden per kommune varierer med en faktor på over 350 mellom de minste og største kommunene. Etter kvalitetsheving klarmeldes dataene til samferdselsavdelingen i Kartverket, som benytter en FME-automatisert prosess der 80–90 % av lenkene legges inn maskinelt og resterende 10–20 % må håndteres manuelt av en dedikert bemanning på 0,5 årsverk (figur 1.1).
+Kartverkets ti fylkeskartkontor utfører kvalitetshevingen kommunevis. Hvert kontor har ansvar for kommunene i sitt fylke, og hver kommune behandles som en udelelig enhet med kontroll av topologi, stedfesting, fjerning av ikke-gjenfinnbare objekter og tilpasning av attributter til NVDB-formatet. Kapasiteten varierer fra 22 til 52 ukesverk per år mellom kontorene, og arbeidsmengden per kommune varierer med en faktor på over 350 mellom de minste og største kommunene. Etter kvalitetsheving klarmeldes dataene til samferdselsavdelingen i Kartverket, som benytter en FME-automatisert prosess der 80–90 % av lenkene legges inn maskinelt og resterende 10–20 % må håndteres manuelt av en dedikert bemanning på 0,5 årsverk (figur 1.1).
 
 ![Figur 1.1: Produksjonskjeden for kvalitetsheving og NVDB-overføring](figurer/1_1_produksjonskjede.png)
 
@@ -283,7 +284,7 @@ Kvalitetshevingen innebærer manuell redigering av hver enkelt kommune: kontroll
 Produksjonen har to sekvensielle steg:
 
 ```
-Kartkontor (kvalitetsheving) ──► Samferdselsavdelingen (NVDB-overføring via FME)
+Kartkontor (kvalitetsheving) --> Samferdselsavdelingen (NVDB-overføring via FME)
 ```
 
 **Steg 1: Kvalitetsheving.** Utføres ved 10 fylkeskartkontor. Hver kommune behandles som en udelelig enhet og må ferdigstilles før den kan sendes videre. Kapasiteten varierer mellom kontorene (se figur 4.1 og 4.2).
@@ -571,73 +572,73 @@ Den matematiske optimeringsmodellen er formulert som et blandet heltallsproblem 
 Hver aktive kommune tildeles nøyaktig ett kontor:
 
 $$
-\sum_{j \in J} y_{ij} = 1, \quad \forall i \in I \tag{1}
+\sum_{j \in J} y_{ij} = 1, \quad \forall i \in I \qquad (1)
 $$
 
 Totale timer leveres:
 
 $$
-\sum_{j \in J} \sum_{t \in T} w_{ijt} = \tau_i, \quad \forall i \in I \tag{2}
+\sum_{j \in J} \sum_{t \in T} w_{ijt} = \tau_i, \quad \forall i \in I \qquad (2)
 $$
 
 Månedlig kontor-kapasitet:
 
 $$
-\sum_{i \in I} w_{ijt} \leq \kappa_j, \quad \forall j \in J, t \in T \tag{3}
+\sum_{i \in I} w_{ijt} \leq \kappa_j, \quad \forall j \in J, t \in T \qquad (3)
 $$
 
 Arbeid skjer kun på tildelt kontor (aggregert over tid):
 
 $$
-\sum_{t \in T} w_{ijt} \leq \tau_i \cdot y_{ij}, \quad \forall i \in I, j \in J \tag{4}
+\sum_{t \in T} w_{ijt} \leq \tau_i \cdot y_{ij}, \quad \forall i \in I, j \in J \qquad (4)
 $$
 
 Ingen arbeid under låseperioder:
 
 $$
-\sum_{j \in J} w_{ijt} = 0, \quad \forall i, t \text{ med } L_{it} = 0 \tag{5}
+\sum_{j \in J} w_{ijt} = 0, \quad \forall i, t \text{ med } L_{it} = 0 \qquad (5)
 $$
 
 Kommune ferdig-indikator:
 
 $$
-\tau_i \cdot z_{it} \leq \sum_{j \in J} \sum_{s \leq t} w_{ijs}, \quad \forall i, t \tag{6}
+\tau_i \cdot z_{it} \leq \sum_{j \in J} \sum_{s \leq t} w_{ijs}, \quad \forall i, t \qquad (6)
 $$
 
 Monotoni av ferdig-status:
 
 $$
-z_{it} \geq z_{i,t-1}, \quad \forall i, t > 0 \tag{7}
+z_{it} \geq z_{i,t-1}, \quad \forall i, t > 0 \qquad (7)
 $$
 
 NVDB-kapasitet per måned (null før NVDB-startdato):
 
 $$
-D_t \leq \mu, \quad \forall t \geq t_0^{NVDB}; \quad D_t = 0, \quad \forall t < t_0^{NVDB} \tag{8}
+D_t \leq \mu, \quad \forall t \geq t_0^{NVDB}; \quad D_t = 0, \quad \forall t < t_0^{NVDB} \qquad (8)
 $$
 
 NVDB kan ikke overføre mer enn tilgjengelig (pre-ferdige + ferdige fra kartkontor):
 
 $$
-\sum_{s \leq t} D_s \leq L^{pre} + \sum_{i \in I} \ell_i \cdot z_{it}, \quad \forall t \tag{9}
+\sum_{s \leq t} D_s \leq L^{pre} + \sum_{i \in I} \ell_i \cdot z_{it}, \quad \forall t \qquad (9)
 $$
 
 All NVDB-overføring fullført innen horisonten:
 
 $$
-\sum_{t \in T} D_t = L^{pre} + \sum_{i \in I} \ell_i \tag{10}
+\sum_{t \in T} D_t = L^{pre} + \sum_{i \in I} \ell_i \qquad (10)
 $$
 
 Makespan-indikator (lineariseringsteknikk):
 
 $$
-L^{tot} - \sum_{s \leq t} D_s \leq L^{tot} \cdot Q_t, \quad \forall t \tag{11}
+L^{tot} - \sum_{s \leq t} D_s \leq L^{tot} \cdot Q_t, \quad \forall t \qquad (11)
 $$
 
 der $L^{tot} = L^{pre} + \sum_i \ell_i$. Monotoni for makespan-indikatoren:
 
 $$
-Q_t \leq Q_{t-1}, \quad \forall t > 0 \tag{12}
+Q_t \leq Q_{t-1}, \quad \forall t > 0 \qquad (12)
 $$
 
 Sammen sikrer (11) og (12) at $Q_t = 1$ så lenge NVDB ikke er ferdig, og at $Q_t = 0$ for alle $t$ etter at all overføring er fullført.
