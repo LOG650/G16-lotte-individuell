@@ -10,7 +10,7 @@
 
 **Antall ord:**
 
-Molde, 31.05.2026
+Molde, 01.06.2026
 
 ---
 
@@ -32,7 +32,7 @@ Har oppgaven vært til behandling hos REK? Nei
 
 Forfatter(ne) har opphavsrett til oppgaven. Det betyr blant annet enerett til å gjøre verket tilgjengelig for allmennheten (Åndsverkloven. §2). Alle oppgaver som fyller kriteriene vil bli registrert og publisert i Brage HiM med forfatter(ne)s godkjennelse.
 
-Jeg gir herved Høgskolen i Molde en vederlagsfri rett til å gjøre oppgaven tilgjengelig for elektronisk publisering: nei
+Jeg gir herved Høgskolen i Molde en vederlagsfri rett til å gjøre oppgaven tilgjengelig for elektronisk publisering: 
 
 Er oppgaven båndlagt (konfidensiell)? nei
 
@@ -484,15 +484,15 @@ Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker 
 
 *Tabell 5.4 Nøkkeltall for datasettet*
 
-| Størrelse                        | Verdi                       |
-| --------------------------------- | --------------------------- |
-| Antall kommuner                   | 357                         |
-| Antall kartkontor                 | 10                          |
-| Totalt antall lenker              | 2 630 964                   |
-| Gjenstående lenker (april 2026)  | 2 138 104                   |
+| Størrelse                        | Verdi                          |
+| --------------------------------- | ------------------------------ |
+| Antall kommuner                   | 357                            |
+| Antall kartkontor                 | 10                             |
+| Totalt antall lenker              | 2 630 964                      |
+| Gjenstående lenker (april 2026)  | 2 138 104                      |
 | Total årlig kapasitet kartkontor | 327 ukesverk (≈ 12 263 timer) |
-| Kommuner låst av Geovekst        | 152                         |
-| Geovekst kommune-prosjekt-par     | 173                         |
+| Kommuner låst av Geovekst        | 152                            |
+| Geovekst kommune-prosjekt-par     | 173                            |
 
 Fordelingen av antall lenker per kommune er sterkt høyreskjev (jf. 4.6 og figur 4.5), og noen få store kommuner (f.eks. Oslo, Bergen, Trondheim) inneholder en uforholdsmessig stor andel av totalen. Dette har betydning for prioriteringen i heuristikken (6.1), der små og store kommuner behandles ulikt.
 
@@ -790,7 +790,7 @@ Den dominerende usikkerhetskilden er automasjonsgraden i FME-overføringen (jf. 
 
 Analysen gir tre sentrale funn på tvers av delproblemene.
 
-**NVDB-overføringen er flaskehalsen, ikke kartkontor-fasen.** Total varighet bestemmes nesten utelukkende av automasjonsgrad og manuell NVDB-kapasitet (jf. 7.1, 7.4). Kartkontorene fullfører innen 10–17 måneder i alle scenarioer, mens NVDB-fasen alene krever 2,7–10,2 år ved deterministisk punktestimat. Modellens 90 %-estimat på 6,72 år er kvantitativt konsistent med direkte beregning av samferdselsavdelingens parametere (7,22 år ved 240 dager/år; gapet er 240-vs-260-dagers kalenderkonvensjon, jf. 5.1.2).
+**NVDB-overføringen er flaskehalsen, ikke kartkontor-fasen.** Total varighet bestemmes nesten utelukkende av automasjonsgrad og manuell NVDB-kapasitet (jf. 7.1, 7.4). Kartkontorene har kapasitet til å fullføre innen 10–17 måneder i alle scenarioer, mens NVDB-fasen alene krever 2,7–10,2 år ved deterministisk punktestimat. Modellens 90 %-estimat på 6,72 år er kvantitativt konsistent med direkte beregning av samferdselsavdelingens parametere (7,22 år ved 240 dager/år; gapet er 240-vs-260-dagers kalenderkonvensjon, jf. 5.1.2).
 
 **MIP-modellen verifiserer heuristikkens makespan og viser at kartkontor-fasen kunne vært kortere.** Differansen i makespan er under 2,2 % i alle scenarioer (jf. tabell 7.1), og de 27–71 omfordelingene er tie-breakers, ikke nødvendige for makespan (jf. 7.3). MIPs reelle gevinst er en mer komprimert kartkontor-ferdigprofil (Monte Carlo P50 ned fra 510 til 409–452 dager, jf. 7.2 og 7.5), en organisatorisk verdi som ikke endrer totalvarigheten.
 
@@ -804,7 +804,7 @@ Resultatene fra kapittel 7 reiser flere spørsmål som krever drøftelse: om mod
 
 ## 8.1 Hovedbudskapet til Kartverket
 
-Hovedfunnet fra kapittel 7 — at NVDB-overføringen er flaskehalsen — har en strukturell mekanisme: NVDB-formelen μ = (årsverk × manuell takt) / (1 − automasjonsgrad) (jf. 5.1.4) gjør at den manuelle restandelen av lenkene må passere ett team på 0,5 årsverk uansett hvor effektivt FME håndterer resten, mens kartkontor-arbeidet fordeles på 10 parallelle kontor med samlet 327 ukesverk/år. Én sekvensiell flaskehals nedstrøms står mot 10 parallelle kapasitetspunkter oppstrøms, og asymmetrien sikrer at NVDB-tiden dominerer i alle realistiske automasjonsregimer. Dette holder uansett hvilket av de tre scenarioene som realiseres (85 og 90 % er samferdselsavdelingens egne arbeidsanslag; 96 % er en hypotetisk øvre grense bakoverregnet mot et 2-årsmål, ikke en prognose, jf. 5.1.5), og uansett rimelige kapasitetsforstyrrelser på kartkontorene. Total prosjektvarighet bestemmes av hvor effektiv FME-automasjonen blir og hvor mye manuell kapasitet samferdselsavdelingen kan sette av til prosjektet. Kartverkets ressurser bør derfor primært settes inn på FME-utvikling og på å øke den manuelle bemanningen utover 0,5 årsverk, ikke på å balansere eller utvide fylkeskartkontorene.
+Hovedfunnet fra kapittel 7 — at NVDB-overføringen er flaskehalsen — har en strukturell mekanisme: NVDB-formelen μ = (årsverk × manuell takt) / (1 − automasjonsgrad) (jf. 5.1.4) gjør at den manuelle restandelen av lenkene må passere ett team på 0,5 årsverk uansett hvor effektivt FME håndterer resten, mens kartkontor-arbeidet fordeles på 10 parallelle kontor med samlet 327 ukesverk/år. Én sekvensiell flaskehals nedstrøms står mot 10 parallelle kapasitetspunkter oppstrøms, og asymmetrien sikrer at NVDB-tiden dominerer i alle realistiske automasjonsregimer. Dette holder uansett hvilket av de tre scenarioene som realiseres (85 og 90 % er samferdselsavdelingens egne arbeidsanslag; 96 % er en hypotetisk øvre grense bakoverregnet mot et 2-årsmål, ikke en prognose, jf. 5.1.5), og uansett rimelige kapasitetsforstyrrelser på kartkontorene. Total prosjektvarighet bestemmes av hvor effektiv FME-automasjonen blir og hvor mye manuell kapasitet samferdselsavdelingen kan sette av til prosjektet. Kartverkets ressurser bør derfor primært settes inn på FME-utvikling og på å øke den manuelle bemanningen utover 0,5 årsverk hos samferdselsavdelingen, ikke på å balansere eller utvide kapasiteten ved fylkeskartkontorene.
 
 Modellens punktestimat for 90 %-scenarioet (6,72 år) er kvantitativt konsistent med samferdselsavdelingens eget regnestykke på samme parametere (7,22 år ved direkte beregning); hele gapet skyldes ulik kalenderkonvensjon og ikke modell-feil (utledet i 5.1.2).
 
