@@ -13,7 +13,8 @@
 {\large Lotte Picard\par}
 \vspace{1.8cm}
 {\renewcommand{\arraystretch}{1.4}\begin{tabular}{@{}ll@{}}
-\textbf{Veileder:} & \\
+\textbf{Veiledere:} & Bård Inge Austigard Pettersen \\
+ & Per Kristian Rekdal \\
 \textbf{Studiepoeng:} & 15 \\
 \textbf{Antall sider:} & \antallsider \\
 \textbf{Antall ord:} & \antallord \\
