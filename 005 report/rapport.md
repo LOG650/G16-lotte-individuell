@@ -36,6 +36,12 @@ Jeg gir herved Høgskolen i Molde en vederlagsfri rett til å gjøre oppgaven ti
 
 Er oppgaven båndlagt (konfidensiell)? nei
 
+### Bruk av kunstig intelligens
+
+I arbeidet med denne oppgaven har jeg gjennomgående brukt et KI-basert assistentverktøy (Claude fra Anthropic, via Claude Code) som hjelpemiddel. Verktøyet er brukt til å utarbeide og språkvaske utkast til rapportteksten, til å utvikle og feilsøke analysekoden i Python (datavask, heuristikk, MIP-modell, Monte Carlo-simulering og figurproduksjon), til konsistens- og kvalitetssjekk av tall og tekst, og til sammendrag av litteratur som er verifisert mot primærkildene før bruk.
+
+Alle faglige vurderinger, modellvalg, tolkninger og konklusjoner er mine egne. KI-verktøyet har ikke generert data eller resultater: Samtlige tall stammer fra dokumentert kildedata fra Statens kartverk og fra kode som er kjørt og kontrollert av meg. Jeg har gjennomgått, verifisert og står ansvarlig for hele innholdet i oppgaven.
+
 ---
 
 ## Sammendrag
