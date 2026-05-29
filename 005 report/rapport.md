@@ -62,6 +62,34 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 ---
 
+## Begreper og forkortelser
+
+| Begrep                            | Forklaring                                                                              |
+| --------------------------------- | --------------------------------------------------------------------------------------- |
+| Bootstrap                | Resampling med tilbakelegging fra en empirisk fordeling for å estimere usikkerhet                   |
+| CBC                      | COIN-OR Branch and Cut, en åpen kildekode-løser for heltallsprogrammer                              |
+| FKB                      | Felles Kartdatabase, Kartverkets nasjonale geodatagrunnlag                                          |
+| FKB-TraktorvegSti (TVS)  | Datasettet med traktorveger, stier og stitrapper som skal kvalitetsheves og overføres til NVDB      |
+| FME                      | Feature Manipulation Engine, verktøyet for automatisert datatransformasjon i NVDB-overføringen      |
+| Geovekst                 | Samarbeid om felles offentlig kartlegging; kartleggingsprosjekter som låser kommuner i perioder      |
+| Heuristikk               | Regelbasert, tilnærmet løsningsmetode; her brukt som tolkbar referansesimulering                    |
+| Klarmelding              | Kartkontorets melding om at en kommune er ferdig kvalitetshevet og klar for NVDB-overføring         |
+| Kvalitetsheving          | Manuell kontroll og tilpasning av TVS-data ved fylkeskartkontorene før overføring til NVDB          |
+| Lenke                    | Én vegsegment-enhet i FKB/NVDB; arbeidsmengden i prosjektet måles i antall lenker                   |
+| Lex-opt                  | Leksikografisk optimering, der målene rangeres og optimeres i prioritert rekkefølge                 |
+| LPT                      | Longest Processing Time, en scheduling-heuristikk som tar de største jobbene først                  |
+| Makespan                 | Total varighet fra prosjektstart til siste oppgave er fullført                                       |
+| MIP / MILP               | Mixed (Integer) Linear Programming, matematisk optimeringsmodell med heltallsvariabler              |
+| Monte Carlo              | Simulering med gjentatt tilfeldig trekking av usikre parametere for å kvantifisere usikkerhet       |
+| NVDB                     | Nasjonal vegdatabank, forvaltet av Statens vegvesen                                                 |
+| P5 / P50 / P95           | Persentiler (5., 50. (median) og 95.) i en simulert fordeling                                       |
+| PuLP                     | Python-bibliotek for å formulere og løse lineære og heltalls optimeringsproblemer                   |
+| RCPSP                    | Resource-Constrained Project Scheduling Problem, det faglige rammeverket oppgaven plasserer seg i   |
+| Samferdselsavdelingen    | Enheten i Kartverket som overfører klarmeldte data til NVDB                                          |
+| Ukesverk                 | Kapasitetsenhet tilsvarende én persons arbeidsuke = 37,5 timer                                       |
+
+---
+
 ## Innhold
 
 - [1.0 Innledning](#10-innledning)
@@ -113,6 +141,7 @@ The Transport Unit has stated an ambition that the work should be completed in a
 - [11.0 Vedlegg](#110-vedlegg)
   - [Vedlegg A — Fullstendig kapasitets-sensitivitetsoversikt](#vedlegg-a--fullstendig-kapasitets-sensitivitetsoversikt)
   - [Vedlegg B — Reproduserbarhet og analyseartefakter](#vedlegg-b--reproduserbarhet-og-analyseartefakter)
+  - [Vedlegg C — Kalibreringsgrunnlag for tidbruk-formelen](#vedlegg-c--kalibreringsgrunnlag-for-tidbruk-formelen)
 - [Figurliste](#figurliste)
 - [Tabelliste](#tabelliste)
 
@@ -140,6 +169,7 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 ## Tabelliste
 
+- Tabell 4.1 Kapasitet, antall kommuner og arbeidsmengde per fylkeskartkontor
 - Tabell 5.1 NVDB-scenarioer differensiert på FME-automasjonsgrad
 - Tabell 5.2 Rådatakilder for analysen
 - Tabell 5.3 Behandlede datasett produsert av datavasken
@@ -150,6 +180,7 @@ The Transport Unit has stated an ambition that the work should be completed in a
 - Tabell 8.2 P5/P50/P95-bånd for total varighet ved varierende standardavvik på automasjonsgrad
 - Tabell A.1 Makespan, kartkontor-ferdigmåned og omfordeling for alle 18 kjøringer i kapasitets-sensitivitetsanalysen
 - Tabell B.1 Oversikt over analysekode, resultatfiler og tilhørende figurer per analysetrinn
+- Tabell C.1 De 58 kartbladmålingene som kalibrerer km-leddet i tidbruk-formelen
 
 ---
 
@@ -307,6 +338,26 @@ Kontorene har svært ulik arbeidsbelastning og kapasitet. Oslo har 52 kommuner u
 ![Figur 4.2: Årlig kapasitet vs. estimert arbeidsmengde, og estimert varighet per kontor](figurer/02_kapasitet_vs_arbeid.png)
 
 *Figur 4.2 Årlig kapasitet vs. estimert arbeidsmengde og estimert varighet per kartkontor*
+
+Tabell 4.1 gir de eksakte nøkkeltallene bak figur 4.1 og 4.2. Kapasiteten er oppgitt i ukesverk per år (1 ukesverk = 37,5 timer), arbeidsmengden er antall lenker i FKB-TraktorvegSti, og gjenstående lenker er den delen som ikke var ferdig kvalitetshevet per april 2026. Oslo-tallet er den justerte kapasiteten på 30 ukesverk (jf. 5.2).
+
+*Tabell 4.1 Kapasitet, antall kommuner og arbeidsmengde per fylkeskartkontor*
+
+| Kartkontor   | Kapasitet (ukesverk) | Antall kommuner | Total lenker | Gjenstående lenker |
+| ------------ | -------------------: | --------------: | -----------: | -----------------: |
+| Oslo         |                   30 |              52 |      453 204 |            341 271 |
+| Hamar        |                   25 |              46 |      409 715 |            275 331 |
+| Skien        |                   40 |              23 |      195 777 |            186 570 |
+| Kristiansand |                   30 |              25 |      246 636 |            218 155 |
+| Stavanger    |                   28 |              23 |      128 923 |            110 121 |
+| Bergen       |                   40 |              43 |      342 927 |            320 208 |
+| Molde        |                   25 |              27 |      126 294 |             75 602 |
+| Trondheim    |                   52 |              38 |      315 304 |            247 989 |
+| Bodø         |                   22 |              41 |      157 997 |            154 992 |
+| Tromsø       |                   35 |              39 |      254 187 |            207 865 |
+| **Sum**      |              **327** |         **357** | **2 630 964** | **2 138 104**     |
+
+Misforholdet mellom kapasitet og arbeidsmengde er tydelig: Enkelte kontor med lav kapasitet har mange kommuner og høy gjenstående arbeidsmengde (Bodø: 22 ukesverk, 41 kommuner, der nær all arbeidsmengde gjenstår), mens andre har kommet vesentlig lenger (Molde har ferdigstilt rundt 40 % av sine lenker). Dette er bakgrunnen for at fordeling og sekvensering analyseres som beslutningsvariabler i kapittel 7.
 
 ## 4.4 Fremdrift per april 2026
 
@@ -469,7 +520,7 @@ Koeffisientene kommer fra Tidbruk-fanen i grunndatasettet og dokumenterer hvorda
 - **0,9035 min/km lenke:** empirisk gjennomsnitt av målt tidsbruk per kilometer TVS-lenke, utledet fra registreringer av faktisk tidsbruk på 58 kartblader.
 - **0,6510 min/km² landareal:** standardtillegg for kommunens landareal ("grunnpakke"), som fanger opp arbeid som ikke skalerer direkte med lenkelengde (nettverkskontroll, topologisk kontroll, arkivarbeid m.m.).
 
-Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker med median 0,2 minutter og maksimalt om lag 0,5 minutter fra oppgitt verdi for alle 357 kommuner. De 58 kartbladmålingene viser samtidig betydelig spredning i MIN/KM: fra 0,10 til 3,44 med standardavvik 0,55, omtrent 60 % av gjennomsnittet. Dette betyr at `Ber_Tidbruk_Min` er et punktestimat basert på en gjennomsnittssats, og reell tidsbruk per kommune kan avvike betydelig. Denne empiriske variasjonen danner grunnlag for usikkerhetsvurdering i modellen.
+Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker med median 0,2 minutter og maksimalt om lag 0,5 minutter fra oppgitt verdi for alle 357 kommuner. De 58 kartbladmålingene viser samtidig betydelig spredning i MIN/KM: fra 0,10 til 3,44 med standardavvik 0,55, omtrent 60 % av gjennomsnittet (de fullstendige målingene er gjengitt i Vedlegg C). Dette betyr at `Ber_Tidbruk_Min` er et punktestimat basert på en gjennomsnittssats, og reell tidsbruk per kommune kan avvike betydelig. Denne empiriske variasjonen danner grunnlag for usikkerhetsvurdering i modellen.
 
 ### 5.2.4 Behandlede datasett
 
@@ -678,7 +729,7 @@ To former for sensitivitet utforskes:
 
 ## 6.4 Implementeringsdetaljer
 
-Heuristikken (`heuristikk.py`) og Monte Carlo-motoren (`monte_carlo.py`) er implementert i Python 3.13 med pandas og numpy. MIP-modellen (`mip_modell.py`) bruker PuLP 3.3 med CBC som solver (versjon 2.10.3, gratis og innebygd i PuLP). Solver-tidsgrensen er satt til 30 minutter per scenario med relativ MIP-gap-toleranse 0,1 %; løsningsstatus per scenario rapporteres i tabell 7.1, og hva *Not Solved* betyr for tolkningen drøftes samlet i 8.5.
+Heuristikken (`heuristikk.py`) og Monte Carlo-motoren (`monte_carlo.py`) er implementert i Python 3.13 med pandas og numpy. MIP-modellen (`mip_modell.py`) bruker PuLP 3.3 med CBC som solver (versjon 2.10.3, gratis og innebygd i PuLP). Solver-tidsgrensen er satt til 30 minutter per scenario med relativ MIP-gap-toleranse 0,1 %; løsningsstatus per scenario rapporteres i tabell 7.1, og hva *Not Solved* betyr for tolkningen drøftes samlet i 8.5. For reproduserbarhet gir Vedlegg B en samlet oversikt over hvilke script som produserer hvilke datafiler, resultatfiler og figurer i analysen.
 
 ---
 
@@ -744,7 +795,7 @@ Figur 7.7 og 7.9 viser resultatet av sensitivitetsanalysen der kapasitet ved ett
 
 Også kartkontor-ferdigmåneden er lite sensitiv til de undersøkte kapasitetsvariasjonene. I de fem mildere variantene holder den seg i området 10–11 måneder; bare i den ekstreme −50 %-varianten forskyves den til 14 måneder (matematisk nedre grense 14,4). Hovedårsaken er at låseperiodene fra Geovekst-prosjektene tvinger kontorene til å vente på mange kommuner uansett, slik at kontorene har romslig ledig tid å fordele arbeidet på innenfor den tiden NVDB-overføringen uansett tar.
 
-Av CBC-solverens 18 kjøringer løste 9 *Optimal* innen 30-minuttersgrensen; de resterende 9 endte med *Not Solved* (drøftes samlet i 8.5). Den ekstreme −50 %-varianten gir en konkret indikasjon på hvor kartkontor-fasen begynner å nærme seg det kapasitetsbundne regimet: ferdigmåned 14 mot matematisk minimum 14,4, og ytterligere kutt under 50 % kapasitet ville med høy sannsynlighet tippe over i kartkontor-bundet regime.
+Av CBC-solverens 18 kjøringer løste 9 *Optimal* innen 30-minuttersgrensen; de resterende 9 endte med *Not Solved* (drøftes samlet i 8.5). Den ekstreme −50 %-varianten gir en konkret indikasjon på hvor kartkontor-fasen begynner å nærme seg det kapasitetsbundne regimet: ferdigmåned 14 mot matematisk minimum 14,4, og ytterligere kutt under 50 % kapasitet ville med høy sannsynlighet tippe over i kartkontor-bundet regime. Den fullstendige oversikten over alle 18 kjøringene – med makespan, kartkontor-ferdigmåned, matematisk minimum og omfordeling per kjøring – er gjengitt i Vedlegg A.
 
 ![Figur 7.7: Makespan per kapasitetsvariant og NVDB-scenario](figurer/18_kapasitet_sensitivitet.png)
 
@@ -942,7 +993,7 @@ Vose, D. (2008). *Risk analysis: A quantitative guide* (3. utg.). John Wiley & S
 
 # 11.0 Vedlegg
 
-Vedleggene gir utfyllende dokumentasjon som supplerer hovedteksten. Vedlegg A viser den fullstendige oversikten over de 18 MIP-kjøringene som ligger til grunn for kapasitets-sensitivitetsanalysen i kapittel 7.4. Vedlegg B dokumenterer analysekode, datafiler og resultatfiler for reproduserbarhet.
+Vedleggene gir utfyllende dokumentasjon som supplerer hovedteksten. Vedlegg A viser den fullstendige oversikten over de 18 MIP-kjøringene som ligger til grunn for kapasitets-sensitivitetsanalysen i kapittel 7.4. Vedlegg B dokumenterer analysekode, datafiler og resultatfiler for reproduserbarhet. Vedlegg C viser de 58 kartbladmålingene som kalibrerer tidbruk-formelen (jf. 5.2).
 
 ## Vedlegg A — Fullstendig kapasitets-sensitivitetsoversikt
 
@@ -993,3 +1044,72 @@ All analysekode, alle datafiler, figurer og resultatfiler ligger samlet i prosje
 | Kvalitetssikring                                                | `sanity_check_data.py`, `sanity_check_mip.py`                                                                           | Konsollrapport (datavask-konsistens og MIP-bibetingelser mot tidsplan)                                                                                              | —                                   |
 
 Råtidsdataene som ligger til grunn for analysen finnes i `004 data/raw_data/` og renses til de behandlede datasettene i tabellen av `vask_og_strukturer.py`. Figurene rendres av de fire `figurer`-scriptene fra resultatfilene i tabellen og kan regenereres ved å kjøre scriptene på nytt. En supplerende analyse av hvor robust kommunerekkefølgen er, ligger i `analyser_rekkefolge.py` med utdata `rekkefolge_robust.csv`. Tidligere versjoner av resultatfilene fra før modelljusteringene underveis er bevart i undermappene med `arkiv_`-prefiks i `004 data/processed_data/` for sporbarhet.
+
+## Vedlegg C — Kalibreringsgrunnlag for tidbruk-formelen
+
+Tabell C.1 viser de 58 kartbladmålingene som ligger til grunn for km-leddet i tidbruk-formelen `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510` (jf. 5.2). Hvert kartblad dekker et fast landareal på 7,68 km². Kolonnen Min/km er observert tidsbruk i minutter delt på samlet lenkelengde i kartbladet. Gjennomsnittet av Min/km over de 58 målingene er 0,9035, som er koeffisienten foran Km_Kurve i formelen. Areal-leddet (0,6510 min/km²) er et grunnpakke-tillegg fra samme kilde og kan ikke identifiseres separat fra disse målingene fordi kartbladarealet er konstant (jf. 8.2).
+
+Den empiriske spredningen er betydelig: Min/km varierer fra 0,10 til 3,44 med standardavvik 0,55 (om lag 60 % av gjennomsnittet) og median 0,85. Denne spredningen resamples i Monte Carlo-analysen via bootstrap (jf. 5.2) og er bakgrunnen for drøftingen av formelens begrensede identifiserbarhet på enkeltkommunenivå i 8.2.
+
+*Tabell C.1 De 58 kartbladmålingene som kalibrerer km-leddet i tidbruk-formelen*
+
+| Kartblad           | Minutter | Lengde (km) | Min/km |
+| ------------------ | -------: | ----------: | -----: |
+| 32-5-518-227-10    |       18 |        14,9 |   1,21 |
+| 32-5-519-227-00    |       17 |        19,0 |   0,89 |
+| 32-5-520-227-00    |       19 |        14,7 |   1,30 |
+| 32-5-520-227-10    |       11 |        23,2 |   0,47 |
+| 32-5-521-227-00    |        4 |        17,5 |   0,23 |
+| 32-5-521-227-10    |        2 |         6,7 |   0,30 |
+| 32-5-519-227-11    |        8 |        15,0 |   0,53 |
+| 32-5-519-228-10    |       24 |        20,5 |   1,17 |
+| 32-5-519-229-10    |       24 |        17,8 |   1,34 |
+| 32-5-519-229-11    |       22 |        23,4 |   0,94 |
+| 32-5-519-230-10    |       19 |        19,5 |   0,98 |
+| 32-5-519-231-11    |       20 |         9,0 |   2,22 |
+| 32-5-519-232-11    |       25 |         7,3 |   3,44 |
+| 32-5-519-233-10    |        3 |         4,3 |   0,70 |
+| 32-5-519-233-11    |        5 |         4,0 |   1,24 |
+| 32-5-518-226-01    |       20 |        17,1 |   1,17 |
+| 32-5-518-226-11    |       21 |        18,9 |   1,11 |
+| 32-5-519-226-11    |        8 |         7,2 |   1,11 |
+| 32-5-520-226-01    |       25 |        18,8 |   1,33 |
+| 32-5-520-226-11    |        1 |        10,0 |   0,10 |
+| 32-5-514-231-10    |        1 |         1,2 |   0,81 |
+| 32-5-515-231-00    |        1 |         2,1 |   0,47 |
+| 32-5-514-230-11    |        1 |         0,7 |   1,45 |
+| 32-5-515-230-01    |        1 |         3,2 |   0,31 |
+| 32-5-514-229-10    |        2 |         2,8 |   0,72 |
+| 32-5-515-231-11    |        6 |         6,4 |   0,94 |
+| 32-5-522-228-00    |        4 |        11,2 |   0,36 |
+| 32-5-522-227-01    |        8 |        12,7 |   0,63 |
+| 32-5-521-229-10    |       16 |        12,1 |   1,32 |
+| 32-5-521-228-11    |        9 |        10,6 |   0,85 |
+| 32-5-521-228-10    |        1 |         3,4 |   0,30 |
+| 32-5-521-227-11    |        6 |        12,4 |   0,48 |
+| 32-5-521-227-01    |        1 |         7,6 |   0,13 |
+| 32-5-521-228-00    |        6 |        12,0 |   0,50 |
+| 32-5-521-228-01    |       10 |        13,1 |   0,76 |
+| 32-5-521-229-00    |        7 |         9,2 |   0,76 |
+| 32-5-520-229-10    |       10 |        19,1 |   0,52 |
+| 32-5-520-228-11    |        7 |        18,0 |   0,39 |
+| 32-5-520-228-10    |        7 |        12,8 |   0,55 |
+| 32-5-520-227-11    |       18 |        22,7 |   0,79 |
+| 32-5-520-227-01    |       21 |        25,0 |   0,84 |
+| 32-5-520-228-00    |       10 |        18,0 |   0,56 |
+| 32-5-519-229-01    |       25 |        26,5 |   0,94 |
+| 32-5-518-229-11    |       18 |        15,0 |   1,20 |
+| 32-5-518-228-00    |        8 |         6,2 |   1,30 |
+| 32-5-518-227-11    |       20 |        19,5 |   1,03 |
+| 32-5-518-229-10    |       15 |         8,8 |   1,70 |
+| 32-5-529-143-01    |        5 |         8,8 |   0,57 |
+| 32-5-528-143-11    |        5 |        16,2 |   0,31 |
+| 32-5-528-143-01    |        8 |        16,3 |   0,49 |
+| 32-5-527-143-11    |       20 |        15,7 |   1,28 |
+| 32-5-527-143-01    |       15 |        13,4 |   1,12 |
+| 32-5-526-143-11    |       20 |        13,8 |   1,45 |
+| 32-5-526-143-01    |       10 |        10,0 |   1,00 |
+| 32-5-526-141-00    |       20 |        12,1 |   1,66 |
+| 32-5-526-140-11    |        8 |        11,7 |   0,68 |
+| 32-5-525-143-11    |        5 |        11,0 |   0,46 |
+| 32-5-525-141-10    |       23 |        23,1 |   1,00 |
