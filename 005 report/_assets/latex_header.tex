@@ -1,0 +1,43 @@
+% Robuste matte-/spesialtegn: render alltid via mattefont, uansett tekstfont
+\usepackage{newunicodechar}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{∑}{\ensuremath{\sum}}
+
+% Tabeller: mindre skrift + litt mindre kolonneavstand, så brede tabeller får plass
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small}
+\AtBeginEnvironment{tabular}{\small}
+\setlength{\tabcolsep}{5pt}
+
+% Naturlige sideskift: hvert hovedkapittel starter på ny side, og
+% front-matter (egenerklæring, Sammendrag, Abstract, Innhold, Figur-/Tabelliste)
+% får egne sider — men vanlige underkapitler (5.1, 6.1, ...) brytes ikke.
+\newcounter{secidx}
+\newif\iffrontmatter\frontmatterfalse
+\let\oldsection\section
+\renewcommand{\section}{%
+  \stepcounter{secidx}%
+  \ifnum\value{secidx}=1 \frontmattertrue\else\frontmatterfalse\fi
+  \clearpage\oldsection}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}{\iffrontmatter\clearpage\fi\oldsubsection}
+
+% Figur-flyt: la figurene plasseres uten å etterlate store tomrom
+\usepackage{float}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.7}
