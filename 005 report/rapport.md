@@ -1,18 +1,29 @@
-# Kvalitetsheving av FKB-TraktorvegSti før implementering i NVDB
-
-**Forfatter:** Lotte Picard
-
-**Studiepoeng:** 15
-
-**Veileder:**
-
-**Antall sider:**
-
-**Antall ord:**
-
-Molde, 01.06.2026
-
----
+```{=latex}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1cm}
+{\large Høgskolen i Molde --- Vitenskapelig høgskole i logistikk\par}
+\vspace{0.4em}
+{\large LOG650 Logistikk og KI\par}
+\vfill
+{\LARGE\bfseries Kvalitetsheving av FKB-TraktorvegSti\\[0.4em]før implementering i NVDB\par}
+\vspace{1.2em}
+\rule{0.65\textwidth}{0.4pt}
+\vfill
+{\large Lotte Picard\par}
+\vspace{1.8cm}
+{\renewcommand{\arraystretch}{1.4}\begin{tabular}{@{}ll@{}}
+\textbf{Veileder:} & \\
+\textbf{Studiepoeng:} & 15 \\
+\textbf{Antall sider:} & \antallsider \\
+\textbf{Antall ord:} & \antallord \\
+\end{tabular}\par}
+\vfill
+{\large Molde, 01.06.2026\par}
+\vspace*{1cm}
+\end{center}
+\clearpage
+```
 
 ## Obligatorisk egenerklæring
 

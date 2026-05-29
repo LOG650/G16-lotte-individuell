@@ -16,6 +16,10 @@
 \newunicodechar{→}{\ensuremath{\rightarrow}}
 \newunicodechar{∑}{\ensuremath{\sum}}
 
+% Forsidetall — oppdateres automatisk av _assets/bygg_rapport.py
+\newcommand{\antallsider}{70}
+\newcommand{\antallord}{14\,637}
+
 % Tabeller: mindre skrift + litt mindre kolonneavstand, så brede tabeller får plass
 \usepackage{etoolbox}
 \AtBeginEnvironment{longtable}{\small}
@@ -25,12 +29,14 @@
 % Naturlige sideskift: hvert hovedkapittel starter på ny side, og
 % front-matter (egenerklæring, Sammendrag, Abstract, Innhold, Figur-/Tabelliste)
 % får egne sider — men vanlige underkapitler (5.1, 6.1, ...) brytes ikke.
+% Tittelsiden er en rå LaTeX-blokk (ikke en \section), så front-matter starter «på».
+% Første ekte \section (1.0 Innledning) slår front-matter av.
 \newcounter{secidx}
-\newif\iffrontmatter\frontmatterfalse
+\newif\iffrontmatter\frontmattertrue
 \let\oldsection\section
 \renewcommand{\section}{%
   \stepcounter{secidx}%
-  \ifnum\value{secidx}=1 \frontmattertrue\else\frontmatterfalse\fi
+  \ifnum\value{secidx}=1 \frontmatterfalse\fi
   \clearpage\oldsection}
 \let\oldsubsection\subsection
 \renewcommand{\subsection}{\iffrontmatter\clearpage\fi\oldsubsection}
