@@ -1,4 +1,4 @@
-# Kvalitetsheving av FKB-TraktorvegSti før implementering i NVDB
+# Produksjonsplanlegging for kvalitetsheving av FKB-TraktorvegSti før implementering i NVDB
 
 Prosjektarbeid i **LOG650 Logistikk og KI** ved Høgskolen i Molde. Et planleggingsgrunnlag for hvordan Statens kartverk bør fordele og sekvensere kvalitetshevingen av datasettet FKB-TraktorvegSti før overføring til Nasjonal vegdatabank (NVDB).
 

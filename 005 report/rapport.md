@@ -6,7 +6,7 @@
 \vspace{0.4em}
 {\large LOG650 Logistikk og KI\par}
 \vfill
-{\LARGE\bfseries Kvalitetsheving av FKB-TraktorvegSti\\[0.4em]før implementering i NVDB\par}
+{\LARGE\bfseries Produksjonsplanlegging for kvalitetsheving\\[0.3em]av FKB-TraktorvegSti\\[0.3em]før implementering i NVDB\par}
 \vspace{1.2em}
 \rule{0.65\textwidth}{0.4pt}
 \vfill
@@ -64,7 +64,7 @@ Analysen kombinerer en regelbasert heuristikk for tolkbar referansesimulering, e
 
 Hovedfunnet er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ved oppgitt ressursbruk hos samferdselsavdelingen ligger på 6,7–10 år ved realistisk automasjon (90 % og 85 %) og 2,7 år i optimistisk scenario (96 %), mens kartkontorene har kapasitet til å fullføre alt arbeid innen 10–17 måneder uavhengig av scenario. Monte Carlo viser betydelig usikkerhet rundt hvert punktestimat; for 90 %-scenarioet spenner P5–P95-båndet 3,3–9,9 år. Resultatet er robust mot rimelige kapasitetsforstyrrelser ved kartkontorene, og MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal: Forskjellen mellom heuristikkens og MIP-modellens makespan er under 2,2 %.
 
-Samferdselsavdelingens uttalte ambisjon om ferdigstilling på ca. 2 år krever at flere grep kombineres: økt FME-automasjon, om mulig enda grundigere kvalitetsheving ved kartkontorene for å redusere manuell NVDB-belastning, og økt manuell NVDB-bemanning utover dagens 0,5 årsverk. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
+Samferdselsavdelingens uttalte ambisjon om ferdigstilling på ca. 2 år krever at flere grep kombineres: økt FME-automasjon, om mulig enda grundigere kvalitetsheving ved kartkontorene for å redusere antallet lenker som må håndteres manuelt ved innlegging i NVDB, og økt bemanning ved samferdselsavdelingen utover dagens 0,5 årsverk, eventuelt med bistand fra kartkontorene. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
 
 ---
 
@@ -76,35 +76,35 @@ The analysis combines a rule-based heuristic providing an interpretable baseline
 
 The main finding is that the NVDB transfer constitutes the project bottleneck, not the mapping office phase. Total duration ranges from 6.7 to 10 years at realistic automation levels (90 % and 85 %) and 2.7 years in the optimistic scenario (96 %), while the mapping offices have sufficient capacity to complete their work within 10–17 months regardless of scenario. The Monte Carlo analysis shows considerable uncertainty around each point estimate; for the 90 % scenario, the P5–P95 band spans 3.3 to 9.9 years. The result is robust to reasonable capacity disturbances at the mapping offices, and the MIP model verifies that the geographic responsibility allocation is near-optimal: The difference between the heuristic and MIP makespans is under 2.2 %.
 
-The Transport Unit has stated an ambition that the work should be completed in approximately 2 years. Closing the gap between forecast and ambition requires combining several measures: increased FME automation, more thorough quality enhancement at the mapping offices to reduce manual NVDB workload, and increased manual NVDB staffing beyond the current 0.5 full-time equivalents. Reallocating municipalities between mapping offices is not necessary to reduce total duration.
+The Transport Unit has stated an ambition that the work should be completed in approximately 2 years. Closing the gap between forecast and ambition requires combining several measures: increased FME automation, more thorough quality enhancement at the mapping offices to reduce manual NVDB workload, and increased staffing at the Transport Unit beyond the current 0.5 full-time equivalents, possibly with assistance from the mapping offices. Reallocating municipalities between mapping offices is not necessary to reduce total duration.
 
 ---
 
 ## Begreper og forkortelser
 
-| Begrep                            | Forklaring                                                                              |
-| --------------------------------- | --------------------------------------------------------------------------------------- |
-| Bootstrap                | Resampling med tilbakelegging fra en empirisk fordeling for å estimere usikkerhet                   |
-| CBC                      | COIN-OR Branch and Cut, en åpen kildekode-løser for heltallsprogrammer                              |
-| FKB                      | Felles Kartdatabase, Kartverkets nasjonale geodatagrunnlag                                          |
-| FKB-TraktorvegSti (TVS)  | Datasettet med traktorveger, stier og stitrapper som skal kvalitetsheves og overføres til NVDB      |
-| FME                      | Feature Manipulation Engine, verktøyet for automatisert datatransformasjon i NVDB-overføringen      |
-| Geovekst                 | Samarbeid om felles offentlig kartlegging; kartleggingsprosjekter som låser kommuner i perioder      |
-| Heuristikk               | Regelbasert, tilnærmet løsningsmetode; her brukt som tolkbar referansesimulering                    |
-| Klarmelding              | Kartkontorets melding om at en kommune er ferdig kvalitetshevet og klar for NVDB-overføring         |
-| Kvalitetsheving          | Manuell kontroll og tilpasning av TVS-data ved fylkeskartkontorene før overføring til NVDB          |
-| Lenke                    | Én vegsegment-enhet i FKB/NVDB; arbeidsmengden i prosjektet måles i antall lenker                   |
-| Lex-opt                  | Leksikografisk optimering, der målene rangeres og optimeres i prioritert rekkefølge                 |
-| LPT                      | Longest Processing Time, en scheduling-heuristikk som tar de største jobbene først                  |
-| Makespan                 | Total varighet fra prosjektstart til siste oppgave er fullført                                       |
-| MIP / MILP               | Mixed (Integer) Linear Programming, matematisk optimeringsmodell med heltallsvariabler              |
-| Monte Carlo              | Simulering med gjentatt tilfeldig trekking av usikre parametere for å kvantifisere usikkerhet       |
-| NVDB                     | Nasjonal vegdatabank, forvaltet av Statens vegvesen                                                 |
-| P5 / P50 / P95           | Persentiler (5., 50. (median) og 95.) i en simulert fordeling                                       |
-| PuLP                     | Python-bibliotek for å formulere og løse lineære og heltalls optimeringsproblemer                   |
-| RCPSP                    | Resource-Constrained Project Scheduling Problem, det faglige rammeverket oppgaven plasserer seg i   |
-| Samferdselsavdelingen    | Enheten i Kartverket som overfører klarmeldte data til NVDB                                          |
-| Ukesverk                 | Kapasitetsenhet tilsvarende én persons arbeidsuke = 37,5 timer                                       |
+| Begrep                  | Forklaring                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------- |
+| Bootstrap               | Resampling med tilbakelegging fra en empirisk fordeling for å estimere usikkerhet                |
+| CBC                     | COIN-OR Branch and Cut, en åpen kildekode-løser for heltallsprogrammer                          |
+| FKB                     | Felles Kartdatabase, Kartverkets nasjonale geodatagrunnlag                                        |
+| FKB-TraktorvegSti (TVS) | Datasettet med traktorveger, stier og stitrapper som skal kvalitetsheves og overføres til NVDB   |
+| FME                     | Feature Manipulation Engine, verktøyet for automatisert datatransformasjon i NVDB-overføringen  |
+| Geovekst                | Samarbeid om felles offentlig kartlegging; kartleggingsprosjekter som låser kommuner i perioder  |
+| Heuristikk              | Regelbasert, tilnærmet løsningsmetode; her brukt som tolkbar referansesimulering                |
+| Klarmelding             | Kartkontorets melding om at en kommune er ferdig kvalitetshevet og klar for NVDB-overføring      |
+| Kvalitetsheving         | Manuell kontroll og tilpasning av TVS-data ved fylkeskartkontorene før overføring til NVDB      |
+| Lenke                   | Én vegsegment-enhet i FKB/NVDB; arbeidsmengden i prosjektet måles i antall lenker               |
+| Lex-opt                 | Leksikografisk optimering, der målene rangeres og optimeres i prioritert rekkefølge             |
+| LPT                     | Longest Processing Time, en scheduling-heuristikk som tar de største jobbene først              |
+| Makespan                | Total varighet fra prosjektstart til siste oppgave er fullført                                   |
+| MIP / MILP              | Mixed (Integer) Linear Programming, matematisk optimeringsmodell med heltallsvariabler            |
+| Monte Carlo             | Simulering med gjentatt tilfeldig trekking av usikre parametere for å kvantifisere usikkerhet    |
+| NVDB                    | Nasjonal vegdatabank, forvaltet av Statens vegvesen                                               |
+| P5 / P50 / P95          | Persentiler (5., 50. (median) og 95.) i en simulert fordeling                                     |
+| PuLP                    | Python-bibliotek for å formulere og løse lineære og heltalls optimeringsproblemer              |
+| RCPSP                   | Resource-Constrained Project Scheduling Problem, det faglige rammeverket oppgaven plasserer seg i |
+| Samferdselsavdelingen   | Enheten i Kartverket som overfører klarmeldte data til NVDB                                      |
+| Ukesverk                | Kapasitetsenhet tilsvarende én persons arbeidsuke = 37,5 timer                                   |
 
 ---
 
@@ -361,19 +361,19 @@ Tabell 4.1 gir de eksakte nøkkeltallene bak figur 4.1 og 4.2. Kapasiteten er op
 
 *Tabell 4.1 Kapasitet, antall kommuner og arbeidsmengde per fylkeskartkontor*
 
-| Kartkontor   | Kapasitet (ukesverk) | Antall kommuner | Total lenker | Gjenstående lenker |
-| ------------ | -------------------: | --------------: | -----------: | -----------------: |
-| Oslo         |                   30 |              52 |      453 204 |            341 271 |
-| Hamar        |                   25 |              46 |      409 715 |            275 331 |
-| Skien        |                   40 |              23 |      195 777 |            186 570 |
-| Kristiansand |                   30 |              25 |      246 636 |            218 155 |
-| Stavanger    |                   28 |              23 |      128 923 |            110 121 |
-| Bergen       |                   40 |              43 |      342 927 |            320 208 |
-| Molde        |                   25 |              27 |      126 294 |             75 602 |
-| Trondheim    |                   52 |              38 |      315 304 |            247 989 |
-| Bodø         |                   22 |              41 |      157 997 |            154 992 |
-| Tromsø       |                   35 |              39 |      254 187 |            207 865 |
-| **Sum**      |              **327** |         **357** | **2 630 964** | **2 138 104**     |
+| Kartkontor    | Kapasitet (ukesverk) | Antall kommuner |        Total lenker | Gjenstående lenker |
+| ------------- | -------------------: | --------------: | ------------------: | ------------------: |
+| Oslo          |                   30 |              52 |             453 204 |             341 271 |
+| Hamar         |                   25 |              46 |             409 715 |             275 331 |
+| Skien         |                   40 |              23 |             195 777 |             186 570 |
+| Kristiansand  |                   30 |              25 |             246 636 |             218 155 |
+| Stavanger     |                   28 |              23 |             128 923 |             110 121 |
+| Bergen        |                   40 |              43 |             342 927 |             320 208 |
+| Molde         |                   25 |              27 |             126 294 |              75 602 |
+| Trondheim     |                   52 |              38 |             315 304 |             247 989 |
+| Bodø         |                   22 |              41 |             157 997 |             154 992 |
+| Tromsø       |                   35 |              39 |             254 187 |             207 865 |
+| **Sum** |        **327** |   **357** | **2 630 964** | **2 138 104** |
 
 Misforholdet mellom kapasitet og arbeidsmengde er tydelig: Enkelte kontor med lav kapasitet har mange kommuner og høy gjenstående arbeidsmengde (Bodø: 22 ukesverk, 41 kommuner, der nær all arbeidsmengde gjenstår), mens andre har kommet vesentlig lenger (Molde har ferdigstilt rundt 40 % av sine lenker). Dette er bakgrunnen for at fordeling og sekvensering analyseres som beslutningsvariabler i kapittel 7.
 
@@ -569,7 +569,7 @@ Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker 
 
 Fordelingen av antall lenker per kommune er sterkt høyreskjev (jf. 4.6 og figur 4.5), og noen få store kommuner (f.eks. Oslo, Bergen, Trondheim) inneholder en uforholdsmessig stor andel av totalen. Dette har betydning for prioriteringen i heuristikken (6.1), der små og store kommuner behandles ulikt.
 
-Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor. I figur 5.1 representerer hver horisontal søyle ett kontors samlede gjenstående arbeid, og hvert segment er én kommune sortert fra størst til minst. Enkelte kontor (som Bergen, Trondheim og Tromsø) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Hamar og Oslo) har en jevnere fordeling av små og mellomstore kommuner.
+Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enkelt kontor. I figur 5.1 representerer hver horisontal søyle ett kontors samlede gjenstående arbeid, og hvert segment er én kommune sortert fra størst til minst. Enkelte kontor (som Bergen, Oslo, Trondheim og Tromsø) har et fåtall svært store kommuner som dominerer arbeidsmengden, mens andre (som Molde og Bodø) har en jevnere fordeling av små og mellomstore kommuner.
 
 ![Figur 5.1: Lastfordeling per kontor, hver kommune som segment](figurer/05_lastfordeling.png)
 
@@ -962,7 +962,7 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier; det betyr at sta
 
 1. **Invester i FME-automasjon.** Å øke automasjonsgraden fra 85 % til 90 % reduserer varigheten fra 10 til 6,7 år (33 % raskere). Videre til 96 % mer enn halverer igjen (6,7 → 2,7 år).
 2. **Grundigere kvalitetsheving ved kartkontorene reduserer manuell NVDB-belastning.** Hvert ikke-gjenfinnbart objekt, topologi-feil eller attributtfeil som ryddes opp før klarmelding, blir et objekt færre i samferdselsavdelingens manuelle kø. Kartkontorenes innsats påvirker dermed ikke bare deres egen fase, men også den nedstrøms flaskehalsen. Det er en parallell vei til høyere effektiv automasjonsgrad: å gi FME renere input snarere enn å forbedre selve algoritmen.
-3. **Øk NVDB-bemanningen utover 0,5 årsverk.** Dette er det enkleste grep for å redusere varigheten proporsjonalt. 1,0 årsverk halverer tiden.
+3. **Øk NVDB-bemanningen ved samferdselsavdelingen utover 0,5 årsverk, eventuelt med bistand fra kartkontorene.** Dette er det enkleste grep for å redusere varigheten proporsjonalt. 1,0 årsverk halverer tiden.
 4. **Behold geografisk kartkontor-tildeling.** MIP viser at omfordeling ikke er nødvendig. Spar organisatorisk kostnad ved å ikke flytte kommuner mellom kontor.
 5. **Forbered for kapasitetsvariasjon.** Figur 7.9 viser MIP-modellens anbefalte omfordelinger dersom et kontor mister kapasitet. Dette kan brukes som beredskapsplan.
 6. **Registrer faktisk tidsbruk per kommune.** Modellen er i dag kalibrert på 58 kartbladmålinger, ikke på kommunenivå, og cherry-picking-funnet i 8.2 viser at de 62 ferdige kommunene ikke er representative for resten. Kontinuerlig tidsregistrering for de 295 gjenstående vil gi grunnlag for underveis-kalibrering og tidligst mulig deteksjon av om formelen underestimerer reell belastning.
@@ -985,7 +985,7 @@ Hovedfunnet i analysen er at NVDB-overføringen, ikke kartkontor-fasen, bestemme
 
 Modellens 90 %-punktestimat (6,72 år, deterministisk heuristikk) er kvantitativt konsistent med samferdselsavdelingens 7,22-års-beregning (kalenderkonvensjons-gap, jf. 8.1). Samferdselsavdelingen har samtidig en uttalt ambisjon om at jobben skal være ferdig på ca. 2 år. Gapet mellom prognose og ambisjon (ca. 5 år) er den sentrale beslutningsutfordringen, og motiverer de praktiske grepene som følger.
 
-Tre grep peker seg ut. Investeringer i FME-automasjon gir størst effekt: Å løfte automasjonsgraden fra 85 til 90 % reduserer varigheten med en tredjedel, og videre til 96 % mer enn halverer den igjen. Grundigere kvalitetsheving ved kartkontorene gir samme retning av effekt: Hvert ikke-gjenfinnbart objekt eller topologi-feil som ryddes opp før klarmelding, blir et objekt færre i samferdselsavdelingens manuelle kø. Økt manuell NVDB-bemanning utover 0,5 årsverk gir proporsjonal reduksjon. Modellen viser at ingen enkeltgrep alene kan lukke ambisjonsgapet; alle tre må kombineres dersom 2-års-målet skal være innen rekkevidde. Omfordeling av kommuner mellom kartkontor er derimot ikke nødvendig for å redusere total varighet: Forskjellen mellom heuristikkens og MIP-modellens makespan er under 2,2 % i alle scenarioer, og MIP bekrefter at den geografiske ansvarstildelingen er nær-optimal for makespan.
+Tre grep peker seg ut. Investeringer i FME-automasjon gir størst effekt: Å løfte automasjonsgraden fra 85 til 90 % reduserer varigheten med en tredjedel, og videre til 96 % mer enn halverer den igjen. Grundigere kvalitetsheving ved kartkontorene gir samme retning av effekt: Hvert ikke-gjenfinnbart objekt eller topologi-feil som ryddes opp før klarmelding, blir et objekt færre i samferdselsavdelingens manuelle kø. Økt manuell NVDB-bemanning ved samferdselsavdelingen utover 0,5 årsverk, eventuelt med bistand fra kartkontorene, gir proporsjonal reduksjon. Modellen viser at ingen enkeltgrep alene kan lukke ambisjonsgapet; alle tre må kombineres dersom 2-års-målet skal være innen rekkevidde. Omfordeling av kommuner mellom kartkontor er derimot ikke nødvendig for å redusere total varighet: Forskjellen mellom heuristikkens og MIP-modellens makespan er under 2,2 % i alle scenarioer, og MIP bekrefter at den geografiske ansvarstildelingen er nær-optimal for makespan.
 
 Modellens viktigste begrensning ligger i tidbruk-formelen, der koeffisientene 0,9035 min/km og 0,6510 min/km² ikke er regresjonsestimerte og kan underestimere reell tidsbruk med faktor opptil 2× (jf. 8.2). Sensitivitetsanalysen viser at hovedbudskapet om NVDB-flaskehalsen overlever en slik skalering for de to mest realistiske scenarioene, men 96 %-scenarioet får P5 presset opp fra 1,38 til 2,15 år ved skala 2,0.
 
@@ -1071,63 +1071,63 @@ Den empiriske spredningen er betydelig: Min/km varierer fra 0,10 til 3,44 med st
 
 *Tabell C.1 De 58 kartbladmålingene som kalibrerer km-leddet i tidbruk-formelen*
 
-| Kartblad           | Minutter | Lengde (km) | Min/km |
-| ------------------ | -------: | ----------: | -----: |
-| 32-5-518-227-10    |       18 |        14,9 |   1,21 |
-| 32-5-519-227-00    |       17 |        19,0 |   0,89 |
-| 32-5-520-227-00    |       19 |        14,7 |   1,30 |
-| 32-5-520-227-10    |       11 |        23,2 |   0,47 |
-| 32-5-521-227-00    |        4 |        17,5 |   0,23 |
-| 32-5-521-227-10    |        2 |         6,7 |   0,30 |
-| 32-5-519-227-11    |        8 |        15,0 |   0,53 |
-| 32-5-519-228-10    |       24 |        20,5 |   1,17 |
-| 32-5-519-229-10    |       24 |        17,8 |   1,34 |
-| 32-5-519-229-11    |       22 |        23,4 |   0,94 |
-| 32-5-519-230-10    |       19 |        19,5 |   0,98 |
-| 32-5-519-231-11    |       20 |         9,0 |   2,22 |
-| 32-5-519-232-11    |       25 |         7,3 |   3,44 |
-| 32-5-519-233-10    |        3 |         4,3 |   0,70 |
-| 32-5-519-233-11    |        5 |         4,0 |   1,24 |
-| 32-5-518-226-01    |       20 |        17,1 |   1,17 |
-| 32-5-518-226-11    |       21 |        18,9 |   1,11 |
-| 32-5-519-226-11    |        8 |         7,2 |   1,11 |
-| 32-5-520-226-01    |       25 |        18,8 |   1,33 |
-| 32-5-520-226-11    |        1 |        10,0 |   0,10 |
-| 32-5-514-231-10    |        1 |         1,2 |   0,81 |
-| 32-5-515-231-00    |        1 |         2,1 |   0,47 |
-| 32-5-514-230-11    |        1 |         0,7 |   1,45 |
-| 32-5-515-230-01    |        1 |         3,2 |   0,31 |
-| 32-5-514-229-10    |        2 |         2,8 |   0,72 |
-| 32-5-515-231-11    |        6 |         6,4 |   0,94 |
-| 32-5-522-228-00    |        4 |        11,2 |   0,36 |
-| 32-5-522-227-01    |        8 |        12,7 |   0,63 |
-| 32-5-521-229-10    |       16 |        12,1 |   1,32 |
-| 32-5-521-228-11    |        9 |        10,6 |   0,85 |
-| 32-5-521-228-10    |        1 |         3,4 |   0,30 |
-| 32-5-521-227-11    |        6 |        12,4 |   0,48 |
-| 32-5-521-227-01    |        1 |         7,6 |   0,13 |
-| 32-5-521-228-00    |        6 |        12,0 |   0,50 |
-| 32-5-521-228-01    |       10 |        13,1 |   0,76 |
-| 32-5-521-229-00    |        7 |         9,2 |   0,76 |
-| 32-5-520-229-10    |       10 |        19,1 |   0,52 |
-| 32-5-520-228-11    |        7 |        18,0 |   0,39 |
-| 32-5-520-228-10    |        7 |        12,8 |   0,55 |
-| 32-5-520-227-11    |       18 |        22,7 |   0,79 |
-| 32-5-520-227-01    |       21 |        25,0 |   0,84 |
-| 32-5-520-228-00    |       10 |        18,0 |   0,56 |
-| 32-5-519-229-01    |       25 |        26,5 |   0,94 |
-| 32-5-518-229-11    |       18 |        15,0 |   1,20 |
-| 32-5-518-228-00    |        8 |         6,2 |   1,30 |
-| 32-5-518-227-11    |       20 |        19,5 |   1,03 |
-| 32-5-518-229-10    |       15 |         8,8 |   1,70 |
-| 32-5-529-143-01    |        5 |         8,8 |   0,57 |
-| 32-5-528-143-11    |        5 |        16,2 |   0,31 |
-| 32-5-528-143-01    |        8 |        16,3 |   0,49 |
-| 32-5-527-143-11    |       20 |        15,7 |   1,28 |
-| 32-5-527-143-01    |       15 |        13,4 |   1,12 |
-| 32-5-526-143-11    |       20 |        13,8 |   1,45 |
-| 32-5-526-143-01    |       10 |        10,0 |   1,00 |
-| 32-5-526-141-00    |       20 |        12,1 |   1,66 |
-| 32-5-526-140-11    |        8 |        11,7 |   0,68 |
-| 32-5-525-143-11    |        5 |        11,0 |   0,46 |
-| 32-5-525-141-10    |       23 |        23,1 |   1,00 |
+| Kartblad        | Minutter | Lengde (km) | Min/km |
+| --------------- | -------: | ----------: | -----: |
+| 32-5-518-227-10 |       18 |        14,9 |   1,21 |
+| 32-5-519-227-00 |       17 |        19,0 |   0,89 |
+| 32-5-520-227-00 |       19 |        14,7 |   1,30 |
+| 32-5-520-227-10 |       11 |        23,2 |   0,47 |
+| 32-5-521-227-00 |        4 |        17,5 |   0,23 |
+| 32-5-521-227-10 |        2 |         6,7 |   0,30 |
+| 32-5-519-227-11 |        8 |        15,0 |   0,53 |
+| 32-5-519-228-10 |       24 |        20,5 |   1,17 |
+| 32-5-519-229-10 |       24 |        17,8 |   1,34 |
+| 32-5-519-229-11 |       22 |        23,4 |   0,94 |
+| 32-5-519-230-10 |       19 |        19,5 |   0,98 |
+| 32-5-519-231-11 |       20 |         9,0 |   2,22 |
+| 32-5-519-232-11 |       25 |         7,3 |   3,44 |
+| 32-5-519-233-10 |        3 |         4,3 |   0,70 |
+| 32-5-519-233-11 |        5 |         4,0 |   1,24 |
+| 32-5-518-226-01 |       20 |        17,1 |   1,17 |
+| 32-5-518-226-11 |       21 |        18,9 |   1,11 |
+| 32-5-519-226-11 |        8 |         7,2 |   1,11 |
+| 32-5-520-226-01 |       25 |        18,8 |   1,33 |
+| 32-5-520-226-11 |        1 |        10,0 |   0,10 |
+| 32-5-514-231-10 |        1 |         1,2 |   0,81 |
+| 32-5-515-231-00 |        1 |         2,1 |   0,47 |
+| 32-5-514-230-11 |        1 |         0,7 |   1,45 |
+| 32-5-515-230-01 |        1 |         3,2 |   0,31 |
+| 32-5-514-229-10 |        2 |         2,8 |   0,72 |
+| 32-5-515-231-11 |        6 |         6,4 |   0,94 |
+| 32-5-522-228-00 |        4 |        11,2 |   0,36 |
+| 32-5-522-227-01 |        8 |        12,7 |   0,63 |
+| 32-5-521-229-10 |       16 |        12,1 |   1,32 |
+| 32-5-521-228-11 |        9 |        10,6 |   0,85 |
+| 32-5-521-228-10 |        1 |         3,4 |   0,30 |
+| 32-5-521-227-11 |        6 |        12,4 |   0,48 |
+| 32-5-521-227-01 |        1 |         7,6 |   0,13 |
+| 32-5-521-228-00 |        6 |        12,0 |   0,50 |
+| 32-5-521-228-01 |       10 |        13,1 |   0,76 |
+| 32-5-521-229-00 |        7 |         9,2 |   0,76 |
+| 32-5-520-229-10 |       10 |        19,1 |   0,52 |
+| 32-5-520-228-11 |        7 |        18,0 |   0,39 |
+| 32-5-520-228-10 |        7 |        12,8 |   0,55 |
+| 32-5-520-227-11 |       18 |        22,7 |   0,79 |
+| 32-5-520-227-01 |       21 |        25,0 |   0,84 |
+| 32-5-520-228-00 |       10 |        18,0 |   0,56 |
+| 32-5-519-229-01 |       25 |        26,5 |   0,94 |
+| 32-5-518-229-11 |       18 |        15,0 |   1,20 |
+| 32-5-518-228-00 |        8 |         6,2 |   1,30 |
+| 32-5-518-227-11 |       20 |        19,5 |   1,03 |
+| 32-5-518-229-10 |       15 |         8,8 |   1,70 |
+| 32-5-529-143-01 |        5 |         8,8 |   0,57 |
+| 32-5-528-143-11 |        5 |        16,2 |   0,31 |
+| 32-5-528-143-01 |        8 |        16,3 |   0,49 |
+| 32-5-527-143-11 |       20 |        15,7 |   1,28 |
+| 32-5-527-143-01 |       15 |        13,4 |   1,12 |
+| 32-5-526-143-11 |       20 |        13,8 |   1,45 |
+| 32-5-526-143-01 |       10 |        10,0 |   1,00 |
+| 32-5-526-141-00 |       20 |        12,1 |   1,66 |
+| 32-5-526-140-11 |        8 |        11,7 |   0,68 |
+| 32-5-525-143-11 |        5 |        11,0 |   0,46 |
+| 32-5-525-141-10 |       23 |        23,1 |   1,00 |
