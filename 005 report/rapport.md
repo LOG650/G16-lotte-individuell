@@ -550,12 +550,16 @@ Koeffisientene kommer fra Tidbruk-fanen i grunndatasettet og dokumenterer hvorda
 
 Formelen er verifisert numerisk ved at det rekalkulerte Ber_Tidbruk_Min avviker med median 0,2 minutter og maksimalt om lag 0,5 minutter fra oppgitt verdi for alle 357 kommuner. De 58 kartbladmålingene viser samtidig betydelig spredning i MIN/KM: fra 0,10 til 3,44 med standardavvik 0,55, omtrent 60\nobreakspace{}% av gjennomsnittet (de fullstendige målingene er gjengitt i Vedlegg C). Dette betyr at `Ber_Tidbruk_Min` er et punktestimat basert på en gjennomsnittssats, og reell tidsbruk per kommune kan avvike betydelig. Denne empiriske variasjonen danner grunnlag for usikkerhetsvurdering i modellen.
 
+```{=latex}
+\newpage
+```
+
 ### 5.2.4 Behandlede datasett
 
 *Tabell 5.3 Behandlede datasett produsert av datavasken*
 
-| Datasett             | Rader | Innhold                                                                                                                    |
-| -------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------- |
+| Datasett             | Antall rader | Innhold                                                                                                                    |
+| -------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | Master-datasett      | 357   | Én rad per kommune: kommunenr, kartkontor, status, antall lenker, gjenstående lenker, beregnet tidsbruk, Geovekst-status |
 | Kapasitet per kontor | 10    | Én rad per kartkontor: årlig kapasitet (ukesverk), min/maks tidsbruk per kommune, aggregerte nøkkeltall                 |
 | Geovekst-prosjekter  | 173   | Én rad per kommune-prosjekt-par: prosjektkode, kommune, kartkontor, status, låseperiode (start/slutt)                    |
