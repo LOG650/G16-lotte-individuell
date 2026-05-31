@@ -54,8 +54,6 @@ I arbeidet med denne oppgaven har jeg gjennomgående brukt et KI-basert assisten
 
 Alle faglige vurderinger, modellvalg, tolkninger og konklusjoner er mine egne. KI-verktøyet har ikke generert data eller resultater: Samtlige tall stammer fra dokumentert kildedata fra Statens kartverk og fra kode som er kjørt og kontrollert av meg. Jeg har gjennomgått, verifisert og står ansvarlig for hele innholdet i oppgaven.
 
----
-
 ## Sammendrag
 
 Statens kartverk skal kvalitetsheve og overføre datasettet FKB-TraktorvegSti til Nasjonal vegdatabank (NVDB). Arbeidet involverer 357 kommuner fordelt på 10 fylkeskartkontor med varierende kapasitet, og 152 kommuner er i perioder av 2026 låst grunnet Geovekst-prosjekter (kartleggingsprosjekter). Dette blokkerer arbeidet i deler av perioden. Per april 2026 er 62 kommuner ferdig kvalitetshevet, mens NVDB-overføringen ennå ikke har begynt. Denne oppgaven utvikler et planleggingsgrunnlag for hvordan de 295 gjenstående kommunene bør fordeles og sekvenseres for kortest mulig total prosjektvarighet.
@@ -65,8 +63,6 @@ Analysen kombinerer en regelbasert heuristikk for tolkbar referansesimulering, e
 Hovedfunnet er at NVDB-overføringen er flaskehalsen i prosjektet, ikke kartkontor-fasen. Total varighet ved oppgitt ressursbruk hos samferdselsavdelingen ligger på 6,7–10 år ved realistisk automasjon (90 % og 85 %) og 2,7 år i optimistisk scenario (96 %), mens kartkontorene har kapasitet til å fullføre alt arbeid innen 10–17 måneder uavhengig av scenario. Monte Carlo viser betydelig usikkerhet rundt hvert punktestimat; for 90 %-scenarioet spenner P5–P95-båndet 3,3–9,9 år. Resultatet er robust mot rimelige kapasitetsforstyrrelser ved kartkontorene, og MIP-modellen verifiserer at den geografiske ansvarstildelingen er nær-optimal: Forskjellen mellom heuristikkens og MIP-modellens makespan er under 2,2 %.
 
 Samferdselsavdelingens uttalte ambisjon om ferdigstilling på ca. 2 år krever at flere grep kombineres: økt FME-automasjon, om mulig enda grundigere kvalitetsheving ved kartkontorene for å redusere antallet lenker som må håndteres manuelt ved innlegging i NVDB, og økt bemanning ved samferdselsavdelingen utover dagens 0,5 årsverk, eventuelt med bistand fra kartkontorene. Omfordeling av kommuner mellom kartkontor er ikke nødvendig for å redusere totalvarigheten.
-
----
 
 ## Abstract
 
@@ -78,12 +74,10 @@ The main finding is that the NVDB transfer constitutes the project bottleneck, n
 
 The Transport Unit has stated an ambition that the work should be completed in approximately 2 years. Closing the gap between forecast and ambition requires combining several measures: increased FME automation, more thorough quality enhancement at the mapping offices to reduce manual NVDB workload, and increased staffing at the Transport Unit beyond the current 0.5 full-time equivalents, possibly with assistance from the mapping offices. Reallocating municipalities between mapping offices is not necessary to reduce total duration.
 
----
-
 ## Begreper og forkortelser
 
-| Begrep                  | Forklaring                                                                                        |
-| ----------------------- | ------------------------------------------------------------------------------------------------- |
+| Begrep                            | Forklaring                                                                              |
+| --------------------------------- | --------------------------------------------------------------------------------------- |
 | Bootstrap               | Resampling med tilbakelegging fra en empirisk fordeling for å estimere usikkerhet                |
 | CBC                     | COIN-OR Branch and Cut, en åpen kildekode-løser for heltallsprogrammer                          |
 | FKB                     | Felles Kartdatabase, Kartverkets nasjonale geodatagrunnlag                                        |
@@ -105,8 +99,6 @@ The Transport Unit has stated an ambition that the work should be completed in a
 | RCPSP                   | Resource-Constrained Project Scheduling Problem, det faglige rammeverket oppgaven plasserer seg i |
 | Samferdselsavdelingen   | Enheten i Kartverket som overfører klarmeldte data til NVDB                                      |
 | Ukesverk                | Kapasitetsenhet tilsvarende én persons arbeidsuke = 37,5 timer                                   |
-
----
 
 ## Innhold
 
@@ -133,10 +125,29 @@ The Transport Unit has stated an ambition that the work should be completed in a
   - [4.6 Hvorfor dette er et planleggingsproblem](#46-hvorfor-dette-er-et-planleggingsproblem)
 - [5.0 Metode og data](#50-metode-og-data)
   - [5.1 Metode](#51-metode)
+    - [5.1.1 Tredelt hybrid tilnærming](#511-tredelt-hybrid-tilnærming)
+    - [5.1.2 Kalenderkonvensjon og kapasitet](#512-kalenderkonvensjon-og-kapasitet)
+    - [5.1.3 MIP-modellens målfunksjon](#513-mip-modellens-målfunksjon)
+    - [5.1.4 NVDB-kapasitetsformel og dens struktur](#514-nvdb-kapasitetsformel-og-dens-struktur)
+    - [5.1.5 Scenariodesign](#515-scenariodesign)
+    - [5.1.6 Monte Carlo-modellen](#516-monte-carlo-modellen)
+    - [5.1.7 Validitet og reliabilitet](#517-validitet-og-reliabilitet)
+    - [5.1.8 Etiske vurderinger](#518-etiske-vurderinger)
   - [5.2 Data](#52-data)
+    - [5.2.1 Datakilder](#521-datakilder)
+    - [5.2.2 Datarensing](#522-datarensing)
+    - [5.2.3 Formel for beregnet tidsbruk per kommune](#523-formel-for-beregnet-tidsbruk-per-kommune)
+    - [5.2.4 Behandlede datasett](#524-behandlede-datasett)
+    - [5.2.5 Nøkkeltall og deskriptiv statistikk](#525-nøkkeltall-og-deskriptiv-statistikk)
+    - [5.2.6 Antagelser og begrensninger](#526-antagelser-og-begrensninger)
 - [6.0 Modellering](#60-modellering)
   - [6.1 Heuristikk](#61-heuristikk)
   - [6.2 MIP-formulering](#62-mip-formulering)
+    - [6.2.1 Sett og parametre](#621-sett-og-parametre)
+    - [6.2.2 Beslutningsvariabler](#622-beslutningsvariabler)
+    - [6.2.3 Bibindelser](#623-bibindelser)
+    - [6.2.4 Målfunksjon og lex-opt](#624-målfunksjon-og-lex-opt)
+    - [6.2.5 Post-processing: per-kommune NVDB-plan](#625-post-processing-per-kommune-nvdb-plan)
   - [6.3 Sensitivitetsanalyse](#63-sensitivitetsanalyse)
   - [6.4 Implementeringsdetaljer](#64-implementeringsdetaljer)
 - [7.0 Analyse og resultater](#70-analyse-og-resultater)
