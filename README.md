@@ -65,4 +65,4 @@ MIP-kjøringene kan ta fra minutter til flere timer avhengig av scenario og mask
 
 ## Data og opphavsrett
 
-Rådataene kommer fra Statens kartverk (samferdselsavdelingens PowerBI-rapport, statistikk- og datainnsamlingsark) samt fylkesgrenser fra Geonorge (CC BY 4.0). Opphavsrettsbeskyttede kildekopier og generert PDF-output er holdt utenfor versjonskontroll (se `.gitignore`).
+Rådataene kommer fra Statens kartverk (samferdselsavdelingens PowerBI-rapport, statistikk- og datainnsamlingsark) samt fylkesgrenser fra Geonorge (CC BY 4.0).
