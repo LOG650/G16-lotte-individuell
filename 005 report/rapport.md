@@ -873,6 +873,10 @@ Figur 7.10 visualiserer Monte Carlo-fordelingen av NVDB-overføringen som et fan
 
 Den dominerende usikkerhetskilden er automasjonsgraden i FME-overføringen (jf. figur 7.10–7.12). Med den kalibrerte måleusikkerheten (standardavvik 0,03 på automasjonsgrad) overlapper scenariobåndene realistisk: P95 for 96\nobreakspace{}%-scenarioet (5,88 år) ligger over P5 for 90\nobreakspace{}% (3,25 år), og P95 for 90\nobreakspace{}% (9,91 år) ligger over P5 for 85\nobreakspace{}% (6,46 år). Dette speiler den faktiske usikkerheten i hvor mye FME-automasjonen kan presses. *Valget av automasjonsgrad forblir den viktigste strategiske faktoren* for totalvarigheten, men usikkerhetsintervallene viser at det er betydelig spillerom innenfor hvert scenario også, og at god FME-utvikling kan forskyve punktestimatet betydelig.
 
+```{=latex}
+\clearpage
+```
+
 ## 7.6 Oppsummering av hovedfunn
 
 Analysen gir tre sentrale funn på tvers av delproblemene.
@@ -971,6 +975,8 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier; det betyr at sta
 **Validering mot ferdige kommuner.** Kartverket registrerer ikke faktisk tidsbruk per kommune ved TVS-kvalitetsheving, og tidbruk-formelen er derfor ikke validert mot ground truth (jf. 8.2). Et oppfølgingstiltak ville være å registrere tidsbruk for de gjenstående 295 kommunene slik at modellen kan kalibreres underveis.
 
 ## 8.6 Praktiske implikasjoner
+
+Modellfunnene leder til seks konkrete tiltak. De tre grepene som har størst effekt på total varighet (FME-automasjon, kvalitetsheving og NVDB-bemanning) oppsummeres i kapittel 9; her gis hvert tiltak med kvantifisert begrunnelse og forventet effekt.
 
 **Oppfølgings-anbefalinger til Kartverket:**
 
