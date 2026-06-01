@@ -15,7 +15,7 @@ REPORT_DIR = os.path.dirname(SCRIPT_DIR)                   # .../005 report
 os.chdir(REPORT_DIR)
 
 REPORT = "rapport.md"
-PDF = "rapport_LATEX.pdf"
+PDF = "LOG650_Rapport_Lotte_Picard.pdf"
 HEADER = "_assets/latex_header.tex"
 
 MIKTEX_BIN = os.path.expanduser(r"~\AppData\Local\Programs\MiKTeX\miktex\bin\x64")

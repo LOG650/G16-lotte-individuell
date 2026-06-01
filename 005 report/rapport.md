@@ -105,75 +105,75 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 - [Figurliste](#figurliste)
 - [Tabelliste](#tabelliste)
-- [1.0 Innledning](#10-innledning)
-  - [1.1 Problemstilling](#11-problemstilling)
-  - [1.2 Delproblemer](#12-delproblemer)
-  - [1.3 Avgrensinger](#13-avgrensinger)
-  - [1.4 Antagelser](#14-antagelser)
-- [2.0 Litteratur](#20-litteratur)
-  - [2.1 Scheduling og ressursallokering med tidsvinduer](#21-scheduling-og-ressursallokering-med-tidsvinduer)
-  - [2.2 Hybride løsningsmetoder](#22-hybride-løsningsmetoder)
-  - [2.3 Monte Carlo-simulering og usikkerhetsanalyse](#23-monte-carlo-simulering-og-usikkerhetsanalyse)
-  - [2.4 Bootstrap og empirisk resampling](#24-bootstrap-og-empirisk-resampling)
-- [3.0 Teori](#30-teori)
-  - [3.1 Scheduling-rammeverk og kompleksitet](#31-scheduling-rammeverk-og-kompleksitet)
-  - [3.2 Hybride løsningsmetoder](#32-hybride-løsningsmetoder)
-  - [3.3 Usikkerhetsanalyse: Monte Carlo og bootstrap](#33-usikkerhetsanalyse-monte-carlo-og-bootstrap)
-- [4.0 Casebeskrivelse](#40-casebeskrivelse)
-  - [4.1 FKB-TraktorvegSti og kvalitetsheving](#41-fkb-traktorvegsti-og-kvalitetsheving)
-  - [4.2 Produksjonskjeden](#42-produksjonskjeden)
-  - [4.3 De 10 fylkeskartkontorene](#43-de-10-fylkeskartkontorene)
-  - [4.4 Fremdrift per april 2026](#44-fremdrift-per-april-2026)
-  - [4.5 Geovekst-låsing](#45-geovekst-låsing)
-  - [4.6 Hvorfor dette er et planleggingsproblem](#46-hvorfor-dette-er-et-planleggingsproblem)
-- [5.0 Metode og data](#50-metode-og-data)
-  - [5.1 Metode](#51-metode)
-    - [5.1.1 Tredelt hybrid tilnærming](#511-tredelt-hybrid-tilnærming)
-    - [5.1.2 Kalenderkonvensjon og kapasitet](#512-kalenderkonvensjon-og-kapasitet)
-    - [5.1.3 MIP-modellens målfunksjon](#513-mip-modellens-målfunksjon)
-    - [5.1.4 NVDB-kapasitetsformel og dens struktur](#514-nvdb-kapasitetsformel-og-dens-struktur)
-    - [5.1.5 Scenariodesign](#515-scenariodesign)
-    - [5.1.6 Monte Carlo-modellen](#516-monte-carlo-modellen)
-    - [5.1.7 Validitet og reliabilitet](#517-validitet-og-reliabilitet)
-    - [5.1.8 Etiske vurderinger](#518-etiske-vurderinger)
-  - [5.2 Data](#52-data)
-    - [5.2.1 Datakilder](#521-datakilder)
-    - [5.2.2 Datarensing](#522-datarensing)
-    - [5.2.3 Formel for beregnet tidsbruk per kommune](#523-formel-for-beregnet-tidsbruk-per-kommune)
-    - [5.2.4 Behandlede datasett](#524-behandlede-datasett)
-    - [5.2.5 Nøkkeltall og deskriptiv statistikk](#525-nøkkeltall-og-deskriptiv-statistikk)
-    - [5.2.6 Antagelser og begrensninger](#526-antagelser-og-begrensninger)
-- [6.0 Modellering](#60-modellering)
-  - [6.1 Heuristikk](#61-heuristikk)
-  - [6.2 MIP-formulering](#62-mip-formulering)
-    - [6.2.1 Sett og parametre](#621-sett-og-parametre)
-    - [6.2.2 Beslutningsvariabler](#622-beslutningsvariabler)
-    - [6.2.3 Bibindelser](#623-bibindelser)
-    - [6.2.4 Målfunksjon og lex-opt](#624-målfunksjon-og-lex-opt)
-    - [6.2.5 Post-processing: per-kommune NVDB-plan](#625-post-processing-per-kommune-nvdb-plan)
-  - [6.3 Sensitivitetsanalyse](#63-sensitivitetsanalyse)
-  - [6.4 Implementeringsdetaljer](#64-implementeringsdetaljer)
-- [7.0 Analyse og resultater](#70-analyse-og-resultater)
-  - [7.1 MIP vs. heuristikk: makespan](#71-mip-vs-heuristikk-makespan)
-  - [7.2 Kartkontor-ferdigstilling](#72-kartkontor-ferdigstilling)
-  - [7.3 Omfordeling mellom kontor](#73-omfordeling-mellom-kontor)
-  - [7.4 Kapasitets-sensitivitet](#74-kapasitets-sensitivitet)
-  - [7.5 Usikkerhetsanalyse](#75-usikkerhetsanalyse)
-  - [7.6 Oppsummering av hovedfunn](#76-oppsummering-av-hovedfunn)
-- [8.0 Diskusjon](#80-diskusjon)
-  - [8.1 Hovedbudskapet til Kartverket](#81-hovedbudskapet-til-kartverket)
-  - [8.2 Tidbruk-formelens identifiserbarhet](#82-tidbruk-formelens-identifiserbarhet)
-  - [8.3 Hva modellen ikke fanger](#83-hva-modellen-ikke-fanger)
-  - [8.4 Usikkerhetsanalysens antagelser](#84-usikkerhetsanalysens-antagelser)
-  - [8.5 Modellens metodologiske begrensninger](#85-modellens-metodologiske-begrensninger)
-  - [8.6 Praktiske implikasjoner](#86-praktiske-implikasjoner)
-  - [8.7 Implikasjoner for teori og metode](#87-implikasjoner-for-teori-og-metode)
-- [9.0 Konklusjon](#90-konklusjon)
-- [10.0 Bibliografi](#100-bibliografi)
-- [11.0 Vedlegg](#110-vedlegg)
-  - [Vedlegg A — Fullstendig kapasitets-sensitivitetsoversikt](#vedlegg-a--fullstendig-kapasitets-sensitivitetsoversikt)
-  - [Vedlegg B — Reproduserbarhet og analyseartefakter](#vedlegg-b--reproduserbarhet-og-analyseartefakter)
-  - [Vedlegg C — Kalibreringsgrunnlag for tidbruk-formelen](#vedlegg-c--kalibreringsgrunnlag-for-tidbruk-formelen)
+- [1.0 Innledning](#innledning)
+  - [1.1 Problemstilling](#problemstilling)
+  - [1.2 Delproblemer](#delproblemer)
+  - [1.3 Avgrensinger](#avgrensinger)
+  - [1.4 Antagelser](#antagelser)
+- [2.0 Litteratur](#litteratur)
+  - [2.1 Scheduling og ressursallokering med tidsvinduer](#scheduling-og-ressursallokering-med-tidsvinduer)
+  - [2.2 Hybride løsningsmetoder](#hybride-løsningsmetoder)
+  - [2.3 Monte Carlo-simulering og usikkerhetsanalyse](#monte-carlo-simulering-og-usikkerhetsanalyse)
+  - [2.4 Bootstrap og empirisk resampling](#bootstrap-og-empirisk-resampling)
+- [3.0 Teori](#teori)
+  - [3.1 Scheduling-rammeverk og kompleksitet](#scheduling-rammeverk-og-kompleksitet)
+  - [3.2 Hybride løsningsmetoder](#hybride-løsningsmetoder-1)
+  - [3.3 Usikkerhetsanalyse: Monte Carlo og bootstrap](#usikkerhetsanalyse-monte-carlo-og-bootstrap)
+- [4.0 Casebeskrivelse](#casebeskrivelse)
+  - [4.1 FKB-TraktorvegSti og kvalitetsheving](#fkb-traktorvegsti-og-kvalitetsheving)
+  - [4.2 Produksjonskjeden](#produksjonskjeden)
+  - [4.3 De 10 fylkeskartkontorene](#de-10-fylkeskartkontorene)
+  - [4.4 Fremdrift per april 2026](#fremdrift-per-april-2026)
+  - [4.5 Geovekst-låsing](#geovekst-låsing)
+  - [4.6 Hvorfor dette er et planleggingsproblem](#hvorfor-dette-er-et-planleggingsproblem)
+- [5.0 Metode og data](#metode-og-data)
+  - [5.1 Metode](#metode)
+    - [5.1.1 Tredelt hybrid tilnærming](#tredelt-hybrid-tilnærming)
+    - [5.1.2 Kalenderkonvensjon og kapasitet](#kalenderkonvensjon-og-kapasitet)
+    - [5.1.3 MIP-modellens målfunksjon](#mip-modellens-målfunksjon)
+    - [5.1.4 NVDB-kapasitetsformel og dens struktur](#nvdb-kapasitetsformel-og-dens-struktur)
+    - [5.1.5 Scenariodesign](#scenariodesign)
+    - [5.1.6 Monte Carlo-modellen](#monte-carlo-modellen)
+    - [5.1.7 Validitet og reliabilitet](#validitet-og-reliabilitet)
+    - [5.1.8 Etiske vurderinger](#etiske-vurderinger)
+  - [5.2 Data](#data)
+    - [5.2.1 Datakilder](#datakilder)
+    - [5.2.2 Datarensing](#datarensing)
+    - [5.2.3 Formel for beregnet tidsbruk per kommune](#formel-for-beregnet-tidsbruk-per-kommune)
+    - [5.2.4 Behandlede datasett](#behandlede-datasett)
+    - [5.2.5 Nøkkeltall og deskriptiv statistikk](#nøkkeltall-og-deskriptiv-statistikk)
+    - [5.2.6 Antagelser og begrensninger](#antagelser-og-begrensninger)
+- [6.0 Modellering](#modellering)
+  - [6.1 Heuristikk](#heuristikk)
+  - [6.2 MIP-formulering](#mip-formulering)
+    - [6.2.1 Sett og parametre](#sett-og-parametre)
+    - [6.2.2 Beslutningsvariabler](#beslutningsvariabler)
+    - [6.2.3 Bibindelser](#bibindelser)
+    - [6.2.4 Målfunksjon og lex-opt](#målfunksjon-og-lex-opt)
+    - [6.2.5 Post-processing: per-kommune NVDB-plan](#post-processing-per-kommune-nvdb-plan)
+  - [6.3 Sensitivitetsanalyse](#sensitivitetsanalyse)
+  - [6.4 Implementeringsdetaljer](#implementeringsdetaljer)
+- [7.0 Analyse og resultater](#analyse-og-resultater)
+  - [7.1 MIP vs. heuristikk: makespan](#mip-vs.-heuristikk-makespan)
+  - [7.2 Kartkontor-ferdigstilling](#kartkontor-ferdigstilling)
+  - [7.3 Omfordeling mellom kontor](#omfordeling-mellom-kontor)
+  - [7.4 Kapasitets-sensitivitet](#kapasitets-sensitivitet)
+  - [7.5 Usikkerhetsanalyse](#usikkerhetsanalyse)
+  - [7.6 Oppsummering av hovedfunn](#oppsummering-av-hovedfunn)
+- [8.0 Diskusjon](#diskusjon)
+  - [8.1 Hovedbudskapet til Kartverket](#hovedbudskapet-til-kartverket)
+  - [8.2 Tidbruk-formelens identifiserbarhet](#tidbruk-formelens-identifiserbarhet)
+  - [8.3 Hva modellen ikke fanger](#hva-modellen-ikke-fanger)
+  - [8.4 Usikkerhetsanalysens antagelser](#usikkerhetsanalysens-antagelser)
+  - [8.5 Modellens metodologiske begrensninger](#modellens-metodologiske-begrensninger)
+  - [8.6 Praktiske implikasjoner](#praktiske-implikasjoner)
+  - [8.7 Implikasjoner for teori og metode](#implikasjoner-for-teori-og-metode)
+- [9.0 Konklusjon](#konklusjon)
+- [10.0 Bibliografi](#bibliografi)
+- [11.0 Vedlegg](#vedlegg)
+  - [Vedlegg A — Fullstendig kapasitets-sensitivitetsoversikt](#vedlegg-a-fullstendig-kapasitets-sensitivitetsoversikt)
+  - [Vedlegg B — Reproduserbarhet og analyseartefakter](#vedlegg-b-reproduserbarhet-og-analyseartefakter)
+  - [Vedlegg C — Kalibreringsgrunnlag for tidbruk-formelen](#vedlegg-c-kalibreringsgrunnlag-for-tidbruk-formelen)
 
 ## Figurliste
 
@@ -184,10 +184,10 @@ The Transport Unit has stated an ambition that the work should be completed in a
 - Figur 4.4 Antall kommuner låst av Geovekst-prosjekter per måned og kartkontor
 - Figur 4.5 Fordeling av arbeidsmengde per kommune og Pareto-kurve for arbeidskonsentrasjon
 - Figur 5.1 Lastfordeling per kartkontor, hvert segment er én kommune
-- Figur 7.1 Total varighet heuristikk vs MIP per NVDB-scenario
+- Figur 7.1 Total varighet heuristikk vs. MIP per NVDB-scenario
 - Figur 7.2 NVDB-køens utvikling over tid for alle tre scenarioer
 - Figur 7.3 Kumulativ NVDB-overføring av lenker og kommuner per scenario
-- Figur 7.4 Fordeling av kartkontor-ferdigmåned heuristikk vs MIP per NVDB-scenario
+- Figur 7.4 Fordeling av kartkontor-ferdigmåned heuristikk vs. MIP per NVDB-scenario
 - Figur 7.5 Kumulativ kartkontor-ferdigstilling per kontor (heuristikk-referanse)
 - Figur 7.6 Omfordeling fra ansvarlig kartkontor til MIP-kontor for 90\nobreakspace{}%-scenarioet
 - Figur 7.7 Makespan per kapasitetsvariant og NVDB-scenario
@@ -771,7 +771,7 @@ Kapittel 6 etablerte modellene; dette kapittelet kjører dem på det reelle data
 
 ## 7.1 MIP vs. heuristikk: makespan
 
-Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen over de tre NVDB-scenarioene. MIP-modellen bruker vektet målfunksjon med tre lex-nivåer: makespan, kartkontor-ferdigtid og inertia (bevar ansvarskontor-tildelingen ved like løsninger). 90\nobreakspace{}% og 96\nobreakspace{}%-scenarioet løser *Optimal* innen henholdsvis 16 og 10 minutter; 85\nobreakspace{}%-scenarioet ender som *Not Solved* ved 30-minutters tidsgrense, men returnerer en gyldig IP-feasible løsning der makespan likevel er robust. Hva «Not Solved»-statusen betyr for tolkningen av tallene drøftes samlet i 8.5. Forskjellen i status mellom scenarioene reflekterer at lavere NVDB-kapasitet gir lengre horisont (T = 144 vs 96 vs 54 måneder) og dermed flere variabler.
+Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen over de tre NVDB-scenarioene. MIP-modellen bruker vektet målfunksjon med tre lex-nivåer: makespan, kartkontor-ferdigtid og inertia (bevar ansvarskontor-tildelingen ved like løsninger). 90\nobreakspace{}% og 96\nobreakspace{}%-scenarioet løser *Optimal* innen henholdsvis 16 og 10 minutter; 85\nobreakspace{}%-scenarioet ender som *Not Solved* ved 30-minutters tidsgrense, men returnerer en gyldig IP-feasible løsning der makespan likevel er robust. Hva «Not Solved»-statusen betyr for tolkningen av tallene drøftes samlet i 8.5. Forskjellen i status mellom scenarioene reflekterer at lavere NVDB-kapasitet gir lengre horisont (T = 144 vs. 96 vs. 54 måneder) og dermed flere variabler.
 
 *Tabell 7.1 Makespan per metode og NVDB-scenario*
 
@@ -783,9 +783,9 @@ Tabell 7.1 sammenligner total prosjektvarighet for heuristikken og MIP-modellen 
 
 Alle differansene er under 2,5\nobreakspace{}% og skyldes MIP-modellens månedlige tidsoppløsning (hver måned avrundes opp ved kollisjon med NVDB-drenering). I praksis gir de to metodene *tilnærmet identisk makespan*. Dette er et positivt funn: **MIP bekrefter at heuristikkens ansvarskontor-tildeling er nær-optimal for makespan**, snarere enn å gi en reell forbedring. MIP-modellens bidrag er altså todelt: Den leverer en uavhengig verifikasjon av heuristikken, og den leverer en komprimert kartkontor-ferdigprofil via lex-opt-prioritet (se 7.2). Figur 7.1 visualiserer resultatene.
 
-![Figur 7.1: Total varighet heuristikk vs MIP per NVDB-scenario](figurer/14_heuristikk_vs_mip.png)
+![Figur 7.1: Total varighet heuristikk vs. MIP per NVDB-scenario](figurer/14_heuristikk_vs_mip.png)
 
-*Figur 7.1 Total varighet heuristikk vs MIP per NVDB-scenario*
+*Figur 7.1 Total varighet heuristikk vs. MIP per NVDB-scenario*
 
 Bak makespan-tallene ligger NVDB-køens utvikling over tid (figur 7.2). Pre-ferdige kommuner gir en initiell kø-topp idet NVDB-overføringen starter; toppen bygges deretter ned i takt med den daglige overføringskapasiteten i hvert scenario. Forskjellen mellom 85\nobreakspace{}%-, 90\nobreakspace{}%- og 96\nobreakspace{}%-scenarioene framkommer som tre tydelig adskilte nedbygningskurver. Figur 7.3 viser samme historie kumulativt for både lenker og kommuner, og illustrerer hvor mye raskere full overføring er ferdig ved høyere FME-automasjon.
 
@@ -801,9 +801,9 @@ Bak makespan-tallene ligger NVDB-køens utvikling over tid (figur 7.2). Pre-ferd
 
 Heuristikken og MIP gir samme totalvarighet, men forskjellig profil for når kartkontor-arbeidet er ferdig. Figur 7.4 viser fordelingen: Heuristikken ferdigstiller alle kommuner på kartkontoret innen ca. 16,5 måneder (medianverdi 4–5 måneder), mens MIP-planen (med den vektede målfunksjonen som straffer sen kartkontor-ferdigtid) komprimerer kartkontor-arbeidet ytterligere til innen 10–11 måneder (median 4 måneder). Begge er realistiske fra et ressursforvaltningssynspunkt: NVDB-delen alene tar 2,7–10,2 år avhengig av automasjonsgrad, så kartkontorene har kapasitet til å levere alt materiale lenge før NVDB er ferdig. Monte Carlo på MIP-assignment bekrefter dette kvantitativt: Kartkontor-ferdigstillelsens median flyttes fra 510 dager (heuristikk) ned til 409–452 dager på MIP-planen (85\nobreakspace{}%-scenarioet 452, 90\nobreakspace{}% 445, 96\nobreakspace{}% 409), altså omtrent to til tre måneder raskere avhengig av scenario. Dette er en konkret organisatorisk gevinst som ikke reduserer total prosjektvarighet, men som frigjør saksbehandlere til andre oppgaver tidligere.
 
-![Figur 7.4: Fordeling av kartkontor-ferdigmåned heuristikk vs MIP per NVDB-scenario](figurer/15_kartkontor_ferdig.png)
+![Figur 7.4: Fordeling av kartkontor-ferdigmåned heuristikk vs. MIP per NVDB-scenario](figurer/15_kartkontor_ferdig.png)
 
-*Figur 7.4 Fordeling av kartkontor-ferdigmåned heuristikk vs MIP per NVDB-scenario*
+*Figur 7.4 Fordeling av kartkontor-ferdigmåned heuristikk vs. MIP per NVDB-scenario*
 
 Figur 7.5 viser kartkontorenes kumulative fremdrift over tid for referanseheuristikken. Hver kurve starter med et innledende sprang som dekker de 62 kommunene som allerede er ferdige før prosjekt-start (1. mai 2026), og leverer deretter resten i jevn takt. Kontorenes innbyrdes profil reflekterer både kapasitetsstørrelse og hvor sterkt Geovekst-låsninger trekker fremdriften ned i deler av perioden.
 
@@ -847,7 +847,7 @@ Antallet omfordelte kommuner varierer mellom variantene (figur 7.9), noe som ref
 
 ## 7.5 Usikkerhetsanalyse
 
-Monte Carlo-simuleringen (500 iterasjoner per scenario × tre stokastiske kilder) kjøres både med heuristikkens ansvarskontor-tildeling og med MIP-ens optimerte tildeling som fast plan. Totalvarighet-båndene er overlappende og nær identiske (tabell 7.2). For 85\nobreakspace{}%- og 90\nobreakspace{}%-scenarioet gir de to planene *identiske* percentiler (P5 / P50 / P95). For 96\nobreakspace{}%-scenarioet er P5 marginalt bedre på MIP-planen (1,10 år vs 1,38), mens P50 og P95 er like. Dette viser at de to tildelingsregimene er omtrent likeverdige når det gjelder robusthet mot modellens stokastiske kilder, siden NVDB-overføringen dominerer varigheten i alle iterasjoner. Kartkontor-fasen blir derimot merkbart raskere på MIP-planen (jf. 7.2) som en konsekvens av MIPens mer aktive omfordeling. Denne forskjellen er skjult i total varighet fordi NVDB-slakken absorberer den, men er reell fra et organisatorisk synspunkt.
+Monte Carlo-simuleringen (500 iterasjoner per scenario × tre stokastiske kilder) kjøres både med heuristikkens ansvarskontor-tildeling og med MIP-ens optimerte tildeling som fast plan. Totalvarighet-båndene er overlappende og nær identiske (tabell 7.2). For 85\nobreakspace{}%- og 90\nobreakspace{}%-scenarioet gir de to planene *identiske* percentiler (P5 / P50 / P95). For 96\nobreakspace{}%-scenarioet er P5 marginalt bedre på MIP-planen (1,10 år vs. 1,38), mens P50 og P95 er like. Dette viser at de to tildelingsregimene er omtrent likeverdige når det gjelder robusthet mot modellens stokastiske kilder, siden NVDB-overføringen dominerer varigheten i alle iterasjoner. Kartkontor-fasen blir derimot merkbart raskere på MIP-planen (jf. 7.2) som en konsekvens av MIPens mer aktive omfordeling. Denne forskjellen er skjult i total varighet fordi NVDB-slakken absorberer den, men er reell fra et organisatorisk synspunkt.
 
 *Tabell 7.2 Usikkerhetsbånd totalvarighet (P5 / P50 / P95, år) for MIP-plan og heuristikk-plan*
 
@@ -954,7 +954,7 @@ MIP-modellen er ikke kjørt med skalert tidbruk. Siden uniform skalering bevarer
 | 0,03 | 6,46 / 10,01 / 13,28  | 3,20 / 6,67 / 9,93    | 1,38 / 2,68 / 5,86    |
 | 0,05 | 4,22 / 10,01 / 15,38  | 1,41 / 6,65 / 12,03   | 1,37 / 2,70 / 8,06    |
 
-Tabellens std = 0,03-rad er fra denne sensitivitetsjobben og avviker marginalt fra hoved-Monte Carlo-tallene i 7.5 (P95 9,93 vs 9,91 for 90\nobreakspace{}%-scenarioet; P50 2,68 vs 2,36 for 96\nobreakspace{}%-scenarioet) pga. ulik tilfeldig-tall-seed mellom kjøringene; avvikene ligger innenfor stokastisk variasjon ved 500 iterasjoner og påvirker ikke de kvalitative funnene.
+Tabellens std = 0,03-rad er fra denne sensitivitetsjobben og avviker marginalt fra hoved-Monte Carlo-tallene i 7.5 (P95 9,93 vs. 9,91 for 90\nobreakspace{}%-scenarioet; P50 2,68 vs. 2,36 for 96\nobreakspace{}%-scenarioet) pga. ulik tilfeldig-tall-seed mellom kjøringene; avvikene ligger innenfor stokastisk variasjon ved 500 iterasjoner og påvirker ikke de kvalitative funnene.
 
 Median (P50) er praktisk talt uendret på tvers av std-verdier; det betyr at standardavviket ikke flytter sentraltendensen, kun haleformen. P5–P95-båndet utvider seg derimot monotont: Ved std = 0,01 er båndet 2,6 år bredt for 85\nobreakspace{}%-scenarioet, mens det er 11,2 år ved std = 0,05. Konsekvensen for scenario-overlapping er tydelig: Ved std = 0,01 ligger P5–P95-båndene helt adskilt (90\nobreakspace{}%-scenarioet P95 = 7,87 < 85\nobreakspace{}%-scenarioet P5 = 8,75), mens ved std ≥ 0,02 begynner båndene å overlappe. Verdien 0,03 ligger som et rimelig kompromiss mellom et urealistisk "skarpt" scenarioskille (std = 0,01, som ville framstilt designet av tre punkter i automasjonsgrad som skarpere bevisst enn det er) og en for vid haleestimering (std = 0,05) der P95 for 96\nobreakspace{}%-scenarioet vokser til 8 år, utenfor det realistiske spennet samferdselsavdelingen selv anslår.
 
@@ -962,7 +962,7 @@ Median (P50) er praktisk talt uendret på tvers av std-verdier; det betyr at sta
 
 ## 8.5 Modellens metodologiske begrensninger
 
-**MIP som "forbedring", nyansert.** MIP er marginalt verre enn heuristikken på makespan (+0,4–2,2\nobreakspace{}%) pga. månedlig vs. daglig tidsoppløsning. Den riktige tolkningen er at MIP leverer to andre verdier: (i) *uavhengig verifikasjon* av at heuristikkens ansvarskontor-tildeling er nær-optimal, et sterkt validitetssignal når to ulike metoder konvergerer, og (ii) *komprimert kartkontor-ferdigprofil*: MIP-planen gir kartkontor-fasen ferdig 2–3 måneder før heuristikken (P50 Monte Carlo: 409–452 dager vs 510). Ingen av disse reduserer totalvarigheten, men begge har organisatorisk verdi.
+**MIP som "forbedring", nyansert.** MIP er marginalt verre enn heuristikken på makespan (+0,4–2,2\nobreakspace{}%) pga. månedlig vs. daglig tidsoppløsning. Den riktige tolkningen er at MIP leverer to andre verdier: (i) *uavhengig verifikasjon* av at heuristikkens ansvarskontor-tildeling er nær-optimal, et sterkt validitetssignal når to ulike metoder konvergerer, og (ii) *komprimert kartkontor-ferdigprofil*: MIP-planen gir kartkontor-fasen ferdig 2–3 måneder før heuristikken (P50 Monte Carlo: 409–452 dager vs. 510). Ingen av disse reduserer totalvarigheten, men begge har organisatorisk verdi.
 
 **Kapasitets-sensitivitetens lave kontrast.** Den deterministiske kapasitets-sensitiviteten viser identisk makespan på tvers av alle seks varianter, og kartkontor-ferdigtiden er stabil (10–11 måneder i de fem mildere variantene, 14 måneder i −50\nobreakspace{}%-varianten med halvert kapasitet). Mekanismen er den ledige kapasiteten som oppstår i Geovekst-prosjektenes låseperioder (synlig i figur 7.8, omtalt i 7.4): Med 152 kommuner blokkert av pågående Geovekst-prosjekter i deler av 2026 har kontorene allerede ufrivillig ledig kapasitet, slik at et kapasitetskutt får mindre praktisk effekt enn ukesverk-tallene alene tilsier. For Kartverket betyr dette at dagens plan er *mer* robust mot kapasitetsreduksjon enn nominelle kapasitetstall skulle indikere.
 
@@ -1089,7 +1089,7 @@ All analysekode, alle datafiler, figurer og resultatfiler ligger samlet i prosje
 | Usikkerhetsanalyse (Monte Carlo)                                | `monte_carlo.py`                                                                                                          | `monte_carlo_summary.csv`, `monte_carlo_varigheter.csv`, `monte_carlo_per_kommune.csv`, `monte_carlo_ko_percentiles.csv`                                    | Figur 7.10–7.12; Tabell 7.2         |
 | MIP-optimering                                                  | `mip_modell.py`, `monte_carlo_mip.py`                                                                                   | `tidsplan_mip_vektet_<scenario>.csv`, `oppsummering_mip_vektet.csv`, `sammenligning_heuristikk_mip_vektet.csv`, `monte_carlo_mip_summary.csv`               | Figur 7.1, 7.4, 7.6; Tabell 7.1      |
 | Kapasitets-sensitivitet                                         | `mip_kapasitet_sensitivitet.py`                                                                                           | `mip_sensitivitet_<variant>_<scenario>.csv` (18 filer), `oppsummering_sensitivitet.csv`                                                                         | Figur 7.7, 7.9                       |
-| Robusthetsanalyser (tidbruk-skalering og automasjonsusikkerhet) | `heuristikk_tidbruk_sensitivitet.py`, `monte_carlo_tidbruk_sensitivitet.py`, `monte_carlo_automasjon_sensitivitet.py` | `oppsummering_tidbruk_sensitivitet_heur.csv`, `monte_carlo_tidbruk_summary.csv`, `monte_carlo_automasjon_summary.csv`, `tidsplan_<scenario>_skala<X>.csv`   | Tabell 8.1, 8.2                      |
+| Robusthetsanalyser (tidbruk-skalering og automasjonsusikkerhet) | `heuristikk_tidbruk_sensitivitet.py`, \texttt{\mbox{monte\_carlo}\_\allowbreak tidbruk\_sensitivitet.py}, \texttt{\mbox{monte\_carlo}\_\allowbreak automasjon\_sensitivitet.py} | `oppsummering_tidbruk_sensitivitet_heur.csv`, `monte_carlo_tidbruk_summary.csv`, `monte_carlo_automasjon_summary.csv`, `tidsplan_<scenario>_skala<X>.csv`   | Tabell 8.1, 8.2                      |
 | Figurproduksjon                                                 | `figurer.py`, `figurer_resultater.py`, `figurer_usikkerhet.py`, `figurer_mip.py`                                    | PNG-filer i `005 report/figurer/`                                                                                                                                 | Alle figurer (4.1–7.12)             |
 | Kvalitetssikring                                                | `sanity_check_data.py`, `sanity_check_mip.py`                                                                           | Konsollrapport (datavask-konsistens og MIP-bibetingelser mot tidsplan)                                                                                              | —                                   |
 
