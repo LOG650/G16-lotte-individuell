@@ -103,6 +103,8 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 ## Innhold
 
+- [Figurliste](#figurliste)
+- [Tabelliste](#tabelliste)
 - [1.0 Innledning](#10-innledning)
   - [1.1 Problemstilling](#11-problemstilling)
   - [1.2 Delproblemer](#12-delproblemer)
@@ -172,8 +174,6 @@ The Transport Unit has stated an ambition that the work should be completed in a
   - [Vedlegg A — Fullstendig kapasitets-sensitivitetsoversikt](#vedlegg-a--fullstendig-kapasitets-sensitivitetsoversikt)
   - [Vedlegg B — Reproduserbarhet og analyseartefakter](#vedlegg-b--reproduserbarhet-og-analyseartefakter)
   - [Vedlegg C — Kalibreringsgrunnlag for tidbruk-formelen](#vedlegg-c--kalibreringsgrunnlag-for-tidbruk-formelen)
-- [Figurliste](#figurliste)
-- [Tabelliste](#tabelliste)
 
 ## Figurliste
 
