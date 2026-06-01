@@ -1033,6 +1033,10 @@ Tabell A.1 viser alle 18 MIP-kjøringene som ligger til grunn for kapasitets-sen
 
 *Tabell A.1 Makespan, kartkontor-ferdigmåned og omfordeling for alle 18 kjøringer i kapasitets-sensitivitetsanalysen*
 
+```{=latex}
+\begingroup\let\small\scriptsize
+```
+
 | Kapasitetsvariant | Scenario | Kapasitet (ukesverk) | Makespan (år) | Kartkontor siste (mnd) | Mat. minimum (mnd) | Omfordelte | Status     |
 | ----------------- | -------- | -------------------- | -------------- | ---------------------- | ------------------ | ---------- | ---------- |
 | Referanse         | 85\nobreakspace{}%     | 327                  | 10,17          | 10                     | 7,2                | 27         | Not Solved |
@@ -1054,6 +1058,10 @@ Tabell A.1 viser alle 18 MIP-kjøringene som ligger til grunn for kapasitets-sen
 | Alle −50\nobreakspace{}%       | 90\nobreakspace{}%     | 164                  | 6,75           | 14                     | 14,4               | 15         | Not Solved |
 | Alle −50\nobreakspace{}%       | 96\nobreakspace{}%     | 164                  | 2,75           | 14                     | 14,4               | 12         | Not Solved |
 
+```{=latex}
+\endgroup
+```
+
 † Omfordeling: små kontor +50\nobreakspace{}%, store kontor −20\nobreakspace{}%.
 
 Makespan er identisk på tvers av alle seks varianter innen hvert scenario (10,17 / 6,75 / 2,75 år), noe som bekrefter at NVDB er flaskehalsen i hele det testede kapasitetsområdet. Kartkontor-ferdigmåneden holder seg på 10–11 måneder i de fem mildere variantene og forskyves til 14 måneder først i den ekstreme −50\nobreakspace{}%-varianten, der den ligger like under det matematiske minimumet på 14,4 måneder. Av de 18 kjøringene løste CBC ni til bevist optimalitet innen 30-minutters tidsgrensen; de øvrige ni returnerte gyldige, men ikke bevist optimale incumbenter (jf. 8.5). Omfordelingstallene varierer mellom variantene fordi den vektede målfunksjonen har flere likeverdige løsninger, men makespan er upåvirket — ingen omfordeling er nødvendig for å nå optimal totalvarighet.
@@ -1063,6 +1071,10 @@ Makespan er identisk på tvers av alle seks varianter innen hvert scenario (10,1
 All analysekode, alle datafiler, figurer og resultatfiler ligger samlet i prosjektmappen og er organisert etter funksjon: analysekoden i `004 data/scripts/`, rådata i `004 data/raw_data/`, behandlede data og resultatfiler i `004 data/processed_data/`, og ferdige figurer i `005 report/figurer/`. Tabell B.1 viser hvilke script som produserer hvilke resultatfiler for hvert analysetrinn, og hvilke figurer og tabeller i rapporten som bygger på trinnet.
 
 *Tabell B.1 Oversikt over analysekode, resultatfiler og tilhørende figurer per analysetrinn*
+
+```{=latex}
+\begingroup\let\small\scriptsize
+```
 
 | Analysetrinn                                                    | Script                                                                                                                      | Viktigste resultatfiler                                                                                                                                             | Figurer og tabeller                  |
 | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
@@ -1074,6 +1086,10 @@ All analysekode, alle datafiler, figurer og resultatfiler ligger samlet i prosje
 | Robusthetsanalyser (tidbruk-skalering og automasjonsusikkerhet) | `heuristikk_tidbruk_sensitivitet.py`, `monte_carlo_tidbruk_sensitivitet.py`, `monte_carlo_automasjon_sensitivitet.py` | `oppsummering_tidbruk_sensitivitet_heur.csv`, `monte_carlo_tidbruk_summary.csv`, `monte_carlo_automasjon_summary.csv`, `tidsplan_<scenario>_skala<X>.csv`   | Tabell 8.1, 8.2                      |
 | Figurproduksjon                                                 | `figurer.py`, `figurer_resultater.py`, `figurer_usikkerhet.py`, `figurer_mip.py`                                    | PNG-filer i `005 report/figurer/`                                                                                                                                 | Alle figurer (4.1–7.12)             |
 | Kvalitetssikring                                                | `sanity_check_data.py`, `sanity_check_mip.py`                                                                           | Konsollrapport (datavask-konsistens og MIP-bibetingelser mot tidsplan)                                                                                              | —                                   |
+
+```{=latex}
+\endgroup
+```
 
 Råtidsdataene som ligger til grunn for analysen finnes i `004 data/raw_data/` og renses til de behandlede datasettene i tabellen av `vask_og_strukturer.py`. Figurene rendres av de fire `figurer`-scriptene fra resultatfilene i tabellen og kan regenereres ved å kjøre scriptene på nytt. En supplerende analyse av hvor robust kommunerekkefølgen er, ligger i `analyser_rekkefolge.py` med utdata `rekkefolge_robust.csv`. Tidligere versjoner av resultatfilene fra før modelljusteringene underveis er bevart i undermappene med `arkiv_`-prefiks i `004 data/processed_data/` for sporbarhet.
 
