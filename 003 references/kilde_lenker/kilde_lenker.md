@@ -28,6 +28,7 @@ DOI-lenker er primærlenken (peker alltid til forlaget). «Fri PDF» er forfatte
 
 - DOI: https://doi.org/10.1016/j.ejor.2009.11.005
 - ScienceDirect (forlag): https://www.sciencedirect.com/science/article/abs/pii/S0377221709008558
+- Abstract (fri tilgang via IDEAS/RePEc): https://ideas.repec.org/a/eee/ejores/v207y2010i1p1-14.html
 - *European Journal of Operational Research*, 207(1), 1–14
 - *Ingen lokal PDF: Elsevier-artikkel bak betalingsmur, ingen fri preprint funnet hos forfatterne. Lovlig tilgang via HiM-biblioteket — se nederst.*
 
