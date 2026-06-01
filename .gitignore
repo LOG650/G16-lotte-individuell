@@ -4,8 +4,4 @@
 __pycache__/
 *.pyc
 
-# Opphavsrettsbeskyttede kildekopier — kun lokalt, ikke til GitHub
-003 references/kilde_lenker/*.pdf
 
-# Generert PDF-output (bygges fra rapport.md + _assets/)
-005 report/rapport_LATEX.pdf
