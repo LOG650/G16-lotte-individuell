@@ -20,7 +20,7 @@
 \textbf{Antall ord:} & \antallord \\
 \end{tabular}\par}
 \vfill
-{\large Molde, 01.06.2026\par}
+{\large 01.06.2026\par}
 \vspace*{1cm}
 \end{center}
 \clearpage
