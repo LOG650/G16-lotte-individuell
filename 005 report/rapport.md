@@ -105,28 +105,28 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 - [Figurliste](#figurliste)
 - [Tabelliste](#tabelliste)
-- [1.0 Innledning](#innledning)
+- [1 Innledning](#innledning)
   - [1.1 Problemstilling](#problemstilling)
   - [1.2 Delproblemer](#delproblemer)
   - [1.3 Avgrensinger](#avgrensinger)
   - [1.4 Antagelser](#antagelser)
-- [2.0 Litteratur](#litteratur)
+- [2 Litteratur](#litteratur)
   - [2.1 Scheduling og ressursallokering med tidsvinduer](#scheduling-og-ressursallokering-med-tidsvinduer)
   - [2.2 Hybride løsningsmetoder](#hybride-løsningsmetoder)
   - [2.3 Monte Carlo-simulering og usikkerhetsanalyse](#monte-carlo-simulering-og-usikkerhetsanalyse)
   - [2.4 Bootstrap og empirisk resampling](#bootstrap-og-empirisk-resampling)
-- [3.0 Teori](#teori)
+- [3 Teori](#teori)
   - [3.1 Scheduling-rammeverk og kompleksitet](#scheduling-rammeverk-og-kompleksitet)
   - [3.2 Hybride løsningsmetoder](#hybride-løsningsmetoder-1)
   - [3.3 Usikkerhetsanalyse: Monte Carlo og bootstrap](#usikkerhetsanalyse-monte-carlo-og-bootstrap)
-- [4.0 Casebeskrivelse](#casebeskrivelse)
+- [4 Casebeskrivelse](#casebeskrivelse)
   - [4.1 FKB-TraktorvegSti og kvalitetsheving](#fkb-traktorvegsti-og-kvalitetsheving)
   - [4.2 Produksjonskjeden](#produksjonskjeden)
   - [4.3 De 10 fylkeskartkontorene](#de-10-fylkeskartkontorene)
   - [4.4 Fremdrift per april 2026](#fremdrift-per-april-2026)
   - [4.5 Geovekst-låsing](#geovekst-låsing)
   - [4.6 Hvorfor dette er et planleggingsproblem](#hvorfor-dette-er-et-planleggingsproblem)
-- [5.0 Metode og data](#metode-og-data)
+- [5 Metode og data](#metode-og-data)
   - [5.1 Metode](#metode)
     - [5.1.1 Tredelt hybrid tilnærming](#tredelt-hybrid-tilnærming)
     - [5.1.2 Kalenderkonvensjon og kapasitet](#kalenderkonvensjon-og-kapasitet)
@@ -143,7 +143,7 @@ The Transport Unit has stated an ambition that the work should be completed in a
     - [5.2.4 Behandlede datasett](#behandlede-datasett)
     - [5.2.5 Nøkkeltall og deskriptiv statistikk](#nøkkeltall-og-deskriptiv-statistikk)
     - [5.2.6 Antagelser og begrensninger](#antagelser-og-begrensninger)
-- [6.0 Modellering](#modellering)
+- [6 Modellering](#modellering)
   - [6.1 Heuristikk](#heuristikk)
   - [6.2 MIP-formulering](#mip-formulering)
     - [6.2.1 Sett og parametre](#sett-og-parametre)
@@ -153,14 +153,14 @@ The Transport Unit has stated an ambition that the work should be completed in a
     - [6.2.5 Post-processing: per-kommune NVDB-plan](#post-processing-per-kommune-nvdb-plan)
   - [6.3 Sensitivitetsanalyse](#sensitivitetsanalyse)
   - [6.4 Implementeringsdetaljer](#implementeringsdetaljer)
-- [7.0 Analyse og resultater](#analyse-og-resultater)
+- [7 Analyse og resultater](#analyse-og-resultater)
   - [7.1 MIP vs. heuristikk: makespan](#mip-vs.-heuristikk-makespan)
   - [7.2 Kartkontor-ferdigstilling](#kartkontor-ferdigstilling)
   - [7.3 Omfordeling mellom kontor](#omfordeling-mellom-kontor)
   - [7.4 Kapasitets-sensitivitet](#kapasitets-sensitivitet)
   - [7.5 Usikkerhetsanalyse](#usikkerhetsanalyse)
   - [7.6 Oppsummering av hovedfunn](#oppsummering-av-hovedfunn)
-- [8.0 Diskusjon](#diskusjon)
+- [8 Diskusjon](#diskusjon)
   - [8.1 Hovedbudskapet til Kartverket](#hovedbudskapet-til-kartverket)
   - [8.2 Tidbruk-formelens identifiserbarhet](#tidbruk-formelens-identifiserbarhet)
   - [8.3 Hva modellen ikke fanger](#hva-modellen-ikke-fanger)
@@ -168,9 +168,9 @@ The Transport Unit has stated an ambition that the work should be completed in a
   - [8.5 Modellens metodologiske begrensninger](#modellens-metodologiske-begrensninger)
   - [8.6 Praktiske implikasjoner](#praktiske-implikasjoner)
   - [8.7 Implikasjoner for teori og metode](#implikasjoner-for-teori-og-metode)
-- [9.0 Konklusjon](#konklusjon)
-- [10.0 Bibliografi](#bibliografi)
-- [11.0 Vedlegg](#vedlegg)
+- [9 Konklusjon](#konklusjon)
+- [10 Bibliografi](#bibliografi)
+- [11 Vedlegg](#vedlegg)
   - [Vedlegg A — Fullstendig kapasitets-sensitivitetsoversikt](#vedlegg-a-fullstendig-kapasitets-sensitivitetsoversikt)
   - [Vedlegg B — Reproduserbarhet og analyseartefakter](#vedlegg-b-reproduserbarhet-og-analyseartefakter)
   - [Vedlegg C — Kalibreringsgrunnlag for tidbruk-formelen](#vedlegg-c-kalibreringsgrunnlag-for-tidbruk-formelen)
@@ -214,7 +214,7 @@ The Transport Unit has stated an ambition that the work should be completed in a
 
 ---
 
-# 1.0 Innledning
+# 1 Innledning
 
 ![Figur 1.1: Produksjonskjeden for kvalitetsheving og NVDB-overføring](figurer/1_1_produksjonskjede.png)
 
@@ -273,7 +273,7 @@ I tillegg gjelder følgende modell-spesifikke antagelser (utdypet i kapittel 5):
 - **Tidsbruk-formel** `Ber_Tidbruk_Min = Km_Kurve × 0,9035 + ArealLand_Km² × 0,6510` med empirisk spredning som inngår i Monte Carlo (jf. 5.2.3).
 - **NVDB som ren flaskehals nedstrøms.** FME uendelig rask, bemanning 0,5 årsverk, manuell takt 300 lenker/dag/person, automasjon varieres scenariomessig (85\nobreakspace{}%, 90\nobreakspace{}%, 96\nobreakspace{}%; 96\nobreakspace{}% er hypotetisk, ikke en prognose, jf. 5.1.4 og 5.1.5).
 
-# 2.0 Litteratur
+# 2 Litteratur
 
 Problemstillingen i denne oppgaven kombinerer flere etablerte fagområder: ressursallokering og scheduling med tidsvinduer, hybride løsningsmetoder som kombinerer heuristikk og eksakt optimering, samt usikkerhetsanalyse basert på Monte Carlo-simulering og bootstrap. Dette kapittelet katalogiserer kildegrunnlaget for metoden: hvilke verk som er brukt og hva hver bidrar med. Den teoretiske utledningen og koblingen til problemstillingen følger i kapittel 3.
 
@@ -299,7 +299,7 @@ Efron og Tibshirani (1993) presenterer bootstrap-metoden som en statistisk tekni
 
 ---
 
-# 3.0 Teori
+# 3 Teori
 
 Mens kapittel 2 katalogiserte kildegrunnlaget for metoden, utdyper dette kapittelet teorigrunnlaget og kobler det til problemstillingen: hvilke begreper, garantier og antagelser fra litteraturen som ligger til grunn for modellvalgene i kapittel 5 og 6.
 
@@ -331,7 +331,7 @@ Begge teknikkene har klare antagelser. Monte Carlo forutsetter at de stokastiske
 
 ---
 
-# 4.0 Casebeskrivelse
+# 4 Casebeskrivelse
 
 Mens kapittel 2 og 3 etablerte det metodiske og teoretiske rammeverket, beskriver dette kapittelet selve casen: datasettet, produksjonskjeden og den organisatoriske strukturen som skal planlegges.
 
@@ -421,7 +421,7 @@ Figur 4.5 (venstre) viser et histogram over antall lenker per kommune, med marke
 
 ---
 
-# 5.0 Metode og data
+# 5 Metode og data
 
 Kapittel 4 viste at TVS-prosjektet er et planleggingsproblem med heterogene ressurser, eksterne tidsvinduer og en nedstrøms flaskehals. Dette kapittelet beskriver hvordan problemet er angrepet metodisk, og hvilket datagrunnlag analysen hviler på.
 
@@ -598,7 +598,7 @@ Arbeidsbelastningen varierer sterkt mellom kontorene, og også innad i hvert enk
 
 ---
 
-# 6.0 Modellering
+# 6 Modellering
 
 Mens kapittel 5 beskrev metodisk strategi og datagrunnlag, gir dette kapittelet den formelle modell-spesifikasjonen: heuristikkens algoritme og MIP-modellens matematiske formulering.
 
@@ -765,7 +765,7 @@ Heuristikken (`heuristikk.py`) og Monte Carlo-motoren (`monte_carlo.py`) er impl
 
 ---
 
-# 7.0 Analyse og resultater
+# 7 Analyse og resultater
 
 Kapittel 6 etablerte modellene; dette kapittelet kjører dem på det reelle datagrunnlaget, presenterer hva resultatene viser, og oppsummerer hovedfunnene til slutt.
 
@@ -889,7 +889,7 @@ Analysen gir tre sentrale funn på tvers av delproblemene.
 
 ---
 
-# 8.0 Diskusjon
+# 8 Diskusjon
 
 Resultatene fra kapittel 7 reiser flere spørsmål som krever drøftelse: om modellens gyldighet, dens begrensninger, og hva tallene faktisk betyr i praksis.
 
@@ -997,7 +997,7 @@ Studien tilfører to observasjoner til den anvendte RCPSP-litteraturen. **Den f�
 
 ---
 
-# 9.0 Konklusjon
+# 9 Konklusjon
 
 Kapittel 8 drøftet modellens gyldighet, begrensninger og hva tallene betyr i praksis. Dette avsluttende kapittelet samler hovedfunnene og de praktiske implikasjonene for Kartverket.
 
@@ -1013,7 +1013,7 @@ Det viktigste oppfølgingstiltaket er kontinuerlig tidsregistrering for de 295 g
 
 ---
 
-# 10.0 Bibliografi
+# 10 Bibliografi
 
 Efron, B., & Tibshirani, R. J. (1993). *An introduction to the bootstrap*. Chapman & Hall/CRC.
 
@@ -1029,7 +1029,7 @@ Vose, D. (2008). *Risk analysis: A quantitative guide* (3. utg.). John Wiley & S
 
 ---
 
-# 11.0 Vedlegg
+# 11 Vedlegg
 
 Vedleggene gir utfyllende dokumentasjon som supplerer hovedteksten. Vedlegg A viser den fullstendige oversikten over de 18 MIP-kjøringene som ligger til grunn for kapasitets-sensitivitetsanalysen i kapittel 7.4. Vedlegg B dokumenterer analysekode, datafiler og resultatfiler for reproduserbarhet. Vedlegg C viser de 58 kartbladmålingene som kalibrerer tidbruk-formelen (jf. 5.2).
 
