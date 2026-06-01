@@ -2,7 +2,7 @@
 
 Personlig arbeidsdokument for å kontrollere at rapportens påstander om hver av de seks kildene faktisk dekkes av primærkilden. Ingen AI-tolkning her — bare rapportens egne ord (sitert ordrett, med kapittel og linjenummer) paret med direktelenke til kilden.
 
-**Slik bruker du den:** Åpne primærkilden via DOI eller forlagslenke (full liste i [kilde_lenker.md](kilde_lenker/kilde_lenker.md)). Les det aktuelle stedet i kilden. Marker for hver påstand om den **stemmer**, trenger **nyanse**, eller **ikke stemmer**, og noter eventuelt hva som må rettes i rapporten.
+**Slik bruker du den:** Åpne primærkilden via DOI eller forlagslenke (full liste i [kilde_lenker.md](kilde_lenker.md)). Les det aktuelle stedet i kilden. Marker for hver påstand om den **stemmer**, trenger **nyanse**, eller **ikke stemmer**, og noter eventuelt hva som må rettes i rapporten.
 
 ---
 
@@ -11,6 +11,7 @@ Personlig arbeidsdokument for å kontrollere at rapportens påstander om hver av
 **Primærkilde:**
 - DOI (ebook): https://doi.org/10.1201/9780429246593
 - Forlag: https://www.taylorfrancis.com/books/mono/10.1201/9780429246593/introduction-bootstrap-bradley-efron-tibshirani
+- Lokal PDF (preview): [efron_tibshirani_1993_preview.pdf](efron_tibshirani_1993_preview.pdf)
 - Lån (Internet Archive): https://archive.org/details/introductiontobo0000efro
 
 ### Påstand 1.1 — kap. 2.4 Bootstrap og empirisk resampling (linje 288)
@@ -32,7 +33,7 @@ Notat: ____________________________________________
 **Primærkilde:**
 - DOI: https://doi.org/10.1137/0117039
 - SIAM: https://epubs.siam.org/doi/10.1137/0117039
-- Fri PDF (lokalt): [graham_1969.pdf](kilde_lenker/graham_1969.pdf)
+- Fri PDF (lokalt): [graham_1969.pdf](graham_1969.pdf)
 - *SIAM Journal on Applied Mathematics*, 17(2), 416–429
 
 ### Påstand 2.1 — kap. 2.1 Scheduling og ressursallokering med tidsvinduer (linje 276)
@@ -115,7 +116,7 @@ Notat: ____________________________________________
 - DOI: https://doi.org/10.1007/11499305_5
 - Springer: https://link.springer.com/chapter/10.1007/11499305_5
 - Fri PDF (HAL): https://hal.science/hal-01299565/file/puchinger-05.pdf
-- Lokal PDF: [puchinger_raidl_2005.pdf](kilde_lenker/puchinger_raidl_2005.pdf)
+- Lokal PDF: [puchinger_raidl_2005.pdf](puchinger_raidl_2005.pdf)
 - Lecture Notes in Computer Science, bind 3562 (IWINAC 2005), s. 41–53
 
 ### Påstand 5.1 — kap. 2.2 Hybride løsningsmetoder (linje 280)
