@@ -6,9 +6,9 @@
     "prosjektleder": "Lotte Picard",
     "kunde": "Statens Kartverk, Region og Samfunnskontakt",
     "startdato": "2026-01-12",
-    "sluttdato": "2026-06-01",
-    "status": "Pågående - fase 4 (avslutning)",
-    "sist_oppdatert": "2026-05-23"
+    "sluttdato": "2026-06-12",
+    "status": "Pågående - rapport innlevert, avventer muntlig presentasjon",
+    "sist_oppdatert": "2026-06-01"
   },
   "problemstilling": {
     "omraade": "Operasjonell planlegging, ressursallokering og produksjonsplanlegging",
@@ -270,10 +270,10 @@
       "id": 4,
       "navn": "Avslutning",
       "startdato": "2026-04-27",
-      "sluttdato": "2026-05-31",
-      "varighet_dager": 26,
+      "sluttdato": "2026-06-12",
+      "varighet_dager": 46,
       "status": "Pågående",
-      "fremdrift_prosent": 80,
+      "fremdrift_prosent": 95,
       "oppgaver": [
         {
           "id": 25,
@@ -303,20 +303,20 @@
           "id": 27,
           "navn": "Kvalitetssikring og korrektur",
           "startdato": "2026-05-15",
-          "sluttdato": "2026-05-28",
-          "varighet_dager": 10,
+          "sluttdato": "2026-06-01",
+          "varighet_dager": 13,
           "predecessors": [
             26
           ],
-          "status": "Pågående",
-          "fremdrift_prosent": 95,
-          "kommentar": "Peer review-funn fra G14 (mottatt 2026-05-06) innarbeidet i 10 batcher: A1-A5 (mekaniske fikser, commit 52fa309), B1 (slå sammen kap 7+8, commit 2c26d89), C5 (96 %-hypotetisk-merking, 432f7c9), C6 (samlet Not Solved-drøfting, a3b4e7c), C1 (akademisk bidrag, cd28fb2), C3+C4 (validitet/reliabilitet + etikk, 3c914df), B3 (1.4 antagelser, e8eb884), B2 (rollefordeling kap 2 vs 3, 4a1c389), 9 (prosa-gjentagelser + tankestrek-cleanup, 8dd77eb) og 10 (sluttsjekk: kryssreferanser, figur-referanser, tall-konsistens en-dash, APA 7-verifikasjon). Batch 8 (C2 utvide litteraturgjennomgangen) kansellert 2026-05-23 etter faglærer-godkjenning av dagens 6 klassiske kilder. Gjenstår: PDF-generering og endelig korrekturlesing før innlevering."
+          "status": "Ferdig",
+          "fremdrift_prosent": 100,
+          "kommentar": "Peer review-funn fra G14 (mottatt 2026-05-06) innarbeidet i 10 batcher: A1-A5 (mekaniske fikser, commit 52fa309), B1 (slå sammen kap 7+8, commit 2c26d89), C5 (96 %-hypotetisk-merking, 432f7c9), C6 (samlet Not Solved-drøfting, a3b4e7c), C1 (akademisk bidrag, cd28fb2), C3+C4 (validitet/reliabilitet + etikk, 3c914df), B3 (1.4 antagelser, e8eb884), B2 (rollefordeling kap 2 vs 3, 4a1c389), 9 (prosa-gjentagelser + tankestrek-cleanup, 8dd77eb) og 10 (sluttsjekk: kryssreferanser, figur-referanser, tall-konsistens en-dash, APA 7-verifikasjon). Batch 8 (C2 utvide litteraturgjennomgangen) kansellert 2026-05-23 etter faglærer-godkjenning av dagens 6 klassiske kilder. 2026-06-01: sluttsjekk gjennomført før innlevering — TOC-anker rettet (118 hyperref-warnings → 0), vs/vs. standardisert, orddeling i tabell B.1 fikset, hovedkapitler renummerert til heltall (1, 2, …) i stedet for X.0. Rapport innlevert som LOG650_Rapport_Lotte_Picard.pdf."
         },
         {
           "id": 28,
           "navn": "Muntlig presentasjon",
-          "startdato": "2026-05-29",
-          "sluttdato": "2026-05-29",
+          "startdato": "2026-06-12",
+          "sluttdato": "2026-06-12",
           "varighet_dager": 1,
           "predecessors": [
             27
@@ -329,7 +329,7 @@
         "id": 29,
         "navn": "Innlevert rapport",
         "dato": "2026-06-01",
-        "status": "Ikke startet"
+        "status": "Ferdig"
       }
     }
   ],
@@ -347,12 +347,12 @@
     {
       "navn": "Levert hovedutkast til review",
       "dato": "2026-04-29",
-      "status": "Ikke startet"
+      "status": "Ferdig"
     },
     {
       "navn": "Innlevert rapport",
       "dato": "2026-06-01",
-      "status": "Ikke startet"
+      "status": "Ferdig"
     }
   ],
   "kritisk_linje": [

@@ -3,8 +3,8 @@
 **Prosjekt:** Kvalitetsheving av FKB-TraktorvegSti før implementering i NVDB  
 **Fag:** LOG650 Logistikk og KI | **Institusjon:** Høgskolen i Molde  
 **Prosjektleder:** Lotte Picard | **Kunde:** Statens Kartverk, Region og Samfunnskontakt  
-**Periode:** 2026-01-12 → 2026-06-01  
-**Sist oppdatert:** 2026-05-23
+**Periode:** 2026-01-12 → 2026-06-12  
+**Sist oppdatert:** 2026-06-01
 
 > Denne fila er auto-generert fra `012 fase 2 - plan/prosjektplan.json`. Kjør `python "004 data/scripts/generer_status.py"` for å oppdatere.
 
@@ -13,8 +13,7 @@
 ## Overordnet status
 
 - **Nåværende fase:** Fase 4 – Avslutning
-- **Neste milepæl:** Levert hovedutkast til review – 2026-04-29 (-24 dager)
-- **Dager igjen til innlevering:** 9
+- **Dager igjen til innlevering:** 11
 - **Kritisk linje:** Planleggingsleveranse → Datainnsamling → Analyse/modelldel → Diskusjon → Peer review → Sluttføring av rapport
 
 ### Faseoversikt
@@ -24,7 +23,7 @@
 | 1. Initiering | 12.01 – 09.02.26 | ✅ Ferdig | 100% |
 | 2. Planlegging | 02.03 – 20.03.26 | ✅ Ferdig | 100% |
 | 3. Gjennomføring | 16.03 – 27.04.26 | ✅ Ferdig | 100% |
-| 4. Avslutning | 27.04 – 31.05.26 | 🔄 Pågående | 80% |
+| 4. Avslutning | 27.04 – 12.06.26 | 🔄 Pågående | 95% |
 
 ---
 
@@ -34,8 +33,8 @@
 |---------|------|--------|
 | Godkjent proposal | 2026-02-16 | ✅ Ferdig |
 | Godkjent prosjektplan og Gantt | 2026-03-16 | ✅ Ferdig |
-| **Levert hovedutkast til review** | **2026-04-29** | ⏳ Neste |
-| Innlevert rapport | 2026-06-01 | ⏳ Ikke startet |
+| Levert hovedutkast til review | 2026-04-29 | ✅ Ferdig |
+| Innlevert rapport | 2026-06-01 | ✅ Ferdig |
 
 ---
 
@@ -45,8 +44,8 @@
 |----|---------|---------|--------|---|-----------|
 | 25 | Konklusjon | 27.04 – 05.05 | ✅ Ferdig | 100% | Kap. 9.0 Konklusjon (renummerert fra 10.0 etter B1-sammenslåing av kap 7+8) ferdig. Polert via peer review-batches 4 (C1, akademisk bidrag), 9 (prosa-gjentagelser/tankestreker) og 10 (tall-konsistens en-dash). |
 | 26 | Ferdigstille introduksjon | 06.05 – 14.05 | ✅ Ferdig | 100% | Kap. 1.0 Innledning ferdig. Polert via batches A1-A5 (mekaniske fikser), B3 (1.4 antagelser-rydding, beholdt rammeantakelser fulle og forkortet modell-antagelser), C1 (akademisk bidrag-avsnitt lagt til) og 9 (prosa). |
-| 27 | Kvalitetssikring og korrektur | 15.05 – 28.05 | 🔄 Pågående | 95% | Peer review-funn fra G14 (mottatt 2026-05-06) innarbeidet i 10 batcher: A1-A5 (mekaniske fikser, commit 52fa309), B1 (slå sammen kap 7+8, commit 2c26d89), C5 (96 %-hypotetisk-merking, 432f7c9), C6 (samlet Not Solved-drøfting, a3b4e7c), C1 (akademisk bidrag, cd28fb2), C3+C4 (validitet/reliabilitet + etikk, 3c914df), B3 (1.4 antagelser, e8eb884), B2 (rollefordeling kap 2 vs 3, 4a1c389), 9 (prosa-gjentagelser + tankestrek-cleanup, 8dd77eb) og 10 (sluttsjekk: kryssreferanser, figur-referanser, tall-konsistens en-dash, APA 7-verifikasjon). Batch 8 (C2 utvide litteraturgjennomgangen) kansellert 2026-05-23 etter faglærer-godkjenning av dagens 6 klassiske kilder. Gjenstår: PDF-generering og endelig korrekturlesing før innlevering. |
-| 28 | Muntlig presentasjon | 29.05 – 29.05 | ⏳ Ikke startet | 0% |  |
+| 27 | Kvalitetssikring og korrektur | 15.05 – 01.06 | ✅ Ferdig | 100% | Peer review-funn fra G14 (mottatt 2026-05-06) innarbeidet i 10 batcher: A1-A5 (mekaniske fikser, commit 52fa309), B1 (slå sammen kap 7+8, commit 2c26d89), C5 (96 %-hypotetisk-merking, 432f7c9), C6 (samlet Not Solved-drøfting, a3b4e7c), C1 (akademisk bidrag, cd28fb2), C3+C4 (validitet/reliabilitet + etikk, 3c914df), B3 (1.4 antagelser, e8eb884), B2 (rollefordeling kap 2 vs 3, 4a1c389), 9 (prosa-gjentagelser + tankestrek-cleanup, 8dd77eb) og 10 (sluttsjekk: kryssreferanser, figur-referanser, tall-konsistens en-dash, APA 7-verifikasjon). Batch 8 (C2 utvide litteraturgjennomgangen) kansellert 2026-05-23 etter faglærer-godkjenning av dagens 6 klassiske kilder. 2026-06-01: sluttsjekk gjennomført før innlevering — TOC-anker rettet (118 hyperref-warnings → 0), vs/vs. standardisert, orddeling i tabell B.1 fikset, hovedkapitler renummerert til heltall (1, 2, …) i stedet for X.0. Rapport innlevert som LOG650_Rapport_Lotte_Picard.pdf. |
+| 28 | Muntlig presentasjon | 12.06 – 12.06 | ⏳ Ikke startet | 0% |  |
 
 ## Ferdige faser (sammendrag)
 
@@ -140,4 +139,4 @@
 
 | Dato | Endring |
 |------|---------|
-| 2026-05-23 | STATUS.md regenerert fra prosjektplan.json |
+| 2026-06-01 | STATUS.md regenerert fra prosjektplan.json |
